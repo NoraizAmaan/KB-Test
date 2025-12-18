@@ -1,33 +1,30 @@
-name: HTML to PDF Generator
+name: Convert HTML to PDF
 
 on:
   push:
-    paths:
-      - "AAVA_HTML/*.html"
+    branches:
+      - main
 
 jobs:
-  build:
+  convert:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install wkhtmltopdf
         run: sudo apt-get update && sudo apt-get install -y wkhtmltopdf
 
       - name: Convert HTML to PDF
         run: |
-          mkdir -p AAVA_PDF
-          for file in AAVA_HTML/*.html; do
-            name=$(basename "$file" .html)
-            wkhtmltopdf "$file" "AAVA_PDF/$name.pdf"
+          find . -name "*.html" | while read file; do
+            wkhtmltopdf "$file" "${file%.html}.pdf"
           done
 
       - name: Commit PDFs
         run: |
           git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add AAVA_PDF
-          git commit -m "Auto-generate PDFs from HTML" || echo "No changes"
+          git config user.email "actions@github.com"
+          git add *.pdf **/*.pdf || true
+          git commit -m "Auto-generate PDFs" || echo "No PDFs to commit"
           git push
