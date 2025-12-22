@@ -1,0 +1,128 @@
+<html><head><meta charset='utf-8'>
+<title>Tooltip</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Tooltip</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Overlay/Tooltip</small></p>
+<h2>Tooltip</h2>
+<p>A flexible and accessible tooltip component for providing contextual information, guidance, or feedback. Supports multiple positions, arrow alignments, semantic variants, smooth animations, and advanced content, ensuring both usability and accessibility.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaTooltipDirective } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTooltipDirective } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>A simple tooltip attached to any element.</p>
+<pre><code>&lt;aava-button  label="Tooltip with Hover"  variant="primary"  size="small"  state="default"  avaTooltipDescription="Tooltip with Hover"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Tooltip with Hover"  variant="primary"  size="small"  state="default"  avaTooltipDescription="Tooltip with Hover"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button></code></pre>
+<h2>Positions​</h2>
+<p>Tooltips can be positioned relative to the target element:top(default),bottom,left,right. Arrow alignment options:start,center(default),end.</p>
+<pre><code>&lt;aava-button  label=" Start"  variant="primary"  size="small"  state="default"  avaTooltipDescription=" Start"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="start">&lt;/aava-button>&lt;aava-button  label=" Center"  variant="primary"  size="small"  state="default"  avaTooltipDescription=" Center"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label=" End"  variant="primary"  size="small"  state="default"  avaTooltipDescription=" End"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="end">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label=" Start"  variant="primary"  size="small"  state="default"  avaTooltipDescription=" Start"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="start">&lt;/aava-button>&lt;aava-button  label=" Center"  variant="primary"  size="small"  state="default"  avaTooltipDescription=" Center"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label=" End"  variant="primary"  size="small"  state="default"  avaTooltipDescription=" End"  avaTooltipType="simple"  avaTooltipTrigger="hover"  avaTooltipPosition="top"  avaTooltipArrow="end">&lt;/aava-button></code></pre>
+<h2>Variants​</h2>
+<pre><code>&lt;aava-button  label="Title Only"  variant="secondary"  size="small"  avaTooltipTitle="Heading"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label="Desc Only"  variant="secondary"  size="small"  avaTooltipDescription="This description should start from beginning"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label="Desc+Icon Only"  variant="secondary"  size="small"  avaTooltipDescription="This description should start from beginning"  avaTooltipIcon="info"  avaTooltipIconColor="var(--color-text-primary)"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label="Title+Icon+Desc"  variant="secondary"  size="small"  avaTooltipTitle="Save Feature"  avaTooltipDescription="This description should align with title text"  avaTooltipIcon="save"  avaTooltipIconColor="var(--color-text-primary)"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Title Only"  variant="secondary"  size="small"  avaTooltipTitle="Heading"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label="Desc Only"  variant="secondary"  size="small"  avaTooltipDescription="This description should start from beginning"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label="Desc+Icon Only"  variant="secondary"  size="small"  avaTooltipDescription="This description should start from beginning"  avaTooltipIcon="info"  avaTooltipIconColor="var(--color-text-primary)"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button>&lt;aava-button  label="Title+Icon+Desc"  variant="secondary"  size="small"  avaTooltipTitle="Save Feature"  avaTooltipDescription="This description should align with title text"  avaTooltipIcon="save"  avaTooltipIconColor="var(--color-text-primary)"  avaTooltipPosition="top"  avaTooltipArrow="center">&lt;/aava-button></code></pre>
+<h2>API Reference​</h2>
+<h2>Inputs (viaconfigobject)​</h2>
+<pre><code>config</code></pre>
+<pre>Property | Type | Default | Description
+content | string | '' | Tooltip text or HTML content
+position | 'top' | 'bottom' | 'left' | 'right' | 'top' | Tooltip position relative to target
+arrow | 'start' | 'center' | 'end' | 'center' | Arrow alignment
+width | number | - | Target element width (for positioning, set automatically)
+height | number | - | Target element height (for positioning, set automatically)
+top | number | - | Target element top offset (set automatically)
+left | number | - | Target element left offset (set automatically)
+bottom | number | - | Target element bottom offset (set automatically)
+enableAnimation | boolean | true | Enable/disable tooltip animation
+behavior | 'hover' | 'focus' | 'manual' | 'hover' | How the tooltip is triggered</pre>
+<pre><code>content</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>position</code></pre>
+<pre><code>'top' | 'bottom' | 'left' | 'right'</code></pre>
+<pre><code>'top'</code></pre>
+<pre><code>arrow</code></pre>
+<pre><code>'start' | 'center' | 'end'</code></pre>
+<pre><code>'center'</code></pre>
+<pre><code>width</code></pre>
+<pre><code>number</code></pre>
+<pre><code>height</code></pre>
+<pre><code>number</code></pre>
+<pre><code>top</code></pre>
+<pre><code>number</code></pre>
+<pre><code>left</code></pre>
+<pre><code>number</code></pre>
+<pre><code>bottom</code></pre>
+<pre><code>number</code></pre>
+<pre><code>enableAnimation</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>behavior</code></pre>
+<pre><code>'hover' | 'focus' | 'manual'</code></pre>
+<pre><code>'hover'</code></pre>
+<h2>Outputs​</h2>
+<p>Tooltip is a presentational component. Events are handled by the directive or parent logic.</p>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Description
+updatePosition() | - | Recalculates and updates tooltip position</pre>
+<pre><code>updatePosition()</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>Tooltip uses CSS custom properties for theming and design tokens:</p>
+<pre>Property | Description
+--tooltip-background | Tooltip background color
+--tooltip-text | Tooltip text color
+--tooltip-font | Font family for tooltip
+--tooltip-padding | Padding inside tooltip
+--tooltip-border-radius | Border radius for tooltip
+--tooltip-shadow | Box shadow for tooltip
+--tooltip-border-color | Border color for tooltip
+--tooltip-z-index | Z-index for tooltip
+--tooltip-info-background | Info variant background
+--tooltip-info-text | Info variant text color
+--tooltip-info-arrow | Info variant arrow color
+--tooltip-success-background | Success variant background
+--tooltip-success-text | Success variant text color
+--tooltip-success-arrow | Success variant arrow color
+--tooltip-warning-background | Warning variant background
+--tooltip-warning-text | Warning variant text color
+--tooltip-warning-arrow | Warning variant arrow color
+--tooltip-error-background | Error variant background
+--tooltip-error-text | Error variant text color
+--tooltip-error-arrow | Error variant arrow color</pre>
+<pre><code>--tooltip-background</code></pre>
+<pre><code>--tooltip-text</code></pre>
+<pre><code>--tooltip-font</code></pre>
+<pre><code>--tooltip-padding</code></pre>
+<pre><code>--tooltip-border-radius</code></pre>
+<pre><code>--tooltip-shadow</code></pre>
+<pre><code>--tooltip-border-color</code></pre>
+<pre><code>--tooltip-z-index</code></pre>
+<pre><code>--tooltip-info-background</code></pre>
+<pre><code>--tooltip-info-text</code></pre>
+<pre><code>--tooltip-info-arrow</code></pre>
+<pre><code>--tooltip-success-background</code></pre>
+<pre><code>--tooltip-success-text</code></pre>
+<pre><code>--tooltip-success-arrow</code></pre>
+<pre><code>--tooltip-warning-background</code></pre>
+<pre><code>--tooltip-warning-text</code></pre>
+<pre><code>--tooltip-warning-arrow</code></pre>
+<pre><code>--tooltip-error-background</code></pre>
+<pre><code>--tooltip-error-text</code></pre>
+<pre><code>--tooltip-error-arrow</code></pre>
+<h2>Accessibility​</h2>
+<p>Tooltip follows accessibility best practices:</p>
+<p>• Keyboard accessible (triggered by focus/hover)</p>
+<p>• Proper ARIA attributes for screen readers</p>
+<p>• Focus management and visible indicators</p>
+<p>• High contrast and reduced motion support</p>
+<h2>Theming & Design Tokens​</h2>
+<p>All colors, spacing, and effects are controlled via semantic design tokens and CSS custom properties. Override these in your theme or component styles for custom branding.</p>
+<h2>Best Practices​</h2>
+<p>• Use tooltips for short, contextual information only</p>
+<p>• Avoid placing critical information solely in tooltips</p>
+<p>• Ensure tooltips are accessible via keyboard and screen readers</p>
+<p>• Use semantic variants to match the context (info, warning, etc.)</p>
+<p>• Test tooltip placement in responsive layouts</p>
+<p>• Avoid excessive custom styling; use built-in variants and sizes</p>
+</body></html>
