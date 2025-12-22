@@ -1,0 +1,150 @@
+<html><head><meta charset='utf-8'>
+<title>Timeline</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Timeline</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Data-Display/Timeline</small></p>
+<h2>Timeline</h2>
+<p>The Timeline component is a powerful and flexible way to display chronological events, project milestones, or any sequential information. It provides multiple orientations, status indicators, and extensive customization options while maintaining accessibility and responsive design.</p>
+<p>The<aava-timeline>component supports both vertical and horizontal layouts, various text alignment patterns, multiple sizes, and status-based visual indicators. It's perfect for project management, user onboarding flows, historical displays, and any scenario requiring chronological representation.</p>
+<pre><code>&lt;aava-timeline></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaTimeline, TimelineEvent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTimeline, TimelineEvent } from "@aava/play-core";</code></pre>
+<h2>Basic Timeline​</h2>
+<p>A simple vertical timeline with default settings.</p>
+<pre><code>&lt;aava-timeline  [events]="basicEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code>&lt;aava-timeline  [events]="basicEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code> basicEvents: TimelineEvent[] = [    {      time: '10:00 AM',      title: 'Project Kickoff Meeting',      description: 'Initial project planning and team alignment session',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '2:00 PM',      title: 'Development Phase Started',      description: 'Begin coding and implementation of core features',      iconName: 'loader',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '4:30 PM',      title: 'First Milestone Completed',      description: 'Successfully completed the initial development phase',      iconName: 'check-circle',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<pre><code> basicEvents: TimelineEvent[] = [    {      time: '10:00 AM',      title: 'Project Kickoff Meeting',      description: 'Initial project planning and team alignment session',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '2:00 PM',      title: 'Development Phase Started',      description: 'Begin coding and implementation of core features',      iconName: 'loader',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '4:30 PM',      title: 'First Milestone Completed',      description: 'Successfully completed the initial development phase',      iconName: 'check-circle',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<h2>Text Alignment Variants​</h2>
+<p>Different text alignment patterns for visual variety.</p>
+<pre><code>&lt;aava-timeline  [events]="alignmentEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="alignmentEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-right'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="alignmentEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zig-zag'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code>&lt;aava-timeline  [events]="alignmentEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="alignmentEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-right'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="alignmentEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zig-zag'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code>  alignmentEvents: TimelineEvent[] = [    {      time: '9:00 AM',      title: 'Morning Standup',      description: 'Daily team synchronization meeting',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '11:30 AM',      title: 'Code Review',      description: 'Peer review of new feature implementation',      iconName: 'check',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '2:00 PM',      title: 'Testing Phase',      description: 'Quality assurance and bug testing',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },    {      time: '4:30 PM',      title: 'Deployment',      description: 'Production deployment and monitoring',      iconName: 'rocket',      iconColor: '#E91E63',      iconSize: '18px',      year: '2025',      status: 'unreached',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<pre><code>  alignmentEvents: TimelineEvent[] = [    {      time: '9:00 AM',      title: 'Morning Standup',      description: 'Daily team synchronization meeting',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '11:30 AM',      title: 'Code Review',      description: 'Peer review of new feature implementation',      iconName: 'check',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '2:00 PM',      title: 'Testing Phase',      description: 'Quality assurance and bug testing',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },    {      time: '4:30 PM',      title: 'Deployment',      description: 'Production deployment and monitoring',      iconName: 'rocket',      iconColor: '#E91E63',      iconSize: '18px',      year: '2025',      status: 'unreached',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<h2>Orientations​</h2>
+<p>Vertical and horizontal timeline layouts.</p>
+<pre><code>&lt;aava-timeline  [events]="verticalEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="horizontalEvents"  [size]="'large'"  [orientation]="'horizontal'"  [textAlign]="'zigzag-down'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code>&lt;aava-timeline  [events]="verticalEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="horizontalEvents"  [size]="'large'"  [orientation]="'horizontal'"  [textAlign]="'zigzag-down'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code> verticalEvents: TimelineEvent[] = [    {      time: '10:00 AM',      title: 'Project Planning',      description: 'Requirements gathering and project scope definition',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '2:00 PM',      title: 'Development',      description: 'Core feature development and implementation',      iconName: 'loader',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '4:30 PM',      title: 'Testing',      description: 'Quality assurance and testing phase',      iconName: 'check-circle',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  horizontalEvents: TimelineEvent[] = [    {      time: '9:00 AM',      title: 'Start',      description: 'Project initiation and setup',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'completed',    },    {      time: '12:00 PM',      title: 'Progress',      description: 'Mid-day progress review',      iconName: 'loader',      iconColor: '#E91E63',      iconSize: '18px',      year: '2025',      status: 'current',    },    {      time: '3:00 PM',      title: 'Complete',      description: 'Project completion and delivery',      iconName: 'check-circle',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<pre><code> verticalEvents: TimelineEvent[] = [    {      time: '10:00 AM',      title: 'Project Planning',      description: 'Requirements gathering and project scope definition',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '2:00 PM',      title: 'Development',      description: 'Core feature development and implementation',      iconName: 'loader',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '4:30 PM',      title: 'Testing',      description: 'Quality assurance and testing phase',      iconName: 'check-circle',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  horizontalEvents: TimelineEvent[] = [    {      time: '9:00 AM',      title: 'Start',      description: 'Project initiation and setup',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'completed',    },    {      time: '12:00 PM',      title: 'Progress',      description: 'Mid-day progress review',      iconName: 'loader',      iconColor: '#E91E63',      iconSize: '18px',      year: '2025',      status: 'current',    },    {      time: '3:00 PM',      title: 'Complete',      description: 'Project completion and delivery',      iconName: 'check-circle',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<h2>Size Variants​</h2>
+<p>Multiple size options for different use cases.</p>
+<pre><code>&lt;aava-timeline  [events]="sizeEvents"  [size]="'x-small'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'24px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="sizeEvents"  [size]="'small'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'28px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="sizeEvents"  [size]="'medium'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'32px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="sizeEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code>&lt;aava-timeline  [events]="sizeEvents"  [size]="'x-small'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'24px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="sizeEvents"  [size]="'small'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'28px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="sizeEvents"  [size]="'medium'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'32px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline>&lt;aava-timeline  [events]="sizeEvents"  [size]="'large'"  [orientation]="'vertical'"  [textAlign]="'zigzag-left'"  [iconCircleSize]="'40px'"  [iconCircleBgColor]="'#fff'"  [iconCircleBorderColor]="'#ccc'">&lt;/aava-timeline></code></pre>
+<pre><code>sizeEvents: TimelineEvent[] = [    {      time: '9:00 AM',      title: 'Morning Standup',      description: 'Daily team synchronization meeting',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '11:30 AM',      title: 'Code Review',      description: 'Peer review of new feature implementation',      iconName: 'check',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '2:00 PM',      title: 'Testing Phase',      description: 'Quality assurance and bug testing',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<pre><code>sizeEvents: TimelineEvent[] = [    {      time: '9:00 AM',      title: 'Morning Standup',      description: 'Daily team synchronization meeting',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '24px',      year: '2025',      status: 'completed',    },    {      time: '11:30 AM',      title: 'Code Review',      description: 'Peer review of new feature implementation',      iconName: 'check',      iconColor: '#E91E63',      iconSize: '20px',      year: '2025',      status: 'current',    },    {      time: '2:00 PM',      title: 'Testing Phase',      description: 'Quality assurance and bug testing',      iconName: 'circle-check',      iconColor: '#E91E63',      iconSize: '16px',      year: '2025',      status: 'pending',    },  ];  selectedEvent: TimelineEvent | null = null;  onEventSelect(event: TimelineEvent): void {    console.log('Timeline event selected:', event);    this.selectedEvent = event;  }</code></pre>
+<h2>API Reference​</h2>
+<h2>Input Properties​</h2>
+<pre>Property | Type | Default | Description
+events | TimelineEvent[] | [] | Array of timeline events to display
+orientation | 'vertical' | 'horizontal' | 'vertical' | Timeline layout direction
+size | 'x-small' | 'small' | 'medium' | 'large' | 'large' | Overall size of the timeline
+sortOrder | 'ascending' | 'descending' | 'ascending' | Order to sort events
+textAlign | 'zig-zag' | 'zigzag-left' | 'zigzag-right' | 'zigzag-up' | 'zigzag-down' | 'zigzag-left' | Text alignment pattern
+iconCircleBgColor | string | '#fff' | Background color for icon circles
+iconCircleBorderColor | string | '#ccc' | Border color for icon circles
+iconCircleSize | string | '40px' | Size of icon circles
+disabled | boolean | false | Disables the entire timeline
+customSort | (a: TimelineEvent, b: TimelineEvent) => number | undefined | Custom sorting function
+contentTemplate | any | undefined | Template for custom content projection</pre>
+<pre><code>events</code></pre>
+<pre><code>TimelineEvent[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>orientation</code></pre>
+<pre><code>'vertical' | 'horizontal'</code></pre>
+<pre><code>'vertical'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'x-small' | 'small' | 'medium' | 'large'</code></pre>
+<pre><code>'large'</code></pre>
+<pre><code>sortOrder</code></pre>
+<pre><code>'ascending' | 'descending'</code></pre>
+<pre><code>'ascending'</code></pre>
+<pre><code>textAlign</code></pre>
+<pre><code>'zig-zag' | 'zigzag-left' | 'zigzag-right' | 'zigzag-up' | 'zigzag-down'</code></pre>
+<pre><code>'zigzag-left'</code></pre>
+<pre><code>iconCircleBgColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#fff'</code></pre>
+<pre><code>iconCircleBorderColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#ccc'</code></pre>
+<pre><code>iconCircleSize</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'40px'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>customSort</code></pre>
+<pre><code>(a: TimelineEvent, b: TimelineEvent) => number</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>contentTemplate</code></pre>
+<pre><code>any</code></pre>
+<pre><code>undefined</code></pre>
+<h2>TimelineEvent Interface​</h2>
+<pre><code>interface TimelineEvent {  time?: string; // Time of the event  text?: string; // Short text description  iconName?: string; // Icon name from icon library  iconColor?: string; // Custom icon color  iconSize?: string; // Custom icon size  imageUrl?: string; // Image URL for custom images  imageSize?: string; // Custom image size  year?: string; // Year of the event  title?: string; // Event title  description?: string; // Detailed description  status?: "completed" | "current" | "pending" | "unreached";  customClass?: string; // Additional CSS classes  data?: any; // Custom data for advanced use cases}</code></pre>
+<pre><code>interface TimelineEvent {  time?: string; // Time of the event  text?: string; // Short text description  iconName?: string; // Icon name from icon library  iconColor?: string; // Custom icon color  iconSize?: string; // Custom icon size  imageUrl?: string; // Image URL for custom images  imageSize?: string; // Custom image size  year?: string; // Year of the event  title?: string; // Event title  description?: string; // Detailed description  status?: "completed" | "current" | "pending" | "unreached";  customClass?: string; // Additional CSS classes  data?: any; // Custom data for advanced use cases}</code></pre>
+<h2>Features​</h2>
+<h2>Multiple Orientations​</h2>
+<p>• Vertical: Traditional top-to-bottom timeline layout</p>
+<p>• Horizontal: Left-to-right layout for wide screens</p>
+<h2>Text Alignment Patterns​</h2>
+<p>• zig-zag: Alternating left/right alignment for vertical, up/down for horizontal</p>
+<p>• zigzag-left: All text aligned to the left</p>
+<p>• zigzag-right: All text aligned to the right</p>
+<p>• zigzag-up: All text aligned upward (horizontal only)</p>
+<p>• zigzag-down: All text aligned downward (horizontal only)</p>
+<h2>Status System​</h2>
+<p>• completed: Finished events with success styling</p>
+<p>• current: Currently active events with highlight styling</p>
+<p>• pending: Upcoming events with neutral styling</p>
+<p>• unreached: Future events with disabled styling</p>
+<h2>Size Variants​</h2>
+<p>• x-small: Compact size for dense interfaces</p>
+<p>• small: Small size for limited space</p>
+<p>• medium: Standard size for most use cases</p>
+<p>• large: Large size for prominent displays</p>
+<h2>Customization Options​</h2>
+<p>• Custom icon and image support</p>
+<p>• Flexible color theming</p>
+<p>• Custom sorting functions</p>
+<p>• Content projection for advanced layouts</p>
+<p>• Responsive design with automatic spacing</p>
+<h2>Best Practices​</h2>
+<h2>Content Organization​</h2>
+<p>• Use clear, descriptive titles for each event</p>
+<p>• Keep descriptions concise but informative</p>
+<p>• Use consistent date/time formats</p>
+<p>• Group related events logically</p>
+<h2>Visual Hierarchy​</h2>
+<p>• Choose appropriate sizes based on content importance</p>
+<p>• Use status indicators consistently across events</p>
+<p>• Maintain visual balance with text alignment patterns</p>
+<p>• Consider screen size when choosing orientation</p>
+<h2>Accessibility​</h2>
+<p>• Provide meaningful alt text for images</p>
+<p>• Use semantic status indicators</p>
+<p>• Ensure sufficient color contrast</p>
+<p>• Support keyboard navigation</p>
+<h2>Performance​</h2>
+<p>• Limit the number of events for optimal performance</p>
+<p>• Use custom sorting functions sparingly</p>
+<p>• Consider lazy loading for large timelines</p>
+<p>• Optimize images and icons</p>
+<h2>Examples​</h2>
+<h2>Project Timeline​</h2>
+<pre><code>const projectTimeline: TimelineEvent[] = [  {    year: "2023 Q1",    title: "Planning Phase",    description: "Requirements gathering and project planning",    status: "completed",    iconName: "check-circle",  },  {    year: "2023 Q2",    title: "Development",    description: "Core feature development",    status: "current",    iconName: "code",  },  {    year: "2023 Q3",    title: "Testing",    description: "Quality assurance and testing",    status: "pending",    iconName: "bug",  },  {    year: "2023 Q4",    title: "Launch",    description: "Production deployment",    status: "unreached",    iconName: "rocket",  },];</code></pre>
+<pre><code>const projectTimeline: TimelineEvent[] = [  {    year: "2023 Q1",    title: "Planning Phase",    description: "Requirements gathering and project planning",    status: "completed",    iconName: "check-circle",  },  {    year: "2023 Q2",    title: "Development",    description: "Core feature development",    status: "current",    iconName: "code",  },  {    year: "2023 Q3",    title: "Testing",    description: "Quality assurance and testing",    status: "pending",    iconName: "bug",  },  {    year: "2023 Q4",    title: "Launch",    description: "Production deployment",    status: "unreached",    iconName: "rocket",  },];</code></pre>
+<h2>User Journey Timeline​</h2>
+<pre><code>const userJourney: TimelineEvent[] = [  {    time: "0 min",    title: "Welcome",    description: "User lands on homepage",    status: "completed",    iconName: "home",  },  {    time: "2 min",    title: "Browse",    description: "User explores content",    status: "current",    iconName: "search",  },  {    time: "5 min",    title: "Engage",    description: "User interacts with features",    status: "pending",    iconName: "heart",  },];</code></pre>
+<pre><code>const userJourney: TimelineEvent[] = [  {    time: "0 min",    title: "Welcome",    description: "User lands on homepage",    status: "completed",    iconName: "home",  },  {    time: "2 min",    title: "Browse",    description: "User explores content",    status: "current",    iconName: "search",  },  {    time: "5 min",    title: "Engage",    description: "User interacts with features",    status: "pending",    iconName: "heart",  },];</code></pre>
+<h2>Styling​</h2>
+<p>The timeline component uses CSS custom properties for theming and supports extensive customization through:</p>
+<p>• Icon circle colors and sizes</p>
+<p>• Status-based color schemes</p>
+<p>• Responsive spacing adjustments</p>
+<p>• Custom CSS classes for advanced styling</p>
+</body></html>
