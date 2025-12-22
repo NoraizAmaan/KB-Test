@@ -1,0 +1,514 @@
+<html><head><meta charset='utf-8'>
+<title>Textbox</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Textbox</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Textbox</small></p>
+<h2>Textbox</h2>
+<p>The<aava-textbox>component provides a highly sophisticated text input element with glass morphism effects, advanced content projection system, multiple processing animations, and comprehensive Angular forms integration. It supports semantic variants, validation states, and extensive customization options.</p>
+<pre><code>&lt;aava-textbox></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaTextboxComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTextboxComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple textbox implementation with label, placeholder, and two-way data binding.</p>
+<pre><code>&lt;aava-textbox  label="Basic Input"  placeholder="Enter text here"  (change)="onTextboxChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>&lt;aava-textbox  label="Basic Input"  placeholder="Enter text here"  (change)="onTextboxChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>  onTextboxChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Textbox value changed:', target.value);  }</code></pre>
+<pre><code>  onTextboxChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Textbox value changed:', target.value);  }</code></pre>
+<h2>Variants​</h2>
+<p>The textbox component supports 6 semantic variants that control visual appearance and focus colors.</p>
+<pre><code>&lt;aava-textbox  label="Default Variant"  placeholder="Default variant..."  variant="default"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Primary Variant"  placeholder="Primary variant..."  variant="primary"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Success Variant"  placeholder="Success variant..."  variant="success"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Error Variant"  placeholder="Error variant..."  variant="error"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Warning Variant"  placeholder="Warning variant..."  variant="warning"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Info Variant"  placeholder="Info variant..."  variant="info"  (change)="onTextboxChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>&lt;aava-textbox  label="Default Variant"  placeholder="Default variant..."  variant="default"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Primary Variant"  placeholder="Primary variant..."  variant="primary"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Success Variant"  placeholder="Success variant..."  variant="success"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Error Variant"  placeholder="Error variant..."  variant="error"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Warning Variant"  placeholder="Warning variant..."  variant="warning"  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Info Variant"  placeholder="Info variant..."  variant="info"  (change)="onTextboxChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>onTextboxChange(event: Event) {  const target = event.target as HTMLInputElement;  console.log('Textbox value changed:', target.value);}</code></pre>
+<pre><code>onTextboxChange(event: Event) {  const target = event.target as HTMLInputElement;  console.log('Textbox value changed:', target.value);}</code></pre>
+<h2>Available Variants​</h2>
+<p>• default- Standard neutral appearance with brand primary focus</p>
+<p>• primary- Primary variant with enhanced brand focus color</p>
+<p>• success- Positive states and confirmations (green)</p>
+<p>• error- Error states and validation failures (red)</p>
+<p>• warning- Warning states and cautions (orange/yellow)</p>
+<p>• info- Informational states and tips (blue)</p>
+<h2>Sizes​</h2>
+<p>Five size options to accommodate different interface densities and layout requirements.</p>
+<pre><code>&lt;aava-textbox  label="Extra Small"  placeholder="Extra Small..."  size="xs">&lt;/aava-textbox>&lt;aava-textbox label="Small" placeholder="Small..." size="sm">&lt;/aava-textbox>&lt;aava-textbox label="Medium" placeholder="Medium..." size="md">&lt;/aava-textbox>&lt;aava-textbox label="Large" placeholder="Large..." size="lg">&lt;/aava-textbox>&lt;aava-textbox  label="Extra Large"  placeholder="Extra Large..."  size="xl">&lt;/aava-textbox></code></pre>
+<pre><code>&lt;aava-textbox  label="Extra Small"  placeholder="Extra Small..."  size="xs">&lt;/aava-textbox>&lt;aava-textbox label="Small" placeholder="Small..." size="sm">&lt;/aava-textbox>&lt;aava-textbox label="Medium" placeholder="Medium..." size="md">&lt;/aava-textbox>&lt;aava-textbox label="Large" placeholder="Large..." size="lg">&lt;/aava-textbox>&lt;aava-textbox  label="Extra Large"  placeholder="Extra Large..."  size="xl">&lt;/aava-textbox></code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- Extra small size for very compact interfaces</p>
+<p>• sm (Small)- Small size for dense interfaces</p>
+<p>• md (Medium)- Medium size for most use cases (default)</p>
+<p>• lg (Large)- Large size for prominent inputs</p>
+<p>• xl (Extra Large)- Extra large size for emphasis and accessibility</p>
+<h2>Icons & Affixes​</h2>
+<p>Advanced content projection system supporting icons, prefixes, and suffixes through Angular's content projection.</p>
+<pre><code>&lt;aava-textbox label="Amount" placeholder="0.00" type="number" (on)>  &lt;span slot="prefix">$&lt;/span>  &lt;span slot="suffix">USD&lt;/span>&lt;/aava-textbox>&lt;aava-textbox  label="Password"  [type]="showPassword ? 'text' : 'password'"  placeholder="Enter password">  &lt;aava-icon    slot="icon-end"    [iconName]="showPassword ? 'eye' : 'eye-off'"    (click)="togglePasswordVisibility()"  >&lt;/aava-icon>&lt;/aava-textbox>&lt;aava-textbox  label="With Icon Separator (Start)"  placeholder="Search..."  [iconSeparator]="true">  &lt;aava-icon slot="icon-start" iconName="search">&lt;/aava-icon>&lt;/aava-textbox>&lt;aava-textbox  label="With Icon Separator (End)"  placeholder="Clear..."  [iconSeparator]="true">  &lt;aava-icon slot="icon-end" iconName="x">&lt;/aava-icon>&lt;/aava-textbox></code></pre>
+<pre><code>&lt;aava-textbox label="Amount" placeholder="0.00" type="number" (on)>  &lt;span slot="prefix">$&lt;/span>  &lt;span slot="suffix">USD&lt;/span>&lt;/aava-textbox>&lt;aava-textbox  label="Password"  [type]="showPassword ? 'text' : 'password'"  placeholder="Enter password">  &lt;aava-icon    slot="icon-end"    [iconName]="showPassword ? 'eye' : 'eye-off'"    (click)="togglePasswordVisibility()"  >&lt;/aava-icon>&lt;/aava-textbox>&lt;aava-textbox  label="With Icon Separator (Start)"  placeholder="Search..."  [iconSeparator]="true">  &lt;aava-icon slot="icon-start" iconName="search">&lt;/aava-icon>&lt;/aava-textbox>&lt;aava-textbox  label="With Icon Separator (End)"  placeholder="Clear..."  [iconSeparator]="true">  &lt;aava-icon slot="icon-end" iconName="x">&lt;/aava-icon>&lt;/aava-textbox></code></pre>
+<pre><code>  showPassword = false;  togglePasswordVisibility(): void {    this.showPassword = !this.showPassword;  }</code></pre>
+<pre><code>  showPassword = false;  togglePasswordVisibility(): void {    this.showPassword = !this.showPassword;  }</code></pre>
+<h2>Content Projection Slots​</h2>
+<p>• icon-start- Icons at the beginning of the input</p>
+<p>• icon-end- Icons at the end of the input</p>
+<p>• prefix- Text or elements before the input text</p>
+<p>• suffix- Text or elements after the input text</p>
+<h2>Input Masking​</h2>
+<p>Advanced input masking system powered by ngx-mask for formatted input patterns like phone numbers, dates, currency, and credit cards.</p>
+<pre><code>&lt;!-- Phone Number Masking -->&lt;aava-textbox  label="Phone Number"  placeholder="(123) 456-7890"  [mask]="maskPhone">&lt;/aava-textbox>&lt;!-- Currency Masking -->&lt;aava-textbox  label="Currency"  placeholder="0.00"  [mask]="maskCurrency"  [maskThousandSeparator]="thousand"  [maskDecimalMarker]="decimal">  &lt;span slot="prefix">$&lt;/span>&lt;/aava-textbox>&lt;!-- Date Masking -->&lt;aava-textbox label="Date" placeholder="MM/DD/YYYY" [mask]="maskDate">&lt;/aava-textbox>&lt;!-- Custom Pattern Masking -->&lt;aava-textbox  label="Custom Pattern (AA-0000)"  placeholder="AB-1234"  [mask]="customMask"  [maskPatterns]="customPatterns">&lt;/aava-textbox> &lt;aava-textbox   label="Phone Number (with Built-in Dropdown)"   [placeholder]="currentCountryPlaceholder"  [(ngModel)]="countryPhoneValue"   [mask]="currentCountryMask" [  prefixDropdown]="true"  [prefixDropdownOptions]="countryOptions"   [selectedPrefixOption]="selectedCountry"  (prefixDropdownSelect)="onCountrySelect($event)"  >&lt;/aava-textbox>&lt;aava-textbox   label="Phone Number (with Custom Slot Dropdown)"   [placeholder]="slotCurrentPlaceholder"  [(ngModel)]="slotCountryPhoneValue"   [mask]="slotCurrentMask"   (clickOutSide)="closeSlotDropdown()"  >        &lt;!-- Custom dropdown projected into prefix slot -->      &lt;div slot="prefix" class="custom-country-dropdown">        &lt;div class="dropdown-trigger" (click)="toggleSlotDropdown()" tabindex="0" role="button"          [attr.aria-expanded]="slotIsDropdownOpen">          &lt;span class="country-label">{{ slotSelectedCountry.label }}&lt;/span>          &lt;svg class="chevron-icon" [class.open]="slotIsDropdownOpen" width="16" height="16" viewBox="0 0 24 24"            fill="none" stroke="currentColor">            &lt;polyline points="6 9 12 15 18 9">&lt;/polyline>          &lt;/svg>        &lt;/div>      &lt;/div>      &lt;div slot="dropdown" class="custom-country-dropdown">        &lt;div class="dropdown-menu" *ngIf="slotIsDropdownOpen" role="listbox" tabindex="-1">          &lt;div *ngFor="let option of countryOptions" class="dropdown-item"            [class.selected]="option.value === slotSelectedCountryCode"            (click)="selectSlotCountry(option); $event.stopPropagation()" (keydown.enter)="              selectSlotCountry(option); $event.stopPropagation()            " (keydown.space)="              selectSlotCountry(option); $event.stopPropagation()            " tabindex="0" role="option" [attr.aria-selected]="option.value === slotSelectedCountryCode">            {{ option.label }}          &lt;/div>        &lt;/div>      &lt;/div>&lt;/aava-textbox></code></pre>
+<pre><code>&lt;!-- Phone Number Masking -->&lt;aava-textbox  label="Phone Number"  placeholder="(123) 456-7890"  [mask]="maskPhone">&lt;/aava-textbox>&lt;!-- Currency Masking -->&lt;aava-textbox  label="Currency"  placeholder="0.00"  [mask]="maskCurrency"  [maskThousandSeparator]="thousand"  [maskDecimalMarker]="decimal">  &lt;span slot="prefix">$&lt;/span>&lt;/aava-textbox>&lt;!-- Date Masking -->&lt;aava-textbox label="Date" placeholder="MM/DD/YYYY" [mask]="maskDate">&lt;/aava-textbox>&lt;!-- Custom Pattern Masking -->&lt;aava-textbox  label="Custom Pattern (AA-0000)"  placeholder="AB-1234"  [mask]="customMask"  [maskPatterns]="customPatterns">&lt;/aava-textbox> &lt;aava-textbox   label="Phone Number (with Built-in Dropdown)"   [placeholder]="currentCountryPlaceholder"  [(ngModel)]="countryPhoneValue"   [mask]="currentCountryMask" [  prefixDropdown]="true"  [prefixDropdownOptions]="countryOptions"   [selectedPrefixOption]="selectedCountry"  (prefixDropdownSelect)="onCountrySelect($event)"  >&lt;/aava-textbox>&lt;aava-textbox   label="Phone Number (with Custom Slot Dropdown)"   [placeholder]="slotCurrentPlaceholder"  [(ngModel)]="slotCountryPhoneValue"   [mask]="slotCurrentMask"   (clickOutSide)="closeSlotDropdown()"  >        &lt;!-- Custom dropdown projected into prefix slot -->      &lt;div slot="prefix" class="custom-country-dropdown">        &lt;div class="dropdown-trigger" (click)="toggleSlotDropdown()" tabindex="0" role="button"          [attr.aria-expanded]="slotIsDropdownOpen">          &lt;span class="country-label">{{ slotSelectedCountry.label }}&lt;/span>          &lt;svg class="chevron-icon" [class.open]="slotIsDropdownOpen" width="16" height="16" viewBox="0 0 24 24"            fill="none" stroke="currentColor">            &lt;polyline points="6 9 12 15 18 9">&lt;/polyline>          &lt;/svg>        &lt;/div>      &lt;/div>      &lt;div slot="dropdown" class="custom-country-dropdown">        &lt;div class="dropdown-menu" *ngIf="slotIsDropdownOpen" role="listbox" tabindex="-1">          &lt;div *ngFor="let option of countryOptions" class="dropdown-item"            [class.selected]="option.value === slotSelectedCountryCode"            (click)="selectSlotCountry(option); $event.stopPropagation()" (keydown.enter)="              selectSlotCountry(option); $event.stopPropagation()            " (keydown.space)="              selectSlotCountry(option); $event.stopPropagation()            " tabindex="0" role="option" [attr.aria-selected]="option.value === slotSelectedCountryCode">            {{ option.label }}          &lt;/div>        &lt;/div>      &lt;/div>&lt;/aava-textbox></code></pre>
+<pre><code>  maskPhone = '(000) 000-0000';  maskCurrency = 'separator.2';  thousand: ',' | '' = ',';  decimal: '.' | ',' | ['.', ','] = '.';  maskDate = '00/00/0000';  customMask = 'SS-0000';  customPatterns: Record&lt;string, { pattern: RegExp }> = {    S: { pattern: /[A-Za-z]/ },    '0': { pattern: /\d/ },  };  countryPhoneValue = '';  countryOptions = [    {      label: 'US +1',      value: 'us',      mask: '(000) 000-0000',      placeholder: '(123) 456-7890',    },    {      label: 'IN +91',      value: 'in',      mask: '00000 00000',      placeholder: '98765 43210',    },    {      label: 'UK +44',      value: 'uk',      mask: '00000 000000',      placeholder: '20123 456789',    },  ];  selectedCountry = this.countryOptions[0];   get currentCountryMask(): string {    return this.selectedCountry.mask;  }  get currentCountryPlaceholder(): string {    return this.selectedCountry.placeholder;  }  onCountrySelect(option: { label: string; value: string }): void {    const country = this.countryOptions.find((c) => c.value === option.value);    if (country) {      this.selectedCountry = country;      this.countryPhoneValue = '';    }  }  slotCountryPhoneValue = '';  slotSelectedCountryCode = 'us';  slotIsDropdownOpen = false;  get slotSelectedCountry() {    return (      this.countryOptions.find(        (c) => c.value === this.slotSelectedCountryCode      ) || this.countryOptions[0]    );  }  get slotCurrentMask(): string {    return this.slotSelectedCountry.mask;  }  get slotCurrentPlaceholder(): string {    return this.slotSelectedCountry.placeholder;  }  toggleSlotDropdown(): void {    this.slotIsDropdownOpen = !this.slotIsDropdownOpen;  }  selectSlotCountry(option: {    label: string;    value: string;    mask: string;    placeholder: string;  }): void {    this.slotSelectedCountryCode = option.value;    this.slotIsDropdownOpen = false;    this.slotCountryPhoneValue = '';   }  closeSlotDropdown(): void {    if (this.slotIsDropdownOpen) {      this.slotIsDropdownOpen = false;    }  }</code></pre>
+<pre><code>  maskPhone = '(000) 000-0000';  maskCurrency = 'separator.2';  thousand: ',' | '' = ',';  decimal: '.' | ',' | ['.', ','] = '.';  maskDate = '00/00/0000';  customMask = 'SS-0000';  customPatterns: Record&lt;string, { pattern: RegExp }> = {    S: { pattern: /[A-Za-z]/ },    '0': { pattern: /\d/ },  };  countryPhoneValue = '';  countryOptions = [    {      label: 'US +1',      value: 'us',      mask: '(000) 000-0000',      placeholder: '(123) 456-7890',    },    {      label: 'IN +91',      value: 'in',      mask: '00000 00000',      placeholder: '98765 43210',    },    {      label: 'UK +44',      value: 'uk',      mask: '00000 000000',      placeholder: '20123 456789',    },  ];  selectedCountry = this.countryOptions[0];   get currentCountryMask(): string {    return this.selectedCountry.mask;  }  get currentCountryPlaceholder(): string {    return this.selectedCountry.placeholder;  }  onCountrySelect(option: { label: string; value: string }): void {    const country = this.countryOptions.find((c) => c.value === option.value);    if (country) {      this.selectedCountry = country;      this.countryPhoneValue = '';    }  }  slotCountryPhoneValue = '';  slotSelectedCountryCode = 'us';  slotIsDropdownOpen = false;  get slotSelectedCountry() {    return (      this.countryOptions.find(        (c) => c.value === this.slotSelectedCountryCode      ) || this.countryOptions[0]    );  }  get slotCurrentMask(): string {    return this.slotSelectedCountry.mask;  }  get slotCurrentPlaceholder(): string {    return this.slotSelectedCountry.placeholder;  }  toggleSlotDropdown(): void {    this.slotIsDropdownOpen = !this.slotIsDropdownOpen;  }  selectSlotCountry(option: {    label: string;    value: string;    mask: string;    placeholder: string;  }): void {    this.slotSelectedCountryCode = option.value;    this.slotIsDropdownOpen = false;    this.slotCountryPhoneValue = '';   }  closeSlotDropdown(): void {    if (this.slotIsDropdownOpen) {      this.slotIsDropdownOpen = false;    }  }</code></pre>
+<h2>Masking Features​</h2>
+<p>• Pattern-Based Input: Define custom input patterns using mask syntax</p>
+<p>• Real-time Formatting: Automatic formatting as users type</p>
+<p>• Special Character Handling: Control how special characters are processed</p>
+<p>• Prefix/Suffix Support: Add currency symbols, units, or other prefixes/suffixes</p>
+<p>• Validation Integration: Works seamlessly with existing validation system</p>
+<p>• Accessibility: Maintains proper ARIA attributes and keyboard navigation</p>
+<h2>Common Mask Patterns​</h2>
+<p>• Phone Numbers:(000) 000-0000for US format</p>
+<p>• Dates:00/00/0000for MM/DD/YYYY format</p>
+<p>• Currency:separator.2with thousand separators and decimal places</p>
+<p>• Credit Cards:0000 0000 0000 0000for card number format</p>
+<p>• Custom Patterns: Define your own patterns using0,9,A,Splaceholders</p>
+<pre><code>(000) 000-0000</code></pre>
+<pre><code>00/00/0000</code></pre>
+<pre><code>separator.2</code></pre>
+<pre><code>0000 0000 0000 0000</code></pre>
+<pre><code>0</code></pre>
+<pre><code>9</code></pre>
+<pre><code>A</code></pre>
+<pre><code>S</code></pre>
+<h2>States & Validation​</h2>
+<p>Comprehensive validation system with error messages, helper text, and various input states.</p>
+<pre><code>&lt;aava-textbox  label="Comments"  placeholder="Share your thoughts..."  helper="Please provide detailed feedback to help us improve our service."  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Email"  placeholder="Enter your email..."  error="Please enter a valid email address."  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Required Field"  placeholder="This field is required..."  [required]="true"  (change)="onTextboxChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>&lt;aava-textbox  label="Comments"  placeholder="Share your thoughts..."  helper="Please provide detailed feedback to help us improve our service."  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Email"  placeholder="Enter your email..."  error="Please enter a valid email address."  (change)="onTextboxChange($event)">&lt;/aava-textbox>&lt;aava-textbox  label="Required Field"  placeholder="This field is required..."  [required]="true"  (change)="onTextboxChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>onTextboxChange(event: Event) {  const target = event.target as HTMLInputElement;  console.log('Textbox value changed:', target.value);}</code></pre>
+<pre><code>onTextboxChange(event: Event) {  const target = event.target as HTMLInputElement;  console.log('Textbox value changed:', target.value);}</code></pre>
+<h2>Available States​</h2>
+<p>• Normal- Default input state</p>
+<p>• Focused- Active input with enhanced border and shadow</p>
+<p>• Disabled- Non-interactive state with dimmed appearance</p>
+<p>• Readonly- Display-only state with modified styling</p>
+<p>• Error- Validation error state with red styling and error message</p>
+<p>• Required- Indicates mandatory fields with asterisk</p>
+<h2>Validation Features​</h2>
+<p>Error Handling:</p>
+<p>• Error messages- Display validation errors with icon</p>
+<p>• ARIA compliance- Properaria-invalidandaria-describedbyattributes</p>
+<p>• Visual feedback- Error variant styling with red colors</p>
+<p>• Icon integration- Alert icons automatically shown with errors</p>
+<pre><code>aria-invalid</code></pre>
+<pre><code>aria-describedby</code></pre>
+<p>Helper Text:</p>
+<p>• Guidance messages- Helpful instructions below input</p>
+<p>• Icon support- Info icons automatically shown with helper text</p>
+<p>• Conditional display- Helper text hidden when errors are present</p>
+<p>• Accessibility- Proper ARIA relationships</p>
+<p>Required Fields:</p>
+<p>• Visual indicators- Asterisk (*) displayed for required fields</p>
+<p>• Label integration- Required indicator integrated with label</p>
+<p>• Form validation- Works with Angular form validation</p>
+<h2>Processing Effects​</h2>
+<p>Advanced processing states with multiple animation options for loading and async operations.</p>
+<pre><code>&lt;aava-textbox  [(ngModel)]="processingValue"  label="Processing State"  placeholder="Processing..."  [processing]="true"  (change)="onProcessingChange($event)">&lt;/aava-textbox>&lt;aava-textbox  [(ngModel)]="shimmerValue"  label="Shimmer Effect"  placeholder="Validating..."  [processing]="true"  processingEffect="shimmer"  (change)="onShimmerChange($event)">&lt;/aava-textbox>&lt;aava-textbox  [(ngModel)]="gradientValue"  label="Gradient Border"  placeholder="Submitting..."  [processing]="true"  [processingGradientBorder]="true"  (change)="onGradientChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>&lt;aava-textbox  [(ngModel)]="processingValue"  label="Processing State"  placeholder="Processing..."  [processing]="true"  (change)="onProcessingChange($event)">&lt;/aava-textbox>&lt;aava-textbox  [(ngModel)]="shimmerValue"  label="Shimmer Effect"  placeholder="Validating..."  [processing]="true"  processingEffect="shimmer"  (change)="onShimmerChange($event)">&lt;/aava-textbox>&lt;aava-textbox  [(ngModel)]="gradientValue"  label="Gradient Border"  placeholder="Submitting..."  [processing]="true"  [processingGradientBorder]="true"  (change)="onGradientChange($event)">&lt;/aava-textbox></code></pre>
+<pre><code>  processingValue = '';  shimmerValue = '';  gradientValue = '';  customGradientValue = '';  borderPulseValue = '';  onProcessingChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Processing textbox value changed:', target.value);  }  onShimmerChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Shimmer textbox value changed:', target.value);  }  onGradientChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Gradient textbox value changed:', target.value);  }  onCustomGradientChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Custom gradient textbox value changed:', target.value);  }  onBorderPulseChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Border pulse textbox value changed:', target.value);  }</code></pre>
+<pre><code>  processingValue = '';  shimmerValue = '';  gradientValue = '';  customGradientValue = '';  borderPulseValue = '';  onProcessingChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Processing textbox value changed:', target.value);  }  onShimmerChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Shimmer textbox value changed:', target.value);  }  onGradientChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Gradient textbox value changed:', target.value);  }  onCustomGradientChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Custom gradient textbox value changed:', target.value);  }  onBorderPulseChange(event: Event) {    const target = event.target as HTMLInputElement;    console.log('Border pulse textbox value changed:', target.value);  }</code></pre>
+<h2>Available Processing Effects​</h2>
+<p>• border-pulse- Pulsing border animation (default)</p>
+<p>• shimmer- Text shimmer effect within input</p>
+<p>• gradient-border- Animated multi-color border gradient</p>
+<h2>Effects System​</h2>
+<p>Modern effects system following Text Input Specifications for consistent visual behavior and accessibility.</p>
+<h2>Hover Effects​</h2>
+<p>• tint- Subtle color tinting on hover (recommended)</p>
+<p>• glow- Enhanced glow effect on hover (for interactive elements)</p>
+<h2>Processing States​</h2>
+<p>• Default Processing- Border pulse animation with customizable colors</p>
+<p>• Shimmer Effect- Text shimmer animation as alternative to border pulse</p>
+<p>• Gradient Border- Animated multi-color gradient border for processing state</p>
+<p>• Custom Colors- Configurable gradient colors for brand consistency</p>
+<h2>Accessibility Features​</h2>
+<p>• High Contrast Support- Effects respect high contrast mode settings</p>
+<p>• Reduced Motion- Animations respect user's motion preferences</p>
+<p>• Focus Indicators- Clear focus states maintained with all effects</p>
+<p>• Screen Reader Support- Proper ARIA attributes for all interactive states</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+label | string | '' | Visible label text above input
+placeholder | string | '' | Placeholder text shown when empty
+variant | TextboxVariant | 'default' | Visual variant: | 'default' | , | 'primary' | , | 'success' | , | 'error' | , | 'warning' | , | 'info'
+size | TextboxSize | 'md' | Input size: | 'xs' | , | 'sm' | , | 'md' | , | 'lg' | , | 'xl'
+disabled | boolean | false | Whether input is disabled
+readonly | boolean | false | Whether input is read-only
+error | string | '' | Error message to display
+helper | string | '' | Helper text to display
+required | boolean | false | Whether input is required
+fullWidth | boolean | false | Whether input takes full container width
+type | string | 'text' | HTML input type
+maxlength | number | '' | Maximum character length
+minlength | number | '' | Minimum character length
+autocomplete | string | '' | HTML autocomplete attribute
+id | string | '' | Custom element ID
+name | string | '' | HTML name attribute
+icon | string | '' | Icon name to display
+iconPosition | 'start' | 'end' | 'start' | Position of the icon relative to input
+iconSeparator | boolean | false | Whether to show separator between icon and input
+iconSpacing | 'compact' | 'normal' | 'relaxed' | 'normal' | Icon spacing variant
+inputKind | 'text' | 'phone' | 'currency' | 'password' | 'text' | Type of input for specialized behavior
+inputKindLabel | string | '' | Label for specialized input types (e.g., country code)
+phone | boolean | false | Enable phone input functionality
+labelPosition | 'start' | 'end' | 'start' | Position of country prefix label for phone inputs</pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>placeholder</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>TextboxVariant</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>'primary'</code></pre>
+<pre><code>'success'</code></pre>
+<pre><code>'error'</code></pre>
+<pre><code>'warning'</code></pre>
+<pre><code>'info'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>TextboxSize</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>'xs'</code></pre>
+<pre><code>'sm'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>'lg'</code></pre>
+<pre><code>'xl'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>readonly</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>error</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>helper</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>required</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>fullWidth</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>type</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'text'</code></pre>
+<pre><code>maxlength</code></pre>
+<pre><code>number</code></pre>
+<pre><code>''</code></pre>
+<pre><code>minlength</code></pre>
+<pre><code>number</code></pre>
+<pre><code>''</code></pre>
+<pre><code>autocomplete</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>id</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>name</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>icon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconPosition</code></pre>
+<pre><code>'start' | 'end'</code></pre>
+<pre><code>'start'</code></pre>
+<pre><code>iconSeparator</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>iconSpacing</code></pre>
+<pre><code>'compact' | 'normal' | 'relaxed'</code></pre>
+<pre><code>'normal'</code></pre>
+<pre><code>inputKind</code></pre>
+<pre><code>'text' | 'phone' | 'currency' | 'password'</code></pre>
+<pre><code>'text'</code></pre>
+<pre><code>inputKindLabel</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>phone</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>labelPosition</code></pre>
+<pre><code>'start' | 'end'</code></pre>
+<pre><code>'start'</code></pre>
+<h2>Masking Properties​</h2>
+<pre>Property | Type | Default | Description
+mask | string | null | null | Input mask pattern (e.g., "(000) 000-0000" for phone)
+maskPrefix | string | '' | Prefix to add before masked value (e.g., "$" for currency)
+maskSuffix | string | '' | Suffix to add after masked value (e.g., "%" for percentage)
+maskDropSpecialCharacters | boolean | string[] | true | Whether to drop special characters from value
+maskShowMaskTyped | boolean | false | Show mask characters as user types
+maskThousandSeparator | string | '' | Thousand separator character (e.g., "," for numbers)
+maskDecimalMarker | '.' | ',' | ['.', ','] | '.' | Decimal marker character
+maskPatterns | Record<string, object> | {} | Custom mask patterns for special characters
+maskValidation | boolean | false | Enable mask validation
+maskAllowNegativeNumbers | boolean | false | Allow negative numbers in numeric masks
+maskLeadZeroDateTime | boolean | false | Show leading zeros in date/time masks</pre>
+<pre><code>mask</code></pre>
+<pre><code>string | null</code></pre>
+<pre><code>null</code></pre>
+<pre><code>maskPrefix</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>maskSuffix</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>maskDropSpecialCharacters</code></pre>
+<pre><code>boolean | string[]</code></pre>
+<pre><code>true</code></pre>
+<pre><code>maskShowMaskTyped</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>maskThousandSeparator</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>maskDecimalMarker</code></pre>
+<pre><code>'.' | ',' | ['.', ',']</code></pre>
+<pre><code>'.'</code></pre>
+<pre><code>maskPatterns</code></pre>
+<pre><code>Record&lt;string, object></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>maskValidation</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>maskAllowNegativeNumbers</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>maskLeadZeroDateTime</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<h2>Effects System Properties​</h2>
+<pre>Property | Type | Default | Description
+hoverEffect | 'tint' | 'glow' | '' | Hover effect: Tint (recommended) or Glow
+pressedEffect | 'solid' | 'solid' | Pressed effect: Solid (recommended and only allowed)
+processing | boolean | false | Processing state - triggers border pulse by default
+processingEffect | 'shimmer' | '' | Alternative processing effect: Text shimmer animation
+processingGradientBorder | boolean | false | Show animated gradient border for processing state
+processingGradientColors | string[] | ['#e91e63', '#fee140', '#ff9800', '#047857', '#ff9800', '#fee140', '#e91e63'] | Colors for processing gradient border
+decorativeEffect | 'glowBox' | 'borderFlow' | 'attention' | 'wave' | '' | Ambient decorative effects for future use
+disabledState | 'grey' | 'grey' | Disabled state appearance: Grey (recommended and only allowed)
+customStyles | Record<string, string> | '' | CSS custom properties override for advanced theming</pre>
+<pre><code>hoverEffect</code></pre>
+<pre><code>'tint' | 'glow'</code></pre>
+<pre><code>''</code></pre>
+<pre><code>pressedEffect</code></pre>
+<pre><code>'solid'</code></pre>
+<pre><code>'solid'</code></pre>
+<pre><code>processing</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>processingEffect</code></pre>
+<pre><code>'shimmer'</code></pre>
+<pre><code>''</code></pre>
+<pre><code>processingGradientBorder</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>processingGradientColors</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>['#e91e63', '#fee140', '#ff9800', '#047857', '#ff9800', '#fee140', '#e91e63']</code></pre>
+<pre><code>decorativeEffect</code></pre>
+<pre><code>'glowBox' | 'borderFlow' | 'attention' | 'wave'</code></pre>
+<pre><code>''</code></pre>
+<pre><code>disabledState</code></pre>
+<pre><code>'grey'</code></pre>
+<pre><code>'grey'</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>''</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+iconStartClick | EventEmitter<Event> | Emitted when the start icon is clicked
+iconEndClick | EventEmitter<Event> | Emitted when the end icon is clicked
+clickOutSide | EventEmitter<boolean> | Emitted when a click occurs outside the input
+change | EventEmitter<Event> | Emitted when the input value changes
+blur | EventEmitter<Event> | Emitted when the input loses focus
+focus | EventEmitter<Event> | Emitted when the input gains focus
+input | EventEmitter<Event> | Emitted on every input event
+prefixSelect | EventEmitter<{ label: string; value: string; }> | Emitted when a prefix option is selected
+suffixSelect | EventEmitter<{ label: string; value: string; }> | Emitted when a suffix option is selected</pre>
+<pre><code>iconStartClick</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>iconEndClick</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>clickOutSide</code></pre>
+<pre><code>EventEmitter&lt;boolean></code></pre>
+<pre><code>change</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>blur</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>focus</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>input</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>prefixSelect</code></pre>
+<pre><code>EventEmitter&lt;{ label: string; value: string; }></code></pre>
+<pre><code>suffixSelect</code></pre>
+<pre><code>EventEmitter&lt;{ label: string; value: string; }></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+value | string | Current input value
+isFocused | boolean | Whether input currently has focus
+hasError | boolean | Whether input has error state
+hasHelper | boolean | Whether input has helper text</pre>
+<pre><code>value</code></pre>
+<pre><code>string</code></pre>
+<pre><code>isFocused</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasError</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasHelper</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+setValue() | value: string | void | Set input value programmatically
+writeValue() | value: string | void | Set input value (ControlValueAccessor)
+registerOnChange() | fn: (value: string) => void | void | Register change callback
+registerOnTouched() | fn: () => void | void | Register touched callback
+setDisabledState() | isDisabled: boolean | void | Set disabled state</pre>
+<pre><code>setValue()</code></pre>
+<pre><code>value: string</code></pre>
+<pre><code>void</code></pre>
+<pre><code>writeValue()</code></pre>
+<pre><code>value: string</code></pre>
+<pre><code>void</code></pre>
+<pre><code>registerOnChange()</code></pre>
+<pre><code>fn: (value: string) => void</code></pre>
+<pre><code>void</code></pre>
+<pre><code>registerOnTouched()</code></pre>
+<pre><code>fn: () => void</code></pre>
+<pre><code>void</code></pre>
+<pre><code>setDisabledState()</code></pre>
+<pre><code>isDisabled: boolean</code></pre>
+<pre><code>void</code></pre>
+<h2>Content Projection Slots​</h2>
+<pre>Slot | Description
+icon-start | Icons displayed at the start of the input
+icon-end | Icons displayed at the end of the input
+prefix | Content displayed before the input text
+suffix | Content displayed after the input text</pre>
+<pre><code>icon-start</code></pre>
+<pre><code>icon-end</code></pre>
+<pre><code>prefix</code></pre>
+<pre><code>suffix</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--textbox-glass-default-background | Background color with glass effect
+--textbox-glass-default-blur | Backdrop blur amount for glass effect
+--textbox-glass-default-border | Border color for default state
+--textbox-glass-default-shadow | Box shadow for glass effect
+--textbox-border-radius | Border radius of the input container
+--textbox-transition | Transition animation duration
+--textbox-input-font | Font properties for input text
+--textbox-input-color | Text color for input
+--textbox-input-padding | Padding inside the input
+--textbox-input-min-height | Minimum height of the input
+--textbox-label-font | Font properties for label
+--textbox-label-color | Text color for label
+--textbox-label-weight | Font weight for label
+--textbox-placeholder-color | Color for placeholder text
+--textbox-error-color | Color for error messages and state
+--textbox-helper-color | Color for helper text
+--textbox-icon-color | Color for icons in normal state
+--textbox-icon-focus-color | Color for icons when focused
+--textbox-variant-default | Colors for default variant
+--textbox-variant-primary | Colors for primary variant
+--textbox-variant-success | Colors for success variant
+--textbox-variant-error | Colors for error variant
+--textbox-variant-warning | Colors for warning variant
+--textbox-variant-info | Colors for info variant
+--textbox-size-xs-padding | Padding for extra small size
+--textbox-size-sm-padding | Padding for small size
+--textbox-size-md-padding | Padding for medium size
+--textbox-size-lg-padding | Padding for large size
+--textbox-size-xl-padding | Padding for extra large size
+--textbox-size-xs-height | Height for extra small size
+--textbox-size-sm-height | Height for small size
+--textbox-size-md-height | Height for medium size
+--textbox-size-lg-height | Height for large size
+--textbox-size-xl-height | Height for extra large size</pre>
+<pre><code>--textbox-glass-default-background</code></pre>
+<pre><code>--textbox-glass-default-blur</code></pre>
+<pre><code>--textbox-glass-default-border</code></pre>
+<pre><code>--textbox-glass-default-shadow</code></pre>
+<pre><code>--textbox-border-radius</code></pre>
+<pre><code>--textbox-transition</code></pre>
+<pre><code>--textbox-input-font</code></pre>
+<pre><code>--textbox-input-color</code></pre>
+<pre><code>--textbox-input-padding</code></pre>
+<pre><code>--textbox-input-min-height</code></pre>
+<pre><code>--textbox-label-font</code></pre>
+<pre><code>--textbox-label-color</code></pre>
+<pre><code>--textbox-label-weight</code></pre>
+<pre><code>--textbox-placeholder-color</code></pre>
+<pre><code>--textbox-error-color</code></pre>
+<pre><code>--textbox-helper-color</code></pre>
+<pre><code>--textbox-icon-color</code></pre>
+<pre><code>--textbox-icon-focus-color</code></pre>
+<pre><code>--textbox-variant-default</code></pre>
+<pre><code>--textbox-variant-primary</code></pre>
+<pre><code>--textbox-variant-success</code></pre>
+<pre><code>--textbox-variant-error</code></pre>
+<pre><code>--textbox-variant-warning</code></pre>
+<pre><code>--textbox-variant-info</code></pre>
+<pre><code>--textbox-size-xs-padding</code></pre>
+<pre><code>--textbox-size-sm-padding</code></pre>
+<pre><code>--textbox-size-md-padding</code></pre>
+<pre><code>--textbox-size-lg-padding</code></pre>
+<pre><code>--textbox-size-xl-padding</code></pre>
+<pre><code>--textbox-size-xs-height</code></pre>
+<pre><code>--textbox-size-sm-height</code></pre>
+<pre><code>--textbox-size-md-height</code></pre>
+<pre><code>--textbox-size-lg-height</code></pre>
+<pre><code>--textbox-size-xl-height</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Choose appropriate variants- Use semantic variants that match the context</p>
+<p>• Provide clear labels- Always include descriptive labels for accessibility</p>
+<p>• Use helper text wisely- Provide guidance without cluttering the interface</p>
+<p>• Handle errors gracefully- Show clear, actionable error messages</p>
+<p>• Optimize for touch- Ensure adequate touch targets for mobile users</p>
+<p>• Consider glass intensity- Use glass-10 for most cases, glass-50 for emphasis</p>
+<p>• Select appropriate sizes- Use xs for very compact layouts, xl for emphasis and accessibility</p>
+<p>• Implement masking thoughtfully- Choose mask patterns that match user expectations and data format</p>
+<p>• Balance effects and performance- Use effects system for enhanced UX while maintaining performance</p>
+<h2>Accessibility​</h2>
+<p>• Proper labeling- Label elements correctly associated with inputs</p>
+<p>• ARIA attributes- Usearia-invalid,aria-describedby,aria-required</p>
+<p>• Error announcement- Error messages announced to screen readers</p>
+<p>• Keyboard navigation- Full keyboard support for all interactions</p>
+<p>• Focus management- Visible focus indicators and proper focus order</p>
+<p>• Icon accessibility- Icons properly labeled and keyboard accessible</p>
+<pre><code>aria-invalid</code></pre>
+<pre><code>aria-describedby</code></pre>
+<pre><code>aria-required</code></pre>
+<h2>Performance​</h2>
+<p>• Validate appropriately- Use client and server validation together</p>
+<p>• Debounce input events- For real-time validation and API calls</p>
+<p>• Optimize re-renders- Use OnPush change detection strategy</p>
+<p>• Efficient icon handling- Load icons efficiently and cache appropriately</p>
+<h2>Form Integration​</h2>
+<p>• Test with forms- Ensure proper integration with your form handling</p>
+<p>• Handle validation- Implement comprehensive validation strategies</p>
+<p>• Consider reset behavior- Define clear reset and initial state behavior</p>
+<p>• Support reactive forms- Proper ControlValueAccessor implementation</p>
+<h2>Masking Best Practices​</h2>
+<p>• Choose intuitive patterns- Use mask patterns that users expect (e.g., phone formats)</p>
+<p>• Handle edge cases- Consider what happens when users paste or clear masked input</p>
+<p>• Provide clear examples- Use placeholders that show the expected format</p>
+<p>• Test accessibility- Ensure screen readers can properly announce masked input</p>
+<p>• Consider internationalization- Use appropriate separators and formats for different locales</p>
+<p>• Balance flexibility- Allow users to edit parts of masked input without losing context</p>
+</body></html>
