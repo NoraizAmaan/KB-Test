@@ -1,0 +1,327 @@
+<html><head><meta charset='utf-8'>
+<title>Breadcrumb</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Breadcrumb</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Navigation/Breadcrumb</small></p>
+<h2>Breadcrumbs</h2>
+<p>The<aava-breadcrumbs>provides a comprehensive navigation solution for displaying hierarchical navigation paths. It supports icons, collapsible behavior, multiple sizes, custom separators, and responsive design to enhance user navigation experience.</p>
+<pre><code>&lt;aava-breadcrumbs></code></pre>
+<h2>How to use​</h2>
+<p>Import the component and provide an array of breadcrumb items with their navigation properties.</p>
+<pre><code>import { AavaBreadcrumbsComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaBreadcrumbsComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple breadcrumb navigation with text labels.</p>
+<pre><code>&lt;aava-breadcrumbs [breadcrumbs]="simpleBreadcrumbs">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>&lt;aava-breadcrumbs [breadcrumbs]="simpleBreadcrumbs">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>  simpleBreadcrumbs: BreadcrumbItem[] = [    { label: 'Home', url: '/home', active: false },    { label: 'Category', url: '/category', active: false },    { label: 'Product', url: '/product', active: true },  ];</code></pre>
+<pre><code>  simpleBreadcrumbs: BreadcrumbItem[] = [    { label: 'Home', url: '/home', active: false },    { label: 'Category', url: '/category', active: false },    { label: 'Product', url: '/product', active: true },  ];</code></pre>
+<h2>With Icons​</h2>
+<p>Breadcrumbs with icons for enhanced visual representation.</p>
+<pre><code>&lt;aava-breadcrumbs [breadcrumbs]="mixedBreadcrumbs">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>&lt;aava-breadcrumbs [breadcrumbs]="mixedBreadcrumbs">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>  mixedBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    { icon: 'folder', label: 'Category', url: '/category', active: false },    { icon: 'file', label: 'Product', url: '/product', active: true },  ];</code></pre>
+<pre><code>  mixedBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    { icon: 'folder', label: 'Category', url: '/category', active: false },    { icon: 'file', label: 'Product', url: '/product', active: true },  ];</code></pre>
+<h2>Size Variants​</h2>
+<p>Four different size options (xs, sm, md, lg) for various design contexts.</p>
+<pre><code>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="xs">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="sm">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="md">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="lg">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="xs">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="sm">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="md">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs [breadcrumbs]="sampleBreadcrumbs" size="lg">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>  sampleBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    { icon: 'folder', label: 'Products', url: '/products', active: false },    {      icon: 'tag',      label: 'Category',      url: '/products/category',      active: false,    },    {      icon: 'package',      label: 'Item Details',      url: '/products/category/item',      active: true,    },  ];</code></pre>
+<pre><code>  sampleBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    { icon: 'folder', label: 'Products', url: '/products', active: false },    {      icon: 'tag',      label: 'Category',      url: '/products/category',      active: false,    },    {      icon: 'package',      label: 'Item Details',      url: '/products/category/item',      active: true,    },  ];</code></pre>
+<h2>Collapsible Behavior​</h2>
+<p>Smart collapsing for long navigation paths with ellipsis expansion.</p>
+<pre><code>&lt;aava-breadcrumbs  [breadcrumbs]="longBreadcrumbs"  [collapsible]="true"  [maxVisibleItems]="5">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>&lt;aava-breadcrumbs  [breadcrumbs]="longBreadcrumbs"  [collapsible]="true"  [maxVisibleItems]="5">&lt;/aava-breadcrumbs></code></pre>
+<pre><code> longBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    {      icon: 'building',      label: 'Organization',      url: '/organization',      active: false,    },    { icon: 'folder', label: 'Projects', url: '/projects', active: false },    {      icon: 'folder',      label: 'Web Development',      url: '/web-dev',      active: false,    },    { icon: 'folder', label: 'Frontend', url: '/frontend', active: false },    { icon: 'folder', label: 'Components', url: '/components', active: false },    {      icon: 'package',      label: 'Breadcrumbs',      url: '/breadcrumbs',      active: true,    },  ];</code></pre>
+<pre><code> longBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    {      icon: 'building',      label: 'Organization',      url: '/organization',      active: false,    },    { icon: 'folder', label: 'Projects', url: '/projects', active: false },    {      icon: 'folder',      label: 'Web Development',      url: '/web-dev',      active: false,    },    { icon: 'folder', label: 'Frontend', url: '/frontend', active: false },    { icon: 'folder', label: 'Components', url: '/components', active: false },    {      icon: 'package',      label: 'Breadcrumbs',      url: '/breadcrumbs',      active: true,    },  ];</code></pre>
+<h2>Custom Separator​</h2>
+<p>Customizable separator icons and sizes.</p>
+<pre><code>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="chevron-right"  [separatorSize]="14">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="arrow-right"  [separatorSize]="14">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="slash"  [separatorSize]="14">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="chevron-right"  [separatorSize]="12">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="chevron-right"  [separatorSize]="18">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="chevron-right"  [separatorSize]="14">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="arrow-right"  [separatorSize]="14">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="slash"  [separatorSize]="14">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="chevron-right"  [separatorSize]="12">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs  [breadcrumbs]="sampleBreadcrumbs"  separatorIcon="chevron-right"  [separatorSize]="18">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>  sampleBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    { icon: 'folder', label: 'Category', url: '/category', active: false },    { icon: 'tag', label: 'Subcategory', url: '/subcategory', active: false },    { icon: 'package', label: 'Product', url: '/product', active: true },  ];</code></pre>
+<pre><code>  sampleBreadcrumbs: BreadcrumbItem[] = [    { icon: 'home', label: 'Home', url: '/home', active: false },    { icon: 'folder', label: 'Category', url: '/category', active: false },    { icon: 'tag', label: 'Subcategory', url: '/subcategory', active: false },    { icon: 'package', label: 'Product', url: '/product', active: true },  ];</code></pre>
+<h2>Dropdown Breadcrumbs​</h2>
+<p>Interactive breadcrumbs with dropdown menus for enhanced navigation options.</p>
+<pre><code>&lt;aava-breadcrumbs   [breadcrumbs]="dropdownBreadcrumbs"   [dropdownIconSize]="14"  [flyoutStyle]="{'min-width': '200px'}">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs   [breadcrumbs]="consoleBreadcrumbs"   [dropdownIconSize]="16"  [flyoutStyle]="{'min-width': '250px'}"  size="md">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>&lt;aava-breadcrumbs   [breadcrumbs]="dropdownBreadcrumbs"   [dropdownIconSize]="14"  [flyoutStyle]="{'min-width': '200px'}">&lt;/aava-breadcrumbs>&lt;aava-breadcrumbs   [breadcrumbs]="consoleBreadcrumbs"   [dropdownIconSize]="16"  [flyoutStyle]="{'min-width': '250px'}"  size="md">&lt;/aava-breadcrumbs></code></pre>
+<pre><code>interface DropdownItem {  label: string;  url: string;  icon?: string;}interface BreadcrumbItem {  label?: string;  icon?: string;  url: string;  active: boolean;  dropdownItems?: DropdownItem[];  dropdownWidth?: number;}// Basic dropdown breadcrumb exampledropdownBreadcrumbs: BreadcrumbItem[] = [  {    label: 'Dashboard',    url: '/dashboard',    active: false,    icon: 'home',    dropdownItems: [      { label: 'Analytics', url: '/dashboard/analytics', icon: 'bar-chart' },      { label: 'Reports', url: '/dashboard/reports', icon: 'file-text' },      { label: 'Settings', url: '/dashboard/settings', icon: 'settings' }    ]  },  {    label: 'Projects',    url: '/projects',    active: false,    icon: 'folder',    dropdownItems: [      { label: 'Active Projects', url: '/projects/active', icon: 'play' },      { label: 'Archived', url: '/projects/archived', icon: 'archive' },      { label: 'Templates', url: '/projects/templates', icon: 'copy' }    ]  },  {    label: 'Current Project',    url: '/projects/current',    active: true,    icon: 'folder-open'  }];// Console navigation with dropdown exampleconsoleBreadcrumbs: BreadcrumbItem[] = [  {    label: 'Console',    url: '/console',    active: false,    dropdownItems: [      { label: 'Create Agent', url: '/console/build/agent/create', icon: 'user' },      { label: 'Create Workflow', url: '/console/build/workflow/create', icon: 'workflow' },      { label: 'Create Prompt', url: '/console/build/prompt/create', icon: 'message-square' },      { label: 'Create Tools', url: '/console/build/tools/create', icon: 'tool' },      { label: 'Create Guardrails', url: '/console/build/guardrails/create', icon: 'shield' },      { label: 'Create Knowledge base', url: '/console/build/knowledge/create', icon: 'book' }    ]  },  {    label: 'Build',    url: '/console/build',    active: false,    dropdownItems: [      { label: 'Agents', url: '/console/build/agents', icon: 'users' },      { label: 'Workflows', url: '/console/build/workflows', icon: 'git-branch' },      { label: 'Models', url: '/console/build/models', icon: 'cpu' }    ]  },  {    label: 'Agent',    url: '/console/build/agent',    active: true  }];</code></pre>
+<pre><code>interface DropdownItem {  label: string;  url: string;  icon?: string;}interface BreadcrumbItem {  label?: string;  icon?: string;  url: string;  active: boolean;  dropdownItems?: DropdownItem[];  dropdownWidth?: number;}// Basic dropdown breadcrumb exampledropdownBreadcrumbs: BreadcrumbItem[] = [  {    label: 'Dashboard',    url: '/dashboard',    active: false,    icon: 'home',    dropdownItems: [      { label: 'Analytics', url: '/dashboard/analytics', icon: 'bar-chart' },      { label: 'Reports', url: '/dashboard/reports', icon: 'file-text' },      { label: 'Settings', url: '/dashboard/settings', icon: 'settings' }    ]  },  {    label: 'Projects',    url: '/projects',    active: false,    icon: 'folder',    dropdownItems: [      { label: 'Active Projects', url: '/projects/active', icon: 'play' },      { label: 'Archived', url: '/projects/archived', icon: 'archive' },      { label: 'Templates', url: '/projects/templates', icon: 'copy' }    ]  },  {    label: 'Current Project',    url: '/projects/current',    active: true,    icon: 'folder-open'  }];// Console navigation with dropdown exampleconsoleBreadcrumbs: BreadcrumbItem[] = [  {    label: 'Console',    url: '/console',    active: false,    dropdownItems: [      { label: 'Create Agent', url: '/console/build/agent/create', icon: 'user' },      { label: 'Create Workflow', url: '/console/build/workflow/create', icon: 'workflow' },      { label: 'Create Prompt', url: '/console/build/prompt/create', icon: 'message-square' },      { label: 'Create Tools', url: '/console/build/tools/create', icon: 'tool' },      { label: 'Create Guardrails', url: '/console/build/guardrails/create', icon: 'shield' },      { label: 'Create Knowledge base', url: '/console/build/knowledge/create', icon: 'book' }    ]  },  {    label: 'Build',    url: '/console/build',    active: false,    dropdownItems: [      { label: 'Agents', url: '/console/build/agents', icon: 'users' },      { label: 'Workflows', url: '/console/build/workflows', icon: 'git-branch' },      { label: 'Models', url: '/console/build/models', icon: 'cpu' }    ]  },  {    label: 'Agent',    url: '/console/build/agent',    active: true  }];</code></pre>
+<h2>Features​</h2>
+<h2>Hierarchical Navigation​</h2>
+<p>• Display navigation paths with clear hierarchy</p>
+<p>• Support for unlimited breadcrumb levels</p>
+<p>• Automatic active state management</p>
+<h2>Icon Support​</h2>
+<p>• Optional icons for each breadcrumb item</p>
+<p>• Consistent icon sizing and coloring</p>
+<p>• Icon-text alignment and spacing</p>
+<h2>Collapsible Behavior​</h2>
+<p>• Smart collapsing for long navigation paths</p>
+<p>• Ellipsis expansion on click</p>
+<p>• Configurable maximum visible items</p>
+<p>• Maintains navigation context</p>
+<h2>Size Variants​</h2>
+<p>• Four size options: extra small (xs), small (sm), medium (md), and large (lg)</p>
+<p>• Consistent typography and spacing across all sizes</p>
+<p>• Responsive sizing behavior with appropriate icon scaling</p>
+<h2>Custom Separators​</h2>
+<p>• Configurable separator icons</p>
+<p>• Adjustable separator sizes</p>
+<p>• Consistent styling with breadcrumb items</p>
+<h2>Dropdown Navigation​</h2>
+<p>• Interactive dropdown menus for breadcrumb items</p>
+<p>• Support for nested navigation options</p>
+<p>• Configurable dropdown styling and positioning</p>
+<p>• Icon support within dropdown items</p>
+<p>• Click-outside to close functionality</p>
+<h2>Accessibility​</h2>
+<p>• ARIA attributes for screen readers</p>
+<p>• Keyboard navigation support</p>
+<p>• Focus management</p>
+<p>• Semantic HTML structure</p>
+<h2>Responsive Design​</h2>
+<p>• Mobile-friendly navigation</p>
+<p>• Adaptive collapsing behavior</p>
+<p>• Touch-optimized interactions</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+breadcrumbs | BreadcrumbItem[] | [] | Array of breadcrumb items to display
+size | 'sm' | 'md' | 'lg' | 'xs' | 'md' | Size variant for the breadcrumbs
+separatorIcon | string | 'chevron-right' | Icon name for breadcrumb separators
+separatorSize | number | 14 | Size of separator icons in pixels
+dropdownIconSize | number | 14 | Size of dropdown icons in pixels
+flyoutStyle | Record<string, string> | undefined | Custom styles for dropdown flyout
+customStyles | Record<string, string> | {} | Custom styles for breadcrumb container
+collapsible | boolean | true | Enable collapsible behavior for long paths
+maxVisibleItems | number | 5 | Maximum items to show before collapsing</pre>
+<pre><code>breadcrumbs</code></pre>
+<pre><code>BreadcrumbItem[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'sm' | 'md' | 'lg' | 'xs'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>separatorIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'chevron-right'</code></pre>
+<pre><code>separatorSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>14</code></pre>
+<pre><code>dropdownIconSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>14</code></pre>
+<pre><code>flyoutStyle</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>collapsible</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>maxVisibleItems</code></pre>
+<pre><code>number</code></pre>
+<pre><code>5</code></pre>
+<h2>Interfaces​</h2>
+<pre><code>interface DropdownItem {  label: string; // Dropdown item label  url: string; // Dropdown item URL  icon?: string; // Optional icon for dropdown item}interface BreadcrumbItem {  label?: string; // Optional text label  icon?: string; // Optional icon name  url: string; // Required URL for navigation  active: boolean; // Required active state  dropdownItems?: DropdownItem[]; // Optional dropdown items  dropdownWidth?: number; // Optional dropdown width}</code></pre>
+<pre><code>interface DropdownItem {  label: string; // Dropdown item label  url: string; // Dropdown item URL  icon?: string; // Optional icon for dropdown item}interface BreadcrumbItem {  label?: string; // Optional text label  icon?: string; // Optional icon name  url: string; // Required URL for navigation  active: boolean; // Required active state  dropdownItems?: DropdownItem[]; // Optional dropdown items  dropdownWidth?: number; // Optional dropdown width}</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Description
+onBreadcrumbClick() | event: Event, index: number | Handle breadcrumb item click and navigation
+onEllipsisClick() | None | Expand collapsed breadcrumbs on ellipsis click
+onBreadcrumbKeydown() | event: KeyboardEvent, index: number | Handle keyboard navigation
+getIconColor() | isLast: boolean | Get appropriate icon color based on state
+getOriginalIndex() | displayedIndex: number | Map displayed index to original breadcrumb index</pre>
+<pre><code>onBreadcrumbClick()</code></pre>
+<pre><code>event: Event, index: number</code></pre>
+<pre><code>onEllipsisClick()</code></pre>
+<pre><code>onBreadcrumbKeydown()</code></pre>
+<pre><code>event: KeyboardEvent, index: number</code></pre>
+<pre><code>getIconColor()</code></pre>
+<pre><code>isLast: boolean</code></pre>
+<pre><code>getOriginalIndex()</code></pre>
+<pre><code>displayedIndex: number</code></pre>
+<h2>Computed Properties​</h2>
+<pre>Property | Type | Description
+displayedBreadcrumbs | BreadcrumbItem[] | Current breadcrumbs to display (considering collapse)
+shouldCollapse | boolean | Whether breadcrumbs should be collapsed
+shouldShowEllipsis | boolean | Whether to show ellipsis for collapsed items</pre>
+<pre><code>displayedBreadcrumbs</code></pre>
+<pre><code>BreadcrumbItem[]</code></pre>
+<pre><code>shouldCollapse</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>shouldShowEllipsis</code></pre>
+<pre><code>boolean</code></pre>
+<h2>CSS Custom Properties​</h2>
+<h2>Container Properties​</h2>
+<pre>Property | Description
+--breadcrumbs-background | Background color of breadcrumb container
+--breadcrumbs-font | Font family and properties for breadcrumb container</pre>
+<pre><code>--breadcrumbs-background</code></pre>
+<pre><code>--breadcrumbs-font</code></pre>
+<h2>Item Properties​</h2>
+<pre>Property | Description
+--breadcrumbs-item-text | Text color for breadcrumb items
+--breadcrumbs-item-border-radius | Border radius for breadcrumb items
+--breadcrumbs-item-transition | Transition properties for breadcrumb items
+--breadcrumbs-item-hover-text | Text color on hover
+--breadcrumbs-item-active-background | Background color for active items
+--breadcrumbs-item-disabled-text | Text color for disabled items
+--breadcrumbs-item-disabled-cursor | Cursor for disabled items</pre>
+<pre><code>--breadcrumbs-item-text</code></pre>
+<pre><code>--breadcrumbs-item-border-radius</code></pre>
+<pre><code>--breadcrumbs-item-transition</code></pre>
+<pre><code>--breadcrumbs-item-hover-text</code></pre>
+<pre><code>--breadcrumbs-item-active-background</code></pre>
+<pre><code>--breadcrumbs-item-disabled-text</code></pre>
+<pre><code>--breadcrumbs-item-disabled-cursor</code></pre>
+<h2>Current Item Properties​</h2>
+<pre>Property | Description
+--breadcrumbs-item-current-text | Text color for current/active item
+--breadcrumbs-item-current-font-weight | Font weight for current item</pre>
+<pre><code>--breadcrumbs-item-current-text</code></pre>
+<pre><code>--breadcrumbs-item-current-font-weight</code></pre>
+<h2>Size Variants​</h2>
+<pre>Property | Description
+--breadcrumbs-size-xs-font | Font properties for extra small size
+--breadcrumbs-size-sm-font | Font properties for small size
+--breadcrumbs-size-md-font | Font properties for medium size
+--breadcrumbs-size-lg-font | Font properties for large size</pre>
+<pre><code>--breadcrumbs-size-xs-font</code></pre>
+<pre><code>--breadcrumbs-size-sm-font</code></pre>
+<pre><code>--breadcrumbs-size-md-font</code></pre>
+<pre><code>--breadcrumbs-size-lg-font</code></pre>
+<h2>CSS Classes​</h2>
+<h2>Container Classes​</h2>
+<p>• .breadcrumb- Main breadcrumb container</p>
+<p>• .breadcrumb.xs- Extra small size variant</p>
+<p>• .breadcrumb.sm- Small size variant</p>
+<p>• .breadcrumb.md- Medium size variant (default)</p>
+<p>• .breadcrumb.lg- Large size variant</p>
+<pre><code>.breadcrumb</code></pre>
+<pre><code>.breadcrumb.xs</code></pre>
+<pre><code>.breadcrumb.sm</code></pre>
+<pre><code>.breadcrumb.md</code></pre>
+<pre><code>.breadcrumb.lg</code></pre>
+<h2>Item Classes​</h2>
+<p>• .breadcrumb-item- Individual breadcrumb item container</p>
+<p>• .breadcrumb-separator- Separator icon styling</p>
+<p>• .breadcrumb-ellipsis- Ellipsis container for collapsed items</p>
+<p>• .ellipsis- Ellipsis text styling</p>
+<p>• .dropdown-container- Container for dropdown breadcrumb items</p>
+<p>• .dropdown-button- Button element for dropdown triggers</p>
+<p>• .dropdown-menu- Dropdown menu container</p>
+<p>• .dropdown-item- Individual dropdown menu items</p>
+<pre><code>.breadcrumb-item</code></pre>
+<pre><code>.breadcrumb-separator</code></pre>
+<pre><code>.breadcrumb-ellipsis</code></pre>
+<pre><code>.ellipsis</code></pre>
+<pre><code>.dropdown-container</code></pre>
+<pre><code>.dropdown-button</code></pre>
+<pre><code>.dropdown-menu</code></pre>
+<pre><code>.dropdown-item</code></pre>
+<h2>State Classes​</h2>
+<p>• .active- Active breadcrumb item</p>
+<p>• .inactive- Inactive breadcrumb item</p>
+<p>• .disabled- Disabled breadcrumb item</p>
+<pre><code>.active</code></pre>
+<pre><code>.inactive</code></pre>
+<pre><code>.disabled</code></pre>
+<h2>Best Practices​</h2>
+<h2>Navigation Structure​</h2>
+<p>• Keep breadcrumb paths logical and intuitive</p>
+<p>• Use descriptive labels that match page titles</p>
+<p>• Ensure URLs are valid and accessible</p>
+<h2>Icon Usage​</h2>
+<p>• Use consistent icon naming conventions</p>
+<p>• Choose icons that clearly represent navigation levels</p>
+<p>• Maintain icon-text alignment and spacing</p>
+<h2>Dropdown Navigation​</h2>
+<p>• Use dropdowns for breadcrumb items that have multiple sub-navigation options</p>
+<p>• Provide meaningful labels and icons for dropdown items</p>
+<p>• Configure appropriate dropdown width usingdropdownWidthproperty</p>
+<p>• UseflyoutStyleto customize dropdown appearance and positioning</p>
+<pre><code>dropdownWidth</code></pre>
+<pre><code>flyoutStyle</code></pre>
+<h2>Collapsible Behavior​</h2>
+<p>• Set appropriatemaxVisibleItemsbased on design context</p>
+<p>• Test collapsing behavior with various path lengths</p>
+<p>• Ensure ellipsis expansion provides meaningful navigation</p>
+<pre><code>maxVisibleItems</code></pre>
+<h2>Accessibility​</h2>
+<p>• Provide meaningful labels for screen readers</p>
+<p>• Test keyboard navigation thoroughly</p>
+<p>• Ensure sufficient color contrast for all states</p>
+<h2>Responsive Design​</h2>
+<p>• Test breadcrumbs on various screen sizes</p>
+<p>• Consider mobile navigation patterns</p>
+<p>• Optimize touch targets for mobile devices</p>
+<h2>Performance​</h2>
+<p>• Avoid excessive breadcrumb levels</p>
+<p>• Use efficient navigation logic</p>
+<p>• Optimize icon rendering and caching</p>
+<h2>Use Cases​</h2>
+<h2>E-commerce Sites​</h2>
+<p>• Product category navigation</p>
+<p>• Search result breadcrumbs</p>
+<p>• Shopping cart navigation</p>
+<h2>Content Management Systems​</h2>
+<p>• Document hierarchy navigation</p>
+<p>• Folder structure display</p>
+<p>• Content editing paths</p>
+<h2>Web Applications​</h2>
+<p>• User dashboard navigation</p>
+<p>• Settings and configuration paths</p>
+<p>• Multi-step form navigation</p>
+<h2>Documentation Sites​</h2>
+<p>• Documentation hierarchy</p>
+<p>• Search result navigation</p>
+<p>• Related content linking</p>
+<h2>Admin Panels​</h2>
+<p>• User management navigation</p>
+<p>• System configuration paths</p>
+<p>• Report and analytics navigation</p>
+<h2>Console Applications​</h2>
+<p>• Build tool navigation with dropdown options</p>
+<p>• Agent and workflow creation paths</p>
+<p>• Quick access to related creation tools</p>
+<h2>Accessibility​</h2>
+<h2>ARIA Support​</h2>
+<p>• Properaria-currentattributes for current page</p>
+<p>• Semantic navigation structure</p>
+<p>• Screen reader friendly labels</p>
+<pre><code>aria-current</code></pre>
+<h2>Keyboard Navigation​</h2>
+<p>• Tab navigation through breadcrumb items</p>
+<p>• Arrow key navigation between items</p>
+<p>• Enter/Space activation for navigation</p>
+<h2>Focus Management​</h2>
+<p>• Clear focus indicators</p>
+<p>• Logical tab order</p>
+<p>• Focus restoration after navigation</p>
+<h2>Screen Reader Support​</h2>
+<p>• Descriptive labels for navigation items</p>
+<p>• Context information for collapsed items</p>
+<p>• Clear indication of current location</p>
+<h2>Responsive Behavior​</h2>
+<h2>Mobile Optimization​</h2>
+<p>• Touch-friendly tap targets</p>
+<p>• Optimized spacing for mobile screens</p>
+<p>• Collapsible behavior for limited space</p>
+<h2>Tablet Adaptation​</h2>
+<p>• Balanced layout for medium screens</p>
+<p>• Appropriate icon and text sizing</p>
+<p>• Maintained navigation context</p>
+<h2>Desktop Enhancement​</h2>
+<p>• Full navigation path display</p>
+<p>• Hover effects and interactions</p>
+<p>• Enhanced visual hierarchy</p>
+<h2>Browser Support​</h2>
+<p>• Modern Browsers: Full support for all features</p>
+<p>• CSS Grid/Flexbox: Required for layout</p>
+<p>• ES6+ Features: Required for component functionality</p>
+<p>• Angular Router: Required for navigation functionality</p>
+</body></html>
