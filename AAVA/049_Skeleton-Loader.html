@@ -1,0 +1,206 @@
+<html><head><meta charset='utf-8'>
+<title>Skeleton-Loader</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Skeleton-Loader</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Feedback/Skeleton-Loader</small></p>
+<h2>Skeleton Loader</h2>
+<p>The<aava-skeleton>component is a versatile loading placeholder that provides smooth animations and multiple shape options to create engaging loading states. It helps improve perceived performance by showing users that content is loading, reducing perceived wait times and providing visual feedback during data fetching operations.</p>
+<pre><code>&lt;aava-skeleton></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaSkeletonComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaSkeletonComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>A simple skeleton with default rectangle shape and wave animation.</p>
+<pre><code>&lt;!-- Default skeleton for text content -->&lt;aava-skeleton  width="100%"  height="20px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton>&lt;!-- Shorter text line -->&lt;aava-skeleton  width="80%"  height="16px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton>&lt;!-- Even shorter text line -->&lt;aava-skeleton  width="60%"  height="16px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton></code></pre>
+<pre><code>&lt;!-- Default skeleton for text content -->&lt;aava-skeleton  width="100%"  height="20px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton>&lt;!-- Shorter text line -->&lt;aava-skeleton  width="80%"  height="16px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton>&lt;!-- Even shorter text line -->&lt;aava-skeleton  width="60%"  height="16px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton></code></pre>
+<h2>Shapes​</h2>
+<p>The skeleton component supports multiple shapes for different content types.</p>
+<pre><code>&lt;!-- Rectangle -->&lt;aava-skeleton  width="200px"  height="20px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton>&lt;!-- Circle -->&lt;aava-skeleton  width="80px"  height="80px"  shape="circle"  animation="pulse">&lt;/aava-skeleton>&lt;!-- Rounded -->&lt;aava-skeleton  width="150px"  height="100px"  shape="rounded"  animation="wave">&lt;/aava-skeleton>&lt;!-- Square -->&lt;aava-skeleton  width="100px"  height="100px"  shape="square"  animation="wave">&lt;/aava-skeleton></code></pre>
+<pre><code>&lt;!-- Rectangle -->&lt;aava-skeleton  width="200px"  height="20px"  shape="rectangle"  animation="wave">&lt;/aava-skeleton>&lt;!-- Circle -->&lt;aava-skeleton  width="80px"  height="80px"  shape="circle"  animation="pulse">&lt;/aava-skeleton>&lt;!-- Rounded -->&lt;aava-skeleton  width="150px"  height="100px"  shape="rounded"  animation="wave">&lt;/aava-skeleton>&lt;!-- Square -->&lt;aava-skeleton  width="100px"  height="100px"  shape="square"  animation="wave">&lt;/aava-skeleton></code></pre>
+<h2>Custom Styling​</h2>
+<p>Customize the skeleton with different colors, sizes, and background colors.</p>
+<pre><code>&lt;!-- Light blue background -->&lt;aava-skeleton  width="200px"  height="20px"  shape="rectangle"  animation="wave"  backgroundColor="#e3f2fd">&lt;/aava-skeleton>&lt;!-- Light purple background -->&lt;aava-skeleton  width="200px"  height="20px"  shape="rectangle"  animation="pulse"  backgroundColor="#f3e5f5">&lt;/aava-skeleton>&lt;!-- Light green circle -->&lt;aava-skeleton  width="80px"  height="80px"  shape="circle"  animation="wave"  backgroundColor="#e8f5e8">&lt;/aava-skeleton>&lt;!-- Light orange rounded -->&lt;aava-skeleton  width="150px"  height="100px"  shape="rounded"  animation="pulse"  backgroundColor="#fff3e0">&lt;/aava-skeleton></code></pre>
+<pre><code>&lt;!-- Light blue background -->&lt;aava-skeleton  width="200px"  height="20px"  shape="rectangle"  animation="wave"  backgroundColor="#e3f2fd">&lt;/aava-skeleton>&lt;!-- Light purple background -->&lt;aava-skeleton  width="200px"  height="20px"  shape="rectangle"  animation="pulse"  backgroundColor="#f3e5f5">&lt;/aava-skeleton>&lt;!-- Light green circle -->&lt;aava-skeleton  width="80px"  height="80px"  shape="circle"  animation="wave"  backgroundColor="#e8f5e8">&lt;/aava-skeleton>&lt;!-- Light orange rounded -->&lt;aava-skeleton  width="150px"  height="100px"  shape="rounded"  animation="pulse"  backgroundColor="#fff3e0">&lt;/aava-skeleton></code></pre>
+<h2>Card Skeleton​</h2>
+<p>Create a complete card skeleton with multiple elements.</p>
+<pre><code>&lt;div  *ngFor="let element of cardSkeletonElements; let i = index"  class="skeleton-element"  [class.title]="i === 1"  [class.description]="i > 1">  &lt;aava-skeleton    [width]="element.width"    [height]="element.height"    [shape]="element.shape"    [animation]="element.animation"  >&lt;/aava-skeleton>&lt;/div></code></pre>
+<pre><code>&lt;div  *ngFor="let element of cardSkeletonElements; let i = index"  class="skeleton-element"  [class.title]="i === 1"  [class.description]="i > 1">  &lt;aava-skeleton    [width]="element.width"    [height]="element.height"    [shape]="element.shape"    [animation]="element.animation"  >&lt;/aava-skeleton>&lt;/div></code></pre>
+<pre><code>cardSkeletonElements = [  {    width: "100%",    height: "200px",    shape: "rounded" as const,    animation: "wave" as const,    description: "Card Image",  },  {    width: "70%",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Title",  },  {    width: "100%",    height: "16px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Description Line 1",  },  {    width: "100%",    height: "16px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Description Line 2",  },  {    width: "40%",    height: "16px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Description Line 3",  },];</code></pre>
+<pre><code>cardSkeletonElements = [  {    width: "100%",    height: "200px",    shape: "rounded" as const,    animation: "wave" as const,    description: "Card Image",  },  {    width: "70%",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Title",  },  {    width: "100%",    height: "16px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Description Line 1",  },  {    width: "100%",    height: "16px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Description Line 2",  },  {    width: "40%",    height: "16px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Card Description Line 3",  },];</code></pre>
+<h2>List Skeleton​</h2>
+<p>Build list skeletons for data tables and content lists.</p>
+<pre><code>&lt;div class="table-skeleton">  &lt;div class="table-header">    &lt;div *ngFor="let element of listItemElements" class="header-cell">      &lt;aava-skeleton        [width]="element.width"        [height]="element.height"        [shape]="element.shape"        [animation]="element.animation"      >&lt;/aava-skeleton>    &lt;/div>  &lt;/div>  &lt;div *ngFor="let item of listItems" class="table-row">    &lt;div *ngFor="let element of listItemElements" class="table-cell">      &lt;aava-skeleton        [width]="element.width"        [height]="element.height"        [shape]="element.shape"        [animation]="element.animation"      >&lt;/aava-skeleton>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="table-skeleton">  &lt;div class="table-header">    &lt;div *ngFor="let element of listItemElements" class="header-cell">      &lt;aava-skeleton        [width]="element.width"        [height]="element.height"        [shape]="element.shape"        [animation]="element.animation"      >&lt;/aava-skeleton>    &lt;/div>  &lt;/div>  &lt;div *ngFor="let item of listItems" class="table-row">    &lt;div *ngFor="let element of listItemElements" class="table-cell">      &lt;aava-skeleton        [width]="element.width"        [height]="element.height"        [shape]="element.shape"        [animation]="element.animation"      >&lt;/aava-skeleton>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>listItems = [1, 2, 3, 4, 5];listItemElements = [  {    width: "60px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "ID",  },  {    width: "150px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Name",  },  {    width: "100px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Status",  },  {    width: "80px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Actions",  },];</code></pre>
+<pre><code>listItems = [1, 2, 3, 4, 5];listItemElements = [  {    width: "60px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "ID",  },  {    width: "150px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Name",  },  {    width: "100px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Status",  },  {    width: "80px",    height: "20px",    shape: "rectangle" as const,    animation: "wave" as const,    description: "Actions",  },];</code></pre>
+<h2>Features​</h2>
+<h2>Multiple Shapes​</h2>
+<p>• Rectangle: Default shape for text lines and content blocks</p>
+<p>• Circle: Perfect for avatars and profile pictures</p>
+<p>• Rounded: Soft corners for modern UI elements</p>
+<p>• Square: Sharp corners for structured content</p>
+<h2>Animation Types​</h2>
+<p>• Wave: Smooth shimmer effect that moves across the skeleton</p>
+<p>• Pulse: Gentle fade in/out effect for subtle loading states</p>
+<h2>Customization​</h2>
+<p>• Flexible Sizing: Custom width and height for any content type</p>
+<p>• Color Control: Customizable background and animation colors</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<p>• Performance Optimized: Lightweight animations with minimal impact</p>
+<h2>Accessibility​</h2>
+<p>• Screen Reader Support: Proper ARIA attributes for loading states</p>
+<p>• Reduced Motion: Respects user's motion preferences</p>
+<p>• High Contrast: Works with high contrast mode settings</p>
+<p>• Focus Management: Proper focus handling during loading</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+width | string | '100%' | Width of the skeleton element
+height | string | '20px' | Height of the skeleton element
+shape | ShimmerShape | 'rectangle' | Shape of the skeleton element
+animation | ShimmerAnimation | 'wave' | Animation type for the skeleton
+backgroundColor | string | '#e0e0e0' | Background color of the skeleton
+skeletonType | 'tableList' | 'table' | 'tableList' | Type of skeleton layout
+rows | number | 5 | Number of rows in the skeleton layout
+columns | number | 5 | Number of columns in the skeleton layout
+isLoading | boolean | true | Whether to show the skeleton</pre>
+<pre><code>width</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'100%'</code></pre>
+<pre><code>height</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'20px'</code></pre>
+<pre><code>shape</code></pre>
+<pre><code>ShimmerShape</code></pre>
+<pre><code>'rectangle'</code></pre>
+<pre><code>animation</code></pre>
+<pre><code>ShimmerAnimation</code></pre>
+<pre><code>'wave'</code></pre>
+<pre><code>backgroundColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#e0e0e0'</code></pre>
+<pre><code>skeletonType</code></pre>
+<pre><code>'tableList' | 'table'</code></pre>
+<pre><code>'tableList'</code></pre>
+<pre><code>rows</code></pre>
+<pre><code>number</code></pre>
+<pre><code>5</code></pre>
+<pre><code>columns</code></pre>
+<pre><code>number</code></pre>
+<pre><code>5</code></pre>
+<pre><code>isLoading</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<h2>Types​</h2>
+<pre><code>type ShimmerShape = "rectangle" | "circle" | "rounded" | "square";</code></pre>
+<pre><code>type ShimmerShape = "rectangle" | "circle" | "rounded" | "square";</code></pre>
+<pre><code>type ShimmerAnimation = "wave" | "pulse";</code></pre>
+<pre><code>type ShimmerAnimation = "wave" | "pulse";</code></pre>
+<h2>CSS Classes​</h2>
+<p>The component provides several CSS classes for styling:</p>
+<pre>Class Name | Description
+.shimmer-container | Main skeleton container
+.shimmer-item | Base skeleton element
+.shimmer-rectangle | Rectangle shape styling
+.shimmer-circle | Circle shape styling
+.shimmer-rounded | Rounded shape styling
+.shimmer-square | Square shape styling
+.shimmer-animation-wave | Wave animation styling
+.shimmer-animation-pulse | Pulse animation styling</pre>
+<pre><code>.shimmer-container</code></pre>
+<pre><code>.shimmer-item</code></pre>
+<pre><code>.shimmer-rectangle</code></pre>
+<pre><code>.shimmer-circle</code></pre>
+<pre><code>.shimmer-rounded</code></pre>
+<pre><code>.shimmer-square</code></pre>
+<pre><code>.shimmer-animation-wave</code></pre>
+<pre><code>.shimmer-animation-pulse</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The component uses CSS custom properties for theming:</p>
+<pre>Property | Description
+--skeleton-border-radius | Border radius for rectangle shape
+--skeleton-rounded-radius | Border radius for rounded shape
+--skeleton-wave-duration | Duration of wave animation
+--skeleton-pulse-duration | Duration of pulse animation
+--skeleton-wave-opacity | Opacity for wave animation
+--skeleton-pulse-opacity | Opacity for pulse animation
+--skeleton-background-color | Background color of skeleton
+--skeleton-gradient-color-start | Start color for gradient animation
+--skeleton-gradient-color-end | End color for gradient animation
+--skeleton-animation-timing | Timing function for skeleton animations
+--skeleton-animation-easing | Easing function for skeleton transitions</pre>
+<pre><code>--skeleton-border-radius</code></pre>
+<pre><code>--skeleton-rounded-radius</code></pre>
+<pre><code>--skeleton-wave-duration</code></pre>
+<pre><code>--skeleton-pulse-duration</code></pre>
+<pre><code>--skeleton-wave-opacity</code></pre>
+<pre><code>--skeleton-pulse-opacity</code></pre>
+<pre><code>--skeleton-background-color</code></pre>
+<pre><code>--skeleton-gradient-color-start</code></pre>
+<pre><code>--skeleton-gradient-color-end</code></pre>
+<pre><code>--skeleton-animation-timing</code></pre>
+<pre><code>--skeleton-animation-easing</code></pre>
+<h2>Best Practices​</h2>
+<h2>Content Matching​</h2>
+<p>• Match Content Size: Make skeleton dimensions match the actual content</p>
+<p>• Use Appropriate Shapes: Choose shapes that represent the actual content</p>
+<p>• Maintain Layout: Keep skeleton layout consistent with loaded content</p>
+<p>• Consider Spacing: Include proper spacing between skeleton elements</p>
+<h2>Performance​</h2>
+<p>• Limit Skeleton Count: Don't show too many skeletons at once</p>
+<p>• Use Appropriate Duration: Keep animations smooth but not distracting</p>
+<p>• Consider Motion Preferences: Respect user's motion preferences</p>
+<p>• Optimize for Mobile: Ensure good performance on mobile devices</p>
+<h2>User Experience​</h2>
+<p>• Show Loading State: Always indicate when content is loading</p>
+<p>• Provide Context: Use skeletons that give users an idea of what's coming</p>
+<p>• Smooth Transitions: Ensure smooth transition from skeleton to content</p>
+<p>• Consistent Timing: Keep skeleton duration consistent across the app</p>
+<h2>Accessibility​</h2>
+<p>• Screen Reader Support: Provide proper loading announcements</p>
+<p>• Reduced Motion: Support users who prefer reduced motion</p>
+<p>• High Contrast: Ensure visibility in high contrast mode</p>
+<p>• Focus Management: Handle focus properly during loading states</p>
+<h2>Accessibility Guidelines​</h2>
+<h2>Screen Reader Support​</h2>
+<p>• Loading Announcements: Provide clear loading state announcements</p>
+<p>• Content Description: Describe what content is loading</p>
+<p>• Progress Indication: Indicate loading progress when possible</p>
+<p>• State Changes: Announce when content finishes loading</p>
+<h2>Motion and Animation​</h2>
+<p>• Reduced Motion: Respectprefers-reduced-motionmedia query</p>
+<p>• Animation Duration: Keep animations smooth but not distracting</p>
+<p>• Motion Alternatives: Provide alternatives for users who can't see animations</p>
+<p>• Performance: Ensure animations don't cause performance issues</p>
+<pre><code>prefers-reduced-motion</code></pre>
+<h2>Visual Design​</h2>
+<p>• High Contrast: Ensure visibility in high contrast mode</p>
+<p>• Color Independence: Don't rely solely on color for information</p>
+<p>• Focus Indicators: Provide clear focus indicators</p>
+<p>• Consistent Styling: Maintain consistent skeleton styling</p>
+<h2>Keyboard Navigation​</h2>
+<p>• Focus Management: Handle focus properly during loading</p>
+<p>• Tab Order: Maintain logical tab order</p>
+<p>• Skip Links: Provide skip links for keyboard users</p>
+<p>• Loading States: Indicate loading state to keyboard users</p>
+<h2>Responsive Behavior​</h2>
+<h2>Mobile Adaptations​</h2>
+<p>The skeleton component automatically adapts to mobile screens:</p>
+<p>• Touch Optimization: Optimized for touch interactions</p>
+<p>• Viewport Adaptation: Adapts to different mobile viewport sizes</p>
+<p>• Performance: Optimized performance for mobile devices</p>
+<p>• Battery Consideration: Efficient animations for battery life</p>
+<h2>Breakpoint Behavior​</h2>
+<p>• Desktop (>768px): Full skeleton with all features</p>
+<p>• Mobile (≤768px): Optimized skeleton for mobile screens</p>
+<p>• Content Scaling: Skeleton scales appropriately with content</p>
+<p>• Animation Performance: Optimized animations for different devices</p>
+<h2>Content Considerations​</h2>
+<p>• Flexible Sizing: Skeleton adapts to different content sizes</p>
+<p>• Layout Preservation: Maintains layout consistency across devices</p>
+<p>• Loading States: Consistent loading experience across platforms</p>
+<p>• Performance: Efficient rendering on all device types</p>
+</body></html>
