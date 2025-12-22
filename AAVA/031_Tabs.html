@@ -1,0 +1,295 @@
+<html><head><meta charset='utf-8'>
+<title>Tabs</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Tabs</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Navigation/Tabs</small></p>
+<h2>Tabs</h2>
+<p>A comprehensive tab navigation component for organizing content into multiple panels. Features include multiple size variants (xs to xl), icon positioning, bordered styles, container backgrounds, custom styling, scrollable overflow, closeable tabs, and full accessibility support.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaTabsComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTabsComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>The Tabs component allows you to organize content into multiple panels, with only one visible at a time. This is ideal for dashboards, settings, or any interface where users need to switch between related views without navigating away from the page.</p>
+<p>• Default behavior:Horizontal layout, first tab active, content panel below.</p>
+<p>• Usage:Pass an array of tab objects to thetabsinput. Each tab can have a label, content, and optional properties.</p>
+<pre><code>tabs</code></pre>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Tab 1', content: 'Content 1' },    { id: 'tab2', label: 'Tab 2', content: 'Content 2' },    { id: 'tab3', label: 'Tab 3', content: 'Content 3' }  ]"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Tab 1', content: 'Content 1' },    { id: 'tab2', label: 'Tab 2', content: 'Content 2' },    { id: 'tab3', label: 'Tab 3', content: 'Content 3' }  ]"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<h2>Variants​</h2>
+<p>Tabs support multiple visual variants for different use cases:</p>
+<p>• Default:Standard tabbed navigation with underline indicator and optional icons</p>
+<p>• Button:Tabs appear as pill or rounded buttons with optional borders and custom styling</p>
+<p>• Icon:Tabs display icons with labels, supporting start/end icon positioning</p>
+<p>• Icon Only Square:Compact square tabs showing only icons, ideal for toolbars</p>
+<p>• Icon Only Circle:Circular icon-only tabs for minimal interfaces</p>
+<p>Choose the variant that best fits your design and use case. Thevariantinput controls the style, with additional options likebordered,iconPosition, andbuttonShapefor further customization.</p>
+<pre><code>variant</code></pre>
+<pre><code>bordered</code></pre>
+<pre><code>iconPosition</code></pre>
+<pre><code>buttonShape</code></pre>
+<pre><code>&lt;!-- Default variant with underline -->&lt;aava-tabs  [tabs]="[    { id: 'default1', label: 'Home', iconName: 'home', content: 'Welcome to the home page' },    { id: 'default2', label: 'About', iconName: 'info', content: 'Learn more about us' },    { id: 'default3', label: 'Contact', iconName: 'phone', content: 'Get in touch' }  ]"  variant="default"  activeTabId="default1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Button variant - Pill with Border -->&lt;aava-tabs  [tabs]="[    { id: 'pill1', label: 'Overview', iconName: 'layout', content: 'Overview content' },    { id: 'pill2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'Analytics content' },    { id: 'pill3', label: 'Reports', iconName: 'file-text', content: 'Reports content' }  ]"  variant="button"  buttonShape="pill"  [bordered]="true"  size="sm"  activeTabId="pill1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Button variant - Rectangle with Border -->&lt;aava-tabs  [tabs]="[    { id: 'rect1', label: 'Projects', iconName: 'folder', content: 'Projects content' },    { id: 'rect2', label: 'Tasks', iconName: 'check-square', content: 'Tasks content' },    { id: 'rect3', label: 'Settings', iconName: 'settings', content: 'Settings content' }  ]"  variant="button"  buttonShape="rounded"  [bordered]="true"  size="sm"  activeTabId="rect1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Icon Only Square variant -->&lt;aava-tabs  [tabs]="[    { id: 'icon1', iconName: 'home', label: 'Home', content: 'Home content' },    { id: 'icon2', iconName: 'users', label: 'Users', content: 'Users content' },    { id: 'icon3', iconName: 'settings', label: 'Settings', content: 'Settings content' }  ]"  variant="iconOnlySquare"  activeTabId="icon1"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;!-- Default variant with underline -->&lt;aava-tabs  [tabs]="[    { id: 'default1', label: 'Home', iconName: 'home', content: 'Welcome to the home page' },    { id: 'default2', label: 'About', iconName: 'info', content: 'Learn more about us' },    { id: 'default3', label: 'Contact', iconName: 'phone', content: 'Get in touch' }  ]"  variant="default"  activeTabId="default1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Button variant - Pill with Border -->&lt;aava-tabs  [tabs]="[    { id: 'pill1', label: 'Overview', iconName: 'layout', content: 'Overview content' },    { id: 'pill2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'Analytics content' },    { id: 'pill3', label: 'Reports', iconName: 'file-text', content: 'Reports content' }  ]"  variant="button"  buttonShape="pill"  [bordered]="true"  size="sm"  activeTabId="pill1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Button variant - Rectangle with Border -->&lt;aava-tabs  [tabs]="[    { id: 'rect1', label: 'Projects', iconName: 'folder', content: 'Projects content' },    { id: 'rect2', label: 'Tasks', iconName: 'check-square', content: 'Tasks content' },    { id: 'rect3', label: 'Settings', iconName: 'settings', content: 'Settings content' }  ]"  variant="button"  buttonShape="rounded"  [bordered]="true"  size="sm"  activeTabId="rect1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Icon Only Square variant -->&lt;aava-tabs  [tabs]="[    { id: 'icon1', iconName: 'home', label: 'Home', content: 'Home content' },    { id: 'icon2', iconName: 'users', label: 'Users', content: 'Users content' },    { id: 'icon3', iconName: 'settings', label: 'Settings', content: 'Settings content' }  ]"  variant="iconOnlySquare"  activeTabId="icon1"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<h2>Size Variants​</h2>
+<p>Tabs support five size variants to fit different interface densities and use cases:</p>
+<p>• Extra Small (xs):Compact tabs for dense interfaces or mobile layouts</p>
+<p>• Small (sm):Smaller tabs for secondary navigation or sidebar use</p>
+<p>• Medium (md):Default size, balanced for most use cases</p>
+<p>• Large (lg):Larger tabs for primary navigation or desktop interfaces</p>
+<p>• Extra Large (xl):Maximum size for prominent navigation or accessibility needs</p>
+<p>Choose the size that best matches your interface hierarchy and available space. Thesizeinput controls the overall scale of tabs, icons, and spacing.</p>
+<pre><code>size</code></pre>
+<pre><code>&lt;!-- Extra Large Size -->&lt;aava-tabs  [tabs]="[    { id: 'xl1', label: 'Overview', iconName: 'layout', content: 'XL Overview Content' },    { id: 'xl2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'XL Analytics Content' },    { id: 'xl3', label: 'Reports', iconName: 'file-text', content: 'XL Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="xl"  [bordered]="true"  activeTabId="xl1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Large Size -->&lt;aava-tabs  [tabs]="[    { id: 'lg1', label: 'Overview', iconName: 'layout', content: 'LG Overview Content' },    { id: 'lg2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'LG Analytics Content' },    { id: 'lg3', label: 'Reports', iconName: 'file-text', content: 'LG Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="lg"  [bordered]="true"  activeTabId="lg1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Medium Size (Default) -->&lt;aava-tabs  [tabs]="[    { id: 'md1', label: 'Overview', iconName: 'layout', content: 'MD Overview Content' },    { id: 'md2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'MD Analytics Content' },    { id: 'md3', label: 'Reports', iconName: 'file-text', content: 'MD Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="md"  [bordered]="true"  activeTabId="md1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Small Size -->&lt;aava-tabs  [tabs]="[    { id: 'sm1', label: 'Overview', iconName: 'layout', content: 'SM Overview Content' },    { id: 'sm2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'SM Analytics Content' },    { id: 'sm3', label: 'Reports', iconName: 'file-text', content: 'SM Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="sm"  [bordered]="true"  activeTabId="sm1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Extra Small Size -->&lt;aava-tabs  [tabs]="[    { id: 'xs1', label: 'Overview', iconName: 'layout', content: 'XS Overview Content' },    { id: 'xs2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'XS Analytics Content' },    { id: 'xs3', label: 'Reports', iconName: 'file-text', content: 'XS Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="xs"  [bordered]="true"  activeTabId="xs1"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;!-- Extra Large Size -->&lt;aava-tabs  [tabs]="[    { id: 'xl1', label: 'Overview', iconName: 'layout', content: 'XL Overview Content' },    { id: 'xl2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'XL Analytics Content' },    { id: 'xl3', label: 'Reports', iconName: 'file-text', content: 'XL Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="xl"  [bordered]="true"  activeTabId="xl1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Large Size -->&lt;aava-tabs  [tabs]="[    { id: 'lg1', label: 'Overview', iconName: 'layout', content: 'LG Overview Content' },    { id: 'lg2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'LG Analytics Content' },    { id: 'lg3', label: 'Reports', iconName: 'file-text', content: 'LG Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="lg"  [bordered]="true"  activeTabId="lg1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Medium Size (Default) -->&lt;aava-tabs  [tabs]="[    { id: 'md1', label: 'Overview', iconName: 'layout', content: 'MD Overview Content' },    { id: 'md2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'MD Analytics Content' },    { id: 'md3', label: 'Reports', iconName: 'file-text', content: 'MD Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="md"  [bordered]="true"  activeTabId="md1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Small Size -->&lt;aava-tabs  [tabs]="[    { id: 'sm1', label: 'Overview', iconName: 'layout', content: 'SM Overview Content' },    { id: 'sm2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'SM Analytics Content' },    { id: 'sm3', label: 'Reports', iconName: 'file-text', content: 'SM Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="sm"  [bordered]="true"  activeTabId="sm1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Extra Small Size -->&lt;aava-tabs  [tabs]="[    { id: 'xs1', label: 'Overview', iconName: 'layout', content: 'XS Overview Content' },    { id: 'xs2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'XS Analytics Content' },    { id: 'xs3', label: 'Reports', iconName: 'file-text', content: 'XS Reports Content' }  ]"  variant="button"  buttonShape="rounded"  size="xs"  [bordered]="true"  activeTabId="xs1"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<h2>Tabs with Icons​</h2>
+<p>Add icons to tabs using theiconNameproperty in tab objects. Control icon positioning with theiconPositioninput for flexible layouts.</p>
+<pre><code>iconName</code></pre>
+<pre><code>iconPosition</code></pre>
+<p>• Icon Position:UseiconPosition="start"(default) oriconPosition="end"to control icon placement</p>
+<p>• Icon-Only Variants:UseiconOnlySquareoriconOnlyCirclevariants for compact, icon-only tabs</p>
+<p>• When to use:For quick recognition, navigation clarity, or when space is limited</p>
+<pre><code>iconPosition="start"</code></pre>
+<pre><code>iconPosition="end"</code></pre>
+<pre><code>iconOnlySquare</code></pre>
+<pre><code>iconOnlyCircle</code></pre>
+<pre><code>&lt;!-- Icons at start (default) -->&lt;aava-tabs  [tabs]="[    { id: 'home1', label: 'Home', iconName: 'home', content: 'Welcome home!' },    { id: 'user1', label: 'Profile', iconName: 'user', content: 'Your profile' },    { id: 'settings1', label: 'Settings', iconName: 'settings', content: 'App settings' }  ]"  iconPosition="start"  activeTabId="home1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Icons at end -->&lt;aava-tabs  [tabs]="[    { id: 'home2', label: 'Home', iconName: 'chevron-right', content: 'Welcome home!' },    { id: 'user2', label: 'Profile', iconName: 'chevron-right', content: 'Your profile' },    { id: 'settings2', label: 'Settings', iconName: 'chevron-right', content: 'App settings' }  ]"  iconPosition="end"  activeTabId="home2"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Icon Only Square -->&lt;aava-tabs  [tabs]="[    { id: 'home3', label: 'Home', iconName: 'home', content: 'Welcome home!' },    { id: 'user3', label: 'Profile', iconName: 'user', content: 'Your profile' },    { id: 'settings3', label: 'Settings', iconName: 'settings', content: 'App settings' }  ]"  variant="iconOnlySquare"  activeTabId="home3"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;!-- Icons at start (default) -->&lt;aava-tabs  [tabs]="[    { id: 'home1', label: 'Home', iconName: 'home', content: 'Welcome home!' },    { id: 'user1', label: 'Profile', iconName: 'user', content: 'Your profile' },    { id: 'settings1', label: 'Settings', iconName: 'settings', content: 'App settings' }  ]"  iconPosition="start"  activeTabId="home1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Icons at end -->&lt;aava-tabs  [tabs]="[    { id: 'home2', label: 'Home', iconName: 'chevron-right', content: 'Welcome home!' },    { id: 'user2', label: 'Profile', iconName: 'chevron-right', content: 'Your profile' },    { id: 'settings2', label: 'Settings', iconName: 'chevron-right', content: 'App settings' }  ]"  iconPosition="end"  activeTabId="home2"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Icon Only Square -->&lt;aava-tabs  [tabs]="[    { id: 'home3', label: 'Home', iconName: 'home', content: 'Welcome home!' },    { id: 'user3', label: 'Profile', iconName: 'user', content: 'Your profile' },    { id: 'settings3', label: 'Settings', iconName: 'settings', content: 'App settings' }  ]"  variant="iconOnlySquare"  activeTabId="home3"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<h2>Tabs with Badges​</h2>
+<p>Tabs can display badges to indicate counts, notifications, or status. Add abadgeproperty to any tab object.</p>
+<pre><code>badge</code></pre>
+<p>• How:Setbadgeto a number or string.</p>
+<p>• When to use:For unread counts, alerts, or status indicators.</p>
+<pre><code>badge</code></pre>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Inbox', badge: 5, content: 'Inbox Content' },    { id: 'tab2', label: 'Notifications', badge: 2, content: 'Notifications Content' },    { id: 'tab3', label: 'Archive', content: 'Archive Content' }  ]"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Inbox', badge: 5, content: 'Inbox Content' },    { id: 'tab2', label: 'Notifications', badge: 2, content: 'Notifications Content' },    { id: 'tab3', label: 'Archive', content: 'Archive Content' }  ]"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<h2>Scrollable Tabs​</h2>
+<p>For interfaces with many tabs, enablescrollableto handle overflow. Scrollable tabs show left/right arrows.</p>
+<pre><code>scrollable</code></pre>
+<p>• Scrollable:Use for wide tab sets where horizontal space is available.</p>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Tab 1', content: 'Content 1' },    { id: 'tab2', label: 'Tab 2', content: 'Content 2' },    { id: 'tab3', label: 'Tab 3', content: 'Content 3' },    { id: 'tab4', label: 'Tab 4', content: 'Content 4' },    { id: 'tab5', label: 'Tab 5', content: 'Content 5' },    { id: 'tab6', label: 'Tab 6', content: 'Content 6' }  ]"  scrollable="true"  maxVisibleTabs="4"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Tab 1', content: 'Content 1' },    { id: 'tab2', label: 'Tab 2', content: 'Content 2' },    { id: 'tab3', label: 'Tab 3', content: 'Content 3' },    { id: 'tab4', label: 'Tab 4', content: 'Content 4' },    { id: 'tab5', label: 'Tab 5', content: 'Content 5' },    { id: 'tab6', label: 'Tab 6', content: 'Content 6' }  ]"  scrollable="true"  maxVisibleTabs="4"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<h2>Vertical Tabs​</h2>
+<p>Switch to vertical orientation for side navigation or settings panels. Setorientation="vertical".</p>
+<pre><code>orientation="vertical"</code></pre>
+<p>• When to use:For sidebar navigation, settings, or when vertical space is preferred.</p>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Tab 1', content: 'Content 1' },    { id: 'tab2', label: 'Tab 2', content: 'Content 2' },    { id: 'tab3', label: 'Tab 3', content: 'Content 3' }  ]"  orientation="vertical"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Tab 1', content: 'Content 1' },    { id: 'tab2', label: 'Tab 2', content: 'Content 2' },    { id: 'tab3', label: 'Tab 3', content: 'Content 3' }  ]"  orientation="vertical"  activeTabId="tab1">&lt;/aava-tabs></code></pre>
+<h2>Custom Styles​</h2>
+<p>Tabs provide multiple styling options for comprehensive customization:</p>
+<p>• Tab Row Styling:UsetabRowWrapperStylesandtabRowBackgroundStylesfor custom tab container appearance</p>
+<p>• Container Backgrounds:EnableshowTabsContainerBgfor fixed padding and background, orshowcontainerBgfor full container styling</p>
+<p>• Custom CSS Properties:UsecustomStylesto override design tokens like--tabs-gapand color variables</p>
+<p>• Active Button Styles:Customize active button appearance withactiveButtonTabStylesfor button variants</p>
+<p>• Border Options:Add borders to button and icon variants using theborderedinput</p>
+<pre><code>tabRowWrapperStyles</code></pre>
+<pre><code>tabRowBackgroundStyles</code></pre>
+<pre><code>showTabsContainerBg</code></pre>
+<pre><code>showcontainerBg</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>--tabs-gap</code></pre>
+<pre><code>activeButtonTabStyles</code></pre>
+<pre><code>bordered</code></pre>
+<p>These options allow complete visual customization while maintaining accessibility and functionality.</p>
+<pre><code>&lt;!-- Custom Tab Row Wrapper and Background Styles -->&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Overview', iconName: 'layout', content: 'Overview content' },    { id: 'tab2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'Analytics content' },    { id: 'tab3', label: 'Reports', iconName: 'file-text', content: 'Reports content' }  ]"  variant="button"  buttonShape="pill"  [tabRowWrapperStyles]="{    borderRadius: '9999px',    border: '2px solid #e0e7ef',    padding: '0.25rem 0.5rem',    boxShadow: '0 2px 8px 0 rgba(42, 123, 155, 0.08)'  }"  [tabRowBackgroundStyles]="{    background: 'linear-gradient(90deg, #e0f7fa 0%, #fce4ec 100%)',    borderRadius: '9999px',    boxShadow: '0 2px 8px 0 rgba(42, 123, 155, 0.08)'  }"  [activeButtonTabStyles]="{    background: '#0097a7',    border: 'none'  }"  activeTabId="tab1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Container Background Styles -->&lt;aava-tabs  [tabs]="[    { id: 'bg1', label: 'Projects', iconName: 'folder', content: 'Projects content' },    { id: 'bg2', label: 'Tasks', iconName: 'check-square', content: 'Tasks content' },    { id: 'bg3', label: 'Settings', iconName: 'settings', content: 'Settings content' }  ]"  variant="button"  buttonShape="rounded"  [showTabsContainerBg]="true"  [bordered]="true"  size="md"  activeTabId="bg1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Custom Styles with Container Background -->&lt;aava-tabs  [tabs]="[    { id: 'custom1', label: 'Dashboard', iconName: 'layout', content: 'Dashboard content' },    { id: 'custom2', label: 'Users', iconName: 'users', content: 'Users content' },    { id: 'custom3', label: 'Reports', iconName: 'file-text', content: 'Reports content' }  ]"  variant="button"  buttonShape="pill"  [showcontainerBg]="true"  [customStyles]="{    '--tabs-gap': '0.75rem',    '--tabs-tab-color': '#6b7280',    '--tabs-tab-active-color': '#1f2937'  }"  activeTabId="custom1"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<pre><code>&lt;!-- Custom Tab Row Wrapper and Background Styles -->&lt;aava-tabs  [tabs]="[    { id: 'tab1', label: 'Overview', iconName: 'layout', content: 'Overview content' },    { id: 'tab2', label: 'Analytics', iconName: 'chart-no-axes-combined', content: 'Analytics content' },    { id: 'tab3', label: 'Reports', iconName: 'file-text', content: 'Reports content' }  ]"  variant="button"  buttonShape="pill"  [tabRowWrapperStyles]="{    borderRadius: '9999px',    border: '2px solid #e0e7ef',    padding: '0.25rem 0.5rem',    boxShadow: '0 2px 8px 0 rgba(42, 123, 155, 0.08)'  }"  [tabRowBackgroundStyles]="{    background: 'linear-gradient(90deg, #e0f7fa 0%, #fce4ec 100%)',    borderRadius: '9999px',    boxShadow: '0 2px 8px 0 rgba(42, 123, 155, 0.08)'  }"  [activeButtonTabStyles]="{    background: '#0097a7',    border: 'none'  }"  activeTabId="tab1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Container Background Styles -->&lt;aava-tabs  [tabs]="[    { id: 'bg1', label: 'Projects', iconName: 'folder', content: 'Projects content' },    { id: 'bg2', label: 'Tasks', iconName: 'check-square', content: 'Tasks content' },    { id: 'bg3', label: 'Settings', iconName: 'settings', content: 'Settings content' }  ]"  variant="button"  buttonShape="rounded"  [showTabsContainerBg]="true"  [bordered]="true"  size="md"  activeTabId="bg1"  [showContentPanels]="false">&lt;/aava-tabs>&lt;!-- Custom Styles with Container Background -->&lt;aava-tabs  [tabs]="[    { id: 'custom1', label: 'Dashboard', iconName: 'layout', content: 'Dashboard content' },    { id: 'custom2', label: 'Users', iconName: 'users', content: 'Users content' },    { id: 'custom3', label: 'Reports', iconName: 'file-text', content: 'Reports content' }  ]"  variant="button"  buttonShape="pill"  [showcontainerBg]="true"  [customStyles]="{    '--tabs-gap': '0.75rem',    '--tabs-tab-color': '#6b7280',    '--tabs-tab-active-color': '#1f2937'  }"  activeTabId="custom1"  [showContentPanels]="false">&lt;/aava-tabs></code></pre>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+tabs | TabItem[] | [] | Array of tab objects (see TabItem interface)
+activeTabId | string | '' | ID of the currently active tab
+variant | 'default' | 'button' | 'icon' | 'iconOnlySquare' | 'iconOnlyCircle' | 'default' | Visual style of the tabs
+size | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'md' | Size of the tabs
+bordered | boolean | false | Add border around tabs (for icon-only variants)
+iconPosition | 'start' | 'end' | 'start' | Position of icons relative to text
+showcontainerBg | boolean | false | Show background and border for entire tabs container
+showTabsContainerBg | boolean | false | Show tabs container background with fixed padding
+customStyles | Record<string, string> | {} | Custom styles for the tabs component
+disabled | boolean | false | Disable all tabs
+scrollable | boolean | false | Enable horizontal scrolling for overflow
+showDropdown | boolean | false | Show dropdown for overflowed tabs
+maxVisibleTabs | number | 5 | Max number of visible tabs before overflow
+allowTabClose | boolean | false | Allow tabs to be closed
+centeredTabs | boolean | false | Center the tabs in the container
+fullWidth | boolean | false | Tabs take full width of container
+animateTransitions | boolean | true | Animate tab transitions
+lazyLoadContent | boolean | false | Lazy load tab content
+persistActiveTab | boolean | true | Persist active tab on tab list changes
+ariaLabel | string | 'Tabs navigation' | ARIA label for accessibility
+activeButtonTabStyles | Record<string, string> | {} | Custom styles for active button tab (button variant)
+buttonShape | 'rounded' | 'pill' | 'rounded' | Shape for button variant
+showContentPanels | boolean | true | Show content panels below tabs
+tabRowWrapperStyles | Record<string, string> | {} | Custom styles for tab row wrapper
+tabRowBackgroundStyles | Record<string, string> | {} | Custom styles for tab row background
+orientation | 'horizontal' | 'vertical' | 'horizontal' | Orientation of the tabs</pre>
+<pre><code>tabs</code></pre>
+<pre><code>TabItem[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>activeTabId</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>'default' | 'button' | 'icon' | 'iconOnlySquare' | 'iconOnlyCircle'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>bordered</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>iconPosition</code></pre>
+<pre><code>'start' | 'end'</code></pre>
+<pre><code>'start'</code></pre>
+<pre><code>showcontainerBg</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showTabsContainerBg</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>scrollable</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showDropdown</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>maxVisibleTabs</code></pre>
+<pre><code>number</code></pre>
+<pre><code>5</code></pre>
+<pre><code>allowTabClose</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>centeredTabs</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>fullWidth</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>animateTransitions</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>lazyLoadContent</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>persistActiveTab</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>ariaLabel</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Tabs navigation'</code></pre>
+<pre><code>activeButtonTabStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>buttonShape</code></pre>
+<pre><code>'rounded' | 'pill'</code></pre>
+<pre><code>'rounded'</code></pre>
+<pre><code>showContentPanels</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>tabRowWrapperStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>tabRowBackgroundStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>orientation</code></pre>
+<pre><code>'horizontal' | 'vertical'</code></pre>
+<pre><code>'horizontal'</code></pre>
+<pre><code>interface TabItem {  id: string;  label: string;  content?: string;  iconName?: string;  subtitle?: string;  disabled?: boolean;  badge?: string | number;  closeable?: boolean;}</code></pre>
+<pre><code>interface TabItem {  id: string;  label: string;  content?: string;  iconName?: string;  subtitle?: string;  disabled?: boolean;  badge?: string | number;  closeable?: boolean;}</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+tabChange | EventEmitter<TabItem> | Emitted when the active tab changes
+tabClose | EventEmitter<TabItem> | Emitted when a tab is closed
+tabsReorder | EventEmitter<TabItem[]> | Emitted when tabs are reordered
+dropdownToggle | EventEmitter<boolean> | Emitted when the dropdown is toggled</pre>
+<pre><code>tabChange</code></pre>
+<pre><code>EventEmitter&lt;TabItem></code></pre>
+<pre><code>tabClose</code></pre>
+<pre><code>EventEmitter&lt;TabItem></code></pre>
+<pre><code>tabsReorder</code></pre>
+<pre><code>EventEmitter&lt;TabItem[]></code></pre>
+<pre><code>dropdownToggle</code></pre>
+<pre><code>EventEmitter&lt;boolean></code></pre>
+<h2>Methods​</h2>
+<p>• onTabClick(tab: TabItem): void— Activate a tab programmatically</p>
+<p>• onTabClose(tab: TabItem, event: Event): void— Close a tab programmatically</p>
+<p>• toggleDropdown(): void— Toggle the dropdown menu</p>
+<p>• scrollLeft(): void/scrollRight(): void— Scroll the tab list</p>
+<pre><code>onTabClick(tab: TabItem): void</code></pre>
+<pre><code>onTabClose(tab: TabItem, event: Event): void</code></pre>
+<pre><code>toggleDropdown(): void</code></pre>
+<pre><code>scrollLeft(): void</code></pre>
+<pre><code>scrollRight(): void</code></pre>
+<h2>Accessibility​</h2>
+<p>The Tabs component follows WAI-ARIA accessibility guidelines and provides comprehensive keyboard navigation:</p>
+<p>• Keyboard Navigation: Full support for Tab, Arrow keys (Left/Right/Up/Down), Enter, and Space</p>
+<p>• ARIA Roles: Propertablist,tab, andtabpanelroles for screen reader compatibility</p>
+<p>• ARIA Attributes:aria-selected,aria-controls,aria-labelledby, andaria-disabledfor state communication</p>
+<p>• Focus Management: Visible focus indicators and proper tab sequence navigation</p>
+<p>• Screen Reader Support: Descriptive labels, state announcements, and semantic HTML structure</p>
+<p>• Keyboard Shortcuts: Arrow keys for tab navigation, Enter/Space for activation</p>
+<p>• High Contrast: Enhanced borders and indicators for visibility in high contrast mode</p>
+<pre><code>tablist</code></pre>
+<pre><code>tab</code></pre>
+<pre><code>tabpanel</code></pre>
+<pre><code>aria-selected</code></pre>
+<pre><code>aria-controls</code></pre>
+<pre><code>aria-labelledby</code></pre>
+<pre><code>aria-disabled</code></pre>
+<h2>Design Tokens & Theming​</h2>
+<p>AAVA Play Tabs use semantic design tokens for all surfaces, spacing, typography, and motion. The component exposes scoped override tokens for fine-tuning appearance while maintaining design system consistency.</p>
+<h2>Available Design Tokens for Tabs​</h2>
+<pre>Token | Purpose | Default Value
+--tabs-gap | Spacing between tabs | Theme-based</pre>
+<pre><code>--tabs-gap</code></pre>
+<pre>Token | Purpose | Default Value
+--tabs-tab-color | Color for inactive tab text | Theme-based
+--tabs-tab-active-color | Color for active tab text | Theme-based
+--tabs-tab-disabled-color | Color for disabled tab text | Theme-based</pre>
+<pre><code>--tabs-tab-color</code></pre>
+<pre><code>--tabs-tab-active-color</code></pre>
+<pre><code>--tabs-tab-disabled-color</code></pre>
+<pre>Token | Purpose | Default Value
+--tabs-icon-size | Default size for tab icons | Theme-based</pre>
+<pre><code>--tabs-icon-size</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Semantic Organization: Group related content logically and use clear, descriptive tab labels</p>
+<p>• Tab Count: Limit to 5-7 tabs for optimal usability; use scrollable or dropdown for more</p>
+<p>• Variant Selection: Choose variants based on context (default for content, button for actions, icon-only for compact)</p>
+<p>• Size Selection: Use appropriate sizes (xs-xl) based on interface hierarchy and available space</p>
+<p>• Icon Positioning: ConsidericonPosition="end"for navigation arrows or action indicators</p>
+<p>• Border Usage: Applyborderedinput for better visual separation in dense interfaces</p>
+<p>• Container Backgrounds: UseshowTabsContainerBgorshowcontainerBgfor visual grouping</p>
+<p>• Visual Hierarchy: Use active states, badges, and icons to guide user attention appropriately</p>
+<p>• Responsive Design: Consider vertical orientation or dropdown behavior for mobile devices</p>
+<p>• Consistent Sizing: Match tab sizes to surrounding interface elements and content density</p>
+<pre><code>iconPosition="end"</code></pre>
+<pre><code>bordered</code></pre>
+<pre><code>showTabsContainerBg</code></pre>
+<pre><code>showcontainerBg</code></pre>
+<h2>Accessibility​</h2>
+<p>• Meaningful Labels: Provide clear, descriptive labels that explain each tab's content or purpose</p>
+<p>• Unique IDs: Ensure each tab has a unique ID for proper ARIA relationships</p>
+<p>• Keyboard Support: Test complete keyboard navigation flow including arrow keys and activation</p>
+<p>• Screen Reader Testing: Verify proper announcement of tab states, content, and navigation</p>
+<p>• Focus Indicators: Maintain clear visual focus states for keyboard navigation</p>
+<p>• Color Contrast: Ensure sufficient contrast for all tab states and variants</p>
+<p>• Reduced Motion: Respect user preferences for reduced motion in transitions</p>
+<h2>Performance​</h2>
+<p>• Lazy Loading: EnablelazyLoadContentfor tabs with heavy content to improve initial load</p>
+<p>• Content Optimization: Only render active tab content unless pre-loading is necessary</p>
+<p>• Icon Efficiency: Use icon systems efficiently and avoid loading unnecessary icon variants</p>
+<p>• Smooth Scrolling: Use hardware-accelerated scrolling for large tab sets</p>
+<p>• Event Handling: Debounce rapid tab switching and optimize event listeners</p>
+<p>• Bundle Optimization: Import only needed variants and features to minimize bundle size</p>
+<p>• Memory Management: Properly clean up event listeners and subscriptions in closeable tabs</p>
+<pre><code>lazyLoadContent</code></pre>
+</body></html>
