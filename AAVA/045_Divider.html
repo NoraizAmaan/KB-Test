@@ -1,0 +1,80 @@
+<html><head><meta charset='utf-8'>
+<title>Divider</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Divider</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Layout/Divider</small></p>
+<h2>Divider</h2>
+<p>A simple and effective visual separator for organizing content sections. Features multiple styling variants, horizontal and vertical orientations, and customizable colors for clear content separation.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaDividersComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaDividersComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple divider implementations for content separation.</p>
+<pre><code>&lt;aava-dividers  variant="solid"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers></code></pre>
+<pre><code>&lt;aava-dividers  variant="solid"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers></code></pre>
+<h2>Variants​</h2>
+<p>Different divider styles for various visual contexts.</p>
+<pre><code>&lt;aava-dividers  variant="solid"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers>&lt;aava-dividers  variant="dashed"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers>&lt;aava-dividers  variant="dotted"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers>&lt;aava-dividers variant="gradient" orientation="horizontal">&lt;/aava-dividers></code></pre>
+<pre><code>&lt;aava-dividers  variant="solid"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers>&lt;aava-dividers  variant="dashed"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers>&lt;aava-dividers  variant="dotted"  orientation="horizontal"  color="#BBBEC5">&lt;/aava-dividers>&lt;aava-dividers variant="gradient" orientation="horizontal">&lt;/aava-dividers></code></pre>
+<h2>Variant Types​</h2>
+<p>• Solid: Clean, continuous line (default)</p>
+<p>• Dashed: Dashed line pattern</p>
+<p>• Dotted: Dotted line pattern</p>
+<p>• Gradient: Smooth gradient effect</p>
+<h2>Orientation​</h2>
+<p>Horizontal and vertical divider orientations for different layout needs.</p>
+<pre><code>  &lt;aava-dividers    variant="solid"    orientation="vertical"    color="#dc3545"  >&lt;/aava-dividers>  &lt;aava-dividers    variant="dotted"    orientation="vertical"    color="#ffc107"  >&lt;/aava-dividers>&lt;/div>&lt;aava-dividers  variant="solid"  orientation="vertical"  color="#dc3545">&lt;/aava-dividers>&lt;aava-dividers  variant="dotted"  orientation="vertical"  color="#ffc107">&lt;/aava-dividers></code></pre>
+<pre><code>  &lt;aava-dividers    variant="solid"    orientation="vertical"    color="#dc3545"  >&lt;/aava-dividers>  &lt;aava-dividers    variant="dotted"    orientation="vertical"    color="#ffc107"  >&lt;/aava-dividers>&lt;/div>&lt;aava-dividers  variant="solid"  orientation="vertical"  color="#dc3545">&lt;/aava-dividers>&lt;aava-dividers  variant="dotted"  orientation="vertical"  color="#ffc107">&lt;/aava-dividers></code></pre>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+variant | 'solid' | 'dashed' | 'dotted' | 'gradient' | 'solid' | Visual style of the divider
+orientation | 'horizontal' | 'vertical' | 'horizontal' | Direction of the divider
+color | string | '#000000' | Color of the divider (hex, rgb, or CSS color name)</pre>
+<pre><code>variant</code></pre>
+<pre><code>'solid' | 'dashed' | 'dotted' | 'gradient'</code></pre>
+<pre><code>'solid'</code></pre>
+<pre><code>orientation</code></pre>
+<pre><code>'horizontal' | 'vertical'</code></pre>
+<pre><code>'horizontal'</code></pre>
+<pre><code>color</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#000000'</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Default | Description
+--divider-color | Component color input | Dynamic color applied to borders
+--divider-background-gradient | Theme-based | Gradient background for gradient variant</pre>
+<pre><code>--divider-color</code></pre>
+<pre><code>--divider-background-gradient</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use dividers sparingly to avoid visual clutter</p>
+<p>• Choose appropriate variants based on content hierarchy</p>
+<p>• Ensure sufficient color contrast for accessibility</p>
+<p>• Consider spacing around dividers for optimal visual separation</p>
+<h2>Layout Usage​</h2>
+<p>• Use horizontal dividers between content sections</p>
+<p>• Use vertical dividers in sidebar layouts or columns</p>
+<p>• Apply consistent divider styles throughout the interface</p>
+<p>• Match divider colors to your design system</p>
+<h2>Accessibility & Dev Guidelines​</h2>
+<p>The Divider component is purely visual and should not convey crucial content structure on its own. However, it's accessible:</p>
+<p>• Usesrole="separator"</p>
+<p>• Honorsaria-orientation="horizontal | vertical"</p>
+<p>• When used with text, ensure surrounding context is semantic</p>
+<p>• Test selector:data-testid="play-divider"</p>
+<pre><code>role="separator"</code></pre>
+<pre><code>aria-orientation="horizontal | vertical"</code></pre>
+<pre><code>data-testid="play-divider"</code></pre>
+<h2>Do’s and Don’ts​</h2>
+<pre>Do | Don’t
+Use for layout separation in dense UIs | Don’t use as a replacement for headings
+Style via tokens for consistent spacing | Don’t hardcode padding/margins
+Add labels only when useful context exists | Don’t overuse labeled dividers visually
+Use vertical divider inside horizontal layout | Don’t nest labeled dividers unnecessarily
+Use | inset | variant to separate nested blocks | Don’t rely solely on divider for structure</pre>
+<pre><code>inset</code></pre>
+</body></html>
