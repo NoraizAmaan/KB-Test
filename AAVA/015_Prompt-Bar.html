@@ -1,0 +1,259 @@
+<html><head><meta charset='utf-8'>
+<title>Prompt-Bar</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Prompt-Bar</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Prompt-Bar</small></p>
+<h2>Prompt Bar</h2>
+<p>The Prompt Bar component is a sophisticated input system designed for modern chat interfaces, AI prompt systems, and messaging applications. It combines a multi-line textarea with customizable action icons, device selection dropdowns, and file attachment capabilities to create a comprehensive input experience.</p>
+<p>The<aava-prompt-bar>component provides an intuitive interface for users to compose messages, select target devices, attach files, and interact with various input actions through a clean, organized layout.</p>
+<pre><code>&lt;aava-prompt-bar></code></pre>
+<h2>How to use​</h2>
+<pre><code>import {  AavaPromptBarComponent,  PromptIcons,  DropdownOption,  uploadedImages,} from "@aava/play-core";</code></pre>
+<pre><code>import {  AavaPromptBarComponent,  PromptIcons,  DropdownOption,  uploadedImages,} from "@aava/play-core";</code></pre>
+<h2>Interactive Examples​</h2>
+<p>Explore different prompt bar configurations and features with interactive demos.</p>
+<h2>Basic Usage​</h2>
+<p>The Prompt Bar provides a unified interface for user text input, actions, and attachments.
+It supports typing, sending messages, and triggering actions via icons.
+Use the basic setup to render the default prompt bar with message input and optional send behavior.</p>
+<pre><code>&lt;aava-prompt-bar placeholder="Type your message here..." [icons]="allIcons">&lt;/aava-prompt-bar></code></pre>
+<pre><code>&lt;aava-prompt-bar placeholder="Type your message here..." [icons]="allIcons">&lt;/aava-prompt-bar></code></pre>
+<pre><code>  onMessageSent(message: string) {    console.log('Message sent:', message);  }   allIcons: PromptIcons[] = [      {        name: 'paperclip',        slot: 'icon-start',        color: 'green',        visible: true,        click: () => this.onAttachFile()      },      {        name: 'send',        slot: 'icon-end',        color: 'var(--color-text-primary)',        visible: true,        click: () => this.onAddImage()      }    ];     onAttachFile() {    console.log('Attach file clicked');  }  onAddImage() {    console.log('Add image clicked');  }</code></pre>
+<pre><code>  onMessageSent(message: string) {    console.log('Message sent:', message);  }   allIcons: PromptIcons[] = [      {        name: 'paperclip',        slot: 'icon-start',        color: 'green',        visible: true,        click: () => this.onAttachFile()      },      {        name: 'send',        slot: 'icon-end',        color: 'var(--color-text-primary)',        visible: true,        click: () => this.onAddImage()      }    ];     onAttachFile() {    console.log('Attach file clicked');  }  onAddImage() {    console.log('Add image clicked');  }</code></pre>
+<h2>Sizes​</h2>
+<pre><code>&lt;aava-prompt-bar  size="sm"  placeholder="Small prompt bar (2 rows)"  [icons]="allIcons">&lt;/aava-prompt-bar>&lt;aava-prompt-bar  size="md"  placeholder="Medium prompt bar (3 rows)"  [icons]="allIcons">&lt;/aava-prompt-bar>&lt;aava-prompt-bar  size="lg"  placeholder="Large prompt bar (4 rows)"  [icons]="allIcons">&lt;/aava-prompt-bar></code></pre>
+<pre><code>&lt;aava-prompt-bar  size="sm"  placeholder="Small prompt bar (2 rows)"  [icons]="allIcons">&lt;/aava-prompt-bar>&lt;aava-prompt-bar  size="md"  placeholder="Medium prompt bar (3 rows)"  [icons]="allIcons">&lt;/aava-prompt-bar>&lt;aava-prompt-bar  size="lg"  placeholder="Large prompt bar (4 rows)"  [icons]="allIcons">&lt;/aava-prompt-bar></code></pre>
+<pre><code>  allIcons: PromptIcons[] = [    {      name: 'paperclip',      slot: 'icon-start',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onAttachFile()    },    {      name: 'send',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onSend()    }  ];</code></pre>
+<pre><code>  allIcons: PromptIcons[] = [    {      name: 'paperclip',      slot: 'icon-start',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onAttachFile()    },    {      name: 'send',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onSend()    }  ];</code></pre>
+<h2>Available Sizes​</h2>
+<p>The Prompt Bar comes in three size variants — sm, md, and lg — allowing flexible adaptation to different layouts.
+The size affects the overall height, icon dimensions, textarea rows, and tag scaling.
+Use smaller sizes for compact UIs and larger ones for more prominent input sections.</p>
+<p>• sm (Small)– Slightly larger input for standard compact forms</p>
+<p>• md (Medium)– Default size for most use cases (balanced proportions)</p>
+<p>• lg (Large)– Larger input for prominent forms or accessibility-focused layouts</p>
+<h2>Icons & Actions​</h2>
+<pre><code>&lt;div>  &lt;h1>Start Icons Only&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with start icons"    [icons]="startIcons"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>End Icons Only&lt;/h1>  &lt;aava-prompt-bar placeholder="Prompt bar with end icons" [icons]="endIcons">  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Both Start and End Icons&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with both start and end icons"    [icons]="allIcons"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>With Select Component&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with select component"    [icons]="allIcons"    [showSelection]="true"    [deviceOptions]="deviceOptions"    [selectWidth]="'200px'"    selectPlaceholder="Choose device"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>ng-content with Icons&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with icons and custom content"    [icons]="allIcons"  >    &lt;div class="custom-content-with-icons">      &lt;button class="action-button" (click)="onCustomAction()">        Custom Action      &lt;/button>      &lt;span class="status-text">Ready&lt;/span>    &lt;/div>  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>ng-content Only (No Icons)&lt;/h1>  &lt;aava-prompt-bar placeholder="Prompt bar with only custom content">    &lt;div class="custom-content-only">      &lt;button class="primary-button" (click)="onSaveDraft()">Save Draft&lt;/button>      &lt;button class="secondary-button" (click)="onClear()">Clear&lt;/button>      &lt;button class="primary-button" (click)="onSendMessage()">        Send Message      &lt;/button>    &lt;/div>  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Custom Third Row Content (ng-content)&lt;/h1>  &lt;aava-prompt-bar placeholder="Prompt bar with custom third row content">    &lt;div class="custom-third-row">      &lt;div class="custom-left">        &lt;button class="custom-button">Custom Action&lt;/button>      &lt;/div>      &lt;div class="custom-center">        &lt;span class="custom-text">Custom Content&lt;/span>      &lt;/div>      &lt;div class="custom-right">        &lt;button class="custom-button">Send&lt;/button>      &lt;/div>    &lt;/div>  &lt;/aava-prompt-bar>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Start Icons Only&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with start icons"    [icons]="startIcons"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>End Icons Only&lt;/h1>  &lt;aava-prompt-bar placeholder="Prompt bar with end icons" [icons]="endIcons">  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Both Start and End Icons&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with both start and end icons"    [icons]="allIcons"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>With Select Component&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with select component"    [icons]="allIcons"    [showSelection]="true"    [deviceOptions]="deviceOptions"    [selectWidth]="'200px'"    selectPlaceholder="Choose device"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>ng-content with Icons&lt;/h1>  &lt;aava-prompt-bar    placeholder="Prompt bar with icons and custom content"    [icons]="allIcons"  >    &lt;div class="custom-content-with-icons">      &lt;button class="action-button" (click)="onCustomAction()">        Custom Action      &lt;/button>      &lt;span class="status-text">Ready&lt;/span>    &lt;/div>  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>ng-content Only (No Icons)&lt;/h1>  &lt;aava-prompt-bar placeholder="Prompt bar with only custom content">    &lt;div class="custom-content-only">      &lt;button class="primary-button" (click)="onSaveDraft()">Save Draft&lt;/button>      &lt;button class="secondary-button" (click)="onClear()">Clear&lt;/button>      &lt;button class="primary-button" (click)="onSendMessage()">        Send Message      &lt;/button>    &lt;/div>  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Custom Third Row Content (ng-content)&lt;/h1>  &lt;aava-prompt-bar placeholder="Prompt bar with custom third row content">    &lt;div class="custom-third-row">      &lt;div class="custom-left">        &lt;button class="custom-button">Custom Action&lt;/button>      &lt;/div>      &lt;div class="custom-center">        &lt;span class="custom-text">Custom Content&lt;/span>      &lt;/div>      &lt;div class="custom-right">        &lt;button class="custom-button">Send&lt;/button>      &lt;/div>    &lt;/div>  &lt;/aava-prompt-bar>&lt;/div></code></pre>
+<pre><code>  startIcons: PromptIcons[] = [    {      name: 'paperclip',      slot: 'icon-start',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onAttachFile()    },    {      name: 'image',      slot: 'icon-start',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onAddImage()    }  ];  endIcons: PromptIcons[] = [    {      name: 'mic',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onVoiceRecord()    },    {      name: 'send',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onSend()    }  ];  allIcons: PromptIcons[] = [    ...this.startIcons,    ...this.endIcons  ];  deviceOptions: PromptBarOption[] = [    { label: 'Desktop', value: 'desktop', icon: 'monitor' },    { label: 'Tablet', value: 'tablet', icon: 'tablet' },    { label: 'Mobile', value: 'mobile', icon: 'smartphone' }  ];  onMessageSent(message: string) {    console.log('Message sent:', message);  }  onIconClick(event: any) {    console.log('Icon clicked:', event);  }  onAttachFile() {    console.log('Attach file clicked');  }  onAddImage() {    console.log('Add image clicked');  }  onVoiceRecord() {    console.log('Voice record clicked');  }  onSend() {    console.log('Send clicked');  }  onCustomAction() {    console.log('Custom action clicked');  }  onSaveDraft() {    console.log('Save draft clicked');  }  onClear() {    console.log('Clear clicked');  }  onSendMessage() {    console.log('Send message clicked');  }</code></pre>
+<pre><code>  startIcons: PromptIcons[] = [    {      name: 'paperclip',      slot: 'icon-start',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onAttachFile()    },    {      name: 'image',      slot: 'icon-start',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onAddImage()    }  ];  endIcons: PromptIcons[] = [    {      name: 'mic',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onVoiceRecord()    },    {      name: 'send',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onSend()    }  ];  allIcons: PromptIcons[] = [    ...this.startIcons,    ...this.endIcons  ];  deviceOptions: PromptBarOption[] = [    { label: 'Desktop', value: 'desktop', icon: 'monitor' },    { label: 'Tablet', value: 'tablet', icon: 'tablet' },    { label: 'Mobile', value: 'mobile', icon: 'smartphone' }  ];  onMessageSent(message: string) {    console.log('Message sent:', message);  }  onIconClick(event: any) {    console.log('Icon clicked:', event);  }  onAttachFile() {    console.log('Attach file clicked');  }  onAddImage() {    console.log('Add image clicked');  }  onVoiceRecord() {    console.log('Voice record clicked');  }  onSend() {    console.log('Send clicked');  }  onCustomAction() {    console.log('Custom action clicked');  }  onSaveDraft() {    console.log('Save draft clicked');  }  onClear() {    console.log('Clear clicked');  }  onSendMessage() {    console.log('Send message clicked');  }</code></pre>
+<p>Prompt Bars can include action icons on both sides of the input field.
+Each icon can be interactive — triggering specific actions like attachments, voice input, or emoji selectors.
+Icons are customizable with colors, visibility, and click handlers, making it easy to extend the bar’s functionality.</p>
+<h2>File Upload​</h2>
+<pre><code>&lt;div>  &lt;h1>File Upload Integration (Tags as Thumbnails)&lt;/h1>  &lt;aava-prompt-bar    placeholder="Type your message with attached files..."    selectPlaceholder="Choose your device"    [icons]="icons"    [tags]="tags"    [deviceOptions]="deviceOptions"    [showSelection]="true"    [showImage]="false"    (tagRemoved)="onTagRemoved($event)"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>File Upload with Image Preview (Images as Previews)&lt;/h1>  &lt;aava-prompt-bar    placeholder="Upload images to see preview..."    selectPlaceholder="Choose your device"    [icons]="imageIcons"    [tags]="tagsWithImages"    [deviceOptions]="deviceOptions"    [showSelection]="true"    [showImage]="true"    (tagRemoved)="onTagRemovedWithImages($event)"  >  &lt;/aava-prompt-bar>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>File Upload Integration (Tags as Thumbnails)&lt;/h1>  &lt;aava-prompt-bar    placeholder="Type your message with attached files..."    selectPlaceholder="Choose your device"    [icons]="icons"    [tags]="tags"    [deviceOptions]="deviceOptions"    [showSelection]="true"    [showImage]="false"    (tagRemoved)="onTagRemoved($event)"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>File Upload with Image Preview (Images as Previews)&lt;/h1>  &lt;aava-prompt-bar    placeholder="Upload images to see preview..."    selectPlaceholder="Choose your device"    [icons]="imageIcons"    [tags]="tagsWithImages"    [deviceOptions]="deviceOptions"    [showSelection]="true"    [showImage]="true"    (tagRemoved)="onTagRemovedWithImages($event)"  >  &lt;/aava-prompt-bar>&lt;/div></code></pre>
+<pre><code></code></pre>
+<pre><code></code></pre>
+<p>You can attach files or images to the prompt bar as tags or image previews.
+When showImage is enabled, supported image formats (jpg, png, webp, etc.) appear as visual thumbnails, while other files display as tags.
+This is ideal for chat interfaces or upload workflows.</p>
+<h2>States & Configuration​</h2>
+<pre><code>&lt;div>  &lt;h1>Default State&lt;/h1>  &lt;aava-prompt-bar placeholder="Type your message here..." [icons]="icons">  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Disabled State&lt;/h1>  &lt;aava-prompt-bar    placeholder="This prompt bar is disabled"    [disabled]="true"    [icons]="icons"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Auto-resize Textarea&lt;/h1>  &lt;aava-prompt-bar    placeholder="This textarea will auto-resize as you type..."    [textAreaAutoResize]="true"    [textAreaMaxHeight]="200"    [icons]="icons"  >  &lt;/aava-prompt-bar>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Default State&lt;/h1>  &lt;aava-prompt-bar placeholder="Type your message here..." [icons]="icons">  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Disabled State&lt;/h1>  &lt;aava-prompt-bar    placeholder="This prompt bar is disabled"    [disabled]="true"    [icons]="icons"  >  &lt;/aava-prompt-bar>&lt;/div>&lt;div>  &lt;h1>Auto-resize Textarea&lt;/h1>  &lt;aava-prompt-bar    placeholder="This textarea will auto-resize as you type..."    [textAreaAutoResize]="true"    [textAreaMaxHeight]="200"    [icons]="icons"  >  &lt;/aava-prompt-bar>&lt;/div></code></pre>
+<pre><code> icons: PromptIcons[] = [    {      name: 'send',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onSend()    }  ];  onSend() {    console.log('Send clicked');  }</code></pre>
+<pre><code> icons: PromptIcons[] = [    {      name: 'send',      slot: 'icon-end',      color: 'var(--color-text-primary)',      visible: true,      click: () => this.onSend()    }  ];  onSend() {    console.log('Send clicked');  }</code></pre>
+<p>The Prompt Bar supports various states such as disabled, and offers configurable options for width, height, placeholder text, and icon layout.
+You can also control auto-resizing, selection dropdowns, and behavior for multi-line input.
+These settings help integrate the component seamlessly into different UI contexts.</p>
+<h2>Prompt Bar Features​</h2>
+<p>• Multi-line Input: Configurable textarea with adjustable rows</p>
+<p>• Customizable Icons: Action icons positioned at start and end slots</p>
+<p>• Device Selection: Dropdown for selecting target devices or platforms</p>
+<p>• File Attachments: Visual badges for uploaded images with removal</p>
+<p>• Size Variants: Four size options (xs, sm, md, lg) for different layouts</p>
+<p>• Keyboard Shortcuts: Enter to send, Shift+Enter for new lines</p>
+<p>• Responsive Design: Mobile-optimized layout with touch-friendly controls</p>
+<p>• Auto-scroll: Automatic scrolling to bottom for new content</p>
+<h2>Features​</h2>
+<h2>Multi-line Text Input​</h2>
+<p>The core of the prompt bar is a flexible textarea:</p>
+<p>• Configurable Rows: Set the number of visible rows (default: 3)</p>
+<p>• Auto-resize: Textarea adjusts to content while maintaining layout</p>
+<p>• Placeholder Text: Customizable placeholder for user guidance</p>
+<p>• Input Validation: Built-in validation and error handling</p>
+<p>• Accessibility: Full keyboard navigation and screen reader support</p>
+<h2>Icon System​</h2>
+<p>Flexible icon positioning and interaction:</p>
+<p>• Slot-based Layout: Icons can be placed inicon-startoricon-endslots</p>
+<p>• Customizable Appearance: Size, color, and visibility controls</p>
+<p>• Click Handlers: Custom click functions for each icon</p>
+<p>• Conditional Display: Show/hide icons based on context</p>
+<p>• Responsive Sizing: Automatic size adjustments based on component size</p>
+<pre><code>icon-start</code></pre>
+<pre><code>icon-end</code></pre>
+<h2>Device Selection​</h2>
+<p>Integrated dropdown for target device selection:</p>
+<p>• Custom Options: Define device types with labels and icons</p>
+<p>• Visual Indicators: Icons for each device type</p>
+<p>• Responsive Layout: Adapts to available space</p>
+<p>• Integration Ready: Seamlessly integrates with existing selection systems</p>
+<p>• Accessibility: Full keyboard and screen reader support</p>
+<h2>File Management​</h2>
+<p>Visual file attachment system:</p>
+<p>• Image Badges: Display uploaded images as removable tags</p>
+<p>• File Information: Show file size, type, and preview</p>
+<p>• Removal Controls: Easy file removal with click interaction</p>
+<p>• Responsive Layout: Adapts to different screen sizes</p>
+<p>• Visual Feedback: Clear indication of attached files</p>
+<h2>Size Variants​</h2>
+<p>Four predefined size configurations:</p>
+<p>• xs (Extra Small): Compact layout for tight spaces</p>
+<p>• sm (Small): Standard small layout with balanced proportions</p>
+<p>• md (Medium): Default size with optimal spacing</p>
+<p>• lg (Large): Spacious layout for prominent displays</p>
+<h2>API Reference​</h2>
+<h2>Input Properties​</h2>
+<pre>Property | Type | Default | Description
+messages | PromptMessage[] | [] | Array of previous messages for context
+placeholder | string | 'Type a message' | Placeholder text for the input field
+disabled | boolean | false | Disable the prompt bar input
+icons | PromptIcons[] | [] | Array of icons to display
+rows | number | 3 | Number of visible rows in the textarea
+deviceOptions | DropdownOption[] | [] | Options for device selection dropdown
+showSelection | boolean | false | Show the device selection dropdown
+fileOption | string | '' | File upload option configuration
+size | 'lg' | 'md' | 'sm' | 'xs' | 'md' | Size variant for the prompt bar
+uploadedImages | uploadedImages[] | [] | Array of uploaded image attachments
+width | number | 0 | Custom width for the prompt bar
+height | number | 0 | Custom height for the prompt bar
+textAreaMaxHeight | number | 0 | Maximum height for the textarea
+textAreaAutoResize | boolean | false | Auto-resize textarea based on content</pre>
+<pre><code>messages</code></pre>
+<pre><code>PromptMessage[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>placeholder</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Type a message'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>icons</code></pre>
+<pre><code>PromptIcons[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>rows</code></pre>
+<pre><code>number</code></pre>
+<pre><code>3</code></pre>
+<pre><code>deviceOptions</code></pre>
+<pre><code>DropdownOption[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>showSelection</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>fileOption</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'lg' | 'md' | 'sm' | 'xs'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>uploadedImages</code></pre>
+<pre><code>uploadedImages[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>width</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>height</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>textAreaMaxHeight</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>textAreaAutoResize</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<h2>Output Events​</h2>
+<pre>Event | Type | Description
+messageSent | EventEmitter<string> | Emitted when a message is sent
+iconClicked | EventEmitter<{ icon: PromptIcons; currentMessage: string }> | Emitted when an icon is clicked</pre>
+<pre><code>messageSent</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<pre><code>iconClicked</code></pre>
+<pre><code>EventEmitter&lt;{ icon: PromptIcons; currentMessage: string }></code></pre>
+<h2>Interfaces​</h2>
+<pre><code>interface PromptIcons {  name: string; // Icon name/identifier  click?: () => void; // Optional click handler function  size?: string; // Icon size (e.g., '20px')  color?: string; // Icon color (hex, rgb, etc.)  slot: "icon-start" | "icon-end"; // Position slot  visible?: boolean; // Whether icon is visible}</code></pre>
+<pre><code>interface PromptIcons {  name: string; // Icon name/identifier  click?: () => void; // Optional click handler function  size?: string; // Icon size (e.g., '20px')  color?: string; // Icon color (hex, rgb, etc.)  slot: "icon-start" | "icon-end"; // Position slot  visible?: boolean; // Whether icon is visible}</code></pre>
+<pre><code>interface DropdownOption {  label: string; // Display text for the option  value: string; // Value associated with the option  icon: string; // Icon name for the option}</code></pre>
+<pre><code>interface DropdownOption {  label: string; // Display text for the option  value: string; // Value associated with the option  icon: string; // Icon name for the option}</code></pre>
+<pre><code>interface uploadedImages {  id: number; // Unique identifier for the image  label: string; // Display label for the image  image: string; // Image URL or data  icon: string; // Icon to display with the image  size: string; // File size information}</code></pre>
+<pre><code>interface uploadedImages {  id: number; // Unique identifier for the image  label: string; // Display label for the image  image: string; // Image URL or data  icon: string; // Icon to display with the image  size: string; // File size information}</code></pre>
+<h2>Methods​</h2>
+<pre><code>// Trigger message send programmaticallytriggerSend(): void// Get current message contentgetCurrentMessage(): string// Get icon size based on component sizeget getIconSize(): number// Get icons filtered by slot positiongetIconsBySlot(slot: 'icon-start' | 'icon-end'): PromptIcons[]// Get size class for stylinggetPromptBarSizeClass(): string</code></pre>
+<pre><code>// Trigger message send programmaticallytriggerSend(): void// Get current message contentgetCurrentMessage(): string// Get icon size based on component sizeget getIconSize(): number// Get icons filtered by slot positiongetIconsBySlot(slot: 'icon-start' | 'icon-end'): PromptIcons[]// Get size class for stylinggetPromptBarSizeClass(): string</code></pre>
+<pre><code>// Handle message sendingsendMessage(): void// Handle keyboard inputonKeyPress(event: KeyboardEvent): void// Handle input changesonInput(event: Event): void// Handle icon clicksonIconClick(icon: PromptIcons): void// Handle file badge removalremoveBadge(id: number): void// Handle device selection changesonSelectionChange(data: any): void</code></pre>
+<pre><code>// Handle message sendingsendMessage(): void// Handle keyboard inputonKeyPress(event: KeyboardEvent): void// Handle input changesonInput(event: Event): void// Handle icon clicksonIconClick(icon: PromptIcons): void// Handle file badge removalremoveBadge(id: number): void// Handle device selection changesonSelectionChange(data: any): void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The prompt bar component uses CSS custom properties for theming:</p>
+<h2>Container Properties​</h2>
+<pre>Property | Default Value | Description
+--textbox-background | #ffffff | Background color of the prompt bar
+--promptbar-border | 1px solid #e2e8f0 | Border style of the prompt bar
+--promptbar-border-radius | 8px | Border radius of the prompt bar
+--textbox-textarea-container-padding | 16px | Padding for the textarea container
+--textbox-gap | 12px | Gap between elements</pre>
+<pre><code>--textbox-background</code></pre>
+<pre><code>#ffffff</code></pre>
+<pre><code>--promptbar-border</code></pre>
+<pre><code>1px solid #e2e8f0</code></pre>
+<pre><code>--promptbar-border-radius</code></pre>
+<pre><code>8px</code></pre>
+<pre><code>--textbox-textarea-container-padding</code></pre>
+<pre><code>16px</code></pre>
+<pre><code>--textbox-gap</code></pre>
+<pre><code>12px</code></pre>
+<h2>Textarea Properties​</h2>
+<pre>Property | Default Value | Description
+--textbox-textarea-container-padding | 16px | Padding for the textarea
+--textbox-gap | 12px | Gap between textarea elements</pre>
+<pre><code>--textbox-textarea-container-padding</code></pre>
+<pre><code>16px</code></pre>
+<pre><code>--textbox-gap</code></pre>
+<pre><code>12px</code></pre>
+<h2>Badge Properties​</h2>
+<pre>Property | Default Value | Description
+--badge-default-background | #f3f4f6 | Background color for badges
+--promptbar-text-color | #6b7280 | Text color for badges</pre>
+<pre><code>--badge-default-background</code></pre>
+<pre><code>#f3f4f6</code></pre>
+<pre><code>--promptbar-text-color</code></pre>
+<pre><code>#6b7280</code></pre>
+<h2>Responsive Breakpoints​</h2>
+<pre>Breakpoint | Description
+max-width: 576px | Mobile layout adjustments
+max-width: 360px | Small mobile optimizations</pre>
+<pre><code>max-width: 576px</code></pre>
+<pre><code>max-width: 360px</code></pre>
+<h2>Best Practices​</h2>
+<h2>Icon Configuration​</h2>
+<p>• Logical Grouping: Group related icons in the same slot</p>
+<p>• Consistent Sizing: Use consistent icon sizes within the same component</p>
+<p>• Meaningful Colors: Use colors that convey meaning (e.g., green for success)</p>
+<p>• Accessibility: Ensure icons have proper alt text and descriptions</p>
+<p>• Touch Targets: Maintain adequate touch target sizes for mobile</p>
+<h2>Device Selection​</h2>
+<p>• Clear Labels: Use descriptive labels for device options</p>
+<p>• Relevant Icons: Choose icons that clearly represent each device type</p>
+<p>• Logical Ordering: Arrange options in logical order (e.g., Desktop, Tablet, Mobile)</p>
+<p>• Default Selection: Provide sensible default device selection</p>
+<p>• Validation: Validate device selection before processing</p>
+<h2>File Management​</h2>
+<p>• File Types: Support common image formats (JPG, PNG, GIF)</p>
+<p>• Size Limits: Implement reasonable file size restrictions</p>
+<p>• Preview Quality: Provide clear image previews in badges</p>
+<p>• Removal Confirmation: Consider confirmation for file removal</p>
+<p>• Error Handling: Gracefully handle file upload failures</p>
+<h2>User Experience​</h2>
+<p>• Keyboard Shortcuts: Provide intuitive keyboard navigation</p>
+<p>• Visual Feedback: Clear indication of input states and actions</p>
+<p>• Responsive Design: Ensure usability across all device sizes</p>
+<p>• Loading States: Show loading indicators for async operations</p>
+<p>• Error Messages: Provide helpful error messages and recovery options</p>
+<h2>Performance​</h2>
+<p>• Icon Optimization: Use optimized icon assets</p>
+<p>• Lazy Loading: Load non-critical features on demand</p>
+<p>• Event Handling: Efficient event listener management</p>
+<p>• Memory Management: Proper cleanup of file references</p>
+<p>• Change Detection: Use OnPush strategy for optimal performance</p>
+</body></html>
