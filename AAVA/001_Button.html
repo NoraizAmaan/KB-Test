@@ -1,0 +1,330 @@
+<html><head><meta charset='utf-8'>
+<title>Button</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Button</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Button</small></p>
+<h2>Button</h2>
+<p>The Button is one of the most commonly used fundamental components of AAVA Play. It is not just a click target. It's the pulse of the interface—alive, intentional, and radiant with purpose.</p>
+<p>The<aava-button>component provides a highly customizable clickable element with advanced visual effects including glass morphism, multiple interaction states, and comprehensive theming options. It supports various variants, sizes, icons, and custom styling while maintaining accessibility standards.</p>
+<pre><code>&lt;aava-button></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaButtonComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaButtonComponent } from "@aava/play-core";</code></pre>
+<h2>Interactive Matrix​</h2>
+<p>Explore all button combinations with our interactive playground.</p>
+<pre><code>&lt;div class="matrix-demo">  &lt;div class="demo-header">    &lt;!-- Matrix Table -->    &lt;div class="matrix-table-container">      &lt;!-- Size Headers -->      &lt;div id="size-tabs" class="size-tabs">        &lt;aava-tabs          [tabs]="sizeTabs"          [activeTabId]="selectedSize"          variant="button"          size="sm"          [showContentPanels]="false"          (tabChange)="onSizeTabChange($event)"          class="size-tabs-container"        >&lt;/aava-tabs>      &lt;/div>      &lt;!-- Matrix Grid -->      &lt;div class="matrix-grid">        &lt;!-- Column Headers -->        &lt;div class="matrix-header">          &lt;div class="mode-header">Mode&lt;/div>          &lt;div class="fill-header" *ngFor="let fill of fills">{{ fill }}&lt;/div>        &lt;/div>        &lt;!-- Matrix Rows -->        &lt;div class="matrix-row" *ngFor="let mode of modes">          &lt;div class="mode-label">{{ mode }}&lt;/div>          &lt;div class="button-cell" *ngFor="let fill of fills">            &lt;ng-container              *ngIf="getButtonConfig(mode, fill, selectedSize) as config"            >              &lt;aava-button                *ngIf="config.available"                [label]="config.label"                [pill]="config.pill"                [outlined]="config.outlined"                [clear]="config.clear"                [size]="getSizeMapping(selectedSize)"                [iconName]="config.iconName"                [iconPosition]="config.iconPosition || 'left'"                variant="primary"                class="matrix-button"              >&lt;/aava-button>              &lt;div *ngIf="!config.available" class="unavailable">                ❌ Not Available              &lt;/div>            &lt;/ng-container>          &lt;/div>        &lt;/div>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="matrix-demo">  &lt;div class="demo-header">    &lt;!-- Matrix Table -->    &lt;div class="matrix-table-container">      &lt;!-- Size Headers -->      &lt;div id="size-tabs" class="size-tabs">        &lt;aava-tabs          [tabs]="sizeTabs"          [activeTabId]="selectedSize"          variant="button"          size="sm"          [showContentPanels]="false"          (tabChange)="onSizeTabChange($event)"          class="size-tabs-container"        >&lt;/aava-tabs>      &lt;/div>      &lt;!-- Matrix Grid -->      &lt;div class="matrix-grid">        &lt;!-- Column Headers -->        &lt;div class="matrix-header">          &lt;div class="mode-header">Mode&lt;/div>          &lt;div class="fill-header" *ngFor="let fill of fills">{{ fill }}&lt;/div>        &lt;/div>        &lt;!-- Matrix Rows -->        &lt;div class="matrix-row" *ngFor="let mode of modes">          &lt;div class="mode-label">{{ mode }}&lt;/div>          &lt;div class="button-cell" *ngFor="let fill of fills">            &lt;ng-container              *ngIf="getButtonConfig(mode, fill, selectedSize) as config"            >              &lt;aava-button                *ngIf="config.available"                [label]="config.label"                [pill]="config.pill"                [outlined]="config.outlined"                [clear]="config.clear"                [size]="getSizeMapping(selectedSize)"                [iconName]="config.iconName"                [iconPosition]="config.iconPosition || 'left'"                variant="primary"                class="matrix-button"              >&lt;/aava-button>              &lt;div *ngIf="!config.available" class="unavailable">                ❌ Not Available              &lt;/div>            &lt;/ng-container>          &lt;/div>        &lt;/div>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>type ButtonMode = 'pill' | 'default' | 'action' | 'quick-action';type ButtonFill = 'filled' | 'outline' | 'clear';type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';interface ButtonConfig {  mode: ButtonMode;  fill: ButtonFill;  size: ButtonSize;  pill: boolean;  outlined: boolean;  clear: boolean;  iconPosition?: 'left' | 'right' | 'only';  iconName: string;  label: string;  available: boolean;  iconColor?: string;}modes: ButtonMode[] = ['pill', 'default', 'action', 'quick-action'];  fills: ButtonFill[] = ['filled', 'outline', 'clear'];  sizes: ButtonSize[] = ['xsmall', 'small', 'medium', 'large', 'xlarge'];  sizeTabs: TabItem[] = [    { id: 'xsmall', label: 'XSmall' },    { id: 'small', label: 'Small' },    { id: 'medium', label: 'Medium' },    { id: 'large', label: 'Large' },    { id: 'xlarge', label: 'XLarge' },  ];  variants: ButtonVariant[] = [    'primary',    'secondary',    'success',    'warning',    'danger',    'info',  ];  selectedSize: ButtonSize = 'md';  selectedMode: ButtonMode = 'pill';  selectedFill: ButtonFill = 'filled';  toggleTheme(): void {    this.isDarkTheme = !this.isDarkTheme;    document.body.setAttribute(      'data-theme',      this.isDarkTheme ? 'dark' : 'light'    );  }  onSizeTabChange(tab: TabItem): void {    this.selectedSize = tab.id as ButtonSize;  }  getSizeLabel(size: ButtonSize): string {    switch (size) {      case 'xs':        return 'XSmall';      case 'sm':        return 'Small';      case 'md':        return 'Medium';      case 'lg':        return 'Large';      case 'xl':        return 'XLarge';      default:        return size;    }  }  getSizeMapping(    size: ButtonSize  ): 'xs' | 'sm' | 'md' | 'lg' | 'xl' {    switch (size) {      case 'xs':        return 'xs';      case 'sm':        return 'sm';      case 'md':        return 'md';      case 'lg':        return 'lg';      case 'xl':        return 'xl';      default:        return 'md';    }  }  getButtonConfig(    mode: ButtonMode,    fill: ButtonFill,    size: ButtonSize  ): ButtonConfig {    // All fills are now available    const baseConfig = {      mode,      fill,      size,      outlined: fill === 'outline',      clear: fill === 'clear',      available: true,      iconColor: '#fff',    };    switch (mode) {      case 'pill':        return {          ...baseConfig,          pill: true,          iconPosition: 'left' as const,          iconName: 'star',          label: 'Pill',        };      case 'default':        return {          ...baseConfig,          pill: false,          iconName: '',          iconPosition: 'left' as const,          label: 'Default',        };      case 'action':        return {          ...baseConfig,          pill: false,          iconPosition: 'left' as const,          iconName: 'zap',          label: 'Action',        };      case 'quick-action':        return {          ...baseConfig,          pill: true,          iconPosition: 'only' as const,          iconName: 'plus',          label: '',        };      default:        return {          ...baseConfig,          pill: false,          iconPosition: undefined,          iconName: '',          label: mode,          available: false,        };    }  }</code></pre>
+<pre><code>type ButtonMode = 'pill' | 'default' | 'action' | 'quick-action';type ButtonFill = 'filled' | 'outline' | 'clear';type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';interface ButtonConfig {  mode: ButtonMode;  fill: ButtonFill;  size: ButtonSize;  pill: boolean;  outlined: boolean;  clear: boolean;  iconPosition?: 'left' | 'right' | 'only';  iconName: string;  label: string;  available: boolean;  iconColor?: string;}modes: ButtonMode[] = ['pill', 'default', 'action', 'quick-action'];  fills: ButtonFill[] = ['filled', 'outline', 'clear'];  sizes: ButtonSize[] = ['xsmall', 'small', 'medium', 'large', 'xlarge'];  sizeTabs: TabItem[] = [    { id: 'xsmall', label: 'XSmall' },    { id: 'small', label: 'Small' },    { id: 'medium', label: 'Medium' },    { id: 'large', label: 'Large' },    { id: 'xlarge', label: 'XLarge' },  ];  variants: ButtonVariant[] = [    'primary',    'secondary',    'success',    'warning',    'danger',    'info',  ];  selectedSize: ButtonSize = 'md';  selectedMode: ButtonMode = 'pill';  selectedFill: ButtonFill = 'filled';  toggleTheme(): void {    this.isDarkTheme = !this.isDarkTheme;    document.body.setAttribute(      'data-theme',      this.isDarkTheme ? 'dark' : 'light'    );  }  onSizeTabChange(tab: TabItem): void {    this.selectedSize = tab.id as ButtonSize;  }  getSizeLabel(size: ButtonSize): string {    switch (size) {      case 'xs':        return 'XSmall';      case 'sm':        return 'Small';      case 'md':        return 'Medium';      case 'lg':        return 'Large';      case 'xl':        return 'XLarge';      default:        return size;    }  }  getSizeMapping(    size: ButtonSize  ): 'xs' | 'sm' | 'md' | 'lg' | 'xl' {    switch (size) {      case 'xs':        return 'xs';      case 'sm':        return 'sm';      case 'md':        return 'md';      case 'lg':        return 'lg';      case 'xl':        return 'xl';      default:        return 'md';    }  }  getButtonConfig(    mode: ButtonMode,    fill: ButtonFill,    size: ButtonSize  ): ButtonConfig {    // All fills are now available    const baseConfig = {      mode,      fill,      size,      outlined: fill === 'outline',      clear: fill === 'clear',      available: true,      iconColor: '#fff',    };    switch (mode) {      case 'pill':        return {          ...baseConfig,          pill: true,          iconPosition: 'left' as const,          iconName: 'star',          label: 'Pill',        };      case 'default':        return {          ...baseConfig,          pill: false,          iconName: '',          iconPosition: 'left' as const,          label: 'Default',        };      case 'action':        return {          ...baseConfig,          pill: false,          iconPosition: 'left' as const,          iconName: 'zap',          label: 'Action',        };      case 'quick-action':        return {          ...baseConfig,          pill: true,          iconPosition: 'only' as const,          iconName: 'plus',          label: '',        };      default:        return {          ...baseConfig,          pill: false,          iconPosition: undefined,          iconName: '',          label: mode,          available: false,        };    }  }</code></pre>
+<h2>Basic Usage​</h2>
+<p>Basic button implementation with default settings.</p>
+<pre><code>&lt;aava-button  label="Primary"  variant="primary"  (userClick)="onButtonClick($event)"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Primary"  variant="primary"  (userClick)="onButtonClick($event)">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Primary"  variant="primary"  (userClick)="onButtonClick($event)"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Primary"  variant="primary"  (userClick)="onButtonClick($event)">&lt;/aava-button></code></pre>
+<pre><code>  onButtonClick(event: Event) {    console.log('Button clicked:', event);  }</code></pre>
+<pre><code>  onButtonClick(event: Event) {    console.log('Button clicked:', event);  }</code></pre>
+<h2>Variants​</h2>
+<p>The button component supports 9 semantic variants that control the visual appearance and meaning of the button.</p>
+<pre><code>&lt;aava-button label="Primary" variant="primary">&lt;/aava-button>&lt;aava-button label="Secondary" variant="secondary">&lt;/aava-button>&lt;aava-button label="Success" variant="success">&lt;/aava-button>&lt;aava-button label="Warning" variant="warning">&lt;/aava-button>&lt;aava-button label="Danger" variant="danger">&lt;/aava-button>&lt;aava-button label="Info" variant="info">&lt;/aava-button>&lt;avaa-button label="Tertiary" variant="tertiary">&lt;/avaa-button></code></pre>
+<pre><code>&lt;aava-button label="Primary" variant="primary">&lt;/aava-button>&lt;aava-button label="Secondary" variant="secondary">&lt;/aava-button>&lt;aava-button label="Success" variant="success">&lt;/aava-button>&lt;aava-button label="Warning" variant="warning">&lt;/aava-button>&lt;aava-button label="Danger" variant="danger">&lt;/aava-button>&lt;aava-button label="Info" variant="info">&lt;/aava-button>&lt;avaa-button label="Tertiary" variant="tertiary">&lt;/avaa-button></code></pre>
+<h2>Available Variants​</h2>
+<p>• primary- Main call-to-action button (pink/brand color)</p>
+<p>• secondary- Outlined style with transparent background</p>
+<p>• success- Positive actions (green)</p>
+<p>• warning- Cautionary actions (orange)</p>
+<p>• danger- Destructive actions (red)</p>
+<p>• info- Informational actions (blue)</p>
+<p>• tertiary- Text-only action (transparent)</p>
+<h2>Sizes​</h2>
+<p>Five size options to fit different layout requirements and visual hierarchies.</p>
+<pre><code>&lt;aava-button label="Extra Small" variant="primary" size="xs">&lt;/aava-button>&lt;aava-button label="Small" variant="primary" size="sm">&lt;/aava-button>&lt;aava-button label="Medium" variant="primary" size="md">&lt;/aava-button>&lt;aava-button label="Large" variant="primary" size="lg">&lt;/aava-button>&lt;aava-button label="Extra Large" variant="primary" size="xl">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button label="Extra Small" variant="primary" size="xs">&lt;/aava-button>&lt;aava-button label="Small" variant="primary" size="sm">&lt;/aava-button>&lt;aava-button label="Medium" variant="primary" size="md">&lt;/aava-button>&lt;aava-button label="Large" variant="primary" size="lg">&lt;/aava-button>&lt;aava-button label="Extra Large" variant="primary" size="xl">&lt;/aava-button></code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- Extra compact size for very dense interfaces</p>
+<p>• sm (Small)- Compact size for dense interfaces</p>
+<p>• md (Medium)- Standard size for most use cases (default)</p>
+<p>• lg (Large)- Prominent size for primary actions</p>
+<p>• xl (Extra Large)- Extra large size for hero sections and CTAs</p>
+<h2>Hover Effects​</h2>
+<p>Dynamic hover effects that enhance user interaction feedback.</p>
+<pre><code>&lt;aava-button  label="Torch (Recommended)"  variant="primary"  hoverEffect="torch"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Glow Effect"  ariant="warning"  hoverEffect="glow"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Tint Effect"  variant="success"  hoverEffect="tint"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Scale Effect"  variant="danger"  hoverEffect="scale"  [pill]="true">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Torch (Recommended)"  variant="primary"  hoverEffect="torch"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Glow Effect"  ariant="warning"  hoverEffect="glow"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Tint Effect"  variant="success"  hoverEffect="tint"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Scale Effect"  variant="danger"  hoverEffect="scale"  [pill]="true">&lt;/aava-button></code></pre>
+<h2>Available Hover Effects​</h2>
+<p>• torch- Internal semicircular sunrise effect (default)</p>
+<p>• glow- Outer glow with elevation</p>
+<p>• tint- Color overlay with brightness increase</p>
+<p>• scale- Scale transformation with elevation</p>
+<h2>Pressed Effects​</h2>
+<p>Visual feedback for button press interactions with various animation styles.</p>
+<pre><code>&lt;aava-button  label="Ripple (Recommended)"  variant="primary"  pressedEffect="ripple"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Inset Effect"  variant="warning"  pressedEffect="inset"  [pill]="true">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Ripple (Recommended)"  variant="primary"  pressedEffect="ripple"  [pill]="true">&lt;/aava-button>&lt;aava-button  label="Inset Effect"  variant="warning"  pressedEffect="inset"  [pill]="true">&lt;/aava-button></code></pre>
+<h2>Available Pressed Effects​</h2>
+<p>• ripple- Multi-layered ripple animation (default)</p>
+<p>• inset- Inset shadow effect</p>
+<h2>Icons​</h2>
+<p>Comprehensive icon support with flexible positioning and customization options.</p>
+<pre><code>&lt;aava-button  label="Left Icon"  iconName="star"  iconPosition="left"  variant="primary"  iconColor="#fff">&lt;/aava-button>&lt;aava-button  label="Right Icon"  iconName="star"  iconPosition="right"  variant="primary"  iconColor="#fff">&lt;/aava-button>&lt;aava-button  iconName="star"  iconPosition="icon-only"  variant="primary"  iconColor="#fff">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Left Icon"  iconName="star"  iconPosition="left"  variant="primary"  iconColor="#fff">&lt;/aava-button>&lt;aava-button  label="Right Icon"  iconName="star"  iconPosition="right"  variant="primary"  iconColor="#fff">&lt;/aava-button>&lt;aava-button  iconName="star"  iconPosition="icon-only"  variant="primary"  iconColor="#fff">&lt;/aava-button></code></pre>
+<h2>Icon Properties​</h2>
+<p>• iconName- Lucide icon name</p>
+<p>• iconPosition- Position relative to text:left,right,icon-only</p>
+<p>• iconColor- Custom icon color (defaults to currentColor)</p>
+<p>• iconSize- Icon size in pixels (default: 20)</p>
+<pre><code>left</code></pre>
+<pre><code>right</code></pre>
+<pre><code>icon-only</code></pre>
+<h2>States​</h2>
+<p>Interactive states for different user scenarios and feedback.</p>
+<pre><code>&lt;aava-button label="Default State" variant="primary" size="md" [pill]="true">&lt;/aava-button>&lt;aava-button  label="Processing State"  variant="primary"  [processing]="true"  size="md"  [pill]="true"  iconName="loader"  iconColor="white"  iconPosition="left">&lt;/aava-button>&lt;aava-button  label="Disabled State"  variant="primary"  [disabled]="true"  size="md"  [pill]="true">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button label="Default State" variant="primary" size="md" [pill]="true">&lt;/aava-button>&lt;aava-button  label="Processing State"  variant="primary"  [processing]="true"  size="md"  [pill]="true"  iconName="loader"  iconColor="white"  iconPosition="left">&lt;/aava-button>&lt;aava-button  label="Disabled State"  variant="primary"  [disabled]="true"  size="md"  [pill]="true">&lt;/aava-button></code></pre>
+<h2>Available States​</h2>
+<p>• default- Programmatically active state</p>
+<p>• processing- Loading/async operation state with pulse animation</p>
+<p>• disabled- Non-interactive state</p>
+<h2>Shapes & Styles​</h2>
+<p>Shape modifiers and style variants for different design requirements.</p>
+<pre><code>&lt;aava-button  label="Primary"  variant="primary"  [pill]="true"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button>&lt;aava-button  label="Secondary"  variant="secondary"  [pill]="true"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button>&lt;aava-button  label="Primary"  variant="primary"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button>&lt;aava-button  label="Secondary"  variant="secondary"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Primary"  variant="primary"  [pill]="true"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button>&lt;aava-button  label="Secondary"  variant="secondary"  [pill]="true"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button>&lt;aava-button  label="Primary"  variant="primary"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button>&lt;aava-button  label="Secondary"  variant="secondary"  [customStyles]="{ 'max-width': '100px' }">&lt;/aava-button></code></pre>
+<h2>Available Shapes​</h2>
+<p>• default- Standard rectangular with border radius</p>
+<p>• pill- Fully rounded corners (50px border radius)</p>
+<h2>Style Variants​</h2>
+<p>• outlined- Transparent background with colored border</p>
+<p>• clear- Transparent background with no border, uses variant text colors</p>
+<p>• customStyles- Allows to apply inline CSS styles directly to the component.
+This property accepts a key-value pair object where the key is the CSS property name and the value is the corresponding CSS value.</p>
+<h2>Events​</h2>
+<p>The button component emits events for user interactions.</p>
+<pre><code>&lt;aava-button  label="Click Handler"  variant="primary"  (userClick)="onButtonClick()"  [customStyles]="{ 'max-width': '200px' }"  [pill]="true">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Click Handler"  variant="primary"  (userClick)="onButtonClick()"  [customStyles]="{ 'max-width': '200px' }"  [pill]="true">&lt;/aava-button></code></pre>
+<pre><code>  onButtonClick() {    setTimeout(() => {      alert('Hi There!');    }, 200);  }</code></pre>
+<pre><code>  onButtonClick() {    setTimeout(() => {      alert('Hi There!');    }, 200);  }</code></pre>
+<h2>Available Events​</h2>
+<p>• userClick- Emitted on button click or keyboard activation (Enter/Space)</p>
+<h2>Accessibility​</h2>
+<p>The button component follows WAI-ARIA accessibility guidelines:</p>
+<p>• Proper keyboard navigation (Enter and Space key support)</p>
+<p>• ARIA attributes for screen readers (aria-disabled,aria-pressed)</p>
+<p>• Focus management with visible focus indicators</p>
+<p>• Semantic button element usage</p>
+<pre><code>aria-disabled</code></pre>
+<pre><code>aria-pressed</code></pre>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+label | string | '' | Button text content
+variant | ButtonVariant | 'default' | Visual variant: | 'default' | , | 'primary' | , | 'secondary' | , | 'success' | , | 'warning' | , | 'danger' | , | 'info'
+size | ButtonSize | 'md' | Button size: | 'xs' | , | 'sm' | , | 'md' | , | 'lg' | , | 'xl'
+state | ButtonState | 'default' | Interaction state: | 'default' | , | 'hover' | , | 'active' | , | 'disabled' | , | 'processing' | , | 'focus'
+hoverEffect | ButtonHoverEffect | 'torch' | Hover effect: | 'torch' | , | 'glow' | , | 'tint' | , | 'scale' | , | 'none'
+pressedEffect | ButtonPressedEffect | 'ripple' | Pressed effect: | 'ripple' | , | 'inset' | , | 'solid' | , | 'none'
+processingEffect | ButtonProcessingEffect | 'pulse' | Processing effect: | 'pulse' | , | 'none'
+focusEffect | ButtonFocusEffect | 'border' | Focus effect: | 'border' | , | 'none'
+disabledEffect | ButtonDisabledEffect | 'dim' | Disabled effect: | 'dim' | , | 'none'
+disabled | boolean | false | Whether button is disabled
+processing | boolean | false | Whether button is in processing state
+pill | boolean | false | Whether to use pill shape
+outlined | boolean | false | Whether to use outlined style variant
+clear | boolean | false | Whether to use clear style variant (transparent, no border)
+width | string | '' | Custom width value
+height | string | '' | Custom height value
+gradient | string | undefined | Legacy | – use | customStyles | instead
+background | string | undefined | Legacy | – use | customStyles | instead
+color | string | undefined | Legacy | – use | customStyles | instead
+dropdown | boolean | false | Legacy | – use separate dropdown component
+glassVariant | ButtonGlassVariant | 'glass-10' | Default recommended glass intensity
+customStyles | Record<string, string> | {} | CSS custom properties override
+iconName | string | '' | Lucide icon name
+iconColor | string | '' | Custom icon color
+iconSize | number | 20 | Icon size in pixels
+iconPosition | 'left' | 'right' | 'only' | 'left' | Icon position relative to text</pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>ButtonVariant</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>'primary'</code></pre>
+<pre><code>'secondary'</code></pre>
+<pre><code>'success'</code></pre>
+<pre><code>'warning'</code></pre>
+<pre><code>'danger'</code></pre>
+<pre><code>'info'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>ButtonSize</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>'xs'</code></pre>
+<pre><code>'sm'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>'lg'</code></pre>
+<pre><code>'xl'</code></pre>
+<pre><code>state</code></pre>
+<pre><code>ButtonState</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>'hover'</code></pre>
+<pre><code>'active'</code></pre>
+<pre><code>'disabled'</code></pre>
+<pre><code>'processing'</code></pre>
+<pre><code>'focus'</code></pre>
+<pre><code>hoverEffect</code></pre>
+<pre><code>ButtonHoverEffect</code></pre>
+<pre><code>'torch'</code></pre>
+<pre><code>'torch'</code></pre>
+<pre><code>'glow'</code></pre>
+<pre><code>'tint'</code></pre>
+<pre><code>'scale'</code></pre>
+<pre><code>'none'</code></pre>
+<pre><code>pressedEffect</code></pre>
+<pre><code>ButtonPressedEffect</code></pre>
+<pre><code>'ripple'</code></pre>
+<pre><code>'ripple'</code></pre>
+<pre><code>'inset'</code></pre>
+<pre><code>'solid'</code></pre>
+<pre><code>'none'</code></pre>
+<pre><code>processingEffect</code></pre>
+<pre><code>ButtonProcessingEffect</code></pre>
+<pre><code>'pulse'</code></pre>
+<pre><code>'pulse'</code></pre>
+<pre><code>'none'</code></pre>
+<pre><code>focusEffect</code></pre>
+<pre><code>ButtonFocusEffect</code></pre>
+<pre><code>'border'</code></pre>
+<pre><code>'border'</code></pre>
+<pre><code>'none'</code></pre>
+<pre><code>disabledEffect</code></pre>
+<pre><code>ButtonDisabledEffect</code></pre>
+<pre><code>'dim'</code></pre>
+<pre><code>'dim'</code></pre>
+<pre><code>'none'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>processing</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>pill</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>outlined</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>clear</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>width</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>height</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>gradient</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>background</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>color</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>dropdown</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>glassVariant</code></pre>
+<pre><code>ButtonGlassVariant</code></pre>
+<pre><code>'glass-10'</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>iconName</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>20</code></pre>
+<pre><code>iconPosition</code></pre>
+<pre><code>'left' | 'right' | 'only'</code></pre>
+<pre><code>'left'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+userClick | EventEmitter<Event> | Emitted when button is clicked or activated via keyboard</pre>
+<pre><code>userClick</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<h2>Design Tokens & Theming​</h2>
+<p>AAVA Play buttons use semantic design tokens for all surfaces, spacing, radius, and motion. While global tokens define the visual language of the system, buttons expose a set ofscoped override tokensthat allow you to fine-tune appearance without breaking consistency.</p>
+<p>Use theseonly when necessary—for instance, to adjust a button's vertical padding inside a dense UI or to sharpen the radius for compact layouts.</p>
+<h2>Available Design Tokens for Button​</h2>
+<pre>Token | Purpose | Default Value
+--button-size-xsm-padding | Padding for extra small size buttons | Theme-based
+--button-size-sm-padding | Padding for small size buttons | Theme-based
+--button-size-md-padding | Padding for medium size buttons | Theme-based
+--button-size-lg-padding | Padding for large size buttons | Theme-based
+--button-size-xlg-padding | Padding for extra large size buttons | Theme-based
+--button-size-xsm-height | Height for extra small size buttons | Theme-based
+--button-size-sm-height | Height for small size buttons | Theme-based
+--button-size-md-height | Height for medium size buttons | Theme-based
+--button-size-lg-height | Height for large size buttons | Theme-based
+--button-size-xlg-height | Height for extra large size buttons | Theme-based
+--button-border-radius | Border radius for default shape | Theme-based</pre>
+<pre><code>--button-size-xsm-padding</code></pre>
+<pre><code>--button-size-sm-padding</code></pre>
+<pre><code>--button-size-md-padding</code></pre>
+<pre><code>--button-size-lg-padding</code></pre>
+<pre><code>--button-size-xlg-padding</code></pre>
+<pre><code>--button-size-xsm-height</code></pre>
+<pre><code>--button-size-sm-height</code></pre>
+<pre><code>--button-size-md-height</code></pre>
+<pre><code>--button-size-lg-height</code></pre>
+<pre><code>--button-size-xlg-height</code></pre>
+<pre><code>--button-border-radius</code></pre>
+<pre>Token | Purpose | Default Value
+--button-font-weight | Font weight for button text | Theme-based
+--button-transition | Default transition animation | Theme-based</pre>
+<pre><code>--button-font-weight</code></pre>
+<pre><code>--button-transition</code></pre>
+<pre>Token | Purpose | Default Value
+--button-icon-margin | Margin around icons | Theme-based</pre>
+<pre><code>--button-icon-margin</code></pre>
+<h2>Token Override Example​</h2>
+<p>You can define overrides in your theme configuration or component styles:</p>
+<pre><code>/* Custom button theming */.my-compact-buttons {  --button-size-md-padding: 8px 16px;  --button-border-radius: 4px;  --button-transition: 100ms ease;}</code></pre>
+<pre><code>/* Custom button theming */.my-compact-buttons {  --button-size-md-padding: 8px 16px;  --button-border-radius: 4px;  --button-transition: 100ms ease;}</code></pre>
+<p>This would make buttons more compact, sharper, and snappier—ideal for dense interfaces or admin tools.</p>
+<p>These tokens are opt-in overrides. If not set, the button will inherit global styles via the design system tokens.</p>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use semantic variants- Choose variants that match the action's intent (primary for main actions, danger for destructive actions)</p>
+<p>• Default variant- Usedefaultvariant for standard buttons;primaryfor main CTAs</p>
+<p>• Size selection- Usemediumas the default size;extra small/extra largefor extreme cases only</p>
+<p>• Effects system- Default effects work well together; customize only when needed</p>
+<p>• Icon usage- Useicon-onlyfor compact interfaces,left/rightfor labeled actions</p>
+<p>• Consistent sizing- Match button sizes to surrounding elements and visual hierarchy</p>
+<pre><code>default</code></pre>
+<pre><code>primary</code></pre>
+<pre><code>medium</code></pre>
+<pre><code>extra small</code></pre>
+<pre><code>extra large</code></pre>
+<pre><code>icon-only</code></pre>
+<pre><code>left</code></pre>
+<pre><code>right</code></pre>
+<h2>Accessibility​</h2>
+<p>• Always provide meaningful labels- Even for icon-only buttons, use proper ARIA labels</p>
+<p>• Keyboard navigation- Ensure all interactive elements are keyboard accessible</p>
+<p>• Focus indicators- Maintain clear focus states for navigation</p>
+<p>• Screen reader support- Use semantic HTML and proper ARIA attributes</p>
+<p>• Color contrast- Ensure sufficient contrast for all variants and states</p>
+<h2>Performance​</h2>
+<p>• Avoid excessive custom styling- Use built-in variants when possible</p>
+<p>• Debounce rapid clicks- Prevent accidental multiple submissions</p>
+<p>• Optimize icon loading- Use icon systems efficiently</p>
+<p>• Consider bundle size- Import only needed effects and variants</p>
+</body></html>
