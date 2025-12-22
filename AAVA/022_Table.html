@@ -1,0 +1,244 @@
+<html><head><meta charset='utf-8'>
+<title>Table</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Table</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Data-Display/Table</small></p>
+<h2>Table</h2>
+<p>TheDataGridComponentprovides a comprehensive data table solution with advanced features including sorting, filtering, custom cell templates, and responsive design. It uses a flexible column definition system with content projection for maximum customization.</p>
+<pre><code>DataGridComponent</code></pre>
+<h2>How to use​</h2>
+<p>Import the component and its directives, then define your table structure with custom templates.</p>
+<pre><code>import {  AavaDataGridComponent,  AvaColumnDefDirective,  AvaHeaderCellDefDirective,  AvaCellDefDirective,  AavaTagComponent,} from "@aava/play-core";</code></pre>
+<pre><code>import {  AavaDataGridComponent,  AvaColumnDefDirective,  AvaHeaderCellDefDirective,  AvaCellDefDirective,  AavaTagComponent,} from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple table with basic data display and column definitions.</p>
+<pre><code>&lt;div class="demo-page">  &lt;!-- Demo Content -->  &lt;div class="demo-content">    &lt;div class="container">      &lt;!-- Employee Table Section -->      &lt;div class="demo-section">        &lt;div class="table-container">          &lt;aava-data-grid            [dataSource]="basicData"            [displayedColumns]="displayedColumns"            class="styled-data-grid"          >            &lt;ng-container avaColumnDef="name">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Employee Name&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell name-cell">                  &lt;span class="employee-name">{{ row.name }}&lt;/span>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>            &lt;ng-container avaColumnDef="email">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Email Address&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell email-cell">                  &lt;span class="email-text">{{ row.email }}&lt;/span>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>            &lt;ng-container avaColumnDef="department">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Department&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell department-cell">                  &lt;span class="department-badge">{{ row.department }}&lt;/span>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>            &lt;ng-container avaColumnDef="status">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Status&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell status-cell">                  &lt;aava-tag                    [label]="row.status"                    [color]="getStatusColor(row.status)"                    size="sm"                  >&lt;/aava-tag>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>          &lt;/aava-data-grid>        &lt;/div>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="demo-page">  &lt;!-- Demo Content -->  &lt;div class="demo-content">    &lt;div class="container">      &lt;!-- Employee Table Section -->      &lt;div class="demo-section">        &lt;div class="table-container">          &lt;aava-data-grid            [dataSource]="basicData"            [displayedColumns]="displayedColumns"            class="styled-data-grid"          >            &lt;ng-container avaColumnDef="name">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Employee Name&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell name-cell">                  &lt;span class="employee-name">{{ row.name }}&lt;/span>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>            &lt;ng-container avaColumnDef="email">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Email Address&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell email-cell">                  &lt;span class="email-text">{{ row.email }}&lt;/span>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>            &lt;ng-container avaColumnDef="department">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Department&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell department-cell">                  &lt;span class="department-badge">{{ row.department }}&lt;/span>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>            &lt;ng-container avaColumnDef="status">              &lt;ng-container *avaHeaderCellDef>                &lt;div class="header-cell">                  &lt;span class="header-text">Status&lt;/span>                &lt;/div>              &lt;/ng-container>              &lt;ng-container *avaCellDef="let row">                &lt;div class="data-cell status-cell">                  &lt;aava-tag                    [label]="row.status"                    [color]="getStatusColor(row.status)"                    size="sm"                  >&lt;/aava-tag>                &lt;/div>              &lt;/ng-container>            &lt;/ng-container>          &lt;/aava-data-grid>        &lt;/div>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code> basicData = [    {      id: 1,      name: 'Alice Johnson',      email: 'alice.johnson@example.com',      department: 'Engineering',      status: 'Active',    },    {      id: 2,      name: 'Bob Smith',      email: 'bob.smith@example.com',      department: 'Marketing',      status: 'Active',    },    {      id: 3,      name: 'Carlos Martinez',      email: 'carlos.martinez@example.com',      department: 'Sales',      status: 'Pending',    },    {      id: 4,      name: 'Diana Lee',      email: 'diana.lee@example.com',      department: 'Engineering',      status: 'Inactive',    },    {      id: 5,      name: 'Ethan Brown',      email: 'ethan.brown@example.com',      department: 'HR',      status: 'Active',    },  ];  displayedColumns = ['name', 'email', 'department', 'status'];  /**   * Get the appropriate color for status tags   */  getStatusColor(    status: string  ): 'success' | 'warning' | 'error' | 'info' | 'default' {    switch (status.toLowerCase()) {      case 'active':        return 'success';      case 'pending':        return 'warning';      case 'inactive':        return 'error';      default:        return 'default';    }  }</code></pre>
+<pre><code> basicData = [    {      id: 1,      name: 'Alice Johnson',      email: 'alice.johnson@example.com',      department: 'Engineering',      status: 'Active',    },    {      id: 2,      name: 'Bob Smith',      email: 'bob.smith@example.com',      department: 'Marketing',      status: 'Active',    },    {      id: 3,      name: 'Carlos Martinez',      email: 'carlos.martinez@example.com',      department: 'Sales',      status: 'Pending',    },    {      id: 4,      name: 'Diana Lee',      email: 'diana.lee@example.com',      department: 'Engineering',      status: 'Inactive',    },    {      id: 5,      name: 'Ethan Brown',      email: 'ethan.brown@example.com',      department: 'HR',      status: 'Active',    },  ];  displayedColumns = ['name', 'email', 'department', 'status'];  /**   * Get the appropriate color for status tags   */  getStatusColor(    status: string  ): 'success' | 'warning' | 'error' | 'info' | 'default' {    switch (status.toLowerCase()) {      case 'active':        return 'success';      case 'pending':        return 'warning';      case 'inactive':        return 'error';      default:        return 'default';    }  }</code></pre>
+<h2>Sorting​</h2>
+<p>Table with sortable columns and visual sort indicators.</p>
+<pre><code>&lt;div class="demo-content">  &lt;div class="demo-section">    &lt;div class="demo-card">      &lt;div class="card-content">        &lt;aava-data-grid          [dataSource]="employeeData"          [displayedColumns]="displayedColumns"        >          &lt;ng-container avaColumnDef="name" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Employee Name&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">{{ row.name }}&lt;/ng-container>          &lt;/ng-container>          &lt;ng-container avaColumnDef="position" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Position&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.position }}&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="salary" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Annual Salary&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >${{ row.salary | number }}&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="experience" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Experience (Years)&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.experience }} years&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="joinDate" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Join Date&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.joinDate | date }}&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="department">            &lt;ng-container *avaHeaderCellDef>Department&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.department }}&lt;/ng-container            >          &lt;/ng-container>        &lt;/aava-data-grid>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="demo-content">  &lt;div class="demo-section">    &lt;div class="demo-card">      &lt;div class="card-content">        &lt;aava-data-grid          [dataSource]="employeeData"          [displayedColumns]="displayedColumns"        >          &lt;ng-container avaColumnDef="name" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Employee Name&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">{{ row.name }}&lt;/ng-container>          &lt;/ng-container>          &lt;ng-container avaColumnDef="position" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Position&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.position }}&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="salary" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Annual Salary&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >${{ row.salary | number }}&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="experience" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Experience (Years)&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.experience }} years&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="joinDate" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Join Date&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.joinDate | date }}&lt;/ng-container            >          &lt;/ng-container>          &lt;ng-container avaColumnDef="department">            &lt;ng-container *avaHeaderCellDef>Department&lt;/ng-container>            &lt;ng-container *avaCellDef="let row"              >{{ row.department }}&lt;/ng-container            >          &lt;/ng-container>        &lt;/aava-data-grid>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>employeeData = [  {    id: 1,    name: "Alice Johnson",    position: "Senior Developer",    salary: 95000,    joinDate: "2020-03-15",    experience: 8,    department: "Engineering",  },  {    id: 2,    name: "Bob Smith",    position: "Marketing Manager",    salary: 75000,    joinDate: "2019-07-22",    experience: 6,    department: "Marketing",  },  {    id: 3,    name: "Carlos Martinez",    position: "Sales Representative",    salary: 55000,    joinDate: "2021-11-08",    experience: 3,    department: "Sales",  },  {    id: 4,    name: "Diana Lee",    position: "UX Designer",    salary: 70000,    joinDate: "2020-09-12",    experience: 5,    department: "Design",  },  {    id: 5,    name: "Ethan Brown",    position: "Data Analyst",    salary: 65000,    joinDate: "2022-01-30",    experience: 2,    department: "Analytics",  },  {    id: 6,    name: "Fiona Green",    position: "Project Manager",    salary: 85000,    joinDate: "2018-05-10",    experience: 9,    department: "Operations",  },  {    id: 7,    name: "George Wang",    position: "DevOps Engineer",    salary: 90000,    joinDate: "2019-12-03",    experience: 7,    department: "Engineering",  },  {    id: 8,    name: "Hannah Kim",    position: "Content Writer",    salary: 45000,    joinDate: "2021-08-15",    experience: 1,    department: "Marketing",  },];displayedColumns = ["name", "position", "salary", "experience", "joinDate"];salesData = [  { month: "January", revenue: 125000, orders: 340, conversion: 3.2 },  { month: "February", revenue: 135000, orders: 385, conversion: 3.8 },  { month: "March", revenue: 142000, orders: 420, conversion: 4.1 },  { month: "April", revenue: 128000, orders: 365, conversion: 3.5 },  { month: "May", revenue: 155000, orders: 445, conversion: 4.3 },  { month: "June", revenue: 168000, orders: 478, conversion: 4.6 },];salesColumns = ["month", "revenue", "orders", "conversion"];</code></pre>
+<pre><code>employeeData = [  {    id: 1,    name: "Alice Johnson",    position: "Senior Developer",    salary: 95000,    joinDate: "2020-03-15",    experience: 8,    department: "Engineering",  },  {    id: 2,    name: "Bob Smith",    position: "Marketing Manager",    salary: 75000,    joinDate: "2019-07-22",    experience: 6,    department: "Marketing",  },  {    id: 3,    name: "Carlos Martinez",    position: "Sales Representative",    salary: 55000,    joinDate: "2021-11-08",    experience: 3,    department: "Sales",  },  {    id: 4,    name: "Diana Lee",    position: "UX Designer",    salary: 70000,    joinDate: "2020-09-12",    experience: 5,    department: "Design",  },  {    id: 5,    name: "Ethan Brown",    position: "Data Analyst",    salary: 65000,    joinDate: "2022-01-30",    experience: 2,    department: "Analytics",  },  {    id: 6,    name: "Fiona Green",    position: "Project Manager",    salary: 85000,    joinDate: "2018-05-10",    experience: 9,    department: "Operations",  },  {    id: 7,    name: "George Wang",    position: "DevOps Engineer",    salary: 90000,    joinDate: "2019-12-03",    experience: 7,    department: "Engineering",  },  {    id: 8,    name: "Hannah Kim",    position: "Content Writer",    salary: 45000,    joinDate: "2021-08-15",    experience: 1,    department: "Marketing",  },];displayedColumns = ["name", "position", "salary", "experience", "joinDate"];salesData = [  { month: "January", revenue: 125000, orders: 340, conversion: 3.2 },  { month: "February", revenue: 135000, orders: 385, conversion: 3.8 },  { month: "March", revenue: 142000, orders: 420, conversion: 4.1 },  { month: "April", revenue: 128000, orders: 365, conversion: 3.5 },  { month: "May", revenue: 155000, orders: 445, conversion: 4.3 },  { month: "June", revenue: 168000, orders: 478, conversion: 4.6 },];salesColumns = ["month", "revenue", "orders", "conversion"];</code></pre>
+<h2>Filtering​</h2>
+<p>Advanced filtering capabilities with multiple filter conditions and operators.</p>
+<pre><code>&lt;div class="demo-content">  &lt;div class="demo-section">    &lt;div class="demo-card">      &lt;div class="card-content">        &lt;aava-data-grid          [dataSource]="inventoryData"          [displayedColumns]="inventoryColumns"        >          &lt;ng-container avaColumnDef="sku" [filter]="true" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>SKU&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">              &lt;code class="sku-code">{{ row.sku }}&lt;/code>            &lt;/ng-container>          &lt;/ng-container>          &lt;ng-container            avaColumnDef="product"            [filter]="true"            [sortable]="true"          >            &lt;ng-container *avaHeaderCellDef>Product Name&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">{{ row.product }}&lt;/ng-container>          &lt;/ng-container>          &lt;ng-container            avaColumnDef="category"            [filter]="true"            [sortable]="true"          >            &lt;ng-container *avaHeaderCellDef>Category&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">              &lt;span class="category-tag">{{ row.category }}&lt;/span>            &lt;/ng-container>          &lt;/ng-container>          &lt;ng-container avaColumnDef="stock" [filter]="true" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Stock&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">              &lt;span                class="stock-indicator"                [class]="row.stock &lt; 50 ? 'low-stock' : 'normal-stock'"              >                {{ row.stock }} units              &lt;/span>            &lt;/ng-container>          &lt;/ng-container>          &lt;ng-container avaColumnDef="price" [filter]="true" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Price&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">${{ row.price }}&lt;/ng-container>          &lt;/ng-container>        &lt;/aava-data-grid>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="demo-content">  &lt;div class="demo-section">    &lt;div class="demo-card">      &lt;div class="card-content">        &lt;aava-data-grid          [dataSource]="inventoryData"          [displayedColumns]="inventoryColumns"        >          &lt;ng-container avaColumnDef="sku" [filter]="true" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>SKU&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">              &lt;code class="sku-code">{{ row.sku }}&lt;/code>            &lt;/ng-container>          &lt;/ng-container>          &lt;ng-container            avaColumnDef="product"            [filter]="true"            [sortable]="true"          >            &lt;ng-container *avaHeaderCellDef>Product Name&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">{{ row.product }}&lt;/ng-container>          &lt;/ng-container>          &lt;ng-container            avaColumnDef="category"            [filter]="true"            [sortable]="true"          >            &lt;ng-container *avaHeaderCellDef>Category&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">              &lt;span class="category-tag">{{ row.category }}&lt;/span>            &lt;/ng-container>          &lt;/ng-container>          &lt;ng-container avaColumnDef="stock" [filter]="true" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Stock&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">              &lt;span                class="stock-indicator"                [class]="row.stock &lt; 50 ? 'low-stock' : 'normal-stock'"              >                {{ row.stock }} units              &lt;/span>            &lt;/ng-container>          &lt;/ng-container>          &lt;ng-container avaColumnDef="price" [filter]="true" [sortable]="true">            &lt;ng-container *avaHeaderCellDef>Price&lt;/ng-container>            &lt;ng-container *avaCellDef="let row">${{ row.price }}&lt;/ng-container>          &lt;/ng-container>        &lt;/aava-data-grid>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/div></code></pre>
+<pre><code>customerData = [  {    id: 1,    name: "Alice Johnson",    email: "alice.johnson@techcorp.com",    company: "TechCorp Inc.",    status: "Active",    location: "New York",    industry: "Technology",    revenue: 250000,  },  {    id: 2,    name: "Bob Smith",    email: "bob.smith@retail.co",    company: "Retail Solutions Co.",    status: "Inactive",    location: "Los Angeles",    industry: "Retail",    revenue: 180000,  },  {    id: 3,    name: "Carlos Martinez",    email: "carlos@manufacturing.biz",    company: "Manufacturing Plus",    status: "Pending",    location: "Chicago",    industry: "Manufacturing",    revenue: 320000,  },  {    id: 4,    name: "Diana Lee",    email: "diana.lee@healthsys.org",    company: "HealthSys Group",    status: "Active",    location: "Houston",    industry: "Healthcare",    revenue: 420000,  },  {    id: 5,    name: "Ethan Brown",    email: "ethan@finance.net",    company: "Finance Solutions",    status: "Active",    location: "Miami",    industry: "Finance",    revenue: 380000,  },  {    id: 6,    name: "Fiona Green",    email: "fiona.green@education.edu",    company: "Education First",    status: "Inactive",    location: "Seattle",    industry: "Education",    revenue: 95000,  },  {    id: 7,    name: "George Wang",    email: "george@consulting.pro",    company: "Consulting Experts",    status: "Active",    location: "Boston",    industry: "Consulting",    revenue: 275000,  },  {    id: 8,    name: "Hannah Kim",    email: "hannah.kim@media.tv",    company: "Media Productions",    status: "Pending",    location: "San Francisco",    industry: "Media",    revenue: 150000,  },  {    id: 9,    name: "Ian Davis",    email: "ian@logistics.freight",    company: "Logistics Express",    status: "Active",    location: "Denver",    industry: "Logistics",    revenue: 200000,  },  {    id: 10,    name: "Julia Roberts",    email: "julia@realestate.homes",    company: "Real Estate Pros",    status: "Active",    location: "Phoenix",    industry: "Real Estate",    revenue: 310000,  },];displayedColumns = [  "name",  "email",  "company",  "status",  "location",  "industry",];inventoryData = [  {    sku: "TECH-001",    product: "Wireless Mouse",    category: "Electronics",    stock: 150,    price: 29.99,  },  {    sku: "TECH-002",    product: "Bluetooth Keyboard",    category: "Electronics",    stock: 85,    price: 79.99,  },  {    sku: "BOOK-001",    product: "JavaScript Handbook",    category: "Books",    stock: 45,    price: 34.95,  },  {    sku: "FURN-001",    product: "Ergonomic Chair",    category: "Furniture",    stock: 12,    price: 299.99,  },  {    sku: "TECH-003",    product: "USB-C Cable",    category: "Electronics",    stock: 200,    price: 14.99,  },  {    sku: "BOOK-002",    product: "Design Principles",    category: "Books",    stock: 28,    price: 42.5,  },  {    sku: "FURN-002",    product: "Standing Desk",    category: "Furniture",    stock: 8,    price: 449.99,  },  {    sku: "TECH-004",    product: "Laptop Stand",    category: "Electronics",    stock: 67,    price: 89.99,  },];inventoryColumns = ["sku", "product", "category", "stock", "price"];</code></pre>
+<pre><code>customerData = [  {    id: 1,    name: "Alice Johnson",    email: "alice.johnson@techcorp.com",    company: "TechCorp Inc.",    status: "Active",    location: "New York",    industry: "Technology",    revenue: 250000,  },  {    id: 2,    name: "Bob Smith",    email: "bob.smith@retail.co",    company: "Retail Solutions Co.",    status: "Inactive",    location: "Los Angeles",    industry: "Retail",    revenue: 180000,  },  {    id: 3,    name: "Carlos Martinez",    email: "carlos@manufacturing.biz",    company: "Manufacturing Plus",    status: "Pending",    location: "Chicago",    industry: "Manufacturing",    revenue: 320000,  },  {    id: 4,    name: "Diana Lee",    email: "diana.lee@healthsys.org",    company: "HealthSys Group",    status: "Active",    location: "Houston",    industry: "Healthcare",    revenue: 420000,  },  {    id: 5,    name: "Ethan Brown",    email: "ethan@finance.net",    company: "Finance Solutions",    status: "Active",    location: "Miami",    industry: "Finance",    revenue: 380000,  },  {    id: 6,    name: "Fiona Green",    email: "fiona.green@education.edu",    company: "Education First",    status: "Inactive",    location: "Seattle",    industry: "Education",    revenue: 95000,  },  {    id: 7,    name: "George Wang",    email: "george@consulting.pro",    company: "Consulting Experts",    status: "Active",    location: "Boston",    industry: "Consulting",    revenue: 275000,  },  {    id: 8,    name: "Hannah Kim",    email: "hannah.kim@media.tv",    company: "Media Productions",    status: "Pending",    location: "San Francisco",    industry: "Media",    revenue: 150000,  },  {    id: 9,    name: "Ian Davis",    email: "ian@logistics.freight",    company: "Logistics Express",    status: "Active",    location: "Denver",    industry: "Logistics",    revenue: 200000,  },  {    id: 10,    name: "Julia Roberts",    email: "julia@realestate.homes",    company: "Real Estate Pros",    status: "Active",    location: "Phoenix",    industry: "Real Estate",    revenue: 310000,  },];displayedColumns = [  "name",  "email",  "company",  "status",  "location",  "industry",];inventoryData = [  {    sku: "TECH-001",    product: "Wireless Mouse",    category: "Electronics",    stock: 150,    price: 29.99,  },  {    sku: "TECH-002",    product: "Bluetooth Keyboard",    category: "Electronics",    stock: 85,    price: 79.99,  },  {    sku: "BOOK-001",    product: "JavaScript Handbook",    category: "Books",    stock: 45,    price: 34.95,  },  {    sku: "FURN-001",    product: "Ergonomic Chair",    category: "Furniture",    stock: 12,    price: 299.99,  },  {    sku: "TECH-003",    product: "USB-C Cable",    category: "Electronics",    stock: 200,    price: 14.99,  },  {    sku: "BOOK-002",    product: "Design Principles",    category: "Books",    stock: 28,    price: 42.5,  },  {    sku: "FURN-002",    product: "Standing Desk",    category: "Furniture",    stock: 8,    price: 449.99,  },  {    sku: "TECH-004",    product: "Laptop Stand",    category: "Electronics",    stock: 67,    price: 89.99,  },];inventoryColumns = ["sku", "product", "category", "stock", "price"];</code></pre>
+<h2>Features​</h2>
+<h2>Flexible Column System​</h2>
+<p>• Content projection-based column definitions</p>
+<p>• Custom header and cell templates</p>
+<p>• Configurable sorting and filtering per column</p>
+<p>• Dynamic column visibility</p>
+<h2>Advanced Sorting​</h2>
+<p>• Multi-column sorting support</p>
+<p>• Visual sort indicators (ascending/descending)</p>
+<p>• Configurable sort behavior per column</p>
+<p>• Sort state management</p>
+<h2>Powerful Filtering​</h2>
+<p>• Multiple filter conditions and operators</p>
+<p>• Real-time filtering with search</p>
+<p>• Filter panel with advanced options</p>
+<p>• Clear and apply filter actions</p>
+<h2>Custom Templates​</h2>
+<p>• Flexible cell content templates</p>
+<p>• Custom header templates</p>
+<p>• Template context with row data and index</p>
+<p>• Support for complex cell content</p>
+<h2>Responsive Design​</h2>
+<p>• Horizontal scrolling for wide tables</p>
+<p>• Mobile-friendly design</p>
+<p>• Adaptive column sizing</p>
+<p>• Touch-optimized interactions</p>
+<h2>Performance Optimized​</h2>
+<p>• OnPush change detection strategy</p>
+<p>• Efficient data handling</p>
+<p>• Optimized rendering</p>
+<p>• Memory management</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+dataSource | any[] | [] | Array of data objects to display in the table
+displayedColumns | string[] | [] | Array of column names to display</pre>
+<pre><code>dataSource</code></pre>
+<pre><code>any[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>displayedColumns</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>[]</code></pre>
+<h2>Outputs​</h2>
+<pre>Property | Type | Description
+dataSorted | EventEmitter<any[]> | Emitted when data is sorted with sorted data</pre>
+<pre><code>dataSorted</code></pre>
+<pre><code>EventEmitter&lt;any[]></code></pre>
+<h2>Directives​</h2>
+<pre>Property | Type | Default | Description
+avaColumnDef | string | - | Column name/identifier (required)
+sortable | boolean | false | Enable sorting for this column
+filter | boolean | false | Enable filtering for this column</pre>
+<pre><code>avaColumnDef</code></pre>
+<pre><code>string</code></pre>
+<pre><code>sortable</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>filter</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre>Property | Type | Description
+Template | TemplateRef<any> | Template for custom header cell content</pre>
+<pre><code>TemplateRef&lt;any></code></pre>
+<pre>Property | Type | Description
+Template | TemplateRef<any> | Template for custom cell content with context</pre>
+<pre><code>TemplateRef&lt;any></code></pre>
+<h2>Interfaces​</h2>
+<pre><code>interface FilterCondition {  label: string; // Display label for filter condition  value: string; // Value for filter condition}</code></pre>
+<pre><code>interface FilterCondition {  label: string; // Display label for filter condition  value: string; // Value for filter condition}</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Description
+onSort() | column: AvaColumnDefDirective | Handle column sorting
+applySort() | None | Apply current sort to data
+applyFilter() | columnName: string, event: Event | Apply filter to specific column
+clearFilter() | columnName: string, event: any | Clear filter for specific column
+openPanel() | columnName: string, event: any | Open filter panel for column
+checkForOpen() | columnName: string | Check if filter panel is open for column</pre>
+<pre><code>onSort()</code></pre>
+<pre><code>column: AvaColumnDefDirective</code></pre>
+<pre><code>applySort()</code></pre>
+<pre><code>applyFilter()</code></pre>
+<pre><code>columnName: string, event: Event</code></pre>
+<pre><code>clearFilter()</code></pre>
+<pre><code>columnName: string, event: any</code></pre>
+<pre><code>openPanel()</code></pre>
+<pre><code>columnName: string, event: any</code></pre>
+<pre><code>checkForOpen()</code></pre>
+<pre><code>columnName: string</code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+sortColumn | string | null | Currently sorted column
+sortDirection | 'asc' | 'desc' | '' | Current sort direction
+sortedData | any[] | Currently sorted and filtered data
+filterColumn | Array<{column: string, type: string, value: any, open: boolean}> | Active filters
+defaultFilterConditions | FilterCondition[] | Available filter conditions</pre>
+<pre><code>sortColumn</code></pre>
+<pre><code>string | null</code></pre>
+<pre><code>sortDirection</code></pre>
+<pre><code>'asc' | 'desc' | ''</code></pre>
+<pre><code>sortedData</code></pre>
+<pre><code>any[]</code></pre>
+<pre><code>filterColumn</code></pre>
+<pre><code>Array&lt;{column: string, type: string, value: any, open: boolean}></code></pre>
+<pre><code>defaultFilterConditions</code></pre>
+<pre><code>FilterCondition[]</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The component uses CSS custom properties for dynamic styling:</p>
+<h2>Container Properties​</h2>
+<pre>Property | Description
+--grid-font-family-body | Font family for table content
+--grid-text-color | Text color for table content
+--grid-background-color-odd | Background color for odd rows
+--grid-background-color-even | Background color for even rows
+--grid-border | Border color for grid elements</pre>
+<pre><code>--grid-font-family-body</code></pre>
+<pre><code>--grid-text-color</code></pre>
+<pre><code>--grid-background-color-odd</code></pre>
+<pre><code>--grid-background-color-even</code></pre>
+<pre><code>--grid-border</code></pre>
+<h2>Table Properties​</h2>
+<pre>Property | Description
+--table-border | Border color for table elements</pre>
+<pre><code>--table-border</code></pre>
+<h2>CSS Classes​</h2>
+<p>The component uses CSS classes for styling and state management:</p>
+<h2>Container Classes​</h2>
+<pre>Class | Description
+.ava-data-table-wrapper | Main table container
+.data-table-wrapper | Inner table wrapper with scrolling
+.ava-data-table | Main table element</pre>
+<pre><code>.ava-data-table-wrapper</code></pre>
+<pre><code>.data-table-wrapper</code></pre>
+<pre><code>.ava-data-table</code></pre>
+<h2>Cell Classes​</h2>
+<pre>Class | Description
+.cell-wrapper | Header cell content wrapper
+.grid-column-container | Column header container
+.filter | Filter icon container
+.filter-wrapper | Filter panel container
+.default-filter-actions | Filter action buttons container
+.cell-link | Link styling within cells</pre>
+<pre><code>.cell-wrapper</code></pre>
+<pre><code>.grid-column-container</code></pre>
+<pre><code>.filter</code></pre>
+<pre><code>.filter-wrapper</code></pre>
+<pre><code>.default-filter-actions</code></pre>
+<pre><code>.cell-link</code></pre>
+<h2>State Classes​</h2>
+<pre>Class | Description
+.sort-icon | Sort indicator icon
+Various pseudo-classes | Hover and focus states</pre>
+<pre><code>.sort-icon</code></pre>
+<h2>Best Practices​</h2>
+<h2>Data Structure​</h2>
+<p>• Use consistent data structure across all rows</p>
+<p>• Ensure column names match displayedColumns array</p>
+<p>• Provide meaningful default values for missing data</p>
+<p>• Optimize data for sorting and filtering</p>
+<h2>Column Definitions​</h2>
+<p>• Use descriptive column names</p>
+<p>• Enable sorting only for relevant columns</p>
+<p>• Enable filtering for searchable data</p>
+<p>• Provide meaningful header labels</p>
+<h2>Custom Templates​</h2>
+<p>• Keep cell templates simple and focused</p>
+<p>• Use template context for row data access</p>
+<p>• Implement proper error handling in templates</p>
+<p>• Consider accessibility in custom content</p>
+<h2>Performance​</h2>
+<p>• Limit data size for optimal performance</p>
+<p>• Use OnPush change detection strategy</p>
+<p>• Implement virtual scrolling for large datasets</p>
+<p>• Optimize filter and sort operations</p>
+<h2>Accessibility​</h2>
+<p>• Provide proper ARIA labels</p>
+<p>• Ensure keyboard navigation support</p>
+<p>• Use semantic HTML structure</p>
+<p>• Maintain color contrast ratios</p>
+<h2>Responsive Design​</h2>
+<p>• Test table on various screen sizes</p>
+<p>• Implement horizontal scrolling for wide tables</p>
+<p>• Consider mobile-specific interactions</p>
+<p>• Optimize touch targets for mobile</p>
+<h2>Accessibility​</h2>
+<h2>ARIA Support​</h2>
+<p>• Proper table semantics</p>
+<p>• Sort and filter announcements</p>
+<p>• Screen reader friendly navigation</p>
+<p>• Status updates for dynamic content</p>
+<h2>Keyboard Navigation​</h2>
+<p>• Tab navigation through table elements</p>
+<p>• Arrow key navigation between cells</p>
+<p>• Enter/Space activation for actions</p>
+<p>• Escape key for closing panels</p>
+<h2>Focus Management​</h2>
+<p>• Clear focus indicators</p>
+<p>• Logical tab order</p>
+<p>• Focus restoration after actions</p>
+<p>• Focus trapping in modals/panels</p>
+<h2>Screen Reader Support​</h2>
+<p>• Descriptive labels for actions</p>
+<p>• Context information for data</p>
+<p>• Status announcements</p>
+<p>• Clear navigation structure</p>
+<h2>Browser Support​</h2>
+<p>• Modern Browsers: Full support for all features</p>
+<p>• CSS Grid/Flexbox: Required for layout</p>
+<p>• ES6+ Features: Required for component functionality</p>
+<p>• Template Ref: Required for content projection</p>
+<p>• Change Detection: OnPush strategy support</p>
+</body></html>
