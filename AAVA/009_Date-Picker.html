@@ -1,0 +1,214 @@
+<html><head><meta charset='utf-8'>
+<title>Date-Picker</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Date-Picker</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Date-Picker</small></p>
+<h2>Date Picker</h2>
+<p>The<aava-calendar>component provides a robust, accessible, and highly customizable calendar interface for selecting single dates or date ranges. It features structured input fields, keyboard navigation, glassmorphism effects, and seamless integration with Angular forms. The component is designed for both standalone display and as a building block for date pickers and scheduling interfaces.</p>
+<pre><code>&lt;aava-calendar></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaCalendarComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaCalendarComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple calendar for single date selection with structured input fields.</p>
+<pre><code>&lt;aava-datepicker (dateSelected)="onDateSelected($event)"> &lt;/aava-datepicker></code></pre>
+<pre><code>&lt;aava-datepicker (dateSelected)="onDateSelected($event)"> &lt;/aava-datepicker></code></pre>
+<pre><code>onDateSelected(date: Date) {  console.log('Selected date:', date);}</code></pre>
+<pre><code>onDateSelected(date: Date) {  console.log('Selected date:', date);}</code></pre>
+<h2>Range Selection​</h2>
+<p>Enable range mode for selecting a start and end date with dual structured inputs.</p>
+<pre><code>&lt;aava-datepicker [isRange]="true" (rangeSelected)="onRangeSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>&lt;aava-datepicker [isRange]="true" (rangeSelected)="onRangeSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>  selectedRange: DateRange = { start: null, end: null };  onRangeSelected(range: DateRange) {    this.selectedRange = range;    console.log('Selected range:', range);  }</code></pre>
+<pre><code>  selectedRange: DateRange = { start: null, end: null };  onRangeSelected(range: DateRange) {    this.selectedRange = range;    console.log('Selected range:', range);  }</code></pre>
+<h2>Always Open / Embedded Mode​</h2>
+<p>Display the calendar inline (always open) for dashboards and embedded views.</p>
+<pre><code>&lt;aava-datepicker [alwaysOpen]="true" (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>&lt;aava-datepicker [alwaysOpen]="true" (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>  selectedDate: Date | null = null;  onDateSelected(date: Date) {    this.selectedDate = date;    console.log('Selected date:', date);  }</code></pre>
+<pre><code>  selectedDate: Date | null = null;  onDateSelected(date: Date) {    this.selectedDate = date;    console.log('Selected date:', date);  }</code></pre>
+<h2>Customization Options​</h2>
+<p>Showcase selector shape and various customization options.</p>
+<pre><code>&lt;aava-datepicker  [alwaysOpen]="true"  selectorShape="square"  (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker>&lt;aava-datepicker  [alwaysOpen]="true"  selectorShape="circle"  (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>&lt;aava-datepicker  [alwaysOpen]="true"  selectorShape="square"  (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker>&lt;aava-datepicker  [alwaysOpen]="true"  selectorShape="circle"  (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>  onDateSelected(date: Date) {    console.log('Selected date:', date);  }</code></pre>
+<pre><code>  onDateSelected(date: Date) {    console.log('Selected date:', date);  }</code></pre>
+<h2>Size Variants​</h2>
+<p>Five size variants to accommodate different design requirements and space constraints.</p>
+<pre><code>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="xs"  label="Extra Small">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="sm"  label="Small">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="md"  label="Medium">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="lg"  label="Large">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="xl"  label="Extra Large">&lt;/aava-datepicker></code></pre>
+<pre><code>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="xs"  label="Extra Small">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="sm"  label="Small">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="md"  label="Medium">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="lg"  label="Large">&lt;/aava-datepicker>&lt;aava-datepicker  (dateSelected)="onDateSelected($event)"  calendarSize="xl"  label="Extra Large">&lt;/aava-datepicker></code></pre>
+<pre><code>  onDateSelected(date: Date) {    console.log('Selected date:', date);  }</code></pre>
+<pre><code>  onDateSelected(date: Date) {    console.log('Selected date:', date);  }</code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- Compact size for tight spaces and dense layouts</p>
+<p>• sm (Small)- Smaller than default, suitable for secondary interfaces</p>
+<p>• md (Medium)- Default size, balanced for most use cases</p>
+<p>• lg (Large)- Larger size for enhanced readability and touch interfaces</p>
+<p>• xl (Extra Large)- Maximum size for accessibility and prominent displays</p>
+<h2>Size Characteristics​</h2>
+<p>Each size variant affects:</p>
+<p>• Input field dimensions- Height, padding, and font sizes</p>
+<p>• Calendar popup sizing- Overall dimensions and spacing</p>
+<p>• Day selector sizes- Individual day cell dimensions</p>
+<p>• Navigation elements- Button sizes and spacing</p>
+<p>• Typography scaling- Font sizes for headers and content</p>
+<h2>Accessibility Features​</h2>
+<p>Built-in accessibility features ensuring WCAG compliance and inclusive user experience.</p>
+<pre><code>&lt;aava-datepicker [alwaysOpen]="true" (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>&lt;aava-datepicker [alwaysOpen]="true" (dateSelected)="onDateSelected($event)">&lt;/aava-datepicker></code></pre>
+<pre><code>  onDateSelected(date: Date) {    console.log('Selected date:', date);  }</code></pre>
+<pre><code>  onDateSelected(date: Date) {    console.log('Selected date:', date);  }</code></pre>
+<h2>Features​</h2>
+<p>• Single date and range selectionwith visual range indicators</p>
+<p>• Structured input fieldsfor direct date entry (DD/MM/YYYY format)</p>
+<p>• Multiple size variants(xs, sm, md, lg, xl) for flexible layouts</p>
+<p>• Keyboard navigation(arrow keys, Enter, Tab, Escape)</p>
+<p>• Month/year navigationwith dropdown selectors</p>
+<p>• Customizable selector shape(square or circle)</p>
+<p>• Glassmorphism surface effectswith multiple strength levels</p>
+<p>• Weekday format options(1, 2, or 3 letter formats)</p>
+<p>• Full accessibility(ARIA, focus management, screen reader support)</p>
+<p>• Angular forms integration(ControlValueAccessor implementation)</p>
+<p>• Auto-advance input segmentsfor seamless data entry</p>
+<p>• Input validationand error handling</p>
+<p>• Responsive designwith mobile-friendly interactions</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+isRange | boolean | false | Enable range selection mode
+selectedDate | Date | null | null | Selected date (single mode)
+dateRange | { start: Date | null, end: Date | null } | { start: null, end: null } | Selected date range (range mode)
+weekdayFormat | 1 | 2 | 3 | 3 | Weekday label format: 1 = single letter, 2 = two-letter, 3 = three-letter
+alwaysOpen | boolean | false | Display calendar inline (always open)
+selectorShape | 'square' | 'circle' | 'square' | Shape of day selector
+calendarSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'md' | Size variant for calendar and input elements
+surface | boolean | false | Enable glassmorphism surface effect
+surfaceStrength | 'medium' | 'strong' | 'max' | undefined | 'medium' | Glassmorphism intensity</pre>
+<pre><code>isRange</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>selectedDate</code></pre>
+<pre><code>Date | null</code></pre>
+<pre><code>null</code></pre>
+<pre><code>dateRange</code></pre>
+<pre><code>{ start: Date | null, end: Date | null }</code></pre>
+<pre><code>{ start: null, end: null }</code></pre>
+<pre><code>weekdayFormat</code></pre>
+<pre><code>1 | 2 | 3</code></pre>
+<pre><code>3</code></pre>
+<pre><code>alwaysOpen</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>selectorShape</code></pre>
+<pre><code>'square' | 'circle'</code></pre>
+<pre><code>'square'</code></pre>
+<pre><code>calendarSize</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>surface</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>surfaceStrength</code></pre>
+<pre><code>'medium' | 'strong' | 'max' | undefined</code></pre>
+<pre><code>'medium'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+dateSelected | EventEmitter<Date> | Emitted when a date is selected (single mode)
+rangeSelected | EventEmitter<{ start: Date, end: Date }> | Emitted when a date range is selected (range mode)</pre>
+<pre><code>dateSelected</code></pre>
+<pre><code>EventEmitter&lt;Date></code></pre>
+<pre><code>rangeSelected</code></pre>
+<pre><code>EventEmitter&lt;{ start: Date, end: Date }></code></pre>
+<h2>Computed Properties​</h2>
+<pre>Property | Type | Description
+weekDays | string[] | Computed weekday labels based on format
+yearRange | number[] | Array of years (current ± 50 years)
+calendarDays | CalendarDay[] | Array of days for current month display</pre>
+<pre><code>weekDays</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>yearRange</code></pre>
+<pre><code>number[]</code></pre>
+<pre><code>calendarDays</code></pre>
+<pre><code>CalendarDay[]</code></pre>
+<h2>Interfaces​</h2>
+<pre><code>interface DateRange {  start: Date | null;  end: Date | null;}interface CalendarDay {  date: Date;  isCurrentMonth: boolean;  isToday: boolean;  isSelected: boolean;  isInRange: boolean;  isRangeStart: boolean;  isRangeEnd: boolean;}</code></pre>
+<pre><code>interface DateRange {  start: Date | null;  end: Date | null;}interface CalendarDay {  date: Date;  isCurrentMonth: boolean;  isToday: boolean;  isSelected: boolean;  isInRange: boolean;  isRangeStart: boolean;  isRangeEnd: boolean;}</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--calendar-font-family | Font family for calendar text
+--calendar-size-sm-font | Small font size for calendar elements
+--calendar-size-md-font | Medium font size for headers (default)
+--calendar-input-padding | Padding for input fields
+--calendar-input-border | Border for input fields
+--calendar-input-border-radius | Border radius for input fields
+--calendar-input-background | Background color for input fields
+--calendar-popup-background | Background for calendar popup
+--calendar-popup-border | Border for calendar popup
+--calendar-popup-border-radius | Border radius for calendar popup
+--calendar-popup-shadow | Shadow for calendar popup
+--calendar-popup-z-index | Z-index for calendar popup
+--calendar-nav-button-hover-background | Hover background for navigation buttons</pre>
+<pre><code>--calendar-font-family</code></pre>
+<pre><code>--calendar-size-sm-font</code></pre>
+<pre><code>--calendar-size-md-font</code></pre>
+<pre><code>--calendar-input-padding</code></pre>
+<pre><code>--calendar-input-border</code></pre>
+<pre><code>--calendar-input-border-radius</code></pre>
+<pre><code>--calendar-input-background</code></pre>
+<pre><code>--calendar-popup-background</code></pre>
+<pre><code>--calendar-popup-border</code></pre>
+<pre><code>--calendar-popup-border-radius</code></pre>
+<pre><code>--calendar-popup-shadow</code></pre>
+<pre><code>--calendar-popup-z-index</code></pre>
+<pre><code>--calendar-nav-button-hover-background</code></pre>
+<h2>Accessibility​</h2>
+<p>The Calendar component is built with comprehensive accessibility features:</p>
+<p>• Semantic HTML: Uses appropriate roles and elements for calendar, grid, and buttons</p>
+<p>• ARIA attributes: Provides ARIA labels for navigation, days, and range selection</p>
+<p>• Keyboard navigation: Full support for arrow keys, Enter, Tab, and Escape</p>
+<p>• Screen reader support: Announces current month/year, selected dates, and range</p>
+<p>• Focus management: Clear focus indicators and logical tab order</p>
+<p>• High contrast: Supports high contrast and custom themes</p>
+<p>• Reduced motion: Respects user motion preferences</p>
+<h2>Keyboard Shortcuts​</h2>
+<p>• Arrow keys: Move focus between days</p>
+<p>• Enter/Space: Select date or range endpoint</p>
+<p>• Tab/Shift+Tab: Move between input segments and controls</p>
+<p>• Escape: Close popup (if not always open)</p>
+<p>• Home/End: Navigate to first/last day of month</p>
+<p>• Page Up/Down: Navigate to previous/next month</p>
+<h2>Structured Input Navigation​</h2>
+<p>• Tab: Move between day, month, year segments</p>
+<p>• Arrow keys: Navigate within segments</p>
+<p>• Auto-advance: Automatically moves to next segment when complete</p>
+<p>• Validation: Real-time validation of date inputs</p>
+<h2>Best Practices​</h2>
+<h2>Usage Guidelines​</h2>
+<p>• Single Date: Use for appointment booking, event scheduling, or simple date selection</p>
+<p>• Range Selection: Use for booking periods, analytics date ranges, or vacation planning</p>
+<p>• Always Open: Use for dashboards, embedded views, or when space allows</p>
+<p>• Size Selection: Choose appropriate size based on context and space constraints</p>
+<p>• Surface Effects: Use glassmorphism for modern, layered UI designs</p>
+<p>• Forms Integration: Leverage ControlValueAccessor for seamless form integration</p>
+<h2>Size Selection Guidelines​</h2>
+<p>• XS: Use in data tables, compact forms, or when space is extremely limited</p>
+<p>• SM: Use in secondary interfaces, sidebars, or when you need subtle presence</p>
+<p>• MD: Use as the default for most applications and primary interfaces</p>
+<p>• LG: Use in touch interfaces, mobile applications, or when enhanced readability is needed</p>
+<p>• XL: Use in accessibility-focused applications or when maximum visibility is required</p>
+<h2>Implementation Considerations​</h2>
+<p>• Input Validation: Always validate user input from structured fields</p>
+<p>• Error Handling: Provide clear feedback for invalid dates</p>
+<p>• Mobile Experience: Test touch interactions and responsive behavior</p>
+<p>• Performance: Calendar renders efficiently with OnPush change detection</p>
+<p>• Theming: Use semantic tokens for consistent design system integration</p>
+<h2>Accessibility Implementation​</h2>
+<p>• Screen Reader Testing: Test with NVDA, JAWS, or VoiceOver</p>
+<p>• Keyboard Testing: Verify complete keyboard navigation flow</p>
+<p>• Focus Management: Ensure logical tab order and clear focus indicators</p>
+<p>• Color Contrast: Maintain sufficient contrast ratios (4.5:1 minimum)</p>
+<p>• Motion Preferences: Respect user's reduced motion settings</p>
+</body></html>
