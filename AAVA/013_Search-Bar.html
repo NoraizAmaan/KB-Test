@@ -1,0 +1,176 @@
+<html><head><meta charset='utf-8'>
+<title>Search-Bar</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Search-Bar</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Search-Bar</small></p>
+<h2>Search Bar</h2>
+<p>The<aava-search-bar>component provides a comprehensive search input solution with integrated search and send icons. Built on top of the textbox component, it offers consistent styling, multiple size variants, and flexible configuration options for various search scenarios.</p>
+<pre><code>&lt;aava-search-bar></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaSearchBarComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaSearchBarComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple search bar implementation with default settings and integrated search functionality.</p>
+<pre><code>&lt;aava-search-bar  placeholder="Enter your search term..."  [closeButton]="true"  (searchClick)="onSearchClick($event)"  (searchChange)="onSearchChange($event)"  (onClose)="onClose($event)">&lt;/aava-search-bar></code></pre>
+<pre><code>&lt;aava-search-bar  placeholder="Enter your search term..."  [closeButton]="true"  (searchClick)="onSearchClick($event)"  (searchChange)="onSearchChange($event)"  (onClose)="onClose($event)">&lt;/aava-search-bar></code></pre>
+<pre><code>  onSearchClick(searchTerm: string) {    console.log('Search clicked with term:', searchTerm);  }  onSearchChange(event: Event) {    console.log('Textbox changed:', this.currentInput);  }  onClose(searchTerm: string) {    console.log('Clear search:', searchTerm);  }</code></pre>
+<pre><code>  onSearchClick(searchTerm: string) {    console.log('Search clicked with term:', searchTerm);  }  onSearchChange(event: Event) {    console.log('Textbox changed:', this.currentInput);  }  onClose(searchTerm: string) {    console.log('Clear search:', searchTerm);  }</code></pre>
+<h2>Basic Features​</h2>
+<p>• Integrated Icons: Built-in search, send and close icons for intuitive user experience</p>
+<p>• Textbox Foundation: Inherits all textbox functionality and styling</p>
+<p>• Search Events: Emits search events when user click the send icon</p>
+<p>• Responsive Design: Adapts to different screen sizes and container widths</p>
+<p>• Accessibility: Full keyboard navigation and screen reader support</p>
+<h2>Variants​</h2>
+<p>Simple search bar implementation with default settings and integrated search functionality.</p>
+<pre><code>&lt;aava-search-bar closeButtonVisibility="always">&lt;/aava-search-bar>&lt;aava-search-bar closeButtonVisibility="hidden">&lt;/aava-search-bar>&lt;aava-search-bar  closeButtonVisibility="always"  [sendButton]="false">&lt;/aava-search-bar>&lt;aava-search-bar [sendButton]="false">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Primary"  searchIconColor="#3b82f6"  sendIconColor="#3b82f6">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Success"  searchIconColor="#10b981"  sendIconColor="#10b981">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Warning"  searchIconColor="#f59e0b"  sendIconColor="#f59e0b">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Danger"  searchIconColor="#ef4444"  sendIconColor="#ef4444">&lt;/aava-search-bar></code></pre>
+<pre><code>&lt;aava-search-bar closeButtonVisibility="always">&lt;/aava-search-bar>&lt;aava-search-bar closeButtonVisibility="hidden">&lt;/aava-search-bar>&lt;aava-search-bar  closeButtonVisibility="always"  [sendButton]="false">&lt;/aava-search-bar>&lt;aava-search-bar [sendButton]="false">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Primary"  searchIconColor="#3b82f6"  sendIconColor="#3b82f6">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Success"  searchIconColor="#10b981"  sendIconColor="#10b981">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Warning"  searchIconColor="#f59e0b"  sendIconColor="#f59e0b">&lt;/aava-search-bar>&lt;aava-search-bar  placeholder="Danger"  searchIconColor="#ef4444"  sendIconColor="#ef4444">&lt;/aava-search-bar></code></pre>
+<h2>Available Variants​</h2>
+<p>• closeButtonVisibility: Controls the visibility behavior of the close (clear) button.
+This input determines when the close button should be displayed based on the textbox content or user preference.</p>
+<p>• sendButton: Controls the visibility of the send button.</p>
+<p>• searchIconColor: Controls the search icon color</p>
+<p>• sendIconColor: Controls the send icon color</p>
+<h2>Size​</h2>
+<p>Four size variants to accommodate different interface densities and design requirements.</p>
+<pre><code>&lt;aava-search-bar placeholder="Extra Small" size="xs">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Medium" size="md">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Large" size="lg">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Extra Large" size="xl">&lt;/aava-search-bar></code></pre>
+<pre><code>&lt;aava-search-bar placeholder="Extra Small" size="xs">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Medium" size="md">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Large" size="lg">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Extra Large" size="xl">&lt;/aava-search-bar></code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- Compact size for minimal interfaces (16px icon)</p>
+<p>• md (Medium)- Standard size for most search scenarios (20px icon, default)</p>
+<p>• lg (Large)- Prominent size for important search interfaces (24px icon)</p>
+<p>• xl (Extra Large)- Very prominent size for high-visibility search (24px icon)</p>
+<h2>Size Features​</h2>
+<p>• Proportional Scaling: Icon sizes scale appropriately with component size</p>
+<p>• Consistent Spacing: Maintains proper proportions across all size variants</p>
+<p>• Touch Targets: All sizes meet minimum touch target requirements</p>
+<p>• Visual Hierarchy: Larger sizes provide better emphasis for primary search areas</p>
+<h2>States​</h2>
+<p>Different interaction states for various user scenarios and accessibility requirements.</p>
+<pre><code>&lt;aava-search-bar placeholder="Default">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Disabled" [disabled]="true">&lt;/aava-search-bar></code></pre>
+<pre><code>&lt;aava-search-bar placeholder="Default">&lt;/aava-search-bar>&lt;aava-search-bar placeholder="Disabled" [disabled]="true">&lt;/aava-search-bar></code></pre>
+<h2>State Features​</h2>
+<p>• Default State: Normal interaction with full functionality</p>
+<p>• Disabled State: Non-interactive state with visual feedback</p>
+<p>• Focus State: Clear focus indicators for keyboard navigation</p>
+<p>• Hover State: Subtle hover effects for interactive elements</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+label | string? | '' | Label text for the search input
+disabled | boolean | false | Whether the search bar is disabled
+variant | string? | '' | Visual variant of the search bar
+size | 'xs' | 'md' | 'lg' | 'xl' | 'md' | Size variant of the search bar
+serachIconColor | string | '#000000' | Color for the search icon
+sendIconColor | string | '#000000' | Color for the send icon
+sendButton | boolean | true | Whether the send button is shown
+closeButtonVisibility | 'auto' | 'always' | 'hidden' | hidden | Close button visibility</pre>
+<pre><code>label</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>serachIconColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#000000'</code></pre>
+<pre><code>sendIconColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#000000'</code></pre>
+<pre><code>sendButton</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>closeButtonVisibility</code></pre>
+<pre><code>'auto' | 'always' | 'hidden'</code></pre>
+<pre><code>hidden</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+searchClick | EventEmitter<string> | Emitted when user clicks the send icon
+searchChange | EventEmitter<string> | Emitted when the search input value changes
+onClose | EventEmitter<string> | Emitted when the close button is clicked</pre>
+<pre><code>searchClick</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<pre><code>searchChange</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<pre><code>onClose</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Clear Visual Hierarchy: Use appropriate sizes for primary vs. secondary search areas</p>
+<p>• Consistent Iconography: Maintain consistent icon colors across your application</p>
+<p>• Accessible Contrast: Ensure sufficient contrast between icons and backgrounds</p>
+<p>• Responsive Sizing: Choose sizes that work well on all target devices</p>
+<p>• Brand Consistency: Use icon colors that align with your brand guidelines</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Ensure full keyboard accessibility for all interactions</p>
+<p>• Screen Reader Support: Provide clear labels and descriptions for search functionality</p>
+<p>• Focus Management: Maintain clear focus indicators for all interactive elements</p>
+<p>• ARIA Labels: Use appropriate ARIA attributes for search context</p>
+<p>• Color Independence: Don't rely solely on color to convey information</p>
+<h2>Performance​</h2>
+<p>• Event Handling: Debounce search input events for better performance</p>
+<p>• Icon Optimization: Use optimized SVG icons for consistent rendering</p>
+<p>• Change Detection: Leverage OnPush strategy for optimal performance</p>
+<p>• Memory Management: Clean up event listeners and subscriptions properly</p>
+<p>• Bundle Size: Import only needed components to minimize bundle size</p>
+<h2>User Experience​</h2>
+<p>• Clear Purpose: Make it obvious that this is a search input</p>
+<p>• Visual Feedback: Provide immediate feedback for user interactions</p>
+<p>• Search Suggestions: Consider adding autocomplete or search suggestions</p>
+<p>• Loading States: Show loading indicators during search operations</p>
+<p>• Error Handling: Provide clear error messages for failed searches</p>
+<h2>Implementation Considerations​</h2>
+<p>• State Management: Properly manage search state in your application</p>
+<p>• Search Logic: Implement efficient search algorithms and data structures</p>
+<p>• API Integration: Handle search API calls with proper error handling</p>
+<p>• Caching: Cache search results for better performance</p>
+<p>• Analytics: Track search usage for user behavior insights</p>
+<h2>Search Functionality​</h2>
+<p>• Real-time Search: Consider implementing search-as-you-type functionality</p>
+<p>• Search History: Maintain search history for user convenience</p>
+<p>• Search Filters: Add filtering options for refined search results</p>
+<p>• Search Results: Design clear and organized search result displays</p>
+<p>• Search Analytics: Monitor search patterns and popular queries</p>
+<h2>Technical Notes​</h2>
+<h2>Component Architecture​</h2>
+<p>The search bar component extends the textbox component:</p>
+<p>• Inheritance: ExtendsAvaTextboxComponentfor consistent behavior</p>
+<p>• Composition: UsesIconComponentfor search and send icons</p>
+<p>• Change Detection: Implements OnPush strategy for optimal performance</p>
+<p>• Styling: Inherits textbox styling with search-specific customizations</p>
+<pre><code>AvaTextboxComponent</code></pre>
+<pre><code>IconComponent</code></pre>
+<h2>Icon System​</h2>
+<p>The component implements a flexible icon system:</p>
+<p>• Dynamic Sizing: Icon sizes are computed based on component size</p>
+<p>• Color Management: Handles disabled states with CSS variable fallbacks</p>
+<p>• Slot System: Uses Angular slot system for icon positioning</p>
+<p>• Interactive Elements: Send icon is clickable with proper cursor styling</p>
+<h2>Event Handling​</h2>
+<p>The component manages multiple event types:</p>
+<p>• Input Changes: Tracks search value changes in real-time</p>
+<p>• Search Triggers: Emits search events when send icon is clicked</p>
+<p>• Textbox Events: Inherits all textbox event handling</p>
+<p>• Icon Interactions: Handles icon-specific interactions and styling</p>
+<h2>Size Mapping​</h2>
+<p>The component maps size variants to icon dimensions:</p>
+<p>• XS: 16px icons for compact interfaces</p>
+<p>• MD: 20px icons for standard usage (default)</p>
+<p>• LG: 24px icons for prominent interfaces</p>
+<p>• XL: 24px icons for high-visibility areas</p>
+<h2>CSS Integration​</h2>
+<p>The component integrates with the design system:</p>
+<p>• CSS Variables: Uses semantic CSS variables for theming</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<p>• State Management: Handles various component states</p>
+<p>• Accessibility: Maintains proper contrast and focus indicators</p>
+</body></html>
