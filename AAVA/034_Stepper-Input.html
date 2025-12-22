@@ -1,0 +1,220 @@
+<html><head><meta charset='utf-8'>
+<title>Stepper-Input</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Stepper-Input</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Navigation/Stepper-Input</small></p>
+<h2>Stepper</h2>
+<p>A sophisticated Angular multi-step navigation component for creating step-by-step wizards, form flows, and progress workflows. Features animated progress indicators, interactive navigation, and flexible layout options for guiding users through complex processes.</p>
+<h2>How to use​</h2>
+<pre><code>import { AvaStepperComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AvaStepperComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>The most basic implementation with step labels and default horizontal orientation.</p>
+<pre><code>&lt;aava-stepper  [steps]="steps"  [currentStep]="currentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>&lt;aava-stepper  [steps]="steps"  [currentStep]="currentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];currentStep = 0;onStepChange(step: number): void {  this.currentStep = step;}</code></pre>
+<pre><code>steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];currentStep = 0;onStepChange(step: number): void {  this.currentStep = step;}</code></pre>
+<h2>Sizes​</h2>
+<p>Three size options to accommodate different interface densities and visual hierarchies.</p>
+<pre><code>&lt;aava-stepper  [steps]="xsmallSteps"  [currentStep]="xsmallCurrentStep"  orientation="horizontal"  size="xs"  [iconColor]="'#fff'"  [iconSize]="'16'"  (stepChange)="onXsmallStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="smallSteps"  [currentStep]="smallCurrentStep"  orientation="horizontal"  size="sm"  [iconColor]="'#fff'"  [iconSize]="'16'"  (stepChange)="onSmallStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="mediumSteps"  [currentStep]="mediumCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onMediumStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="largeSteps"  [currentStep]="largeCurrentStep"  orientation="horizontal"  size="lg"  [iconColor]="'#fff'"  [iconSize]="'24'"  (stepChange)="onLargeStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>&lt;aava-stepper  [steps]="xsmallSteps"  [currentStep]="xsmallCurrentStep"  orientation="horizontal"  size="xs"  [iconColor]="'#fff'"  [iconSize]="'16'"  (stepChange)="onXsmallStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="smallSteps"  [currentStep]="smallCurrentStep"  orientation="horizontal"  size="sm"  [iconColor]="'#fff'"  [iconSize]="'16'"  (stepChange)="onSmallStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="mediumSteps"  [currentStep]="mediumCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onMediumStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="largeSteps"  [currentStep]="largeCurrentStep"  orientation="horizontal"  size="lg"  [iconColor]="'#fff'"  [iconSize]="'24'"  (stepChange)="onLargeStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>xsmallSteps = ['One', 'Two', 'Three', 'Four', 'Five'];xsmallCurrentStep = 0;smallSteps = ['One', 'Two', 'Three', 'Four', 'Five'];smallCurrentStep = 0;mediumSteps = ['Goal', 'Steps', 'Progress', 'Review', 'Finish'];mediumCurrentStep = 0;largeSteps = ['Research', 'Define', 'Ideate', 'Prototype', 'Test'];largeCurrentStep = 0;onXsmallStepChange(step: number): void {  this.xsmallCurrentStep = step;}onSmallStepChange(step: number): void {  this.smallCurrentStep = step;}onMediumStepChange(step: number): void {  this.mediumCurrentStep = step;}onLargeStepChange(step: number): void {  this.largeCurrentStep = step;}</code></pre>
+<pre><code>xsmallSteps = ['One', 'Two', 'Three', 'Four', 'Five'];xsmallCurrentStep = 0;smallSteps = ['One', 'Two', 'Three', 'Four', 'Five'];smallCurrentStep = 0;mediumSteps = ['Goal', 'Steps', 'Progress', 'Review', 'Finish'];mediumCurrentStep = 0;largeSteps = ['Research', 'Define', 'Ideate', 'Prototype', 'Test'];largeCurrentStep = 0;onXsmallStepChange(step: number): void {  this.xsmallCurrentStep = step;}onSmallStepChange(step: number): void {  this.smallCurrentStep = step;}onMediumStepChange(step: number): void {  this.mediumCurrentStep = step;}onLargeStepChange(step: number): void {  this.largeCurrentStep = step;}</code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs: Extra small for minimal interfaces</p>
+<p>• sm: Small for compact layouts</p>
+<p>• md: Medium size for most use cases (default)</p>
+<p>• lg: Large for prominent workflows and accessibility</p>
+<h2>Icon Variants​</h2>
+<p>Enhanced stepper with custom icons for each step, providing better visual context and user guidance.</p>
+<pre><code>&lt;aava-stepper  [steps]="checkoutSteps"  [currentStep]="checkoutStep"  [stepVariant]="'icon'"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'16'"  (stepChange)="onCheckoutStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>&lt;aava-stepper  [steps]="checkoutSteps"  [currentStep]="checkoutStep"  [stepVariant]="'icon'"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'16'"  (stepChange)="onCheckoutStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>checkoutSteps: StepperStep[] = [  { label: 'Login', iconName: 'user' },  { label: 'Shipping', iconName: 'truck' },  { label: 'Payment', iconName: 'credit-card' },  { label: 'Confirmation', iconName: 'check-circle' },];checkoutStep = 0;onCheckoutStepChange(step: number): void {  this.checkoutStep = step;}</code></pre>
+<pre><code>checkoutSteps: StepperStep[] = [  { label: 'Login', iconName: 'user' },  { label: 'Shipping', iconName: 'truck' },  { label: 'Payment', iconName: 'credit-card' },  { label: 'Confirmation', iconName: 'check-circle' },];checkoutStep = 0;onCheckoutStepChange(step: number): void {  this.checkoutStep = step;}</code></pre>
+<h2>Icon Features​</h2>
+<p>• Custom Step Icons: Replace numeric indicators with meaningful Lucide icons</p>
+<p>• Contextual Guidance: Icons provide immediate visual context for each step</p>
+<p>• State Awareness: Icons adapt to active, completed, and disabled states</p>
+<p>• Consistent Sizing: Icons scale appropriately with stepper size variants</p>
+<p>• Color Theming: Icons inherit stepper theme colors automatically</p>
+<p>• Accessibility: Proper ARIA labels and descriptions for screen readers</p>
+<h2>Orientation​</h2>
+<p>Flexible layout options for different design requirements and content arrangements.</p>
+<pre><code>&lt;aava-stepper  [steps]="horizontalSteps"  [currentStep]="horizontalCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onHorizontalStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="verticalSteps"  [currentStep]="verticalCurrentStep"  orientation="vertical"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onVerticalStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>&lt;aava-stepper  [steps]="horizontalSteps"  [currentStep]="horizontalCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onHorizontalStepChange($event)">&lt;/aava-stepper>&lt;aava-stepper  [steps]="verticalSteps"  [currentStep]="verticalCurrentStep"  orientation="vertical"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onVerticalStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code> horizontalSteps = [    'Personal Info',    'Contact Details',    'Preferences',    'Review',    'Submit',  ];  horizontalCurrentStep = 0;  verticalSteps = [    'Account Setup',    'Profile Info',    'Preferences',    'Confirmation',  ];  verticalCurrentStep = 0;  onHorizontalStepChange(step: number) {    this.horizontalCurrentStep = step;    console.log('Horizontal step changed to:', step + 1);  }  onVerticalStepChange(step: number) {    this.verticalCurrentStep = step;    console.log('Vertical step changed to:', step + 1);  }</code></pre>
+<pre><code> horizontalSteps = [    'Personal Info',    'Contact Details',    'Preferences',    'Review',    'Submit',  ];  horizontalCurrentStep = 0;  verticalSteps = [    'Account Setup',    'Profile Info',    'Preferences',    'Confirmation',  ];  verticalCurrentStep = 0;  onHorizontalStepChange(step: number) {    this.horizontalCurrentStep = step;    console.log('Horizontal step changed to:', step + 1);  }  onVerticalStepChange(step: number) {    this.verticalCurrentStep = step;    console.log('Vertical step changed to:', step + 1);  }</code></pre>
+<h2>Horizontal Orientation​</h2>
+<p>• Default layout: Steps arranged left to right</p>
+<p>• Space efficient: Ideal for wide containers</p>
+<p>• Progress visualization: Horizontal progress lines</p>
+<p>• Label positioning: Labels positioned below step circles</p>
+<h2>Vertical Orientation​</h2>
+<p>• Alternative layout: Steps arranged top to bottom</p>
+<p>• Sidebar friendly: Perfect for narrow containers and sidebars</p>
+<p>• Vertical progress: Connecting lines flow downward</p>
+<p>• Inline labels: Labels positioned next to step circles</p>
+<h2>Interactive Navigation​</h2>
+<p>Control user interaction and step accessibility with interactive navigation options.</p>
+<pre><code> &lt;aava-stepper            [steps]="interactiveSteps"            [currentStep]="interactiveCurrentStep"            orientation="horizontal"            size="md"            [iconColor]="'#fff'"            [iconSize]="'20'"            [interactive]="true"            (stepChange)="onInteractiveStepChange($event)"          >          &lt;/aava-stepper>        &lt;/div>        &lt;div class="demo-item">          &lt;h4>Non-Interactive Stepper (Display Only)&lt;/h4>          &lt;aava-stepper            [steps]="nonInteractiveSteps"            [currentStep]="nonInteractiveCurrentStep"            orientation="horizontal"            size="md"            [iconColor]="'#fff'"            [iconSize]="'20'"            [interactive]="false"          >          &lt;/aava-stepper></code></pre>
+<pre><code> &lt;aava-stepper            [steps]="interactiveSteps"            [currentStep]="interactiveCurrentStep"            orientation="horizontal"            size="md"            [iconColor]="'#fff'"            [iconSize]="'20'"            [interactive]="true"            (stepChange)="onInteractiveStepChange($event)"          >          &lt;/aava-stepper>        &lt;/div>        &lt;div class="demo-item">          &lt;h4>Non-Interactive Stepper (Display Only)&lt;/h4>          &lt;aava-stepper            [steps]="nonInteractiveSteps"            [currentStep]="nonInteractiveCurrentStep"            orientation="horizontal"            size="md"            [iconColor]="'#fff'"            [iconSize]="'20'"            [interactive]="false"          >          &lt;/aava-stepper></code></pre>
+<pre><code>  interactiveSteps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  interactiveCurrentStep = 0;  disabledSteps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  disabledCurrentStep = 0;  nonInteractiveSteps = ['Order Placed', 'Processing', 'Shipped', 'Delivered'];  nonInteractiveCurrentStep = 2;  onInteractiveStepChange(step: number) {    this.interactiveCurrentStep = step;    console.log('Interactive step changed to:', step + 1);  }  onDisabledStepChange(step: number) {    this.disabledCurrentStep = step;    console.log('Disabled step changed to:', step + 1);  }</code></pre>
+<pre><code>  interactiveSteps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  interactiveCurrentStep = 0;  disabledSteps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  disabledCurrentStep = 0;  nonInteractiveSteps = ['Order Placed', 'Processing', 'Shipped', 'Delivered'];  nonInteractiveCurrentStep = 2;  onInteractiveStepChange(step: number) {    this.interactiveCurrentStep = step;    console.log('Interactive step changed to:', step + 1);  }  onDisabledStepChange(step: number) {    this.disabledCurrentStep = step;    console.log('Disabled step changed to:', step + 1);  }</code></pre>
+<h2>Interactive Features​</h2>
+<p>• Click navigation: Jump to any accessible step by clicking</p>
+<p>• Keyboard navigation: Enter and Space key support</p>
+<p>• Disabled steps: Prevent navigation to specific steps</p>
+<p>• Step validation: Control progression based on form validity</p>
+<p>• Non-interactive mode: Display-only stepper for progress indication</p>
+<h2>Event Handling​</h2>
+<p>Comprehensive event system for tracking step changes and workflow completion.</p>
+<pre><code>&lt;aava-stepper  [steps]="eventSteps"  [currentStep]="eventCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onStepChange($event)">&lt;/aava-stepper>&lt;p class="status-text">  Current Step: {{ eventCurrentStep + 1 }} of {{ eventSteps.length }}&lt;/p>&lt;div class="event-log">  &lt;h5>Event Log:&lt;/h5>  &lt;div class="log-entries">    &lt;div *ngFor="let log of eventLogs" class="log-entry">{{ log }}&lt;/div>  &lt;/div>&lt;/div>&lt;aava-stepper  [steps]="completionSteps"  [currentStep]="completionCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onCompletionStepChange($event)">&lt;/aava-stepper>&lt;p class="status-text">  Current Step: {{ completionCurrentStep + 1 }} of {{ completionSteps.length }}&lt;/p>&lt;div *ngIf="workflowCompleted" class="completion-message">  Workflow completed! All steps finished.&lt;/div></code></pre>
+<pre><code>&lt;aava-stepper  [steps]="eventSteps"  [currentStep]="eventCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onStepChange($event)">&lt;/aava-stepper>&lt;p class="status-text">  Current Step: {{ eventCurrentStep + 1 }} of {{ eventSteps.length }}&lt;/p>&lt;div class="event-log">  &lt;h5>Event Log:&lt;/h5>  &lt;div class="log-entries">    &lt;div *ngFor="let log of eventLogs" class="log-entry">{{ log }}&lt;/div>  &lt;/div>&lt;/div>&lt;aava-stepper  [steps]="completionSteps"  [currentStep]="completionCurrentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onCompletionStepChange($event)">&lt;/aava-stepper>&lt;p class="status-text">  Current Step: {{ completionCurrentStep + 1 }} of {{ completionSteps.length }}&lt;/p>&lt;div *ngIf="workflowCompleted" class="completion-message">  Workflow completed! All steps finished.&lt;/div></code></pre>
+<pre><code>eventSteps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  eventCurrentStep = 0;  eventLogs: string[] = [];  completionSteps = ['Setup', 'Configure', 'Test', 'Deploy', 'Complete'];  completionCurrentStep = 0;  workflowCompleted = false;  onStepChange(step: number) {    this.eventCurrentStep = step;    const timestamp = new Date().toLocaleTimeString();    this.eventLogs.unshift(`[${timestamp}] Step changed to: ${step + 1}`);    // Keep only last 10 logs    if (this.eventLogs.length > 10) {      this.eventLogs = this.eventLogs.slice(0, 10);    }    console.log('Step change event:', step + 1);  }  onCompletionStepChange(step: number) {    this.completionCurrentStep = step;    if (step === this.completionSteps.length - 1) {      this.workflowCompleted = true;      console.log('Workflow completed!');    } else {      this.workflowCompleted = false;    }    console.log('Completion step change:', step + 1);  }</code></pre>
+<pre><code>eventSteps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  eventCurrentStep = 0;  eventLogs: string[] = [];  completionSteps = ['Setup', 'Configure', 'Test', 'Deploy', 'Complete'];  completionCurrentStep = 0;  workflowCompleted = false;  onStepChange(step: number) {    this.eventCurrentStep = step;    const timestamp = new Date().toLocaleTimeString();    this.eventLogs.unshift(`[${timestamp}] Step changed to: ${step + 1}`);    // Keep only last 10 logs    if (this.eventLogs.length > 10) {      this.eventLogs = this.eventLogs.slice(0, 10);    }    console.log('Step change event:', step + 1);  }  onCompletionStepChange(step: number) {    this.completionCurrentStep = step;    if (step === this.completionSteps.length - 1) {      this.workflowCompleted = true;      console.log('Workflow completed!');    } else {      this.workflowCompleted = false;    }    console.log('Completion step change:', step + 1);  }</code></pre>
+<h2>Available Events​</h2>
+<p>• stepChange: Emitted when user navigates to a different step</p>
+<p>• stepperComplete: Emitted when the final step is reached</p>
+<p>• Step validation: Handle step transitions with custom validation logic</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring WCAG compliance and inclusive user experience.</p>
+<pre><code>&lt;aava-stepper  [steps]="steps"  [currentStep]="currentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code>&lt;aava-stepper  [steps]="steps"  [currentStep]="currentStep"  orientation="horizontal"  size="md"  [iconColor]="'#fff'"  [iconSize]="'20'"  (stepChange)="onStepChange($event)">&lt;/aava-stepper></code></pre>
+<pre><code> steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  currentStep = 0;  onStepChange(step: number) {    this.currentStep = step;    console.log('Step changed to:', step + 1);  }</code></pre>
+<pre><code> steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'];  currentStep = 0;  onStepChange(step: number) {    this.currentStep = step;    console.log('Step changed to:', step + 1);  }</code></pre>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard navigation: Tab, Enter, and Space key support</p>
+<p>• ARIA labels: Descriptive labels for screen readers</p>
+<p>• Role attributes: Proper button roles for interactive elements</p>
+<p>• Focus management: Clear visual focus indicators</p>
+<p>• Step announcements: Screen reader notifications for step changes</p>
+<p>• High contrast: Support for high contrast mode preferences</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+steps | (string | StepperStep)[] | [] | Array of step labels or step objects to display
+currentStep | number | 0 | Index of the currently active step (0-based)
+orientation | 'horizontal' | 'vertical' | 'horizontal' | Layout orientation of the stepper
+showNavigation | boolean | true | Whether to show navigation elements
+interactive | boolean | true | Whether steps are clickable for navigation
+size | 'xs' | 'sm' | 'md' | 'lg' | 'md' | Visual size of the stepper component
+disabledSteps | number[] | [] | Array of step indices that should be disabled
+iconColor | string | '#fff' | Color for the check mark icons in completed steps
+iconSize | string | '20' | Size of the check mark icons
+stepVariant | 'default' | 'icon' | 'default' | Variant of step display (default numbers or icons)
+showLabel | boolean | true | Whether to show step labels below circles
+customStyles | Record<string, string> | {} | Custom CSS styles to apply to the stepper</pre>
+<pre><code>steps</code></pre>
+<pre><code>(string | StepperStep)[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>currentStep</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>orientation</code></pre>
+<pre><code>'horizontal' | 'vertical'</code></pre>
+<pre><code>'horizontal'</code></pre>
+<pre><code>showNavigation</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>interactive</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>disabledSteps</code></pre>
+<pre><code>number[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>iconColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#fff'</code></pre>
+<pre><code>iconSize</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'20'</code></pre>
+<pre><code>stepVariant</code></pre>
+<pre><code>'default' | 'icon'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>showLabel</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+stepChange | EventEmitter<number> | Emitted when user navigates to a different step
+stepperComplete | EventEmitter<void> | Emitted when the workflow reaches completion</pre>
+<pre><code>stepChange</code></pre>
+<pre><code>EventEmitter&lt;number></code></pre>
+<pre><code>stepperComplete</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+goToStep(index: number) | index: number | void | Navigate to a specific step programmatically
+isDisabled(index: number) | index: number | boolean | Check if a specific step is disabled</pre>
+<pre><code>goToStep(index: number)</code></pre>
+<pre><code>index: number</code></pre>
+<pre><code>void</code></pre>
+<pre><code>isDisabled(index: number)</code></pre>
+<pre><code>index: number</code></pre>
+<pre><code>boolean</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Default | Description
+--stepper-wrapper-background | Dynamic | Background color for active/completed elements
+--stepper-background | Dynamic | Background color for inactive elements
+--stepper-line-completed-background | Dynamic | Background for completed progress lines
+--step-label-font | Dynamic | Font size for step labels
+--step-label-active-font-weight | Dynamic | Font weight for active/completed labels
+--step-circle-text | Dynamic | Text color for step circles
+--stepper-size-sm-circle-size | Dynamic | Circle size for small variant
+--stepper-size-md-circle-size | Dynamic | Circle size for medium variant
+--stepper-size-lg-circle-size | Dynamic | Circle size for large variant
+--stepper-size-sm-font | Dynamic | Font size for small variant
+--stepper-size-md-font | Dynamic | Font size for medium variant
+--stepper-size-lg-font | Dynamic | Font size for large variant</pre>
+<pre><code>--stepper-wrapper-background</code></pre>
+<pre><code>--stepper-background</code></pre>
+<pre><code>--stepper-line-completed-background</code></pre>
+<pre><code>--step-label-font</code></pre>
+<pre><code>--step-label-active-font-weight</code></pre>
+<pre><code>--step-circle-text</code></pre>
+<pre><code>--stepper-size-sm-circle-size</code></pre>
+<pre><code>--stepper-size-md-circle-size</code></pre>
+<pre><code>--stepper-size-lg-circle-size</code></pre>
+<pre><code>--stepper-size-sm-font</code></pre>
+<pre><code>--stepper-size-md-font</code></pre>
+<pre><code>--stepper-size-lg-font</code></pre>
+<h2>Accessibility Guidelines​</h2>
+<h2>Keyboard Navigation​</h2>
+<p>• Tab: Navigate to stepper and move between interactive elements</p>
+<p>• Enter: Activate focused step (if interactive)</p>
+<p>• Space: Activate focused step (if interactive)</p>
+<p>• Arrow Keys: Alternative navigation between steps</p>
+<h2>Screen Reader Support​</h2>
+<p>• Use descriptive step labels that clearly indicate the purpose</p>
+<p>• Provide context about the total number of steps</p>
+<p>• Announce step changes and progress updates</p>
+<p>• Include completion status in step descriptions</p>
+<p>• Use appropriate heading levels for step content</p>
+<h2>Visual Design​</h2>
+<p>• Maintain sufficient color contrast (4.5:1 minimum) for all states</p>
+<p>• Provide clear focus indicators on interactive elements</p>
+<p>• Ensure step circles meet minimum touch target size (44px)</p>
+<p>• Use consistent visual hierarchy across step states</p>
+<p>• Support high contrast and reduced motion preferences</p>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use clear, action-oriented step labels</p>
+<p>• Keep step labels concise but descriptive</p>
+<p>• Provide visual feedback for all step states</p>
+<p>• Consider orientation based on layout constraints</p>
+<p>• Group related steps logically in the workflow</p>
+<h2>Performance​</h2>
+<p>• Minimize step array modifications to prevent re-rendering</p>
+<p>• Use OnPush change detection strategy for optimal performance</p>
+<p>• Debounce rapid step changes if triggered programmatically</p>
+<p>• Optimize animations for lower-end devices</p>
+</body></html>
