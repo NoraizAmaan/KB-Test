@@ -1,0 +1,277 @@
+<html><head><meta charset='utf-8'>
+<title>Badge</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Badge</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Display/Badge</small></p>
+<h2>Badge</h2>
+<p>A smart notification badge component for displaying counts, status indicators, and priority levels. Features intelligent number formatting (9+, 99+, 999+), multiple size variants including dots, semantic color states, and comprehensive accessibility support for enhanced user communication.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaBadgesComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaBadgesComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple badge implementations with counts and basic styling.</p>
+<pre><code>&lt;aava-badges  [count]="5"  [state]="'neutral'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 5">&lt;/aava-badges>&lt;aava-badges  [count]="3"  [state]="'high-priority'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 3">&lt;/aava-badges>&lt;aava-badges  [count]="12"  [state]="'low-priority'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 12">&lt;/aava-badges>&lt;aava-badges  [count]="8"  [state]="'information'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 8">&lt;/aava-badges></code></pre>
+<pre><code>&lt;aava-badges  [count]="5"  [state]="'neutral'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 5">&lt;/aava-badges>&lt;aava-badges  [count]="3"  [state]="'high-priority'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 3">&lt;/aava-badges>&lt;aava-badges  [count]="12"  [state]="'low-priority'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 12">&lt;/aava-badges>&lt;aava-badges  [count]="8"  [state]="'information'"  [size]="'md'"  (click)="onBadgeClick($event)"  (keydown.enter)="onBadgeKeyPress($event)"  (keydown.space)="onBadgeKeyPress($event)"  tabindex="0"  role="button"  aria-label="Badge with count 8">&lt;/aava-badges></code></pre>
+<pre><code>  onBadgeClick(event: Event): void {    console.log('Badge clicked:', event);  }  onBadgeKeyPress(event: Event): void {    console.log('Badge key pressed:', event);  }</code></pre>
+<pre><code>  onBadgeClick(event: Event): void {    console.log('Badge clicked:', event);  }  onBadgeKeyPress(event: Event): void {    console.log('Badge key pressed:', event);  }</code></pre>
+<h2>Sizes​</h2>
+<p>Four size variants to fit different interface requirements and visual hierarchy.</p>
+<pre><code>&lt;aava-badges  [count]="1"  [state]="'high-priority'"  [size]="'xs'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 1 and xs size">&lt;/aava-badges>&lt;aava-badges  [count]="5"  [state]="'medium-priority'"  [size]="'sm'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 5 and sm size">&lt;/aava-badges>&lt;aava-badges  [count]="15"  [state]="'low-priority'"  [size]="'md'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 15 and md size">&lt;/aava-badges>&lt;aava-badges  [count]="99"  [state]="'information'"  [size]="'lg'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 99 and lg size">&lt;/aava-badges></code></pre>
+<pre><code>&lt;aava-badges  [count]="1"  [state]="'high-priority'"  [size]="'xs'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 1 and xs size">&lt;/aava-badges>&lt;aava-badges  [count]="5"  [state]="'medium-priority'"  [size]="'sm'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 5 and sm size">&lt;/aava-badges>&lt;aava-badges  [count]="15"  [state]="'low-priority'"  [size]="'md'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 15 and md size">&lt;/aava-badges>&lt;aava-badges  [count]="99"  [state]="'information'"  [size]="'lg'"  (click)="onBadgeClick($event)"  tabindex="0"  role="button"  aria-label="Badge with count 99 and lg size">&lt;/aava-badges></code></pre>
+<pre><code>  onBadgeClick(event: Event): void {    console.log('Badge clicked:', event);  }</code></pre>
+<pre><code>  onBadgeClick(event: Event): void {    console.log('Badge clicked:', event);  }</code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- Minimal size for very dense interfaces and subtle indicators</p>
+<p>• sm (Small)- Compact for dense interfaces and subtle indicators</p>
+<p>• md (Medium)- Standard size for most use cases (default)</p>
+<p>• lg (Large)- Prominent for important notifications and better accessibility</p>
+<h2>Variants​</h2>
+<p>Three variant types to serve different use cases.</p>
+<pre><code>  &lt;div class="badge-row">    &lt;aava-badges state="high-priority" size="lg" [count]="9">&lt;/aava-badges>    &lt;aava-badges state="high-priority" size="md" [count]="9">&lt;/aava-badges>    &lt;aava-badges state="high-priority" size="sm" [count]="9">&lt;/aava-badges>    &lt;aava-badges state="high-priority" size="xs" [count]="9">&lt;/aava-badges>  &lt;/div>  &lt;div class="badge-row">    &lt;aava-badges      state="medium-priority"      size="lg"      iconName="clock"      iconColor="white"      [iconSize]="14"    >&lt;/aava-badges>    &lt;aava-badges      state="medium-priority"      size="md"      iconName="clock"      iconColor="white"      [iconSize]="12"    >&lt;/aava-badges>    &lt;aava-badges      state="medium-priority"      size="sm"      iconName="clock"      iconColor="white"      [iconSize]="10"    >&lt;/aava-badges>    &lt;aava-badges      state="medium-priority"      size="xs"      iconName="clock"      iconColor="white"      [iconSize]="8"    >&lt;/aava-badges>  &lt;/div>  &lt;div class="badge-row">    &lt;aava-badges state="low-priority" size="lg" variant="dots">&lt;/aava-badges>    &lt;aava-badges state="low-priority" size="md" variant="dots">&lt;/aava-badges>    &lt;aava-badges state="low-priority" size="sm" variant="dots">&lt;/aava-badges>  &lt;/div>&lt;/div></code></pre>
+<pre><code>  &lt;div class="badge-row">    &lt;aava-badges state="high-priority" size="lg" [count]="9">&lt;/aava-badges>    &lt;aava-badges state="high-priority" size="md" [count]="9">&lt;/aava-badges>    &lt;aava-badges state="high-priority" size="sm" [count]="9">&lt;/aava-badges>    &lt;aava-badges state="high-priority" size="xs" [count]="9">&lt;/aava-badges>  &lt;/div>  &lt;div class="badge-row">    &lt;aava-badges      state="medium-priority"      size="lg"      iconName="clock"      iconColor="white"      [iconSize]="14"    >&lt;/aava-badges>    &lt;aava-badges      state="medium-priority"      size="md"      iconName="clock"      iconColor="white"      [iconSize]="12"    >&lt;/aava-badges>    &lt;aava-badges      state="medium-priority"      size="sm"      iconName="clock"      iconColor="white"      [iconSize]="10"    >&lt;/aava-badges>    &lt;aava-badges      state="medium-priority"      size="xs"      iconName="clock"      iconColor="white"      [iconSize]="8"    >&lt;/aava-badges>  &lt;/div>  &lt;div class="badge-row">    &lt;aava-badges state="low-priority" size="lg" variant="dots">&lt;/aava-badges>    &lt;aava-badges state="low-priority" size="md" variant="dots">&lt;/aava-badges>    &lt;aava-badges state="low-priority" size="sm" variant="dots">&lt;/aava-badges>  &lt;/div>&lt;/div></code></pre>
+<h2>Available Variants​</h2>
+<p>• Default</p>
+<p>• Icon</p>
+<p>• Dots</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring inclusive user experience.</p>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Tab navigation and keyboard activation</p>
+<p>• Screen Reader Support: Semantic HTML and ARIA attributes</p>
+<p>• Focus Indicators: Clear visual focus states for navigation</p>
+<p>• Color Independence: Information conveyed beyond color alone</p>
+<p>• High Contrast: Enhanced visibility in high contrast modes</p>
+<p>• Descriptive Content: Meaningful count and status information</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+state | 'high-priority' | 'medium-priority' | 'low-priority' | 'neutral' | 'information' | 'online' | 'offline' | 'neutral' | Semantic state determining badge color
+size | 'lg' | 'md' | 'sm' | 'xs' | 'md' | Size variant of the badge
+variant | 'default' | 'dots' | 'default' | Visual variant of the badge
+count | number | undefined | Number to display (smart formatting applied)
+iconName | string | undefined | Name of icon to display (from ava-icon)
+iconColor | string | 'white' | Custom color for the icon
+iconSize | number | undefined | Size of the icon in pixels
+customStyles | Record<string, string></pre>
+<pre><code>state</code></pre>
+<pre><code>'high-priority' | 'medium-priority' | 'low-priority' | 'neutral' | 'information' | 'online' | 'offline'</code></pre>
+<pre><code>'neutral'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'lg' | 'md' | 'sm' | 'xs'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>'default' | 'dots'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>count</code></pre>
+<pre><code>number</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>iconName</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>iconColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'white'</code></pre>
+<pre><code>iconSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+displayCount | string | Formatted count string (includes 9+, 99+, etc.)
+badgeClasses | string | Computed CSS classes for badge styling
+hasContent | boolean | Whether badge has count or icon content
+isDots | boolean | Whether badge is dots variant
+isSingleDigit | boolean | Whether count is a single digit (0-9)</pre>
+<pre><code>displayCount</code></pre>
+<pre><code>string</code></pre>
+<pre><code>badgeClasses</code></pre>
+<pre><code>string</code></pre>
+<pre><code>hasContent</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>isDots</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>isSingleDigit</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+onKeyPress() | - | void | Handle keyboard interaction (Enter/Space)</pre>
+<pre><code>onKeyPress()</code></pre>
+<pre><code>void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--badge-font | Font for badge text
+--badge-weight | Font weight for badge text
+--badge-line-height | Line height for badge text
+--badge-border-radius | Border radius for badge
+--badge-padding | Padding inside badge
+--badge-display | CSS display property for badge
+--badge-align-items | Vertical alignment of badge content
+--badge-justify-content | Horizontal alignment of badge content
+--badge-gap | Gap between badge elements
+--badge-default-background | Background color for neutral state
+--badge-default-text | Text color for neutral state
+--badge-default-border | Border for neutral state
+--badge-primary-background | Background color for primary state
+--badge-primary-text | Text color for primary state
+--badge-primary-border | Border for primary state
+--badge-secondary-background | Background color for secondary state
+--badge-secondary-text | Text color for secondary state
+--badge-secondary-border | Border for secondary state
+--badge-success-background | Background color for success state
+--badge-success-text | Text color for success state
+--badge-success-border | Border for success state
+--badge-warning-background | Background color for warning state
+--badge-warning-text | Text color for warning state
+--badge-warning-border | Border for warning state
+--badge-error-background | Background color for error state
+--badge-error-text | Text color for error state
+--badge-error-border | Border for error state
+--badge-info-background | Background color for information state
+--badge-info-text | Text color for information state
+--badge-info-border | Border for information state
+--badge-online-background | Background color for online state
+--badge-offline-background | Background color for offline state
+--badge-size-xs-min-width | Minimum width for extra small badge
+--badge-size-xs-height | Height for extra small badge
+--badge-size-sm-font | Font for small badge
+--badge-size-sm-padding | Padding for small badge
+--badge-size-sm-min-width | Minimum width for small badge
+--badge-size-sm-height | Height for small badge
+--badge-size-md-font | Font for medium badge
+--badge-size-md-padding | Padding for medium badge
+--badge-size-md-min-width | Minimum width for medium badge
+--badge-size-md-height | Height for medium badge
+--badge-size-lg-font | Font for large badge
+--badge-size-lg-padding | Padding for large badge
+--badge-size-lg-min-width | Minimum width for large badge
+--badge-size-lg-height | Height for large badge
+--badge-solid-background | Background color for solid variant
+--badge-solid-text | Text color for solid variant
+--badge-solid-border | Border for solid variant
+--badge-outline-background | Background color for outline variant
+--badge-outline-text | Text color for outline variant
+--badge-outline-border | Border for outline variant
+--badge-ghost-background | Background color for ghost variant
+--badge-ghost-text | Text color for ghost variant
+--badge-ghost-border | Border for ghost variant
+--badge-dot-size | Size of dot indicator
+--badge-dot-border-radius | Border radius for dot (circle)
+--badge-dot-margin-right | Margin right for dot
+--badge-icon-size | Default size for icons
+--badge-icon-color | Default icon color
+--badge-icon-margin-right | Margin right for icons
+--badge-counter-background | Background color for counter badges
+--badge-counter-text | Text color for counter badges
+--badge-counter-font | Font for counter badges
+--badge-counter-min-width | Minimum width for counter badges
+--badge-counter-height | Height for counter badges
+--badge-counter-border-radius | Border radius for counter badges
+--badge-counter-padding | Padding for counter badges
+--badge-font-family | Font family for badge text</pre>
+<pre><code>--badge-font</code></pre>
+<pre><code>--badge-weight</code></pre>
+<pre><code>--badge-line-height</code></pre>
+<pre><code>--badge-border-radius</code></pre>
+<pre><code>--badge-padding</code></pre>
+<pre><code>--badge-display</code></pre>
+<pre><code>--badge-align-items</code></pre>
+<pre><code>--badge-justify-content</code></pre>
+<pre><code>--badge-gap</code></pre>
+<pre><code>--badge-default-background</code></pre>
+<pre><code>--badge-default-text</code></pre>
+<pre><code>--badge-default-border</code></pre>
+<pre><code>--badge-primary-background</code></pre>
+<pre><code>--badge-primary-text</code></pre>
+<pre><code>--badge-primary-border</code></pre>
+<pre><code>--badge-secondary-background</code></pre>
+<pre><code>--badge-secondary-text</code></pre>
+<pre><code>--badge-secondary-border</code></pre>
+<pre><code>--badge-success-background</code></pre>
+<pre><code>--badge-success-text</code></pre>
+<pre><code>--badge-success-border</code></pre>
+<pre><code>--badge-warning-background</code></pre>
+<pre><code>--badge-warning-text</code></pre>
+<pre><code>--badge-warning-border</code></pre>
+<pre><code>--badge-error-background</code></pre>
+<pre><code>--badge-error-text</code></pre>
+<pre><code>--badge-error-border</code></pre>
+<pre><code>--badge-info-background</code></pre>
+<pre><code>--badge-info-text</code></pre>
+<pre><code>--badge-info-border</code></pre>
+<pre><code>--badge-online-background</code></pre>
+<pre><code>--badge-offline-background</code></pre>
+<pre><code>--badge-size-xs-min-width</code></pre>
+<pre><code>--badge-size-xs-height</code></pre>
+<pre><code>--badge-size-sm-font</code></pre>
+<pre><code>--badge-size-sm-padding</code></pre>
+<pre><code>--badge-size-sm-min-width</code></pre>
+<pre><code>--badge-size-sm-height</code></pre>
+<pre><code>--badge-size-md-font</code></pre>
+<pre><code>--badge-size-md-padding</code></pre>
+<pre><code>--badge-size-md-min-width</code></pre>
+<pre><code>--badge-size-md-height</code></pre>
+<pre><code>--badge-size-lg-font</code></pre>
+<pre><code>--badge-size-lg-padding</code></pre>
+<pre><code>--badge-size-lg-min-width</code></pre>
+<pre><code>--badge-size-lg-height</code></pre>
+<pre><code>--badge-solid-background</code></pre>
+<pre><code>--badge-solid-text</code></pre>
+<pre><code>--badge-solid-border</code></pre>
+<pre><code>--badge-outline-background</code></pre>
+<pre><code>--badge-outline-text</code></pre>
+<pre><code>--badge-outline-border</code></pre>
+<pre><code>--badge-ghost-background</code></pre>
+<pre><code>--badge-ghost-text</code></pre>
+<pre><code>--badge-ghost-border</code></pre>
+<pre><code>--badge-dot-size</code></pre>
+<pre><code>--badge-dot-border-radius</code></pre>
+<pre><code>--badge-dot-margin-right</code></pre>
+<pre><code>--badge-icon-size</code></pre>
+<pre><code>--badge-icon-color</code></pre>
+<pre><code>--badge-icon-margin-right</code></pre>
+<pre><code>--badge-counter-background</code></pre>
+<pre><code>--badge-counter-text</code></pre>
+<pre><code>--badge-counter-font</code></pre>
+<pre><code>--badge-counter-min-width</code></pre>
+<pre><code>--badge-counter-height</code></pre>
+<pre><code>--badge-counter-border-radius</code></pre>
+<pre><code>--badge-counter-padding</code></pre>
+<pre><code>--badge-font-family</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use high-priority for urgent notifications requiring immediate attention</p>
+<p>• Choose appropriate sizes based on interface density and importance</p>
+<p>• Prefer neutral state for simple count displays</p>
+<p>• Use dots variant for minimal status indicators without text</p>
+<p>• Use icons for status indicators rather than counts</p>
+<p>• Consider badge placement to avoid blocking important content</p>
+<h2>Accessibility​</h2>
+<p>• Ensure badges convey information beyond color alone</p>
+<p>• Provide meaningful text content for screen readers</p>
+<p>• Use appropriate state colors that meet contrast requirements</p>
+<p>• Test keyboard navigation thoroughly</p>
+<p>• Consider announcing dynamic count changes to screen readers</p>
+<h2>Performance​</h2>
+<p>• Avoid frequent count updates that trigger excessive re-renders</p>
+<p>• Use OnPush change detection strategy for optimal performance</p>
+<p>• Consider debouncing rapid count changes</p>
+<p>• Cache computed properties for better performance</p>
+<h2>Technical Notes​</h2>
+<h2>Automatic Expansion​</h2>
+<p>The badge automatically expands its width when displaying multi-character content (like "99+" or "999+") while maintaining circular dimensions for single characters.</p>
+<h2>Icon vs Count Priority​</h2>
+<p>When bothiconNameandcountare provided, the count takes priority and the icon is not displayed. Use separate badges for icon + count combinations.</p>
+<pre><code>iconName</code></pre>
+<pre><code>count</code></pre>
+<h2>Dots Variant​</h2>
+<p>The dots variant creates simple circular indicators without text content. It's ideal for status indicators, online/offline states, or any minimal visual cue that doesn't require text.</p>
+<h2>Keyboard Interaction​</h2>
+<p>Badges with tabindex="0" can receive keyboard focus and respond to Enter and Space key presses for custom interactions.</p>
+<h2>Component Selector​</h2>
+<p>The component uses the selectorava-badges(plural) for consistency with the component library naming convention.</p>
+<pre><code>ava-badges</code></pre>
+</body></html>
