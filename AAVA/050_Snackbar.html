@@ -1,0 +1,179 @@
+<html><head><meta charset='utf-8'>
+<title>Snackbar</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Snackbar</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Feedback/Snackbar</small></p>
+<h2>Snackbar</h2>
+<p>A flexible, accessible snackbar component for transient notifications, actions, and feedback. Supports multiple positions, variants, icons, actions, and theming. Use snackbars to provide brief messages about app processes, confirmations, or errors, with optional actions.</p>
+<h2>How to use​</h2>
+<pre><code>import { SnackbarService } from "@aava/play-core";</code></pre>
+<pre><code>import { SnackbarService } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Show a simple snackbar with a message.</p>
+<pre><code>import { Component, inject } from "@angular/core";import { CommonModule } from "@angular/common";import { SnackbarService, AavaButtonComponent } from "@aava/play-core";@Component({  standalone: true,  imports: [CommonModule, AavaButtonComponent],  template: `    &lt;div>      &lt;aava-button        label="Show Snackbar"        variant="primary"        size="md"        state="default"        (click)="showSnackbar()"      >      &lt;/aava-button>    &lt;/div>  `,})export class SnackbarBasicUsageDemoComponent {  private snackbar = inject(SnackbarService);  showSnackbar() {    this.snackbar.show("This is a snackbar message", "top-center");  }}</code></pre>
+<pre><code>import { Component, inject } from "@angular/core";import { CommonModule } from "@angular/common";import { SnackbarService, AavaButtonComponent } from "@aava/play-core";@Component({  standalone: true,  imports: [CommonModule, AavaButtonComponent],  template: `    &lt;div>      &lt;aava-button        label="Show Snackbar"        variant="primary"        size="md"        state="default"        (click)="showSnackbar()"      >      &lt;/aava-button>    &lt;/div>  `,})export class SnackbarBasicUsageDemoComponent {  private snackbar = inject(SnackbarService);  showSnackbar() {    this.snackbar.show("This is a snackbar message", "top-center");  }}</code></pre>
+<h2>Positions​</h2>
+<p>Display snackbars in different screen positions.</p>
+<pre><code>import { Component, inject } from "@angular/core";import { CommonModule } from "@angular/common";import { SnackbarService, SnackbarPosition } from "@aava/play-core";import { AavaButtonComponent } from "@aava/play-core";@Component({  standalone: true,  imports: [CommonModule, AavaButtonComponent],  template: `    &lt;div>      &lt;aava-button        *ngFor="let pos of positions"        [label]="pos"        variant="primary"        size="md"        state="default"        (click)="showSnackbar(pos)"      >      &lt;/aava-button>    &lt;/div>  `,})export class SnackbarPositionsDemoComponent {  private snackbar = inject(SnackbarService);  positions: SnackbarPosition[] = [    "top-left",    "top-center",    "top-right",    "bottom-left",    "bottom-center",    "bottom-right",    "center",  ];  showSnackbar(position: SnackbarPosition) {    this.snackbar.show(`Snackbar at ${position}`, position);  }}</code></pre>
+<pre><code>import { Component, inject } from "@angular/core";import { CommonModule } from "@angular/common";import { SnackbarService, SnackbarPosition } from "@aava/play-core";import { AavaButtonComponent } from "@aava/play-core";@Component({  standalone: true,  imports: [CommonModule, AavaButtonComponent],  template: `    &lt;div>      &lt;aava-button        *ngFor="let pos of positions"        [label]="pos"        variant="primary"        size="md"        state="default"        (click)="showSnackbar(pos)"      >      &lt;/aava-button>    &lt;/div>  `,})export class SnackbarPositionsDemoComponent {  private snackbar = inject(SnackbarService);  positions: SnackbarPosition[] = [    "top-left",    "top-center",    "top-right",    "bottom-left",    "bottom-center",    "bottom-right",    "center",  ];  showSnackbar(position: SnackbarPosition) {    this.snackbar.show(`Snackbar at ${position}`, position);  }}</code></pre>
+<p>There are 7 common positions used to describe snackbars placement.</p>
+<p>• top-left: Positioned at the upper-left corner.</p>
+<p>• top-center: Positioned at the top edge, horizontally centered.</p>
+<p>• top-right: Positioned at the upper-right corner.</p>
+<p>• bottom-left: Positioned at the lower-left corner.</p>
+<p>• bottom-center: Positioned at the bottom edge, horizontally centered.</p>
+<p>• bottom-right: Positioned at the lower-right corner.</p>
+<p>• center: Positioned exactly in the middle, both vertically and horizontally centered.</p>
+<h2>Actions & Icons​</h2>
+<p>Add action buttons, icons, make snackbars dismissible or persistent.</p>
+<pre><code>import { Component, inject } from "@angular/core";import { CommonModule } from "@angular/common";import { SnackbarService, AavaButtonComponent } from "@aava/play-core";@Component({  standalone: true,  imports: [CommonModule, AavaButtonComponent],  template: `    &lt;div>      &lt;aava-button        label="Snackbar with Action"        variant="primary"        size="md"        state="default"        (click)="showActionSnackbar()"      >      &lt;/aava-button>    &lt;/div>  `,})export class SnackbarActionsIconsDemoComponent {  private snackbar = inject(SnackbarService);  showActionSnackbar() {    this.snackbar.show("File uploaded!", "bottom-center", 4000, "", "", {      action: {        text: "Undo",        color: "primary",        callback: () => alert("Undo clicked!"),      },    });  }}</code></pre>
+<pre><code>import { Component, inject } from "@angular/core";import { CommonModule } from "@angular/common";import { SnackbarService, AavaButtonComponent } from "@aava/play-core";@Component({  standalone: true,  imports: [CommonModule, AavaButtonComponent],  template: `    &lt;div>      &lt;aava-button        label="Snackbar with Action"        variant="primary"        size="md"        state="default"        (click)="showActionSnackbar()"      >      &lt;/aava-button>    &lt;/div>  `,})export class SnackbarActionsIconsDemoComponent {  private snackbar = inject(SnackbarService);  showActionSnackbar() {    this.snackbar.show("File uploaded!", "bottom-center", 4000, "", "", {      action: {        text: "Undo",        color: "primary",        callback: () => alert("Undo clicked!"),      },    });  }}</code></pre>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+message | string | '' | Message text to display in the snackbar
+position | SnackbarPosition | 'bottom-center' | Position of the snackbar on screen
+duration | number | 4000 | Duration in milliseconds before auto-dismiss
+color | string | '' | Custom text color for the snackbar
+backgroundColor | string | '' | Custom background color for the snackbar
+action | SnackbarAction | '' | Action button configuration
+icon | SnackbarIcon | '' | Icon configuration for the snackbar
+dismissible | boolean | false | Whether the snackbar can be dismissed
+persistent | boolean | false | Whether the snackbar persists until dismissed
+variant | 'surface-bold' | string | 'surface-bold' | Visual variant of the snackbar
+type | 'medium' | 'strong' | 'max' | string | 'medium' | Size/emphasis type of the snackbar</pre>
+<pre><code>message</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>position</code></pre>
+<pre><code>SnackbarPosition</code></pre>
+<pre><code>'bottom-center'</code></pre>
+<pre><code>duration</code></pre>
+<pre><code>number</code></pre>
+<pre><code>4000</code></pre>
+<pre><code>color</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>backgroundColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>action</code></pre>
+<pre><code>SnackbarAction</code></pre>
+<pre><code>''</code></pre>
+<pre><code>icon</code></pre>
+<pre><code>SnackbarIcon</code></pre>
+<pre><code>''</code></pre>
+<pre><code>dismissible</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>persistent</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>'surface-bold' | string</code></pre>
+<pre><code>'surface-bold'</code></pre>
+<pre><code>type</code></pre>
+<pre><code>'medium' | 'strong' | 'max' | string</code></pre>
+<pre><code>'medium'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+dismissed | EventEmitter<void> | Emitted when snackbar is dismissed
+actioned | EventEmitter<string> | Emitted when action button is clicked</pre>
+<pre><code>dismissed</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>actioned</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+show() | message: string, options?: SnackbarOptions | void | Display a snackbar with the given message
+dismiss() | void | void | Dismiss the currently displayed snackbar
+clear() | void | void | Clear all displayed snackbars</pre>
+<pre><code>show()</code></pre>
+<pre><code>message: string, options?: SnackbarOptions</code></pre>
+<pre><code>void</code></pre>
+<pre><code>dismiss()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>void</code></pre>
+<pre><code>clear()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--snackbar-font-family | Font family for snackbar text
+--snackbar-size-sm-font | Font size for small snackbar
+--snackbar-size-md-font | Font size for medium snackbar
+--snackbar-size-lg-font | Font size for large snackbar
+--snackbar-success-color | Color for success snackbar
+--snackbar-warning-color | Color for warning snackbar
+--snackbar-error-color | Color for error snackbar
+--snackbar-info-color | Color for info snackbar
+--snackbar-font-weight-regular | Regular font weight
+--snackbar-font-weight-semibold | Semibold font weight
+--snackbar-subtitle-color | Color for subtitle text
+--snackbar-title-color | Color for title text
+--snackbar-radius-sm | Border radius for snackbar
+--snackbar-shadowbox | Box shadow for snackbar
+--snackbar-padding-small | Padding for small snackbar
+--snackbar-padding-medium | Padding for medium snackbar
+--snackbar-padding-large | Padding for large snackbar
+--snackbar-padding-default | Default padding for snackbar
+--snackbar-btn-font-sm | Font size for small button
+--snackbar-padding-small-btn | Padding for small button
+--snackbar-btn-font-md | Font size for medium button
+--snackbar-padding-md-btn | Padding for medium button
+--snackbar-btn-font-large | Font size for large button
+--snackbar-font-small | Small font size
+--snackbar-font-medium | Medium font size
+--snackbar-font-large | Large font size
+--snackbar-font-large-title | Font size for large title
+--snackbar-font-title | Font size for title
+--snackbar-font-subtitle | Font size for subtitle
+--snackbar-padding-wrapper | Horizontal padding for snackbar container</pre>
+<pre><code>--snackbar-font-family</code></pre>
+<pre><code>--snackbar-size-sm-font</code></pre>
+<pre><code>--snackbar-size-md-font</code></pre>
+<pre><code>--snackbar-size-lg-font</code></pre>
+<pre><code>--snackbar-success-color</code></pre>
+<pre><code>--snackbar-warning-color</code></pre>
+<pre><code>--snackbar-error-color</code></pre>
+<pre><code>--snackbar-info-color</code></pre>
+<pre><code>--snackbar-font-weight-regular</code></pre>
+<pre><code>--snackbar-font-weight-semibold</code></pre>
+<pre><code>--snackbar-subtitle-color</code></pre>
+<pre><code>--snackbar-title-color</code></pre>
+<pre><code>--snackbar-radius-sm</code></pre>
+<pre><code>--snackbar-shadowbox</code></pre>
+<pre><code>--snackbar-padding-small</code></pre>
+<pre><code>--snackbar-padding-medium</code></pre>
+<pre><code>--snackbar-padding-large</code></pre>
+<pre><code>--snackbar-padding-default</code></pre>
+<pre><code>--snackbar-btn-font-sm</code></pre>
+<pre><code>--snackbar-padding-small-btn</code></pre>
+<pre><code>--snackbar-btn-font-md</code></pre>
+<pre><code>--snackbar-padding-md-btn</code></pre>
+<pre><code>--snackbar-btn-font-large</code></pre>
+<pre><code>--snackbar-font-small</code></pre>
+<pre><code>--snackbar-font-medium</code></pre>
+<pre><code>--snackbar-font-large</code></pre>
+<pre><code>--snackbar-font-large-title</code></pre>
+<pre><code>--snackbar-font-title</code></pre>
+<pre><code>--snackbar-font-subtitle</code></pre>
+<pre><code>--snackbar-padding-wrapper</code></pre>
+<h2>Accessibility​</h2>
+<p>• Keyboard accessible (focus, dismiss)</p>
+<p>• Proper ARIA attributes for screen readers</p>
+<p>• Focus management and visible indicators</p>
+<p>• High contrast and reduced motion support</p>
+<h2>Theming & Design Tokens​</h2>
+<p>All colors, spacing, and effects are controlled via semantic design tokens and CSS custom properties. Override these in your theme or component styles for custom branding.</p>
+<h2>Best Practices​</h2>
+<p>• Use snackbars for brief, non-blocking feedback</p>
+<p>• Avoid placing critical information solely in snackbars</p>
+<p>• Provide clear, actionable messages</p>
+<p>• Use actions for undo or retry scenarios</p>
+<p>• Test snackbar placement in responsive layouts</p>
+<p>• Avoid excessive custom styling; use built-in variants and types</p>
+</body></html>
