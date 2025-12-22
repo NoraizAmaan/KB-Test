@@ -1,0 +1,131 @@
+<html><head><meta charset='utf-8'>
+<title>Sidebar</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Sidebar</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Navigation/Sidebar</small></p>
+<h2>Sidebar</h2>
+<p>The Sidebar component is a comprehensive navigation component designed to provide structured navigation, user management, and content organization in modern web applications. It features collapsible functionality, nested menu structures, user profiles, and integrated search capabilities.</p>
+<p>The<aava-sidebar>component offers a flexible and responsive sidebar solution that can adapt to different screen sizes and user preferences, making it ideal for dashboards, admin panels, and complex navigation systems.</p>
+<pre><code>&lt;aava-sidebar></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaSidebarComponent, MenuItem, UserProfile } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaSidebarComponent, MenuItem, UserProfile } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple sidebar with basic navigation and user profile.</p>
+<pre><code>&lt;div class="sidebar-demo">  &lt;aava-sidebar    [width]="sidebarWidth()"    [collapsedWidth]="collapsedSidebarWidth()"    [showCollapseButton]="true"    [buttonVariant]="'inside'"    [isCollapsed]="isCollapsed()"    [position]="'left'"    (collapseToggle)="onCollapseToggle($event)"  >    &lt;div class="demo-header-content">      &lt;span class="header-title">My App&lt;/span>    &lt;/div>    &lt;ul slot="content" class="demo-content">      &lt;li        *ngFor="let item of menuItems"        [class.active]="item.active"        class="nav-item"      >        &lt;span class="nav-icon">{{ item.icon }}&lt;/span>        &lt;span *ngIf="!isCollapsed()">{{ item.label }}&lt;/span>      &lt;/li>    &lt;/ul>  &lt;/aava-sidebar>&lt;/div></code></pre>
+<pre><code>&lt;div class="sidebar-demo">  &lt;aava-sidebar    [width]="sidebarWidth()"    [collapsedWidth]="collapsedSidebarWidth()"    [showCollapseButton]="true"    [buttonVariant]="'inside'"    [isCollapsed]="isCollapsed()"    [position]="'left'"    (collapseToggle)="onCollapseToggle($event)"  >    &lt;div class="demo-header-content">      &lt;span class="header-title">My App&lt;/span>    &lt;/div>    &lt;ul slot="content" class="demo-content">      &lt;li        *ngFor="let item of menuItems"        [class.active]="item.active"        class="nav-item"      >        &lt;span class="nav-icon">{{ item.icon }}&lt;/span>        &lt;span *ngIf="!isCollapsed()">{{ item.label }}&lt;/span>      &lt;/li>    &lt;/ul>  &lt;/aava-sidebar>&lt;/div></code></pre>
+<pre><code>isCollapsed = signal&lt;boolean>(false);sidebarWidth = signal&lt;string>('280px');collapsedSidebarWidth = signal&lt;string>('70px');menuItems = [  { icon: '🏠', label: 'Dashboard', active: true },  { icon: '👥', label: 'Users' },  { icon: '📄', label: 'Projects' },  { icon: '📊', label: 'Analytics' },  { icon: '⚙️', label: 'Settings' },];onCollapseToggle(collapsed: boolean): void {  this.isCollapsed.set(collapsed);}</code></pre>
+<pre><code>isCollapsed = signal&lt;boolean>(false);sidebarWidth = signal&lt;string>('280px');collapsedSidebarWidth = signal&lt;string>('70px');menuItems = [  { icon: '🏠', label: 'Dashboard', active: true },  { icon: '👥', label: 'Users' },  { icon: '📄', label: 'Projects' },  { icon: '📊', label: 'Analytics' },  { icon: '⚙️', label: 'Settings' },];onCollapseToggle(collapsed: boolean): void {  this.isCollapsed.set(collapsed);}</code></pre>
+<h2>Features​</h2>
+<h2>Responsive Design​</h2>
+<p>• Automatic size adjustments based on screen dimensions</p>
+<p>• Collapsible functionality for space optimization</p>
+<p>• Mobile-friendly collapsed state</p>
+<h2>Flexible Layout​</h2>
+<p>• Three size variants for different use cases</p>
+<p>• Configurable header and footer sections</p>
+<p>• Custom content projection slots</p>
+<h2>Advanced Navigation​</h2>
+<p>• Nested sub-menu support with expandable sections</p>
+<p>• Active state management for navigation items</p>
+<p>• Icon support for visual navigation</p>
+<h2>User Experience​</h2>
+<p>• Integrated search functionality</p>
+<p>• User profile display and interaction</p>
+<p>• Smooth collapse/expand animations</p>
+<h2>Customization​</h2>
+<p>• Logo and branding options</p>
+<p>• Theme-aware styling</p>
+<p>• CSS custom properties for theming</p>
+<h2>API Reference​</h2>
+<h2>Input Properties​</h2>
+<pre>Property | Type | Default | Description
+width | string | '' | Sidebar width
+collapsedWidth | string | '108px' | Collapsed sidebar width
+height | string | '' | Sidebar height
+hoverAreaWidth | string | '10px' | Hover area width
+showCollapseButton | boolean | true | Show collapse/expand button
+buttonVariant | 'inside' | 'outside' | 'inside' | Collapse button position
+isCollapsed | boolean | false | Initial collapsed state
+position | 'left' | 'right' | 'left' | Sidebar position
+toggleOffset | number | 400 | Toggle button offset
+togglePosition | 'top' | 'center' | 'bottom' | 'top' | Toggle button position
+customStyles | Record<string, string> | {} | Custom CSS styles</pre>
+<pre><code>width</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>collapsedWidth</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'108px'</code></pre>
+<pre><code>height</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>hoverAreaWidth</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'10px'</code></pre>
+<pre><code>showCollapseButton</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>buttonVariant</code></pre>
+<pre><code>'inside' | 'outside'</code></pre>
+<pre><code>'inside'</code></pre>
+<pre><code>isCollapsed</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>position</code></pre>
+<pre><code>'left' | 'right'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>toggleOffset</code></pre>
+<pre><code>number</code></pre>
+<pre><code>400</code></pre>
+<pre><code>togglePosition</code></pre>
+<pre><code>'top' | 'center' | 'bottom'</code></pre>
+<pre><code>'top'</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<h2>Output Events​</h2>
+<pre>Event | Type | Description
+collapseToggle | EventEmitter<boolean> | Emitted when sidebar collapse state changes</pre>
+<pre><code>collapseToggle</code></pre>
+<pre><code>EventEmitter&lt;boolean></code></pre>
+<h2>Content Projection Slots​</h2>
+<pre>Selector | Description
+[slot=content] | Custom content above the navigation menu
+[slot=footer] | Custom footer content above user profile</pre>
+<pre><code>[slot=content]</code></pre>
+<pre><code>[slot=footer]</code></pre>
+<h2>Best Practices​</h2>
+<h2>Menu Organization​</h2>
+<p>• Logical Grouping: Group related menu items together</p>
+<p>• Hierarchical Structure: Use sub-menus for complex navigation</p>
+<p>• Consistent Icons: Use meaningful and consistent icons for menu items</p>
+<p>• Clear Labels: Provide descriptive text for navigation items</p>
+<h2>Responsive Considerations​</h2>
+<p>• Mobile-First: Design for mobile devices first</p>
+<p>• Collapsed State: Ensure collapsed sidebar remains functional</p>
+<p>• Touch Targets: Maintain adequate touch target sizes</p>
+<p>• Content Priority: Prioritize essential navigation in collapsed state</p>
+<h2>User Experience​</h2>
+<p>• Search Integration: Implement search for applications with many menu items</p>
+<p>• Active States: Clearly indicate current navigation location</p>
+<p>• Smooth Transitions: Use smooth animations for state changes</p>
+<p>• Accessibility: Ensure keyboard navigation and screen reader support</p>
+<h2>Performance​</h2>
+<p>• Lazy Loading: Load sub-menu content on demand</p>
+<p>• Efficient Rendering: Use OnPush change detection strategy</p>
+<p>• Memory Management: Clean up event listeners and subscriptions</p>
+<h2>Styling​</h2>
+<p>The sidebar component uses CSS custom properties for theming:</p>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Default Value | Description
+--sidebar-background | #ffffff | Background color of the sidebar
+--sidebar-border | #e2e8f0 | Border color of the sidebar</pre>
+<pre><code>--sidebar-background</code></pre>
+<pre><code>#ffffff</code></pre>
+<pre><code>--sidebar-border</code></pre>
+<pre><code>#e2e8f0</code></pre>
+</body></html>
