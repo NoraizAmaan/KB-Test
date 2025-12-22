@@ -1,0 +1,285 @@
+<html><head><meta charset='utf-8'>
+<title>Popover</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Popover</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Overlay/Popover</small></p>
+<h2>Popover</h2>
+<p>The<ava-popover>component provides a flexible overlay system for displaying contextual information, help text, and guided tour content. Built with advanced positioning logic and multiple navigation variants, it's perfect for creating interactive user experiences.</p>
+<pre><code>&lt;ava-popover></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaPopOverComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaPopOverComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple popover implementation with default settings and basic content display.</p>
+<pre><code>&lt;aava-button  avaPopover  [avaPopoverData]="samplePopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'center'"  [label]="'Show Popover'"  [variant]="'primary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="learnMorePopoverData"  [avaPopoverPosition]="'bottom'"  [avaPopoverArrow]="'center'"  [avaPopoverShowLearnMore]="true"  [label]="'Show with Learn More'"  [variant]="'secondary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="multiStepPopoverData"  [avaPopoverPosition]="'right'"  [avaPopoverArrow]="'center'"  [avaPopoverShowButtons]="true"  [avaPopoverShowPagination]="true"  [label]="'Show Multi-step'"  [variant]="'success'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  avaPopover  [avaPopoverData]="samplePopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'center'"  [label]="'Show Popover'"  [variant]="'primary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="learnMorePopoverData"  [avaPopoverPosition]="'bottom'"  [avaPopoverArrow]="'center'"  [avaPopoverShowLearnMore]="true"  [label]="'Show with Learn More'"  [variant]="'secondary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="multiStepPopoverData"  [avaPopoverPosition]="'right'"  [avaPopoverArrow]="'center'"  [avaPopoverShowButtons]="true"  [avaPopoverShowPagination]="true"  [label]="'Show Multi-step'"  [variant]="'success'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button></code></pre>
+<pre><code>  samplePopoverData: PopOverData[] = [    {      header: 'Welcome!',      description: 'This is a simple popover with basic content.',    },  ];  learnMorePopoverData: PopOverData[] = [    {      header: 'Learn More',      description:        'This popover includes a learn more link for additional information.',      learnMoreUrl: 'https://example.com',    },  ];  multiStepPopoverData: PopOverData[] = [    {      header: 'Step 1',      description: 'This is the first step of the multi-step popover.',    },    {      header: 'Step 2',      description: 'This is the second step with additional information.',    },    {      header: 'Step 3',      description: 'This is the final step with completion details.',    },  ];</code></pre>
+<pre><code>  samplePopoverData: PopOverData[] = [    {      header: 'Welcome!',      description: 'This is a simple popover with basic content.',    },  ];  learnMorePopoverData: PopOverData[] = [    {      header: 'Learn More',      description:        'This popover includes a learn more link for additional information.',      learnMoreUrl: 'https://example.com',    },  ];  multiStepPopoverData: PopOverData[] = [    {      header: 'Step 1',      description: 'This is the first step of the multi-step popover.',    },    {      header: 'Step 2',      description: 'This is the second step with additional information.',    },    {      header: 'Step 3',      description: 'This is the final step with completion details.',    },  ];</code></pre>
+<h2>Basic Features​</h2>
+<p>• Flexible Positioning: Automatic positioning with arrow alignment</p>
+<p>• Content Management: Support for header, description, and optional learn more links</p>
+<p>• Responsive Design: Adapts to different screen sizes and content lengths</p>
+<p>• Accessibility: Built-in accessibility features and keyboard navigation</p>
+<p>• Animation: Smooth entrance animations with stretch effects</p>
+<h2>Positioning Options​</h2>
+<p>Four positioning variants with intelligent arrow placement and automatic boundary detection.</p>
+<pre><code>&lt;aava-button  avaPopover  [avaPopoverData]="topPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'center'"  [label]="'Show Top'"  [variant]="'primary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="bottomPopoverData"  [avaPopoverPosition]="'bottom'"  [avaPopoverArrow]="'center'"  [label]="'Show Bottom'"  [variant]="'secondary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="leftPopoverData"  [avaPopoverPosition]="'left'"  [avaPopoverArrow]="'center'"  [label]="'Show Left'"  [variant]="'success'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="rightPopoverData"  [avaPopoverPosition]="'right'"  [avaPopoverArrow]="'center'"  [label]="'Show Right'"  [variant]="'warning'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="startArrowPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'start'"  [label]="'Start Arrow'"  [variant]="'info'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="centerArrowPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'center'"  [label]="'Center Arrow'"  [variant]="'primary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="endArrowPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'end'"  [label]="'End Arrow'"  [variant]="'secondary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  avaPopover  [avaPopoverData]="topPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'center'"  [label]="'Show Top'"  [variant]="'primary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="bottomPopoverData"  [avaPopoverPosition]="'bottom'"  [avaPopoverArrow]="'center'"  [label]="'Show Bottom'"  [variant]="'secondary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="leftPopoverData"  [avaPopoverPosition]="'left'"  [avaPopoverArrow]="'center'"  [label]="'Show Left'"  [variant]="'success'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="rightPopoverData"  [avaPopoverPosition]="'right'"  [avaPopoverArrow]="'center'"  [label]="'Show Right'"  [variant]="'warning'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="startArrowPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'start'"  [label]="'Start Arrow'"  [variant]="'info'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="centerArrowPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'center'"  [label]="'Center Arrow'"  [variant]="'primary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button>&lt;aava-button  avaPopover  [avaPopoverData]="endArrowPopoverData"  [avaPopoverPosition]="'top'"  [avaPopoverArrow]="'end'"  [label]="'End Arrow'"  [variant]="'secondary'"  [outlined]="true"  pressedEffect="ripple">&lt;/aava-button></code></pre>
+<pre><code> topPopoverData: PopOverData[] = [    {      header: 'Top Position',      description:        'This popover appears above the target element with a downward arrow.',    },  ];  bottomPopoverData: PopOverData[] = [    {      header: 'Bottom Position',      description:        'This popover appears below the target element with an upward arrow.',    },  ];  leftPopoverData: PopOverData[] = [    {      header: 'Left Position',      description:        'This popover appears to the left of the target element with a rightward arrow.',    },  ];  rightPopoverData: PopOverData[] = [    {      header: 'Right Position',      description:        'This popover appears to the right of the target element with a leftward arrow.',    },  ];  startArrowPopoverData: PopOverData[] = [    {      header: 'Start Arrow',      description: 'Arrow positioned at the beginning of the popover.',    },  ];  centerArrowPopoverData: PopOverData[] = [    {      header: 'Center Arrow',      description: 'Arrow centered on the popover (default).',    },  ];  endArrowPopoverData: PopOverData[] = [    {      header: 'End Arrow',      description: 'Arrow positioned at the end of the popover.',    },  ];</code></pre>
+<pre><code> topPopoverData: PopOverData[] = [    {      header: 'Top Position',      description:        'This popover appears above the target element with a downward arrow.',    },  ];  bottomPopoverData: PopOverData[] = [    {      header: 'Bottom Position',      description:        'This popover appears below the target element with an upward arrow.',    },  ];  leftPopoverData: PopOverData[] = [    {      header: 'Left Position',      description:        'This popover appears to the left of the target element with a rightward arrow.',    },  ];  rightPopoverData: PopOverData[] = [    {      header: 'Right Position',      description:        'This popover appears to the right of the target element with a leftward arrow.',    },  ];  startArrowPopoverData: PopOverData[] = [    {      header: 'Start Arrow',      description: 'Arrow positioned at the beginning of the popover.',    },  ];  centerArrowPopoverData: PopOverData[] = [    {      header: 'Center Arrow',      description: 'Arrow centered on the popover (default).',    },  ];  endArrowPopoverData: PopOverData[] = [    {      header: 'End Arrow',      description: 'Arrow positioned at the end of the popover.',    },  ];</code></pre>
+<h2>Available Positions​</h2>
+<p>• Top- Appears above the target element with downward arrow</p>
+<p>• Bottom- Appears below the target element with upward arrow</p>
+<p>• Left- Appears to the left of the target element with rightward arrow</p>
+<p>• Right- Appears to the right of the target element with leftward arrow</p>
+<h2>Arrow Alignment​</h2>
+<p>• Start- Arrow positioned at the beginning of the popover</p>
+<p>• Center- Arrow centered on the popover (default)</p>
+<p>• End- Arrow positioned at the end of the popover</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+config | PopOverConfig | - | Configuration object for popover behavior
+data | PopOverData[] | [] | Array of content items to display</pre>
+<pre><code>config</code></pre>
+<pre><code>PopOverConfig</code></pre>
+<pre><code>data</code></pre>
+<pre><code>PopOverData[]</code></pre>
+<pre><code>[]</code></pre>
+<h2>PopOverConfig Interface​</h2>
+<pre>Property | Type | Default | Description
+arrow | 'start' | 'center' | 'end' | null | null | Arrow alignment position
+position | 'top' | 'bottom' | 'left' | 'right' | 'top' | Popover position relative to target
+left | number | 0 | Target element left position
+top | number | 0 | Target element top position
+bottom | number | 0 | Target element bottom position
+width | number | 0 | Target element width
+height | number | 0 | Target element height
+showButtons | boolean? | false | Whether to show navigation buttons
+showPagination | boolean? | false | Whether to show page counter
+showIcon | boolean? | false | Whether to show icon navigation
+showSkip | boolean? | false | Whether to show skip button
+showLearnMore | boolean? | false | Whether to show learn more button</pre>
+<pre><code>arrow</code></pre>
+<pre><code>'start' | 'center' | 'end' | null</code></pre>
+<pre><code>null</code></pre>
+<pre><code>position</code></pre>
+<pre><code>'top' | 'bottom' | 'left' | 'right'</code></pre>
+<pre><code>'top'</code></pre>
+<pre><code>left</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>top</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>bottom</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>width</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>height</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>showButtons</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showPagination</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showIcon</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showSkip</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showLearnMore</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<h2>PopOverData Interface​</h2>
+<pre>Property | Type | Default | Description
+header | string | - | Header text for the popover
+description | string | - | Description text for the popover
+learnMoreUrl | string? | - | Optional URL for learn more functionality</pre>
+<pre><code>header</code></pre>
+<pre><code>string</code></pre>
+<pre><code>description</code></pre>
+<pre><code>string</code></pre>
+<pre><code>learnMoreUrl</code></pre>
+<pre><code>string?</code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+visible | boolean | Whether the popover is currently visible
+currentIndex | number | Current page index for multi-page content
+currentData | PopOverData | null | Current content data being displayed
+currentPage | string | Current page display string (e.g., "2/5")
+hasPrevious | boolean | Whether previous page is available
+hasNext | boolean | Whether next page is available</pre>
+<pre><code>visible</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>currentIndex</code></pre>
+<pre><code>number</code></pre>
+<pre><code>currentData</code></pre>
+<pre><code>PopOverData | null</code></pre>
+<pre><code>currentPage</code></pre>
+<pre><code>string</code></pre>
+<pre><code>hasPrevious</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasNext</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+previous() | event?: any | void | Navigate to previous page
+next() | event?: any | void | Navigate to next page
+skip() | event?: any | void | Close popover and skip content
+learnMore() | event?: any | void | Open learn more URL in new tab
+updatePosition() | - | void | Update popover position and arrow placement
+setArrowPosition() | - | void | Set CSS custom properties for arrow positioning</pre>
+<pre><code>previous()</code></pre>
+<pre><code>event?: any</code></pre>
+<pre><code>void</code></pre>
+<pre><code>next()</code></pre>
+<pre><code>event?: any</code></pre>
+<pre><code>void</code></pre>
+<pre><code>skip()</code></pre>
+<pre><code>event?: any</code></pre>
+<pre><code>void</code></pre>
+<pre><code>learnMore()</code></pre>
+<pre><code>event?: any</code></pre>
+<pre><code>void</code></pre>
+<pre><code>updatePosition()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>setArrowPosition()</code></pre>
+<pre><code>void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The component uses CSS custom properties for theming and styling:</p>
+<pre>Property | Default | Description
+--popover-background | Dynamic | Background color of the popover
+--popover-text | Dynamic | Text color of the popover
+--popover-font | Dynamic | Font family for the popover
+--popover-padding | Dynamic | Internal padding of the popover
+--popover-border-radius | Dynamic | Border radius of the popover
+--popover-max-width | Dynamic | Maximum width of the popover
+--popover-z-index | Dynamic | Z-index for layering
+--popover-shadow | Dynamic | Box shadow for the popover
+--popover-border-color | Dynamic | Border color of the popover
+--popover-content-gap | Dynamic | Gap between content sections
+--popover-header-font-family | Dynamic | Font family for the header
+--popover-header-font-size | Dynamic | Font size for the header
+--popover-header-font-weight | Dynamic | Font weight for the header
+--popover-header-color | Dynamic | Color for the header text
+--popover-header-line-height | Dynamic | Line height for the header
+--popover-description-font-family | Dynamic | Font family for the description
+--popover-description-font-size | Dynamic | Font size for the description
+--popover-description-font-weight | Dynamic | Font weight for the description
+--popover-description-color | Dynamic | Color for the description text
+--popover-description-line-height | Dynamic | Line height for the description
+--popover-footer-margin-top | Dynamic | Top margin for the footer
+--popover-pagination-font-size | Dynamic | Font size for pagination text
+--popover-pagination-font-weight | Dynamic | Font weight for pagination text
+--popover-pagination-color | Dynamic | Color for pagination text
+--popover-pagination-font-family | Dynamic | Font family for pagination text
+--popover-pagination-line-height | Dynamic | Line height for pagination text
+--popover-button-gap | Dynamic | Gap between navigation buttons
+--popover-button-width | Dynamic | Width of navigation buttons
+--popover-button-height | Dynamic | Height of navigation buttons
+--popover-disabled-opacity | Dynamic | Opacity for disabled button states
+--popover-hover-background | Dynamic | Background color for button hover states
+--popover-hover-border-radius | Dynamic | Border radius for button hover states
+--popover-arrow-border-width | Dynamic | Width of arrow border
+--popover-arrow-border-width-inner | Dynamic | Width of inner arrow border
+--popover-arrow-border-shadow | Dynamic | Color of arrow border shadow
+--popover-arrow-color | Dynamic | Color of arrow fill</pre>
+<pre><code>--popover-background</code></pre>
+<pre><code>--popover-text</code></pre>
+<pre><code>--popover-font</code></pre>
+<pre><code>--popover-padding</code></pre>
+<pre><code>--popover-border-radius</code></pre>
+<pre><code>--popover-max-width</code></pre>
+<pre><code>--popover-z-index</code></pre>
+<pre><code>--popover-shadow</code></pre>
+<pre><code>--popover-border-color</code></pre>
+<pre><code>--popover-content-gap</code></pre>
+<pre><code>--popover-header-font-family</code></pre>
+<pre><code>--popover-header-font-size</code></pre>
+<pre><code>--popover-header-font-weight</code></pre>
+<pre><code>--popover-header-color</code></pre>
+<pre><code>--popover-header-line-height</code></pre>
+<pre><code>--popover-description-font-family</code></pre>
+<pre><code>--popover-description-font-size</code></pre>
+<pre><code>--popover-description-font-weight</code></pre>
+<pre><code>--popover-description-color</code></pre>
+<pre><code>--popover-description-line-height</code></pre>
+<pre><code>--popover-footer-margin-top</code></pre>
+<pre><code>--popover-pagination-font-size</code></pre>
+<pre><code>--popover-pagination-font-weight</code></pre>
+<pre><code>--popover-pagination-color</code></pre>
+<pre><code>--popover-pagination-font-family</code></pre>
+<pre><code>--popover-pagination-line-height</code></pre>
+<pre><code>--popover-button-gap</code></pre>
+<pre><code>--popover-button-width</code></pre>
+<pre><code>--popover-button-height</code></pre>
+<pre><code>--popover-disabled-opacity</code></pre>
+<pre><code>--popover-hover-background</code></pre>
+<pre><code>--popover-hover-border-radius</code></pre>
+<pre><code>--popover-arrow-border-width</code></pre>
+<pre><code>--popover-arrow-border-width-inner</code></pre>
+<pre><code>--popover-arrow-border-shadow</code></pre>
+<pre><code>--popover-arrow-color</code></pre>
+<h2>Best Practices​</h2>
+<h2>Content Guidelines​</h2>
+<p>• Keep it concise: Popovers work best with short, focused content</p>
+<p>• Use clear headers: Make the purpose of the popover immediately clear</p>
+<p>• Provide actionable content: Include learn more links or navigation when appropriate</p>
+<p>• Consider context: Position popovers to avoid covering important interface elements</p>
+<h2>Positioning Guidelines​</h2>
+<p>• Choose appropriate positions: Use top/bottom for horizontal content, left/right for vertical content</p>
+<p>• Align arrows thoughtfully: Center arrows for balanced content, start/end for directional emphasis</p>
+<p>• Avoid boundaries: Ensure popovers don't extend beyond viewport edges</p>
+<p>• Consider scrolling: Position popovers to remain visible during page scroll</p>
+<h2>Navigation Guidelines​</h2>
+<p>• Match user expectations: Use familiar navigation patterns (prev/next, pagination)</p>
+<p>• Provide clear feedback: Show current position and available actions</p>
+<p>• Include skip options: Allow users to bypass content when appropriate</p>
+<p>• Use consistent styling: Maintain visual consistency across navigation elements</p>
+<h2>Technical Notes​</h2>
+<h2>Component Architecture​</h2>
+<p>The popover component uses a modern Angular architecture with:</p>
+<p>• PopOverComponent- Main component with positioning and navigation logic</p>
+<p>• IconComponentintegration for icon-based navigation</p>
+<p>• ViewChild referencesfor DOM manipulation and positioning</p>
+<p>• ChangeDetectionStrategy.OnPushfor performance optimization</p>
+<h2>Positioning System​</h2>
+<p>The component implements an advanced positioning system:</p>
+<p>• Automatic positioningbased on target element coordinates</p>
+<p>• Arrow alignmentwith CSS custom properties for precise placement</p>
+<p>• Boundary detectionto prevent overflow beyond viewport</p>
+<p>• Scroll and resize handlingfor responsive positioning</p>
+<h2>Animation System​</h2>
+<p>The component provides smooth entrance animations:</p>
+<p>• Stretch effectsfor natural expansion from target elements</p>
+<p>• Position-based animationswith appropriate transform origins</p>
+<p>• CSS keyframesfor consistent and performant animations</p>
+<p>• Smooth transitionsfor opacity and transform changes</p>
+<h2>Event Handling​</h2>
+<p>The component manages multiple event types:</p>
+<p>• Navigation eventsfor page changes and content progression</p>
+<p>• User interactionfor skip, learn more, and navigation actions</p>
+<p>• Window eventsfor scroll and resize handling</p>
+<p>• Lifecycle eventsfor proper cleanup and memory management</p>
+<h2>CSS Architecture​</h2>
+<p>The component uses a comprehensive CSS architecture:</p>
+<p>• CSS custom propertiesfor theming and customization</p>
+<p>• BEM-like namingfor maintainable and scalable styles</p>
+<p>• Position-based modifiersfor different placement variants</p>
+<p>• Responsive designwith flexible layouts and sizing</p>
+<h2>Accessibility Features​</h2>
+<p>The component includes built-in accessibility features:</p>
+<p>• Keyboard navigationfor all interactive elements</p>
+<p>• ARIA attributesfor screen reader compatibility</p>
+<p>• Focus managementfor proper tab order and focus indicators</p>
+<p>• Semantic markupfor clear content structure and meaning</p>
+</body></html>
