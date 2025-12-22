@@ -1,0 +1,159 @@
+<html><head><meta charset='utf-8'>
+<title>Accordion</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Accordion</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Data-Display/Accordion</small></p>
+<h2>Accordion</h2>
+<p>A responsive collapsible content component for organizing and displaying expandable sections. Features smooth height-based animations, flexible icon positioning, controlled/uncontrolled modes, and comprehensive accessibility support for enhanced user experience.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaAccordionComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaAccordionComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple accordion implementations with expandable content sections.</p>
+<pre><code>&lt;aava-accordion type="default" iconClosed="chevron-right" iconOpen="chevron-up">  &lt;span header>Frequently Asked Questions&lt;/span>  &lt;div content>    &lt;p>      Here are the most common questions and answers about our product and      services.    &lt;/p>    &lt;ul>      &lt;li>How do I get started?&lt;/li>      &lt;li>What are the pricing plans?&lt;/li>      &lt;li>How can I contact support?&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-accordion></code></pre>
+<pre><code>&lt;aava-accordion type="default" iconClosed="chevron-right" iconOpen="chevron-up">  &lt;span header>Frequently Asked Questions&lt;/span>  &lt;div content>    &lt;p>      Here are the most common questions and answers about our product and      services.    &lt;/p>    &lt;ul>      &lt;li>How do I get started?&lt;/li>      &lt;li>What are the pricing plans?&lt;/li>      &lt;li>How can I contact support?&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-accordion></code></pre>
+<h2>Icons​</h2>
+<p>Lucide icon integration with customizable states and positioning.</p>
+<pre><code>&lt;aava-accordion  *ngFor="let config of iconConfigs"  [iconClosed]="config.closed"  [iconOpen]="config.open"  [iconPosition]="config.position"  (click)="onAccordionToggle($event)"  [expanded]="config.expanded ?? false">  &lt;span header>{{ config.name }}&lt;/span>  &lt;div content>    &lt;p>{{ config.description }}&lt;/p>    &lt;p>      This accordion uses &lt;strong>{{ config.closed }}&lt;/strong> for closed state      and &lt;strong>{{ config.open }}&lt;/strong> for open state, positioned on the      &lt;strong>{{ config.position }}&lt;/strong>.    &lt;/p>  &lt;/div>&lt;/aava-accordion></code></pre>
+<pre><code>&lt;aava-accordion  *ngFor="let config of iconConfigs"  [iconClosed]="config.closed"  [iconOpen]="config.open"  [iconPosition]="config.position"  (click)="onAccordionToggle($event)"  [expanded]="config.expanded ?? false">  &lt;span header>{{ config.name }}&lt;/span>  &lt;div content>    &lt;p>{{ config.description }}&lt;/p>    &lt;p>      This accordion uses &lt;strong>{{ config.closed }}&lt;/strong> for closed state      and &lt;strong>{{ config.open }}&lt;/strong> for open state, positioned on the      &lt;strong>{{ config.position }}&lt;/strong>.    &lt;/p>  &lt;/div>&lt;/aava-accordion></code></pre>
+<pre><code>iconConfigs = [  {    name: "Plus/Minus",    closed: "plus",    open: "minus",    position: "right" as const,    description: "Clear expand/collapse indication with plus and minus icons",  },  {    name: "Chevron Right/Up",    closed: "chevron-right",    open: "chevron-up",    position: "left" as const,    description: "Traditional chevron icons with left positioning",    expanded: false,  },];  onAccordionToggle(event: Event): void {    console.log('Accordion toggled:', event);  }</code></pre>
+<pre><code>iconConfigs = [  {    name: "Plus/Minus",    closed: "plus",    open: "minus",    position: "right" as const,    description: "Clear expand/collapse indication with plus and minus icons",  },  {    name: "Chevron Right/Up",    closed: "chevron-right",    open: "chevron-up",    position: "left" as const,    description: "Traditional chevron icons with left positioning",    expanded: false,  },];  onAccordionToggle(event: Event): void {    console.log('Accordion toggled:', event);  }</code></pre>
+<h2>Icon Features​</h2>
+<p>• State Icons: Different icons for expanded and collapsed states</p>
+<p>• Title Icons: Static icons for content categorization</p>
+<p>• Positioning: Left or right icon placement options</p>
+<h2>Positions​</h2>
+<p>Flexible icon positioning for optimal layout integration.</p>
+<pre><code>&lt;aava-accordion  *ngFor="let example of positionExamples"  [iconPosition]="example.position"  [iconClosed]="example.iconClosed"  [iconOpen]="example.iconOpen"  (click)="onAccordionToggle($event)">  &lt;span header>{{ example.title }}&lt;/span>  &lt;div content>    &lt;p>      &lt;strong>{{ example.description }}&lt;/strong>    &lt;/p>    &lt;p>      This accordion demonstrates the      &lt;code>{{ example.position }}&lt;/code> icon positioning. The icons are      positioned on the {{ example.position }} side of the header, providing a      different visual emphasis compared to the opposite position.    &lt;/p>  &lt;/div>&lt;/aava-accordion></code></pre>
+<pre><code>&lt;aava-accordion  *ngFor="let example of positionExamples"  [iconPosition]="example.position"  [iconClosed]="example.iconClosed"  [iconOpen]="example.iconOpen"  (click)="onAccordionToggle($event)">  &lt;span header>{{ example.title }}&lt;/span>  &lt;div content>    &lt;p>      &lt;strong>{{ example.description }}&lt;/strong>    &lt;/p>    &lt;p>      This accordion demonstrates the      &lt;code>{{ example.position }}&lt;/code> icon positioning. The icons are      positioned on the {{ example.position }} side of the header, providing a      different visual emphasis compared to the opposite position.    &lt;/p>  &lt;/div>&lt;/aava-accordion></code></pre>
+<pre><code>positionExamples = [  {    position: "left" as const,    title: "Left Position (Default)",    description: "Icons positioned on the left side of the header",    iconClosed: "chevron-right",    iconOpen: "chevron-down",  },  {    position: "right" as const,    title: "Right Position",    description:      "Icons positioned on the right side for different visual emphasis",    iconClosed: "chevron-right",    iconOpen: "chevron-up",  },];</code></pre>
+<pre><code>positionExamples = [  {    position: "left" as const,    title: "Left Position (Default)",    description: "Icons positioned on the left side of the header",    iconClosed: "chevron-right",    iconOpen: "chevron-down",  },  {    position: "right" as const,    title: "Right Position",    description:      "Icons positioned on the right side for different visual emphasis",    iconClosed: "chevron-right",    iconOpen: "chevron-up",  },];</code></pre>
+<h2>Position Options​</h2>
+<p>• Left Icons: Icons on the left side of the header (default)</p>
+<p>• Right Icons: Icons on the right side for different visual emphasis</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring inclusive user experience.</p>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Tab navigation and Enter/Space activation</p>
+<p>• ARIA Support: Proper button role and expanded state announcements</p>
+<p>• Screen Reader: Descriptive content and state information</p>
+<p>• Focus Management: Clear visual focus indicators</p>
+<p>• High Contrast: Enhanced visibility in high contrast modes</p>
+<p>• Semantic HTML: Proper heading hierarchy and content structure</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+expanded | boolean | false | Whether the accordion is currently expanded
+animation | boolean | true | Whether to enable smooth expand/collapse animations
+controlled | boolean | false | Whether expansion is controlled externally
+iconClosed | string | '' | Lucide icon name for collapsed state
+iconOpen | string | '' | Lucide icon name for expanded state
+titleIcon | string | '' | Static icon for title area (titleIcon type)
+iconPosition | 'left' | 'right' | 'left' | Position of expand/collapse icons
+type | 'default' | 'titleIcon' | 'default' | Layout type of the accordion</pre>
+<pre><code>expanded</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>animation</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>controlled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>iconClosed</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconOpen</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>titleIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconPosition</code></pre>
+<pre><code>'left' | 'right'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>type</code></pre>
+<pre><code>'default' | 'titleIcon'</code></pre>
+<pre><code>'default'</code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+contentHeight | number | Calculated height of content for animations
+accordionClasses | object | Computed CSS classes for styling</pre>
+<pre><code>contentHeight</code></pre>
+<pre><code>number</code></pre>
+<pre><code>accordionClasses</code></pre>
+<pre><code>object</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+toggleExpand() | - | void | Toggle expanded state (if not controlled)
+onAccordionKeydown() | event: KeyboardEvent | void | Handle keyboard activation
+ngAfterViewInit() | - | void | Calculate content height for animations</pre>
+<pre><code>toggleExpand()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onAccordionKeydown()</code></pre>
+<pre><code>event: KeyboardEvent</code></pre>
+<pre><code>void</code></pre>
+<pre><code>ngAfterViewInit()</code></pre>
+<pre><code>void</code></pre>
+<h2>Content Projection​</h2>
+<pre>Selector | Description
+[header] | Content projected into the accordion header
+[content] | Content projected into the expandable body</pre>
+<pre><code>[header]</code></pre>
+<pre><code>[content]</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Default | Description
+--accordion-light-background | Theme-based | Background color for light theme
+--accordion-dark-header-background | Theme-based | Header background for dark theme
+--accordion-dark-content-text | Theme-based | Content text color for dark theme
+--accordion-content-font | Theme-based | Font size for content text
+--accordion-font-family | Inter | Font family for accordion text
+--accordion-font-weight | Theme-based | Font weight for content
+--color-border-focus | Theme-based | Border color for focus states</pre>
+<pre><code>--accordion-light-background</code></pre>
+<pre><code>--accordion-dark-header-background</code></pre>
+<pre><code>--accordion-dark-content-text</code></pre>
+<pre><code>--accordion-content-font</code></pre>
+<pre><code>--accordion-font-family</code></pre>
+<pre><code>--accordion-font-weight</code></pre>
+<pre><code>--color-border-focus</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use clear, descriptive headers that indicate the content</p>
+<p>• Group related information logically within accordion sections</p>
+<p>• Consider default expanded states for important content</p>
+<p>• Use consistent icon patterns across related accordions</p>
+<p>• Provide adequate spacing between multiple accordions</p>
+<h2>Accessibility​</h2>
+<p>• Always provide meaningful header text for screen readers</p>
+<p>• Use semantic heading levels for accordion headers when appropriate</p>
+<p>• Ensure sufficient color contrast for all text content</p>
+<p>• Test keyboard navigation thoroughly</p>
+<p>• Consider announcing content changes to screen readers</p>
+<h2>Performance​</h2>
+<p>• Use OnPush change detection strategy for optimal performance</p>
+<p>• Avoid frequent expansion state changes that trigger animations</p>
+<p>• Consider virtualization for large lists of accordions</p>
+<p>• Cache content height calculations when possible</p>
+<h2>Technical Notes​</h2>
+<h2>Content Projection​</h2>
+<p>Angular content projection enables flexible layouts:</p>
+<p>• [header]selector for accordion headers</p>
+<p>• [content]selector for expandable content</p>
+<p>• Support for complex nested content and components</p>
+<pre><code>[header]</code></pre>
+<pre><code>[content]</code></pre>
+<h2>State Management​</h2>
+<p>• Uncontrolled: Component manages its own expanded state</p>
+<p>• Controlled: Parent component controls expansion viacontrolledproperty</p>
+<p>• Keyboard and click events respect controlled mode settings</p>
+<pre><code>controlled</code></pre>
+<h2>Icon Integration​</h2>
+<p>Uses Lucide Angular for consistent iconography:</p>
+<p>• Icons automatically rotate 180 degrees when expanded</p>
+<p>• Different icons for open/closed states</p>
+<p>• Static title icons for content categorization</p>
+</body></html>
