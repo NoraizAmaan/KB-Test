@@ -1,0 +1,157 @@
+<html><head><meta charset='utf-8'>
+<title>Card</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Card</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Layout/Card</small></p>
+<h2>Card</h2>
+<p>The AAVA Play card system provides a flexible and modular approach to creating content containers. It consists of a main card container (aava-default-card) and dedicated subcomponents for header (aava-card-header), content (aava-card-content), footer (aava-card-footer), and actions (aava-card-actions). This modular design allows for consistent, well-structured content layouts across your application.</p>
+<pre><code>aava-default-card</code></pre>
+<pre><code>aava-card-header</code></pre>
+<pre><code>aava-card-content</code></pre>
+<pre><code>aava-card-footer</code></pre>
+<pre><code>aava-card-actions</code></pre>
+<h2>How to use​</h2>
+<pre><code>import {  AavaDefaultCardComponent,  AavaCardHeaderComponent,  AavaCardContentComponent,  AavaCardFooterComponent,  AavaTagComponent,} from "@aava/play-core";</code></pre>
+<pre><code>import {  AavaDefaultCardComponent,  AavaCardHeaderComponent,  AavaCardContentComponent,  AavaCardFooterComponent,  AavaTagComponent,} from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>A simple card with basic content structure.</p>
+<pre><code>&lt;aava-default-card>  &lt;aava-card-header>    &lt;div class="header-with-badge">      &lt;h4>Article Title&lt;/h4>      &lt;aava-tag [pill]="true" label="New" color="primary">&lt;/aava-tag>    &lt;/div>  &lt;/aava-card-header>  &lt;aava-card-content>    &lt;p>      A complete card example with header, content, and footer sections. Perfect      for articles, blog posts, or detailed information displays.    &lt;/p>  &lt;/aava-card-content>  &lt;aava-card-footer>    &lt;div class="footer-info">      &lt;div class="meta-info">        &lt;aava-icon          iconName="calendar-days"          [iconSize]="16"          iconColor="#6c757d"        >&lt;/aava-icon>        &lt;span>Dec 15, 2024&lt;/span>      &lt;/div>      &lt;div class="meta-info">        &lt;aava-icon          iconName="user"          [iconSize]="16"          iconColor="#6c757d"        >&lt;/aava-icon>        &lt;span>John Doe&lt;/span>      &lt;/div>    &lt;/div>  &lt;/aava-card-footer>&lt;/aava-default-card></code></pre>
+<pre><code>&lt;aava-default-card>  &lt;aava-card-header>    &lt;div class="header-with-badge">      &lt;h4>Article Title&lt;/h4>      &lt;aava-tag [pill]="true" label="New" color="primary">&lt;/aava-tag>    &lt;/div>  &lt;/aava-card-header>  &lt;aava-card-content>    &lt;p>      A complete card example with header, content, and footer sections. Perfect      for articles, blog posts, or detailed information displays.    &lt;/p>  &lt;/aava-card-content>  &lt;aava-card-footer>    &lt;div class="footer-info">      &lt;div class="meta-info">        &lt;aava-icon          iconName="calendar-days"          [iconSize]="16"          iconColor="#6c757d"        >&lt;/aava-icon>        &lt;span>Dec 15, 2024&lt;/span>      &lt;/div>      &lt;div class="meta-info">        &lt;aava-icon          iconName="user"          [iconSize]="16"          iconColor="#6c757d"        >&lt;/aava-icon>        &lt;span>John Doe&lt;/span>      &lt;/div>    &lt;/div>  &lt;/aava-card-footer>&lt;/aava-default-card></code></pre>
+<h2>With Header​</h2>
+<p>Card with a header section for titles, navigation, or metadata.</p>
+<pre><code>&lt;aava-default-card>  &lt;aava-card-header>    &lt;div class="header-with-icon">      &lt;aava-icon        iconName="shield-check"        [iconSize]="24"        iconColor="#28a745"      >&lt;/aava-icon>      &lt;h4>Security Settings&lt;/h4>    &lt;/div>  &lt;/aava-card-header>  &lt;aava-card-content>    &lt;p>      Icons in headers help convey meaning quickly and add visual interest. This      card shows security-related settings.    &lt;/p>    &lt;ul class="settings-list">      &lt;li>Two-factor authentication enabled&lt;/li>      &lt;li>Password strength: Strong&lt;/li>      &lt;li>Last login: 2 hours ago&lt;/li>    &lt;/ul>  &lt;/aava-card-content>&lt;/aava-default-card></code></pre>
+<pre><code>&lt;aava-default-card>  &lt;aava-card-header>    &lt;div class="header-with-icon">      &lt;aava-icon        iconName="shield-check"        [iconSize]="24"        iconColor="#28a745"      >&lt;/aava-icon>      &lt;h4>Security Settings&lt;/h4>    &lt;/div>  &lt;/aava-card-header>  &lt;aava-card-content>    &lt;p>      Icons in headers help convey meaning quickly and add visual interest. This      card shows security-related settings.    &lt;/p>    &lt;ul class="settings-list">      &lt;li>Two-factor authentication enabled&lt;/li>      &lt;li>Password strength: Strong&lt;/li>      &lt;li>Last login: 2 hours ago&lt;/li>    &lt;/ul>  &lt;/aava-card-content>&lt;/aava-default-card></code></pre>
+<h2>With Actions​</h2>
+<p>Card with action buttons using the dedicated actions component.</p>
+<pre><code>&lt;aava-default-card>  &lt;aava-card-header>    &lt;h4>Account Settings&lt;/h4>  &lt;/aava-card-header>  &lt;aava-card-content>    &lt;p>      Manage your account preferences, security settings, and personal      information.    &lt;/p>    &lt;ul class="settings-list">      &lt;li>Profile Information&lt;/li>      &lt;li>Security & Privacy&lt;/li>      &lt;li>Notification Preferences&lt;/li>    &lt;/ul>  &lt;/aava-card-content>  &lt;aava-card-footer>    &lt;div class="primary-actions">      &lt;aava-button        label="Save Changes"        variant="primary"        size="sm"        (click)="onPrimaryAction('Save Changes')"      >      &lt;/aava-button>    &lt;/div>  &lt;/aava-card-footer>&lt;/aava-default-card></code></pre>
+<pre><code>&lt;aava-default-card>  &lt;aava-card-header>    &lt;h4>Account Settings&lt;/h4>  &lt;/aava-card-header>  &lt;aava-card-content>    &lt;p>      Manage your account preferences, security settings, and personal      information.    &lt;/p>    &lt;ul class="settings-list">      &lt;li>Profile Information&lt;/li>      &lt;li>Security & Privacy&lt;/li>      &lt;li>Notification Preferences&lt;/li>    &lt;/ul>  &lt;/aava-card-content>  &lt;aava-card-footer>    &lt;div class="primary-actions">      &lt;aava-button        label="Save Changes"        variant="primary"        size="sm"        (click)="onPrimaryAction('Save Changes')"      >      &lt;/aava-button>    &lt;/div>  &lt;/aava-card-footer>&lt;/aava-default-card></code></pre>
+<pre><code> onPrimaryAction(action: string) {    console.log(`Primary action: ${action}`);  }</code></pre>
+<pre><code> onPrimaryAction(action: string) {    console.log(`Primary action: ${action}`);  }</code></pre>
+<h2>Example Cards​</h2>
+<pre><code>&lt;div class="grid-container">  &lt;div class="test-group">    &lt;aava-image-card      [data]="verticalWithActions"      (buttonClicked)="onButtonClick($event)"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group">    &lt;aava-image-card      [data]="verticalWithoutActions1"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group">    &lt;aava-image-card      [data]="verticalWithoutActions3"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group stack">    &lt;aava-image-card      [data]="horizontalWithoutActions4"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>    &lt;aava-image-card      [data]="horizontalWithoutActions2"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>&lt;/div>&lt;!-- Horizontal Cards Row -->&lt;div class="grid-container horizontal-row">  &lt;div class="test-group">    &lt;aava-image-card      [data]="horizontalWithActions"      (buttonClicked)="onButtonClick($event)"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group">&lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="grid-container">  &lt;div class="test-group">    &lt;aava-image-card      [data]="verticalWithActions"      (buttonClicked)="onButtonClick($event)"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group">    &lt;aava-image-card      [data]="verticalWithoutActions1"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group">    &lt;aava-image-card      [data]="verticalWithoutActions3"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group stack">    &lt;aava-image-card      [data]="horizontalWithoutActions4"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>    &lt;aava-image-card      [data]="horizontalWithoutActions2"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>&lt;/div>&lt;!-- Horizontal Cards Row -->&lt;div class="grid-container horizontal-row">  &lt;div class="test-group">    &lt;aava-image-card      [data]="horizontalWithActions"      (buttonClicked)="onButtonClick($event)"      (cardClick)="onCardClick()"    >&lt;/aava-image-card>  &lt;/div>  &lt;div class="test-group">&lt;/div>&lt;/div></code></pre>
+<pre><code>  onButtonClick(event: { action: string | undefined, button: any }) {    alert(`Button clicked! Text: "${event.button.text}" | Action: ${event.action}`);    console.log('Button click event:', event);  }  onCardClick() {    console.log('Card clicked!');  }  // Card 1: Vertical With Actions  verticalWithActions: ImageCardData = {    variant: 'withActions',    title: 'Gen AI 101 Learning Path',    image: '/assets/card-1-v.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio no...',    divider: {      variant: 'solid',      color: '#E5E7EB'    },    avatar: {      url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',      size: 'extra-small',      text: 'Jhone Doe'    },    subText: {      icon: {        name: 'eye',        size: 16,        color: '#BBBEC5'      },      text: '440'    },    buttons: [      {        text: 'Button Text',        action: 'start-learning',        variant: 'secondary',        size: 'md',        width: '162px',        height: '44px'      },      {        text: 'Button Text',        action: 'view-details',        variant: 'primary',        size: 'md',        width: '162px',        height: '44px'      }    ],    layout: {      orientation: 'vertical',      imageGrid: 'top',      infoGrid: 'bottom'    }  };  // Card 2: Horizontal With Actions  horizontalWithActions: ImageCardData = {    variant: 'withActions',    title: 'Gen AI 101 Learning Path',    image: '/assets/card-1-h.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    divider: {      variant: 'solid',      color: '#E5E7EB'    },    avatar: {      url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',      size: 'extra-small',      text: 'Jhone Doe'    },    subText: {      icon: {        name: 'eye',        size: 16,        color: '#BBBEC5'      },      text: '440'    },    buttons: [      {        text: 'Button Text',        action: 'start-learning',        variant: 'secondary',        size: 'md',        width: '139px',        height: '44px'      },      {        text: 'Button Text',        action: 'view-details',        variant: 'primary',        size: 'md',        width: '139px',        height: '44px'      }    ],    layout: {      orientation: 'horizontal',      imageGrid: 'left',      infoGrid: 'right'    }  };  // Card 3: Vertical Without Actions (Card 1)  verticalWithoutActions1: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-v.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'vertical',      imageGrid: 'bottom',      infoGrid: 'top'    }  };  // Card 4: Horizontal Without Actions (Card 2)  horizontalWithoutActions2: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-h.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'horizontal',      imageGrid: 'left',      infoGrid: 'right'    }  };  // Card 5: Vertical Without Actions (Card 3)  verticalWithoutActions3: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-v.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'vertical',      imageGrid: 'top',      infoGrid: 'bottom'    }  };  // Card 6: Horizontal Without Actions (Card 4)  horizontalWithoutActions4: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-h.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'horizontal',      imageGrid: 'right',      infoGrid: 'left'    }  };</code></pre>
+<pre><code>  onButtonClick(event: { action: string | undefined, button: any }) {    alert(`Button clicked! Text: "${event.button.text}" | Action: ${event.action}`);    console.log('Button click event:', event);  }  onCardClick() {    console.log('Card clicked!');  }  // Card 1: Vertical With Actions  verticalWithActions: ImageCardData = {    variant: 'withActions',    title: 'Gen AI 101 Learning Path',    image: '/assets/card-1-v.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio no...',    divider: {      variant: 'solid',      color: '#E5E7EB'    },    avatar: {      url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',      size: 'extra-small',      text: 'Jhone Doe'    },    subText: {      icon: {        name: 'eye',        size: 16,        color: '#BBBEC5'      },      text: '440'    },    buttons: [      {        text: 'Button Text',        action: 'start-learning',        variant: 'secondary',        size: 'md',        width: '162px',        height: '44px'      },      {        text: 'Button Text',        action: 'view-details',        variant: 'primary',        size: 'md',        width: '162px',        height: '44px'      }    ],    layout: {      orientation: 'vertical',      imageGrid: 'top',      infoGrid: 'bottom'    }  };  // Card 2: Horizontal With Actions  horizontalWithActions: ImageCardData = {    variant: 'withActions',    title: 'Gen AI 101 Learning Path',    image: '/assets/card-1-h.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    divider: {      variant: 'solid',      color: '#E5E7EB'    },    avatar: {      url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',      size: 'extra-small',      text: 'Jhone Doe'    },    subText: {      icon: {        name: 'eye',        size: 16,        color: '#BBBEC5'      },      text: '440'    },    buttons: [      {        text: 'Button Text',        action: 'start-learning',        variant: 'secondary',        size: 'md',        width: '139px',        height: '44px'      },      {        text: 'Button Text',        action: 'view-details',        variant: 'primary',        size: 'md',        width: '139px',        height: '44px'      }    ],    layout: {      orientation: 'horizontal',      imageGrid: 'left',      infoGrid: 'right'    }  };  // Card 3: Vertical Without Actions (Card 1)  verticalWithoutActions1: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-v.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'vertical',      imageGrid: 'bottom',      infoGrid: 'top'    }  };  // Card 4: Horizontal Without Actions (Card 2)  horizontalWithoutActions2: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-h.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'horizontal',      imageGrid: 'left',      infoGrid: 'right'    }  };  // Card 5: Vertical Without Actions (Card 3)  verticalWithoutActions3: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-v.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'vertical',      imageGrid: 'top',      infoGrid: 'bottom'    }  };  // Card 6: Horizontal Without Actions (Card 4)  horizontalWithoutActions4: ImageCardData = {    variant: 'withoutActions',    title: 'Generate UI Design',    image: '/assets/card-1-h.svg',    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate, odio...',    tags: [      {        label: 'Tag',        size: 'xs',        color: 'primary',        shape: 'square'      }    ],    subDescription: {      left: 'Text Casus Generibus(15)',      right: '15th May, 18:00'    },    layout: {      orientation: 'horizontal',      imageGrid: 'right',      infoGrid: 'left'    }  };</code></pre>
+<h2>Features​</h2>
+<h2>Modular Components​</h2>
+<p>• Default Card(aava-default-card): Main card container with proper styling and accessibility</p>
+<p>• Card Header(aava-card-header): Dedicated header component with semantic HTML</p>
+<p>• Card Content(aava-card-content): Main content area component</p>
+<p>• Card Footer(aava-card-footer): Footer section component</p>
+<p>• Card Actions(aava-card-actions): Action buttons container component</p>
+<pre><code>aava-default-card</code></pre>
+<pre><code>aava-card-header</code></pre>
+<pre><code>aava-card-content</code></pre>
+<pre><code>aava-card-footer</code></pre>
+<pre><code>aava-card-actions</code></pre>
+<h2>Accessibility​</h2>
+<p>• Semantic Structure: Proper ARIA roles and landmarks</p>
+<p>• Keyboard Navigation: Full keyboard accessibility</p>
+<p>• Screen Reader Support: Clear content structure for assistive technologies</p>
+<h2>Responsive Design​</h2>
+<p>• Flexible Width: Adapts to container width</p>
+<p>• Mobile Friendly: Optimized for all screen sizes</p>
+<p>• Consistent Spacing: Maintains proper spacing across devices</p>
+<h2>API Reference​</h2>
+<h2>DefaultCardComponent​</h2>
+<p>The main card container component that provides the base card structure.</p>
+<p>Selector:aava-default-card</p>
+<pre><code>aava-default-card</code></pre>
+<pre>Property | Type | Default | Description
+No inputs | - | - | Uses content projection for all content</pre>
+<p>Methods:None</p>
+<p>Events:None</p>
+<h2>CardHeaderComponent​</h2>
+<p>Header section component with semantic HTML structure and typography styling.</p>
+<p>Selector:aava-card-header</p>
+<pre><code>aava-card-header</code></pre>
+<pre>Property | Type | Default | Description
+No inputs | - | - | Uses content projection for header content</pre>
+<p>Methods:None</p>
+<p>Events:None</p>
+<h2>CardContentComponent​</h2>
+<p>Main content area component for displaying primary card content.</p>
+<p>Selector:aava-card-content</p>
+<pre><code>aava-card-content</code></pre>
+<pre>Property | Type | Default | Description
+No inputs | - | - | Uses content projection for main content</pre>
+<p>Methods:None</p>
+<p>Events:None</p>
+<h2>CardFooterComponent​</h2>
+<p>Footer section component for additional information or metadata.</p>
+<p>Selector:aava-card-footer</p>
+<pre><code>aava-card-footer</code></pre>
+<pre>Property | Type | Default | Description
+No inputs | - | - | Uses content projection for footer content</pre>
+<p>Methods:None</p>
+<p>Events:None</p>
+<h2>CardActionsComponent​</h2>
+<p>Action buttons container component for user interactions.</p>
+<p>Selector:aava-card-actions</p>
+<pre><code>aava-card-actions</code></pre>
+<pre>Property | Type | Default | Description
+No inputs | - | - | Uses content projection for action buttons</pre>
+<p>Methods:None</p>
+<p>Events:None</p>
+<h2>CSS Custom Properties​</h2>
+<p>The card components use the following CSS custom properties for styling:</p>
+<pre>Property | Description | Default Value
+--card-default-border | Border color for the default card | Defined in theme
+--tooltip-shadow | Box shadow for the card | Defined in theme
+--card-heading1-font | Font family for h1 elements in header | Defined in theme
+--card-heading1-font-weight | Font weight for h1 elements in header | Defined in theme</pre>
+<pre><code>--card-default-border</code></pre>
+<pre><code>--tooltip-shadow</code></pre>
+<pre><code>--card-heading1-font</code></pre>
+<pre><code>--card-heading1-font-weight</code></pre>
+<h2>Component Styling​</h2>
+<p>Default Card:</p>
+<p>• Border radius: 24px</p>
+<p>• Border: 1px solid with--card-default-border</p>
+<p>• Background: Linear gradient from white to light gray</p>
+<p>• Box shadow: Uses--tooltip-shadow</p>
+<p>• Padding: 24px</p>
+<p>• Width: 100%</p>
+<pre><code>--card-default-border</code></pre>
+<pre><code>--tooltip-shadow</code></pre>
+<p>Card Header:</p>
+<p>• Uses semantic<header>element withrole="banner"</p>
+<p>• Typography styling for h1 elements</p>
+<p>• Custom font family and weight support</p>
+<pre><code>&lt;header></code></pre>
+<pre><code>role="banner"</code></pre>
+<p>Card Content:</p>
+<p>• Clean content area with no additional styling</p>
+<p>• Uses content projection for flexible content</p>
+<p>Card Footer:</p>
+<p>• Clean footer area with no additional styling</p>
+<p>• Uses content projection for flexible content</p>
+<p>Card Actions:</p>
+<p>• Clean actions area with no additional styling</p>
+<p>• Uses content projection for flexible content</p>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Content Hierarchy: Use headers for titles, content for main information, and footers for actions or metadata</p>
+<p>• Consistent Spacing: Maintain consistent padding and margins across all cards</p>
+<p>• Visual Balance: Ensure content is well-distributed within the card</p>
+<p>• Clear Boundaries: Use borders or shadows to clearly define card boundaries</p>
+<h2>Component Usage​</h2>
+<p>• Always useaava-default-cardas the main container</p>
+<p>• Use dedicated subcomponentsfor each section (header, content, footer, actions)</p>
+<p>• Maintain semantic structurewith proper heading hierarchy</p>
+<p>• Keep components focusedon their specific responsibilities</p>
+<pre><code>aava-default-card</code></pre>
+<h2>Accessibility​</h2>
+<p>• Semantic Structure: Use proper heading hierarchy within card headers</p>
+<p>• Focus Management: Ensure logical tab order through card content</p>
+<p>• Screen Reader Support: Provide descriptive content for assistive technologies</p>
+<p>• Color Contrast: Maintain sufficient contrast for all text content</p>
+<h2>Performance​</h2>
+<p>• Modular Design: Use only the components you need</p>
+<p>• Change Detection: Leverage OnPush strategy for better performance</p>
+<p>• Lazy Loading: Consider lazy loading for cards with heavy content</p>
+<p>• Memory Management: Clean up event listeners and subscriptions</p>
+</body></html>
