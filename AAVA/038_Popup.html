@@ -1,0 +1,147 @@
+<html><head><meta charset='utf-8'>
+<title>Popup</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Popup</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Overlay/Popup</small></p>
+<h2>Popup</h2>
+<p>The<ava-popup>component provides a highly flexible floating container for displaying contextual content such as tooltips, menus, dropdowns, or custom overlays. It supports multiple trigger types, advanced positioning, animation, and full accessibility compliance. Use it to create interactive overlays that appear on click, hover, focus, or programmatically.</p>
+<pre><code>&lt;ava-popup></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { PopupComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { PopupComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>A simple popup triggered by a button click, displaying custom content.</p>
+<pre><code>// app.component.html&lt;button aava-button (click)="isOpen = !isOpen">Toggle Popup&lt;/button>&lt;aava-popup [isOpen]="isOpen" (closed)="isOpen = false">  &lt;div style="padding: 1rem;">Hello from Popup!&lt;/div>&lt;/aava-popup></code></pre>
+<pre><code>// app.component.html&lt;button aava-button (click)="isOpen = !isOpen">Toggle Popup&lt;/button>&lt;aava-popup [isOpen]="isOpen" (closed)="isOpen = false">  &lt;div style="padding: 1rem;">Hello from Popup!&lt;/div>&lt;/aava-popup></code></pre>
+<h2>Positioning​</h2>
+<p>Popup supports multiple placement options relative to the trigger element:</p>
+<p>• Top</p>
+<p>• Bottom</p>
+<p>• Left</p>
+<p>• Right</p>
+<p>• Auto (smart positioning)</p>
+<pre><code>// app.component.html&lt;button aava-button>Top&lt;/button>&lt;aava-popup placement="top">  &lt;div style="padding: 1rem;">Top Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Bottom&lt;/button>&lt;aava-popup placement="bottom">  &lt;div style="padding: 1rem;">Bottom Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Left&lt;/button>&lt;aava-popup placement="left">  &lt;div style="padding: 1rem;">Left Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Right&lt;/button>&lt;aava-popup placement="right">  &lt;div style="padding: 1rem;">Right Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Auto&lt;/button>&lt;aava-popup placement="auto">  &lt;div style="padding: 1rem;">Auto Placement&lt;/div>&lt;/aava-popup></code></pre>
+<pre><code>// app.component.html&lt;button aava-button>Top&lt;/button>&lt;aava-popup placement="top">  &lt;div style="padding: 1rem;">Top Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Bottom&lt;/button>&lt;aava-popup placement="bottom">  &lt;div style="padding: 1rem;">Bottom Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Left&lt;/button>&lt;aava-popup placement="left">  &lt;div style="padding: 1rem;">Left Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Right&lt;/button>&lt;aava-popup placement="right">  &lt;div style="padding: 1rem;">Right Placement&lt;/div>&lt;/aava-popup>&lt;button aava-button>Auto&lt;/button>&lt;aava-popup placement="auto">  &lt;div style="padding: 1rem;">Auto Placement&lt;/div>&lt;/aava-popup></code></pre>
+<h2>Custom Content​</h2>
+<p>Render any custom content inside the popup, including forms, lists, or interactive elements.</p>
+<pre><code>// app.component.html&lt;button aava-button>Show Custom Content&lt;/button>&lt;aava-popup>  &lt;form style="padding: 1rem;">    &lt;label>Name: &lt;input type="text" />&lt;/label>&lt;br />    &lt;button type="submit" aava-button>Submit&lt;/button>  &lt;/form>&lt;/aava-popup></code></pre>
+<pre><code>// app.component.html&lt;button aava-button>Show Custom Content&lt;/button>&lt;aava-popup>  &lt;form style="padding: 1rem;">    &lt;label>Name: &lt;input type="text" />&lt;/label>&lt;br />    &lt;button type="submit" aava-button>Submit&lt;/button>  &lt;/form>&lt;/aava-popup></code></pre>
+<h2>Accessibility​</h2>
+<p>Popup is fully accessible:</p>
+<p>• Keyboard navigation</p>
+<p>• ARIA roles and attributes</p>
+<p>• Focus management</p>
+<p>• Dismiss on Escape</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+isOpen | boolean | false | Whether the popup is open
+trigger | 'click' | 'hover' | 'focus' | 'manual' | 'click' | Trigger type for showing the popup
+placement | 'top' | 'bottom' | 'left' | 'right' | 'auto' | 'bottom' | Popup placement relative to trigger
+offset | number | 8 | Offset distance from trigger (px)
+closeOnClickOutside | boolean | true | Close popup when clicking outside
+closeOnEscape | boolean | true | Close popup on Escape key
+disabled | boolean | false | Disable the popup
+backdrop | boolean | false | Show a backdrop behind the popup
+zIndex | number | 1000 | z-index for popup layering
+animation | 'fade' | 'scale' | 'none' | 'fade' | Animation style for popup
+containerClass | string | '' | Custom CSS class for popup container
+containerStyle | Record<string, string> | {} | Custom styles for popup container</pre>
+<pre><code>isOpen</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>trigger</code></pre>
+<pre><code>'click' | 'hover' | 'focus' | 'manual'</code></pre>
+<pre><code>'click'</code></pre>
+<pre><code>placement</code></pre>
+<pre><code>'top' | 'bottom' | 'left' | 'right' | 'auto'</code></pre>
+<pre><code>'bottom'</code></pre>
+<pre><code>offset</code></pre>
+<pre><code>number</code></pre>
+<pre><code>8</code></pre>
+<pre><code>closeOnClickOutside</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>closeOnEscape</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>backdrop</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>zIndex</code></pre>
+<pre><code>number</code></pre>
+<pre><code>1000</code></pre>
+<pre><code>animation</code></pre>
+<pre><code>'fade' | 'scale' | 'none'</code></pre>
+<pre><code>'fade'</code></pre>
+<pre><code>containerClass</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>containerStyle</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+opened | EventEmitter<void> | Emitted when popup is opened
+closed | EventEmitter<void> | Emitted when popup is closed
+positioned | EventEmitter<string> | Emitted when popup is positioned</pre>
+<pre><code>opened</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>closed</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>positioned</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Description
+open() | void | Open the popup programmatically
+close() | void | Close the popup programmatically
+toggle() | void | Toggle popup open/close state
+reposition() | void | Recalculate popup position</pre>
+<pre><code>open()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>close()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>toggle()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>reposition()</code></pre>
+<pre><code>void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--popup-background | Background color of the popup
+--popup-border-radius | Border radius of the popup
+--popup-box-shadow | Box shadow for the popup
+--popup-z-index | z-index for popup layering
+--popup-animation-duration | Duration of the popup animation
+--popup-arrow-size | Size of the popup arrow (if present)
+--popup-arrow-color | Color of the popup arrow
+--popup-backdrop-background | Background color for the backdrop</pre>
+<pre><code>--popup-background</code></pre>
+<pre><code>--popup-border-radius</code></pre>
+<pre><code>--popup-box-shadow</code></pre>
+<pre><code>--popup-z-index</code></pre>
+<pre><code>--popup-animation-duration</code></pre>
+<pre><code>--popup-arrow-size</code></pre>
+<pre><code>--popup-arrow-color</code></pre>
+<pre><code>--popup-backdrop-background</code></pre>
+<h2>Accessibility Guidelines​</h2>
+<p>• Keyboard Navigation: Tab, Shift+Tab, Escape to close</p>
+<p>• ARIA Roles:role="dialog"orrole="tooltip"as appropriate</p>
+<p>• Focus Management: Focus is trapped within popup when open</p>
+<p>• Dismissal: Popup closes on Escape or outside click</p>
+<p>• Screen Reader Support: Popup content is announced</p>
+<pre><code>role="dialog"</code></pre>
+<pre><code>role="tooltip"</code></pre>
+<h2>Best Practices​</h2>
+<p>• Use the appropriate trigger for your use case (click for menus, hover for tooltips)</p>
+<p>• Always provide accessible labels and ARIA attributes</p>
+<p>• Avoid using popups for critical information that must not be missed</p>
+<p>• Test keyboard and screen reader interactions</p>
+<p>• Use smart positioning to avoid clipping or overflow</p>
+<p>• Keep popup content concise and focused</p>
+</body></html>
