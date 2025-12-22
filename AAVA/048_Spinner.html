@@ -1,0 +1,153 @@
+<html><head><meta charset='utf-8'>
+<title>Spinner</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Spinner</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Feedback/Spinner</small></p>
+<h2>Spinner</h2>
+<p>ASpinneris a loading indicator that provides visual feedback to users during asynchronous operations. It helps maintain user engagement by clearly communicating that a process is in progress, reducing perceived wait times and improving user experience.</p>
+<h2>Import​</h2>
+<pre><code>import { AavaSpinnerComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaSpinnerComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<pre><code>&lt;aava-spinner  type="circular"  color="primary"  size="lg"  [animation]="true">&lt;/aava-spinner></code></pre>
+<pre><code>&lt;aava-spinner  type="circular"  color="primary"  size="lg"  [animation]="true">&lt;/aava-spinner></code></pre>
+<p>The spinner component supports multiple visual styles, sizes, and colors to match your application's design system.</p>
+<h2>Sizes​</h2>
+<pre><code>&lt;aava-spinner  type="circular"  color="primary"  size="xs"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="sm"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="md"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="xl"  [animation]="true">&lt;/aava-spinner></code></pre>
+<pre><code>&lt;aava-spinner  type="circular"  color="primary"  size="xs"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="sm"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="md"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="primary"  size="xl"  [animation]="true">&lt;/aava-spinner></code></pre>
+<p>Available spinner sizes:</p>
+<p>• xs (Extra Small): Smallest spinner for inline use</p>
+<p>• sm (Small): Compact spinner for inline use</p>
+<p>• md (Medium): Default size for general use</p>
+<p>• lg (Large): Prominent spinner for important operations</p>
+<p>• xl (Extra Large): Maximum size for high-impact loading states</p>
+<h2>Colors​</h2>
+<pre><code>&lt;aava-spinner  type="circular"  color="primary"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="secondary"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="success"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="warning"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="danger"  size="lg"  [animation]="true">&lt;/aava-spinner></code></pre>
+<pre><code>&lt;aava-spinner  type="circular"  color="primary"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="secondary"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="success"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="warning"  size="lg"  [animation]="true">&lt;/aava-spinner>&lt;aava-spinner  type="circular"  color="danger"  size="lg"  [animation]="true">&lt;/aava-spinner></code></pre>
+<p>Semantic color variants:</p>
+<p>• primary: Default brand color</p>
+<p>• secondary: Secondary brand color</p>
+<p>• success: Success state indication</p>
+<p>• warning: Warning state indication</p>
+<p>• danger: Error or critical state indication</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring inclusive user experience for loading states.</p>
+<h2>Accessibility Features​</h2>
+<p>• ARIA Labels: Usearia-labeloraria-labelledbyto describe the loading state</p>
+<p>• Live Regions: Announce loading state changes to screen readers usingaria-live</p>
+<p>• Focus Management: Ensure proper focus handling during loading states</p>
+<p>• Reduced Motion: Respect user preferences for reduced motion withprefers-reduced-motion</p>
+<p>• Timeout Handling: Provide fallback mechanisms for extended loading times</p>
+<p>• Screen Reader Support: Semantic HTML structure for assistive technologies</p>
+<p>• Keyboard Navigation: Maintain keyboard accessibility during loading states</p>
+<p>• Color Contrast: Ensure sufficient contrast for all spinner variants</p>
+<p>• Status Communication: Clear communication of loading progress and completion</p>
+<pre><code>aria-label</code></pre>
+<pre><code>aria-labelledby</code></pre>
+<pre><code>aria-live</code></pre>
+<pre><code>prefers-reduced-motion</code></pre>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+type | SpinnerType | 'circular' | Visual style of the spinner
+size | SpinnerSize | 'md' | Size of the spinner
+color | SpinnerColor | 'primary' | Color variant of the spinner
+animation | boolean | true | Whether to animate the spinner
+progressIndex | number | undefined | Progress value for determinate loading (0-100)</pre>
+<pre><code>type</code></pre>
+<pre><code>SpinnerType</code></pre>
+<pre><code>'circular'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>SpinnerSize</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>color</code></pre>
+<pre><code>SpinnerColor</code></pre>
+<pre><code>'primary'</code></pre>
+<pre><code>animation</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>progressIndex</code></pre>
+<pre><code>number</code></pre>
+<pre><code>undefined</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description | Default
+--spinner-size-xs | Extra small spinner dimensions | 16px
+--spinner-size-sm | Small spinner dimensions | 20px
+--spinner-size-md | Medium spinner dimensions | 24px
+--spinner-size-lg | Large spinner dimensions | 48px
+--spinner-size-xl | Extra large spinner dimensions | 64px</pre>
+<pre><code>--spinner-size-xs</code></pre>
+<pre><code>16px</code></pre>
+<pre><code>--spinner-size-sm</code></pre>
+<pre><code>20px</code></pre>
+<pre><code>--spinner-size-md</code></pre>
+<pre><code>24px</code></pre>
+<pre><code>--spinner-size-lg</code></pre>
+<pre><code>48px</code></pre>
+<pre><code>--spinner-size-xl</code></pre>
+<pre><code>64px</code></pre>
+<pre>Property | Description | Default
+--spinner-primary-track | Primary spinner track color | rgba(59, 130, 246, 0.2)
+--spinner-primary-fill | Primary spinner fill color | rgb(59, 130, 246)
+--spinner-secondary-track | Secondary spinner track color | rgba(107, 114, 128, 0.2)
+--spinner-secondary-fill | Secondary spinner fill color | rgb(107, 114, 128)
+--spinner-success-track | Success spinner track color | rgba(34, 197, 94, 0.2)
+--spinner-success-fill | Success spinner fill color | rgb(34, 197, 94)
+--spinner-warning-track | Warning spinner track color | rgba(245, 158, 11, 0.2)
+--spinner-warning-fill | Warning spinner fill color | rgb(245, 158, 11)
+--spinner-error-track | Error spinner track color | rgba(239, 68, 68, 0.2)
+--spinner-error-fill | Error spinner fill color | rgb(239, 68, 68)</pre>
+<pre><code>--spinner-primary-track</code></pre>
+<pre><code>rgba(59, 130, 246, 0.2)</code></pre>
+<pre><code>--spinner-primary-fill</code></pre>
+<pre><code>rgb(59, 130, 246)</code></pre>
+<pre><code>--spinner-secondary-track</code></pre>
+<pre><code>rgba(107, 114, 128, 0.2)</code></pre>
+<pre><code>--spinner-secondary-fill</code></pre>
+<pre><code>rgb(107, 114, 128)</code></pre>
+<pre><code>--spinner-success-track</code></pre>
+<pre><code>rgba(34, 197, 94, 0.2)</code></pre>
+<pre><code>--spinner-success-fill</code></pre>
+<pre><code>rgb(34, 197, 94)</code></pre>
+<pre><code>--spinner-warning-track</code></pre>
+<pre><code>rgba(245, 158, 11, 0.2)</code></pre>
+<pre><code>--spinner-warning-fill</code></pre>
+<pre><code>rgb(245, 158, 11)</code></pre>
+<pre><code>--spinner-error-track</code></pre>
+<pre><code>rgba(239, 68, 68, 0.2)</code></pre>
+<pre><code>--spinner-error-fill</code></pre>
+<pre><code>rgb(239, 68, 68)</code></pre>
+<pre>Property | Description | Default
+--spinner-animation-duration | Spinner rotation duration | 3s
+--spinner-animation-timing | Spinner animation timing function | linear</pre>
+<pre><code>--spinner-animation-duration</code></pre>
+<pre><code>3s</code></pre>
+<pre><code>--spinner-animation-timing</code></pre>
+<pre><code>linear</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Context Appropriate: Use appropriate sizes for the context and available space</p>
+<p>• Semantic Colors: Choose colors that align with your design system and semantic meaning</p>
+<p>• Prominent Placement: Position spinners prominently for critical operations</p>
+<p>• Loading States: Consider using skeleton screens for complex loading states</p>
+<p>• Clear Context: Provide clear context about what is loading</p>
+<p>• Consistent Timing: Use consistent animation timing across your application</p>
+<p>• Visual Hierarchy: Size spinners according to the importance of the loading operation</p>
+<h2>Performance​</h2>
+<p>• Timing Thresholds: Only show spinners for operations that take more than 200ms</p>
+<p>• Animation Optimization: Use CSS animations instead of JavaScript for better performance</p>
+<p>• Progress Indicators: Use progress mode for operations with known duration</p>
+<p>• State Management: Implement proper loading state management to prevent flickering</p>
+<p>• Resource Efficiency: Avoid unnecessary re-renders during loading states</p>
+<p>• Bundle Size: Consider lazy loading spinner variants not immediately needed</p>
+<h2>User Experience​</h2>
+<p>• Clear Messaging: Provide clear messaging about what is loading</p>
+<p>• Consistent Patterns: Use consistent spinner styles throughout your application</p>
+<p>• Cancel Options: Consider providing cancel options for long-running operations</p>
+<p>• Error Handling: Implement proper error handling for failed operations</p>
+<p>• Progress Feedback: For long operations, show progress or estimated time</p>
+<p>• Completion States: Provide clear indication when loading is complete</p>
+</body></html>
