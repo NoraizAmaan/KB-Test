@@ -1,0 +1,285 @@
+<html><head><meta charset='utf-8'>
+<title>Filter</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Filter</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Data-Display/Filter</small></p>
+<h2>Filter</h2>
+<p>A comprehensive filter component that provides both single and multi-selection modes, grouped filter options, and flexible positioning. Built with accessibility in mind and designed for complex data filtering scenarios in data tables, search interfaces, and content management systems.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaFilterComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaFilterComponent } from "@aava/play-core";</code></pre>
+<p>Note: The Filter component is standalone and includes all necessary dependencies for checkbox, icon, and common modules.</p>
+<h2>Basic Usage​</h2>
+<p>Simple filter implementation with multi-selection support and grouped options.</p>
+<pre><code>&lt;aava-filter  size="md"  title="Filter Products"  [filterGroups]="filterGroups"  [showBadge]="true"  (filterChange)="onFilterChange($event)"  (clearAll)="onClearAllFilters()">&lt;/aava-filter>&lt;div class="product-card" *ngFor="let product of filteredProducts">  &lt;h4>{{ product.name }}&lt;/h4>  &lt;p>Category: {{ product.category }}&lt;/p>  &lt;p class="price">${{ product.price }}&lt;/p>&lt;/div></code></pre>
+<pre><code>&lt;aava-filter  size="md"  title="Filter Products"  [filterGroups]="filterGroups"  [showBadge]="true"  (filterChange)="onFilterChange($event)"  (clearAll)="onClearAllFilters()">&lt;/aava-filter>&lt;div class="product-card" *ngFor="let product of filteredProducts">  &lt;h4>{{ product.name }}&lt;/h4>  &lt;p>Category: {{ product.category }}&lt;/p>  &lt;p class="price">${{ product.price }}&lt;/p>&lt;/div></code></pre>
+<pre><code> filterGroups = [    {      id: 'category',      title: 'Category',      options: [        { id: 'electronics', label: 'Electronics', value: 'electronics' },        { id: 'clothing', label: 'Clothing', value: 'clothing' },        { id: 'books', label: 'Books', value: 'books' },        { id: 'home', label: 'Home & Garden', value: 'home' },      ],    },    {      id: 'price',      title: 'Price Range',      options: [        { id: 'under-50', label: 'Under $50', value: { min: 0, max: 50 } },        { id: '50-100', label: '$50 - $100', value: { min: 50, max: 100 } },        {          id: '100-200',          label: '$100 - $200',          value: { min: 100, max: 200 },        },      ],    },  ];  products = [    { id: 1, name: 'Laptop', category: 'electronics', price: 999 },    { id: 2, name: 'Smartphone', category: 'electronics', price: 699 },    { id: 3, name: 'T-Shirt', category: 'clothing', price: 25 },    { id: 4, name: 'Jeans', category: 'clothing', price: 45 },    { id: 5, name: 'Novel', category: 'books', price: 15 },    { id: 6, name: 'Cookbook', category: 'books', price: 35 },    { id: 7, name: 'Coffee Table', category: 'home', price: 299 },    { id: 8, name: 'Garden Chair', category: 'home', price: 89 },  ];  filteredProducts = [...this.products];  activeFilters: Record&lt;string, FilterOption[]> = {};  onFilterChange(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filter changed:', filters);    this.activeFilters = filters;    this.applyFilters();  }  onClearAllFilters(): void {    console.log('All filters cleared');    this.activeFilters = {};    this.filteredProducts = [...this.products];  }  private applyFilters(): void {    this.filteredProducts = this.products.filter((product) => {      // Category filter      if (        this.activeFilters['category'] &&        this.activeFilters['category'].length > 0      ) {        const categoryMatch = this.activeFilters['category'].some(          (f: FilterOption) => f.value === product.category        );        if (!categoryMatch) return false;      }      // Price filter      if (        this.activeFilters['price'] &&        this.activeFilters['price'].length > 0      ) {        const priceMatch = this.activeFilters['price'].some(          (f: FilterOption) => {            const priceRange = f.value as PriceRange;            return (              product.price >= priceRange.min && product.price &lt;= priceRange.max            );          }        );        if (!priceMatch) return false;      }      return true;    });  }  getActiveFiltersCount(): number {    let count = 0;    Object.values(this.activeFilters).forEach((group) => {      if (Array.isArray(group)) {        count += group.length;      }    });    return count;  }  getSelectedCategories(): string {    const categories = this.activeFilters['category'];    if (!categories || categories.length === 0) return 'None';    return categories.map((c: FilterOption) => c.label).join(', ');  }  getSelectedPriceRanges(): string {    const prices = this.activeFilters['price'];    if (!prices || prices.length === 0) return 'None';    return prices.map((p: FilterOption) => p.label).join(', ');  }</code></pre>
+<pre><code> filterGroups = [    {      id: 'category',      title: 'Category',      options: [        { id: 'electronics', label: 'Electronics', value: 'electronics' },        { id: 'clothing', label: 'Clothing', value: 'clothing' },        { id: 'books', label: 'Books', value: 'books' },        { id: 'home', label: 'Home & Garden', value: 'home' },      ],    },    {      id: 'price',      title: 'Price Range',      options: [        { id: 'under-50', label: 'Under $50', value: { min: 0, max: 50 } },        { id: '50-100', label: '$50 - $100', value: { min: 50, max: 100 } },        {          id: '100-200',          label: '$100 - $200',          value: { min: 100, max: 200 },        },      ],    },  ];  products = [    { id: 1, name: 'Laptop', category: 'electronics', price: 999 },    { id: 2, name: 'Smartphone', category: 'electronics', price: 699 },    { id: 3, name: 'T-Shirt', category: 'clothing', price: 25 },    { id: 4, name: 'Jeans', category: 'clothing', price: 45 },    { id: 5, name: 'Novel', category: 'books', price: 15 },    { id: 6, name: 'Cookbook', category: 'books', price: 35 },    { id: 7, name: 'Coffee Table', category: 'home', price: 299 },    { id: 8, name: 'Garden Chair', category: 'home', price: 89 },  ];  filteredProducts = [...this.products];  activeFilters: Record&lt;string, FilterOption[]> = {};  onFilterChange(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filter changed:', filters);    this.activeFilters = filters;    this.applyFilters();  }  onClearAllFilters(): void {    console.log('All filters cleared');    this.activeFilters = {};    this.filteredProducts = [...this.products];  }  private applyFilters(): void {    this.filteredProducts = this.products.filter((product) => {      // Category filter      if (        this.activeFilters['category'] &&        this.activeFilters['category'].length > 0      ) {        const categoryMatch = this.activeFilters['category'].some(          (f: FilterOption) => f.value === product.category        );        if (!categoryMatch) return false;      }      // Price filter      if (        this.activeFilters['price'] &&        this.activeFilters['price'].length > 0      ) {        const priceMatch = this.activeFilters['price'].some(          (f: FilterOption) => {            const priceRange = f.value as PriceRange;            return (              product.price >= priceRange.min && product.price &lt;= priceRange.max            );          }        );        if (!priceMatch) return false;      }      return true;    });  }  getActiveFiltersCount(): number {    let count = 0;    Object.values(this.activeFilters).forEach((group) => {      if (Array.isArray(group)) {        count += group.length;      }    });    return count;  }  getSelectedCategories(): string {    const categories = this.activeFilters['category'];    if (!categories || categories.length === 0) return 'None';    return categories.map((c: FilterOption) => c.label).join(', ');  }  getSelectedPriceRanges(): string {    const prices = this.activeFilters['price'];    if (!prices || prices.length === 0) return 'None';    return prices.map((p: FilterOption) => p.label).join(', ');  }</code></pre>
+<h2>Multi-Selection Mode​</h2>
+<p>Advanced multi-selection capabilities with grouped filters and clear all functionality.</p>
+<pre><code>&lt;aava-filter  size="md"  title="Filter Users"  [filterGroups]="filterGroups"  [showBadge]="true"  [showApplyButton]="true"  (filterChange)="onFilterChange($event)"  (clearAll)="onClearAllFilters()"  (apply)="onApplyFilters($event)">&lt;/aava-filter>&lt;table>  &lt;thead>    &lt;tr>      &lt;th>Name&lt;/th>      &lt;th>Status&lt;/th>      &lt;th>Role&lt;/th>      &lt;th>Department&lt;/th>      &lt;th>Experience&lt;/th>    &lt;/tr>  &lt;/thead>  &lt;tbody>    &lt;tr *ngFor="let user of filteredUsers">      &lt;td>{{ user.name }}&lt;/td>      &lt;td>        &lt;span class="status-badge" [ngClass]="'status-' + user.status">          {{ user.status }}        &lt;/span>      &lt;/td>      &lt;td>{{ user.role }}&lt;/td>      &lt;td>{{ user.department }}&lt;/td>      &lt;td>{{ user.experience }}&lt;/td>    &lt;/tr>  &lt;/tbody>&lt;/table></code></pre>
+<pre><code>&lt;aava-filter  size="md"  title="Filter Users"  [filterGroups]="filterGroups"  [showBadge]="true"  [showApplyButton]="true"  (filterChange)="onFilterChange($event)"  (clearAll)="onClearAllFilters()"  (apply)="onApplyFilters($event)">&lt;/aava-filter>&lt;table>  &lt;thead>    &lt;tr>      &lt;th>Name&lt;/th>      &lt;th>Status&lt;/th>      &lt;th>Role&lt;/th>      &lt;th>Department&lt;/th>      &lt;th>Experience&lt;/th>    &lt;/tr>  &lt;/thead>  &lt;tbody>    &lt;tr *ngFor="let user of filteredUsers">      &lt;td>{{ user.name }}&lt;/td>      &lt;td>        &lt;span class="status-badge" [ngClass]="'status-' + user.status">          {{ user.status }}        &lt;/span>      &lt;/td>      &lt;td>{{ user.role }}&lt;/td>      &lt;td>{{ user.department }}&lt;/td>      &lt;td>{{ user.experience }}&lt;/td>    &lt;/tr>  &lt;/tbody>&lt;/table></code></pre>
+<pre><code>filterGroups = [    {      id: 'status',      title: 'Status',      options: [        { id: 'active', label: 'Active', value: 'active' },        { id: 'inactive', label: 'Inactive', value: 'inactive' },        { id: 'pending', label: 'Pending', value: 'pending' },        { id: 'archived', label: 'Archived', value: 'archived' },      ],    },    {      id: 'role',      title: 'Role',      options: [        { id: 'admin', label: 'Admin', value: 'admin' },        { id: 'user', label: 'User', value: 'user' },        { id: 'moderator', label: 'Moderator', value: 'moderator' },        { id: 'guest', label: 'Guest', value: 'guest' },      ],    },    {      id: 'department',      title: 'Department',      options: [        { id: 'it', label: 'IT', value: 'IT' },        { id: 'hr', label: 'HR', value: 'HR' },        { id: 'finance', label: 'Finance', value: 'Finance' },        { id: 'marketing', label: 'Marketing', value: 'Marketing' },        { id: 'sales', label: 'Sales', value: 'Sales' },      ],    },    {      id: 'experience',      title: 'Experience Level',      options: [        { id: 'junior', label: 'Junior (0-2 years)', value: 'junior' },        { id: 'mid', label: 'Mid-level (3-5 years)', value: 'mid' },        { id: 'senior', label: 'Senior (6-10 years)', value: 'senior' },      ],    },  ];  users = [    {      id: 1,      name: 'John Doe',      status: 'active',      role: 'admin',      department: 'IT',      experience: 'senior',    },    {      id: 2,      name: 'Jane Smith',      status: 'active',      role: 'user',      department: 'HR',      experience: 'mid',    },    {      id: 3,      name: 'Bob Johnson',      status: 'inactive',      role: 'moderator',      department: 'Finance',      experience: 'senior',    },    {      id: 4,      name: 'Alice Brown',      status: 'active',      role: 'user',      department: 'Marketing',      experience: 'junior',    },    {      id: 5,      name: 'Charlie Wilson',      status: 'pending',      role: 'user',      department: 'IT',      experience: 'mid',    },    {      id: 6,      name: 'Diana Davis',      status: 'active',      role: 'admin',      department: 'HR',      experience: 'expert',    },    {      id: 7,      name: 'Evan Miller',      status: 'archived',      role: 'guest',      department: 'Sales',      experience: 'junior',    },    {      id: 8,      name: 'Fiona Garcia',      status: 'active',      role: 'moderator',      department: 'IT',      experience: 'senior',    },  ];  filteredUsers = [...this.users];  activeFilters: Record&lt;string, FilterOption[]> = {};  onFilterChange(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filter changed:', filters);    this.activeFilters = filters;    this.applyFilters();  }  onClearAllFilters(): void {    console.log('All filters cleared');    this.activeFilters = {};    this.filteredUsers = [...this.users];  }  onApplyFilters(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filters applied:', filters);    this.activeFilters = filters;    this.applyFilters();  }  private applyFilters(): void {    this.filteredUsers = this.users.filter((user) => {      // Status filter      if (        this.activeFilters['status'] &&        this.activeFilters['status'].length > 0      ) {        const statusMatch = this.activeFilters['status'].some(          (f: FilterOption) => f.value === user.status        );        if (!statusMatch) return false;      }      // Role filter      if (this.activeFilters['role'] && this.activeFilters['role'].length > 0) {        const roleMatch = this.activeFilters['role'].some(          (f: FilterOption) => f.value === user.role        );        if (!roleMatch) return false;      }      // Department filter      if (        this.activeFilters['department'] &&        this.activeFilters['department'].length > 0      ) {        const deptMatch = this.activeFilters['department'].some(          (f: FilterOption) => f.value === user.department        );        if (!deptMatch) return false;      }      // Experience filter      if (        this.activeFilters['experience'] &&        this.activeFilters['experience'].length > 0      ) {        const expMatch = this.activeFilters['experience'].some(          (f: FilterOption) => f.value === user.experience        );        if (!expMatch) return false;      }      return true;    });  }  getActiveFiltersCount(): number {    let count = 0;    Object.values(this.activeFilters).forEach((group) => {      if (Array.isArray(group)) {        count += group.length;      }    });    return count;  }  getFilterSummary(): string {    const summaries: string[] = [];    if (this.activeFilters['status']?.length) {      summaries.push(`${this.activeFilters['status'].length} status(es)`);    }    if (this.activeFilters['role']?.length) {      summaries.push(`${this.activeFilters['role'].length} role(s)`);    }    if (this.activeFilters['department']?.length) {      summaries.push(        `${this.activeFilters['department'].length} department(s)`      );    }    if (this.activeFilters['experience']?.length) {      summaries.push(        `${this.activeFilters['experience'].length} experience level(s)`      );    }    return summaries.length > 0 ? summaries.join(', ') : 'No filters applied';  }</code></pre>
+<pre><code>filterGroups = [    {      id: 'status',      title: 'Status',      options: [        { id: 'active', label: 'Active', value: 'active' },        { id: 'inactive', label: 'Inactive', value: 'inactive' },        { id: 'pending', label: 'Pending', value: 'pending' },        { id: 'archived', label: 'Archived', value: 'archived' },      ],    },    {      id: 'role',      title: 'Role',      options: [        { id: 'admin', label: 'Admin', value: 'admin' },        { id: 'user', label: 'User', value: 'user' },        { id: 'moderator', label: 'Moderator', value: 'moderator' },        { id: 'guest', label: 'Guest', value: 'guest' },      ],    },    {      id: 'department',      title: 'Department',      options: [        { id: 'it', label: 'IT', value: 'IT' },        { id: 'hr', label: 'HR', value: 'HR' },        { id: 'finance', label: 'Finance', value: 'Finance' },        { id: 'marketing', label: 'Marketing', value: 'Marketing' },        { id: 'sales', label: 'Sales', value: 'Sales' },      ],    },    {      id: 'experience',      title: 'Experience Level',      options: [        { id: 'junior', label: 'Junior (0-2 years)', value: 'junior' },        { id: 'mid', label: 'Mid-level (3-5 years)', value: 'mid' },        { id: 'senior', label: 'Senior (6-10 years)', value: 'senior' },      ],    },  ];  users = [    {      id: 1,      name: 'John Doe',      status: 'active',      role: 'admin',      department: 'IT',      experience: 'senior',    },    {      id: 2,      name: 'Jane Smith',      status: 'active',      role: 'user',      department: 'HR',      experience: 'mid',    },    {      id: 3,      name: 'Bob Johnson',      status: 'inactive',      role: 'moderator',      department: 'Finance',      experience: 'senior',    },    {      id: 4,      name: 'Alice Brown',      status: 'active',      role: 'user',      department: 'Marketing',      experience: 'junior',    },    {      id: 5,      name: 'Charlie Wilson',      status: 'pending',      role: 'user',      department: 'IT',      experience: 'mid',    },    {      id: 6,      name: 'Diana Davis',      status: 'active',      role: 'admin',      department: 'HR',      experience: 'expert',    },    {      id: 7,      name: 'Evan Miller',      status: 'archived',      role: 'guest',      department: 'Sales',      experience: 'junior',    },    {      id: 8,      name: 'Fiona Garcia',      status: 'active',      role: 'moderator',      department: 'IT',      experience: 'senior',    },  ];  filteredUsers = [...this.users];  activeFilters: Record&lt;string, FilterOption[]> = {};  onFilterChange(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filter changed:', filters);    this.activeFilters = filters;    this.applyFilters();  }  onClearAllFilters(): void {    console.log('All filters cleared');    this.activeFilters = {};    this.filteredUsers = [...this.users];  }  onApplyFilters(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filters applied:', filters);    this.activeFilters = filters;    this.applyFilters();  }  private applyFilters(): void {    this.filteredUsers = this.users.filter((user) => {      // Status filter      if (        this.activeFilters['status'] &&        this.activeFilters['status'].length > 0      ) {        const statusMatch = this.activeFilters['status'].some(          (f: FilterOption) => f.value === user.status        );        if (!statusMatch) return false;      }      // Role filter      if (this.activeFilters['role'] && this.activeFilters['role'].length > 0) {        const roleMatch = this.activeFilters['role'].some(          (f: FilterOption) => f.value === user.role        );        if (!roleMatch) return false;      }      // Department filter      if (        this.activeFilters['department'] &&        this.activeFilters['department'].length > 0      ) {        const deptMatch = this.activeFilters['department'].some(          (f: FilterOption) => f.value === user.department        );        if (!deptMatch) return false;      }      // Experience filter      if (        this.activeFilters['experience'] &&        this.activeFilters['experience'].length > 0      ) {        const expMatch = this.activeFilters['experience'].some(          (f: FilterOption) => f.value === user.experience        );        if (!expMatch) return false;      }      return true;    });  }  getActiveFiltersCount(): number {    let count = 0;    Object.values(this.activeFilters).forEach((group) => {      if (Array.isArray(group)) {        count += group.length;      }    });    return count;  }  getFilterSummary(): string {    const summaries: string[] = [];    if (this.activeFilters['status']?.length) {      summaries.push(`${this.activeFilters['status'].length} status(es)`);    }    if (this.activeFilters['role']?.length) {      summaries.push(`${this.activeFilters['role'].length} role(s)`);    }    if (this.activeFilters['department']?.length) {      summaries.push(        `${this.activeFilters['department'].length} department(s)`      );    }    if (this.activeFilters['experience']?.length) {      summaries.push(        `${this.activeFilters['experience'].length} experience level(s)`      );    }    return summaries.length > 0 ? summaries.join(', ') : 'No filters applied';  }</code></pre>
+<h2>Multi-Selection Features​</h2>
+<p>• Grouped Filters: Organize filters into logical groups with titles</p>
+<p>• Multi-Select Groups: Support for both single and multi-selection within groups</p>
+<p>• Clear All: Bulk clear functionality for all selected filters</p>
+<p>• Active Count Badge: Visual indicator of active filter count</p>
+<p>• Apply Button: Optional apply button for controlled filter application</p>
+<h2>Single-Selection Mode​</h2>
+<p>Streamlined single-selection interface optimized for quick filtering decisions.</p>
+<pre><code>&lt;aava-filter  [singleSelection]="true"  title="Sort By"  [filterGroups]="sortFilterGroups"  [showClearAll]="true"  [showApplyButton]="false"  size="md"  (singleSelectionChange)="onSortChange($event)">&lt;/aava-filter>&lt;div class="product-card" *ngFor="let product of sortedProducts; let i = index">  &lt;span class="order-number">#{{ i + 1 }}&lt;/span>  &lt;h4>{{ product.name }}&lt;/h4>  &lt;p>Category: {{ product.category }}&lt;/p>  &lt;p class="price">${{ product.price }}&lt;/p>  &lt;p class="date">{{ product.date | date : "shortDate" }}&lt;/p>&lt;/div></code></pre>
+<pre><code>&lt;aava-filter  [singleSelection]="true"  title="Sort By"  [filterGroups]="sortFilterGroups"  [showClearAll]="true"  [showApplyButton]="false"  size="md"  (singleSelectionChange)="onSortChange($event)">&lt;/aava-filter>&lt;div class="product-card" *ngFor="let product of sortedProducts; let i = index">  &lt;span class="order-number">#{{ i + 1 }}&lt;/span>  &lt;h4>{{ product.name }}&lt;/h4>  &lt;p>Category: {{ product.category }}&lt;/p>  &lt;p class="price">${{ product.price }}&lt;/p>  &lt;p class="date">{{ product.date | date : "shortDate" }}&lt;/p>&lt;/div></code></pre>
+<pre><code>sortFilterGroups = [  {    id: "sortBy",    title: "Sort By",    options: [      { id: "name-asc", label: "Name (A-Z)", value: "name_asc" },      { id: "name-desc", label: "Name (Z-A)", value: "name_desc" },      { id: "price-low", label: "Price (Low to High)", value: "price_asc" },      { id: "price-high", label: "Price (High to Low)", value: "price_desc" },      { id: "newest", label: "Newest First", value: "date_desc" },      { id: "oldest", label: "Oldest First", value: "date_asc" },    ],  },];products = [    {      id: 1,      name: 'Laptop',      category: 'electronics',      price: 999,      date: '2024-01-15',    },    {      id: 2,      name: 'Smartphone',      category: 'electronics',      price: 699,      date: '2024-01-10',    },    {      id: 3,      name: 'T-Shirt',      category: 'clothing',      price: 25,      date: '2024-01-20',    },    {      id: 4,      name: 'Jeans',      category: 'clothing',      price: 45,      date: '2024-01-18',    },    { id: 5, name: 'Novel', category: 'books', price: 15, date: '2024-01-12' },    {      id: 6,      name: 'Cookbook',      category: 'books',      price: 35,      date: '2024-01-14',    },    {      id: 7,      name: 'Coffee Table',      category: 'home',      price: 299,      date: '2024-01-16',    },    {      id: 8,      name: 'Garden Chair',      category: 'home',      price: 89,      date: '2024-01-19',    },    {      id: 9,      name: 'Running Shoes',      category: 'sports',      price: 120,      date: '2024-01-17',    },    {      id: 10,      name: 'Yoga Mat',      category: 'sports',      price: 45,      date: '2024-01-13',    },  ];  sortedProducts = [...this.products];  selectedSort: FilterOption | null = null;  selectedCategory: FilterOption | null = null;  selectedStatus: FilterOption | null = null;  onSortChange(selection: Record&lt;string, FilterOption | null>): void {    const sortOption = selection['sortBy'];    this.selectedSort = sortOption;    console.log('Sort changed:', sortOption);    if (sortOption) {      this.applySorting(sortOption.value);    }  }  private applySorting(sortBy: string): void {    this.sortedProducts = [...this.products];    switch (sortBy) {      case 'name_asc':        this.sortedProducts.sort((a, b) => a.name.localeCompare(b.name));        break;      case 'name_desc':        this.sortedProducts.sort((a, b) => b.name.localeCompare(a.name));        break;      case 'price_asc':        this.sortedProducts.sort((a, b) => a.price - b.price);        break;      case 'price_desc':        this.sortedProducts.sort((a, b) => b.price - a.price);        break;      case 'date_desc':        this.sortedProducts.sort(          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()        );        break;      case 'date_asc':        this.sortedProducts.sort(          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()        );        break;    }  }  getSelectedSortLabel(): string {    return this.selectedSort ? this.selectedSort.label : 'None';  }  getSelectedCategoryLabel(): string {    return this.selectedCategory ? this.selectedCategory.label : 'None';  }  getSelectedStatusLabel(): string {    return this.selectedStatus ? this.selectedStatus.label : 'None';  }</code></pre>
+<pre><code>sortFilterGroups = [  {    id: "sortBy",    title: "Sort By",    options: [      { id: "name-asc", label: "Name (A-Z)", value: "name_asc" },      { id: "name-desc", label: "Name (Z-A)", value: "name_desc" },      { id: "price-low", label: "Price (Low to High)", value: "price_asc" },      { id: "price-high", label: "Price (High to Low)", value: "price_desc" },      { id: "newest", label: "Newest First", value: "date_desc" },      { id: "oldest", label: "Oldest First", value: "date_asc" },    ],  },];products = [    {      id: 1,      name: 'Laptop',      category: 'electronics',      price: 999,      date: '2024-01-15',    },    {      id: 2,      name: 'Smartphone',      category: 'electronics',      price: 699,      date: '2024-01-10',    },    {      id: 3,      name: 'T-Shirt',      category: 'clothing',      price: 25,      date: '2024-01-20',    },    {      id: 4,      name: 'Jeans',      category: 'clothing',      price: 45,      date: '2024-01-18',    },    { id: 5, name: 'Novel', category: 'books', price: 15, date: '2024-01-12' },    {      id: 6,      name: 'Cookbook',      category: 'books',      price: 35,      date: '2024-01-14',    },    {      id: 7,      name: 'Coffee Table',      category: 'home',      price: 299,      date: '2024-01-16',    },    {      id: 8,      name: 'Garden Chair',      category: 'home',      price: 89,      date: '2024-01-19',    },    {      id: 9,      name: 'Running Shoes',      category: 'sports',      price: 120,      date: '2024-01-17',    },    {      id: 10,      name: 'Yoga Mat',      category: 'sports',      price: 45,      date: '2024-01-13',    },  ];  sortedProducts = [...this.products];  selectedSort: FilterOption | null = null;  selectedCategory: FilterOption | null = null;  selectedStatus: FilterOption | null = null;  onSortChange(selection: Record&lt;string, FilterOption | null>): void {    const sortOption = selection['sortBy'];    this.selectedSort = sortOption;    console.log('Sort changed:', sortOption);    if (sortOption) {      this.applySorting(sortOption.value);    }  }  private applySorting(sortBy: string): void {    this.sortedProducts = [...this.products];    switch (sortBy) {      case 'name_asc':        this.sortedProducts.sort((a, b) => a.name.localeCompare(b.name));        break;      case 'name_desc':        this.sortedProducts.sort((a, b) => b.name.localeCompare(a.name));        break;      case 'price_asc':        this.sortedProducts.sort((a, b) => a.price - b.price);        break;      case 'price_desc':        this.sortedProducts.sort((a, b) => b.price - a.price);        break;      case 'date_desc':        this.sortedProducts.sort(          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()        );        break;      case 'date_asc':        this.sortedProducts.sort(          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()        );        break;    }  }  getSelectedSortLabel(): string {    return this.selectedSort ? this.selectedSort.label : 'None';  }  getSelectedCategoryLabel(): string {    return this.selectedCategory ? this.selectedCategory.label : 'None';  }  getSelectedStatusLabel(): string {    return this.selectedStatus ? this.selectedStatus.label : 'None';  }</code></pre>
+<h2>Single-Selection Features​</h2>
+<p>• Radio-like Behavior: Only one option can be selected per group</p>
+<p>• Auto-close: Panel automatically closes after selection</p>
+<p>• Visual Feedback: Clear selection indicators with check icons</p>
+<p>• Simplified Interface: No checkboxes, clean click-to-select interaction</p>
+<h2>Configuration​</h2>
+<p>Flexible configuration and sizing options for different layout requirements.</p>
+<pre><code>&lt;aava-filter  size="md"  title="No Clear All"  [filterGroups]="simpleFilterGroups"  [showClearAll]="false"  (filterChange)="onFilterChange($event)">&lt;/aava-filter>&lt;aava-filter  size="md"  title="Apply Mode"  [filterGroups]="simpleFilterGroups"  [showApplyButton]="true"  (filterChange)="onFilterChange($event)"  (apply)="onApplyFilters($event)">&lt;/aava-filter>&lt;aava-filter  size="md"  title="Right Panel"  [filterGroups]="simpleFilterGroups"  position="right"  (filterChange)="onFilterChange($event)">&lt;/aava-filter>&lt;aava-filter  size="md"  title="Disabled Filter"  [filterGroups]="simpleFilterGroups"  [disabled]="true">&lt;/aava-filter></code></pre>
+<pre><code>&lt;aava-filter  size="md"  title="No Clear All"  [filterGroups]="simpleFilterGroups"  [showClearAll]="false"  (filterChange)="onFilterChange($event)">&lt;/aava-filter>&lt;aava-filter  size="md"  title="Apply Mode"  [filterGroups]="simpleFilterGroups"  [showApplyButton]="true"  (filterChange)="onFilterChange($event)"  (apply)="onApplyFilters($event)">&lt;/aava-filter>&lt;aava-filter  size="md"  title="Right Panel"  [filterGroups]="simpleFilterGroups"  position="right"  (filterChange)="onFilterChange($event)">&lt;/aava-filter>&lt;aava-filter  size="md"  title="Disabled Filter"  [filterGroups]="simpleFilterGroups"  [disabled]="true">&lt;/aava-filter></code></pre>
+<pre><code>  simpleFilterGroups = [    {      id: 'simple',      title: 'Quick Filter',      options: [        { id: 'option1', label: 'Option 1', value: 'opt1' },        { id: 'option2', label: 'Option 2', value: 'opt2' },        { id: 'option3', label: 'Option 3', value: 'opt3' },      ],    },  ];    onFilterChange(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filter changed:', filters);  }  onApplyFilters(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filters applied:', filters);  }</code></pre>
+<pre><code>  simpleFilterGroups = [    {      id: 'simple',      title: 'Quick Filter',      options: [        { id: 'option1', label: 'Option 1', value: 'opt1' },        { id: 'option2', label: 'Option 2', value: 'opt2' },        { id: 'option3', label: 'Option 3', value: 'opt3' },      ],    },  ];    onFilterChange(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filter changed:', filters);  }  onApplyFilters(filters: Record&lt;string, FilterOption[]>): void {    console.log('Filters applied:', filters);  }</code></pre>
+<h2>Features​</h2>
+<h2>Selection Modes​</h2>
+<p>• Multi-Selection: Default mode with checkbox-based selection</p>
+<p>• Single-Selection: Radio-like behavior with auto-close</p>
+<p>• Group-Level Control: Individual groups can override selection behavior</p>
+<p>• Mixed Modes: Support for different selection types per group</p>
+<h2>User Experience​</h2>
+<p>• Visual Feedback: Active state indicators and selection badges</p>
+<p>• Keyboard Navigation: Full keyboard support for accessibility</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<p>• Smooth Animations: CSS transitions for panel open/close</p>
+<p>• State Persistence: Maintains selection state during interactions</p>
+<h2>Filter Management​</h2>
+<p>• Grouped Organization: Logical grouping of related filter options</p>
+<p>• Clear All: Bulk clear functionality for all filters</p>
+<p>• Apply Control: Optional apply button for controlled submission</p>
+<p>• Active Count: Real-time display of active filter count</p>
+<p>• Position Flexibility: Left or right-aligned panels</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+size | FilterSize | 'md' | Size variant (sm, md, lg, xlg)
+title | string | 'Filter' | Title displayed on the filter button
+filterGroups | FilterGroup[] | [] | Array of filter groups with options
+showClearAll | boolean | true | Whether to show clear all button
+showApplyButton | boolean | false | Whether to show apply button
+isOpen | boolean | false | Whether the filter panel is open
+position | 'left' | 'right' | 'left' | Position of the filter panel
+maxHeight | string | '400px' | Maximum height of the filter panel
+width | string | 'auto' | Width of the filter panel
+disabled | boolean | false | Whether the filter is disabled
+class | string | '' | Additional CSS classes
+singleSelection | boolean | false | Enable single-selection mode
+showBadge | boolean | true | Whether to show active filter count badge</pre>
+<pre><code>size</code></pre>
+<pre><code>FilterSize</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>title</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Filter'</code></pre>
+<pre><code>filterGroups</code></pre>
+<pre><code>FilterGroup[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>showClearAll</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showApplyButton</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>isOpen</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>position</code></pre>
+<pre><code>'left' | 'right'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>maxHeight</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'400px'</code></pre>
+<pre><code>width</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'auto'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>class</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>singleSelection</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showBadge</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+filterChange | EventEmitter<{ [groupId: string]: FilterOption[] }> | Emitted when filters change (multi-select)
+clearAll | EventEmitter<void> | Emitted when clear all is clicked
+apply | EventEmitter<{ [groupId: string]: FilterOption[] }> | Emitted when apply button is clicked
+toggleFilter | EventEmitter<boolean> | Emitted when filter panel is toggled
+singleSelectionChange | EventEmitter<{ [groupId: string]: FilterOption | null }> | Emitted when selection changes (single-select)</pre>
+<pre><code>filterChange</code></pre>
+<pre><code>EventEmitter&lt;{ [groupId: string]: FilterOption[] }></code></pre>
+<pre><code>clearAll</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>apply</code></pre>
+<pre><code>EventEmitter&lt;{ [groupId: string]: FilterOption[] }></code></pre>
+<pre><code>toggleFilter</code></pre>
+<pre><code>EventEmitter&lt;boolean></code></pre>
+<pre><code>singleSelectionChange</code></pre>
+<pre><code>EventEmitter&lt;{ [groupId: string]: FilterOption | null }></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return | Description
+toggleFilterPanel() | None | void | Toggle the filter panel open/close
+onOptionChange() | groupId: string, option: FilterOption, isChecked: boolean | void | Handle option selection change
+onSingleOptionClick() | groupId: string, option: FilterOption | void | Handle single-selection option click
+clearAllFilters() | None | void | Clear all selected filters
+applyFilters() | None | void | Apply current filter selection
+getActiveFiltersCount() | None | number | Get count of active filters
+getSizeClasses() | None | string | Get CSS classes for current size
+getCheckboxSize() | None | 'sm' | 'md' | 'lg' | Get appropriate checkbox size for current size
+getIconSize() | None | number | Get appropriate icon size for current size
+isOptionSelected() | groupId: string, option: FilterOption | boolean | Check if option is selected</pre>
+<pre><code>toggleFilterPanel()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onOptionChange()</code></pre>
+<pre><code>groupId: string, option: FilterOption, isChecked: boolean</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onSingleOptionClick()</code></pre>
+<pre><code>groupId: string, option: FilterOption</code></pre>
+<pre><code>void</code></pre>
+<pre><code>clearAllFilters()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>applyFilters()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>getActiveFiltersCount()</code></pre>
+<pre><code>number</code></pre>
+<pre><code>getSizeClasses()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>getCheckboxSize()</code></pre>
+<pre><code>'sm' | 'md' | 'lg'</code></pre>
+<pre><code>getIconSize()</code></pre>
+<pre><code>number</code></pre>
+<pre><code>isOptionSelected()</code></pre>
+<pre><code>groupId: string, option: FilterOption</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+selectedFilters | { [groupId: string]: FilterOption[] } | Current multi-selection state (private)
+singleSelectedFilters | { [groupId: string]: FilterOption | null } | Current single-selection state (private)</pre>
+<pre><code>selectedFilters</code></pre>
+<pre><code>{ [groupId: string]: FilterOption[] }</code></pre>
+<pre><code>singleSelectedFilters</code></pre>
+<pre><code>{ [groupId: string]: FilterOption | null }</code></pre>
+<h2>Interfaces​</h2>
+<h2>FilterOption​</h2>
+<pre><code>interface FilterOption {  id: string | number;  label: string;  value: any;  selected?: boolean;}</code></pre>
+<pre><code>interface FilterOption {  id: string | number;  label: string;  value: any;  selected?: boolean;}</code></pre>
+<h2>FilterGroup​</h2>
+<pre><code>interface FilterGroup {  id: string;  title: string;  options: FilterOption[];  multiSelect?: boolean;}</code></pre>
+<pre><code>interface FilterGroup {  id: string;  title: string;  options: FilterOption[];  multiSelect?: boolean;}</code></pre>
+<h2>FilterSize​</h2>
+<pre><code>type FilterSize = "sm" | "md" | "lg" | "xlg";</code></pre>
+<pre><code>type FilterSize = "sm" | "md" | "lg" | "xlg";</code></pre>
+<h2>Design Tokens & Theming​</h2>
+<p>AAVA Play Filter uses semantic design tokens for all surfaces, spacing, radius, and motion. The component exposes scoped override tokens for fine-tuning appearance while maintaining design system consistency.</p>
+<h2>Available Design Tokens for Filter​</h2>
+<pre>Token | Purpose | Default Value
+--filter-background-primary | Primary background color | Theme-based
+--filter-background-hover | Hover background color | Theme-based
+--filter-border | Border style | Theme-based
+--filter-border-hover | Hover border color | Theme-based
+--filter-border-focus | Focus border color | Theme-based
+--filter-border-radius | Border radius | Theme-based
+--filter-text-color | Text color | Theme-based
+--filter-text-active | Active text color | Theme-based
+--filter-disabled-opacity | Disabled state opacity | Theme-based</pre>
+<pre><code>--filter-background-primary</code></pre>
+<pre><code>--filter-background-hover</code></pre>
+<pre><code>--filter-border</code></pre>
+<pre><code>--filter-border-hover</code></pre>
+<pre><code>--filter-border-focus</code></pre>
+<pre><code>--filter-border-radius</code></pre>
+<pre><code>--filter-text-color</code></pre>
+<pre><code>--filter-text-active</code></pre>
+<pre><code>--filter-disabled-opacity</code></pre>
+<pre>Token | Purpose | Default Value
+--filter-badge-background | Badge background color | Theme-based
+--filter-badge-text | Badge text color | Theme-based
+--filter-badge-border-radius | Badge border radius | Theme-based</pre>
+<pre><code>--filter-badge-background</code></pre>
+<pre><code>--filter-badge-text</code></pre>
+<pre><code>--filter-badge-border-radius</code></pre>
+<pre>Token | Purpose | Default Value
+--filter-panel-background | Panel background color | Theme-based
+--filter-panel-border | Panel border style | Theme-based
+--filter-panel-shadow | Panel shadow | Theme-based
+--filter-header-background | Header background color | Theme-based
+--filter-header-border | Header border style | Theme-based
+--filter-header-padding | Header padding | Theme-based</pre>
+<pre><code>--filter-panel-background</code></pre>
+<pre><code>--filter-panel-border</code></pre>
+<pre><code>--filter-panel-shadow</code></pre>
+<pre><code>--filter-header-background</code></pre>
+<pre><code>--filter-header-border</code></pre>
+<pre><code>--filter-header-padding</code></pre>
+<h2>Token Override Example​</h2>
+<pre><code>/* Custom filter theming */.my-custom-filter {  --filter-background-primary: #f8fafc;  --filter-border: 1px solid #e2e8f0;  --filter-border-radius: 8px;  --filter-panel-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);}.my-compact-filter {  --filter-header-padding: 12px 16px;  --filter-badge-border-radius: 12px;}</code></pre>
+<pre><code>/* Custom filter theming */.my-custom-filter {  --filter-background-primary: #f8fafc;  --filter-border: 1px solid #e2e8f0;  --filter-border-radius: 8px;  --filter-panel-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);}.my-compact-filter {  --filter-header-padding: 12px 16px;  --filter-badge-border-radius: 12px;}</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Logical Grouping: Organize filters into meaningful, related groups</p>
+<p>• Clear Labels: Use descriptive, concise labels for filter options</p>
+<p>• Consistent Sizing: Choose appropriate size variants for your interface context</p>
+<p>• Positioning: Consider layout constraints when choosing left/right positioning</p>
+<p>• Badge Usage: Show active filter count for better user awareness</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Ensure full keyboard support for all interactions</p>
+<p>• Screen Reader Support: Provide clear labels and state announcements</p>
+<p>• Focus Management: Proper focus handling when panel opens/closes</p>
+<p>• Color Contrast: Maintain sufficient contrast for all text and interactive elements</p>
+<p>• ARIA Labels: Use appropriate ARIA attributes for filter groups and options</p>
+<h2>Performance​</h2>
+<p>• OnPush Strategy: Component uses OnPush change detection for optimal performance</p>
+<p>• Efficient Rendering: Minimal re-renders during filter state changes</p>
+<p>• Memory Management: Proper cleanup of event listeners and references</p>
+<p>• Large Datasets: Consider pagination or virtualization for very large filter groups</p>
+<h2>User Experience​</h2>
+<p>• Selection Modes: Choose between single and multi-selection based on use case</p>
+<p>• Auto-close: Use auto-close for single-selection to streamline workflow</p>
+<p>• Apply Button: Show apply button when immediate application isn't desired</p>
+<p>• Clear All: Always provide clear all functionality for better usability</p>
+<p>• Visual Feedback: Clear indication of active filters and selection states</p>
+<h2>Integration​</h2>
+<p>• State Management: Integrate with your application's state management system</p>
+<p>• Event Handling: Use the comprehensive event system for all filter interactions</p>
+<p>• Form Integration: Coordinate with form validation and submission logic</p>
+<p>• Data Binding: Properly bind filter data to your data source</p>
+<p>• Responsive Design: Ensure filter works well on mobile and desktop devices</p>
+<h2>Responsive Behavior​</h2>
+<h2>Mobile Adaptations​</h2>
+<p>The filter component automatically adapts to mobile screens:</p>
+<p>• Touch Optimization: Optimized touch targets for mobile interaction</p>
+<p>• Responsive Sizing: Appropriate sizing for mobile viewports</p>
+<p>• Mobile Positioning: Smart positioning to avoid viewport edges</p>
+<p>• Touch Gestures: Support for touch-based interactions</p>
+<h2>Breakpoint Behavior​</h2>
+<p>• Desktop (>768px): Full filter interface with all features</p>
+<p>• Mobile (≤768px): Compact layout with optimized spacing</p>
+<p>• Panel Sizing: Responsive panel width and height</p>
+<p>• Icon Sizing: Appropriate icon sizes for different screens</p>
+<h2>Content Considerations​</h2>
+<p>• Group Layout: Filter groups adapt to different screen widths</p>
+<p>• Option Display: Options maintain readability on small screens</p>
+<p>• Button Sizing: Adequate touch target sizes for mobile</p>
+<p>• Text Scaling: Appropriate text sizes for different screen sizes</p>
+</body></html>
