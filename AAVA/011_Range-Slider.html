@@ -1,0 +1,322 @@
+<html><head><meta charset='utf-8'>
+<title>Range-Slider</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Range-Slider</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Range-Slider</small></p>
+<h2>Range Slider</h2>
+<p>TheRange Slidercomponent provides a simple and elegant way to select a numeric value or range within a defined interval.It features smooth drag interactions, built-in accessibility, and easy integration with Angular forms for both template-driven and reactive use cases.</p>
+<p>The<aava-slider>component supports multiple modes such assingle value,multi-range, andinput-integratedsliders, making it adaptable to diverse UI needs.</p>
+<pre><code>&lt;aava-slider></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaSliderComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaSliderComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<pre><code>&lt;aava-slider  [value]="50"  [min]="0"  [max]="100"  [step]="1"  (valueChange)="onSliderChange($event)">&lt;/aava-slider></code></pre>
+<pre><code>&lt;aava-slider  [value]="50"  [min]="0"  [max]="100"  [step]="1"  (valueChange)="onSliderChange($event)">&lt;/aava-slider></code></pre>
+<pre><code>  onSliderChange(value: number) {    console.log('Single slider value:', value);  }</code></pre>
+<pre><code>  onSliderChange(value: number) {    console.log('Single slider value:', value);  }</code></pre>
+<p>The simplest version of the slider displays a single draggable handle to choose a numeric value between a default range of 0–100.
+Ideal for scenarios like volume control, brightness adjustment, or progress selection.</p>
+<h2>Size Variants​</h2>
+<pre><code>&lt;aava-slider size="sm" [value]="30" [min]="0" [max]="100"> &lt;/aava-slider>&lt;aava-slider size="md" [value]="70" [min]="0" [max]="100"> &lt;/aava-slider></code></pre>
+<pre><code>&lt;aava-slider size="sm" [value]="30" [min]="0" [max]="100"> &lt;/aava-slider>&lt;aava-slider size="md" [value]="70" [min]="0" [max]="100"> &lt;/aava-slider></code></pre>
+<p>The slider supports multiple size options to fit different design requirements and layouts.
+Smaller sliders suit compact UIs, while medium sizes provide comfortable interaction for most use cases.</p>
+<h2>Available Size​</h2>
+<p>• sm (Small): Compact slider ideal for dense layouts and mobile interfaces</p>
+<p>• md (Medium): Standard size slider for most common use cases (default)</p>
+<h2>States​</h2>
+<pre><code>&lt;aava-slider [value]="50" [min]="0" [max]="100"> &lt;/aava-slider>&lt;h1>Normal State&lt;/h1>&lt;aava-slider [value]="50" [min]="0" [max]="100" [disabled]="true">&lt;/aava-slider>&lt;h1>Disabled State&lt;/h1>&lt;aava-slider type="input" [value]="75" [min]="0" [max]="100"> &lt;/aava-slider>&lt;h1>Input Variant&lt;/h1>&lt;aava-slider [value]="50" [min]="0" [max]="100" [showTooltip]="false">&lt;/aava-slider>&lt;h1>Without Tooltip&lt;/h1></code></pre>
+<pre><code>&lt;aava-slider [value]="50" [min]="0" [max]="100"> &lt;/aava-slider>&lt;h1>Normal State&lt;/h1>&lt;aava-slider [value]="50" [min]="0" [max]="100" [disabled]="true">&lt;/aava-slider>&lt;h1>Disabled State&lt;/h1>&lt;aava-slider type="input" [value]="75" [min]="0" [max]="100"> &lt;/aava-slider>&lt;h1>Input Variant&lt;/h1>&lt;aava-slider [value]="50" [min]="0" [max]="100" [showTooltip]="false">&lt;/aava-slider>&lt;h1>Without Tooltip&lt;/h1></code></pre>
+<p>Demonstrates the slider’s different states, including disabled, active, and focused.
+These states help communicate interactivity and status changes to users clearly.</p>
+<h2>Multi Range Slider​</h2>
+<pre><code>&lt;aava-slider  [multiRange]="true"  [min]="0"  [max]="100"  [minValue]="minValue"  [maxValue]="maxValue"  (minValueChange)="onMinChange($event)"  (maxValueChange)="onMaxChange($event)">&lt;/aava-slider></code></pre>
+<pre><code>&lt;aava-slider  [multiRange]="true"  [min]="0"  [max]="100"  [minValue]="minValue"  [maxValue]="maxValue"  (minValueChange)="onMinChange($event)"  (maxValueChange)="onMaxChange($event)">&lt;/aava-slider></code></pre>
+<pre><code>  minValue = 20;  maxValue = 80;  onMinChange(value: number) {    this.minValue = value;    console.log('Min value changed:', value);  }  onMaxChange(value: number) {    this.maxValue = value;    console.log('Max value changed:', value);  }</code></pre>
+<pre><code>  minValue = 20;  maxValue = 80;  onMinChange(value: number) {    this.minValue = value;    console.log('Min value changed:', value);  }  onMaxChange(value: number) {    this.maxValue = value;    console.log('Max value changed:', value);  }</code></pre>
+<p>The multi-range version allows selection of both minimum and maximum values, offering a more flexible range selection experience.
+It’s ideal for use in filters, price sliders, or any range-based data input scenarios.</p>
+<h2>Multi Range Features​</h2>
+<p>• Dual Handles: Independent control of minimum and maximum values</p>
+<p>• Range Selection: Visual indication of selected range between handles</p>
+<p>• Collision Prevention: Handles cannot cross over each other</p>
+<p>• Synchronized Tooltips: Both handles show their respective values</p>
+<h2>Input Type Variant​</h2>
+<pre><code>&lt;aava-slider  type="default"  [value]="50"  [min]="0"  [max]="100"  [showTooltip]="true">&lt;/aava-slider>&lt;h1>Default Type&lt;/h1>&lt;aava-slider type="input" [value]="75" [min]="0" [max]="100"> &lt;/aava-slider>&lt;h1>Input Type&lt;/h1></code></pre>
+<pre><code>&lt;aava-slider  type="default"  [value]="50"  [min]="0"  [max]="100"  [showTooltip]="true">&lt;/aava-slider>&lt;h1>Default Type&lt;/h1>&lt;aava-slider type="input" [value]="75" [min]="0" [max]="100"> &lt;/aava-slider>&lt;h1>Input Type&lt;/h1></code></pre>
+<pre><code>  currentValue = 50;  onSliderChange(value: number) {    this.currentValue = value;    console.log('Slider value:', value);  }</code></pre>
+<pre><code>  currentValue = 50;  onSliderChange(value: number) {    this.currentValue = value;    console.log('Slider value:', value);  }</code></pre>
+<p>This variant combines a slider handle with a numeric input field, enabling precise manual entry alongside drag interaction.
+It’s especially useful in cases where exact numeric control is needed, such as filtering or budget ranges.</p>
+<h2>Input Type Features​</h2>
+<p>• Dual Input Methods: Users can drag the slider or type directly in the input field</p>
+<p>• Real-time Sync: Input field and slider stay synchronized</p>
+<p>• Validation: Input respects min/max boundaries and step values</p>
+<p>• Accessibility: Input field provides keyboard navigation alternative</p>
+<p>• Responsive Design: Input field adapts to slider size variants</p>
+<h2>Icon Slider Variants​</h2>
+<pre><code>&lt;aava-slider  [min]="0"  [max]="100"  [value]="50"  [iconStart]="'volume-x'"  [iconEnd]="'volume-2'">&lt;/aava-slider>&lt;h4>Volume Control with Start/End Icons&lt;/h4>&lt;aava-slider  [min]="0"  [max]="100"  [value]="75"  [handleIcon]="'sun'"  [iconStart]="'moon'"  [iconEnd]="'sun'">&lt;/aava-slider>&lt;h4>Brightness with Handle Icon&lt;/h4></code></pre>
+<pre><code>&lt;aava-slider  [min]="0"  [max]="100"  [value]="50"  [iconStart]="'volume-x'"  [iconEnd]="'volume-2'">&lt;/aava-slider>&lt;h4>Volume Control with Start/End Icons&lt;/h4>&lt;aava-slider  [min]="0"  [max]="100"  [value]="75"  [handleIcon]="'sun'"  [iconStart]="'moon'"  [iconEnd]="'sun'">&lt;/aava-slider>&lt;h4>Brightness with Handle Icon&lt;/h4></code></pre>
+<pre><code>  currentValue = 50;  onSliderChange(value: number) {    this.currentValue = value;    console.log('Slider value:', value);  }</code></pre>
+<pre><code>  currentValue = 50;  onSliderChange(value: number) {    this.currentValue = value;    console.log('Slider value:', value);  }</code></pre>
+<p>Customizable slider with icon-based thumbs for enhanced visual feedback and thematic consistency.</p>
+<h2>Icon Thumb Features​</h2>
+<p>• Custom Icons: Replace default handle with Lucide icons</p>
+<p>• Thematic Consistency: Icons that match your content context</p>
+<p>• Multiple Variants: Various icon styles for different use cases</p>
+<p>• Responsive Sizing: Icons scale appropriately with slider size</p>
+<p>• Color Theming: Icons inherit slider theme colors</p>
+<p>• Hover Effects: Enhanced visual feedback on interaction</p>
+<h2>Icon Thumb Variants​</h2>
+<p>• Volume Control: Speaker/volume icons for audio controls</p>
+<p>• Brightness: Sun/brightness icons for display settings</p>
+<p>• Temperature: Thermometer icons for climate controls</p>
+<p>• Speed: Gauge/speedometer icons for rate adjustments</p>
+<p>• Rating: Star icons for rating and review systems</p>
+<p>• Progress: Arrow or progress icons for completion tracking</p>
+<h2>Orientation​</h2>
+<pre><code>&lt;aava-slider [value]="100" [min]="0" [max]="200" [step]="10"> &lt;/aava-slider>&lt;h1>Custom Range (0-200)&lt;/h1>&lt;aava-slider [value]="0.5" [min]="0" [max]="1" [step]="0.1"> &lt;/aava-slider>&lt;h1>Decimal Steps (0.1)&lt;/h1></code></pre>
+<pre><code>&lt;aava-slider [value]="100" [min]="0" [max]="200" [step]="10"> &lt;/aava-slider>&lt;h1>Custom Range (0-200)&lt;/h1>&lt;aava-slider [value]="0.5" [min]="0" [max]="1" [step]="0.1"> &lt;/aava-slider>&lt;h1>Decimal Steps (0.1)&lt;/h1></code></pre>
+<pre><code>  currentValue = 50;  onSliderChange(value: number) {    this.currentValue = value;    console.log('Slider value:', value);  }</code></pre>
+<pre><code>  currentValue = 50;  onSliderChange(value: number) {    this.currentValue = value;    console.log('Slider value:', value);  }</code></pre>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring WCAG compliance and inclusive user experience.</p>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Arrow keys, Home, and End key support</p>
+<p>• ARIA Attributes: Properrole="slider",aria-valuemin,aria-valuemax,aria-valuenow</p>
+<p>• Focus Management: Clear focus indicators and outline</p>
+<p>• Touch Support: Optimized for touch devices</p>
+<p>• Input Integration: Numeric input field provides alternative input method</p>
+<pre><code>role="slider"</code></pre>
+<pre><code>aria-valuemin</code></pre>
+<pre><code>aria-valuemax</code></pre>
+<pre><code>aria-valuenow</code></pre>
+<h2>Keyboard Controls​</h2>
+<p>• Arrow Right/Up: Increase value by step amount</p>
+<p>• Arrow Left/Down: Decrease value by step amount</p>
+<p>• Home: Jump to minimum value</p>
+<p>• End: Jump to maximum value</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+min | number | 0 | Minimum value of the slider range
+max | number | 100 | Maximum value of the slider range
+value | number | 0 | Current value of the slider
+step | number | 1 | Step increment for value changes
+showTooltip | boolean | true | Whether to display the value tooltip
+size | 'sm' | 'md' | 'md' | Size variant of the slider
+type | 'default' | 'input' | 'default' | Display type with or without input field
+multiRange | boolean | false | Enable multi-range (two-handle) slider
+minValue | number | 20 | Minimum selected value in multi-range mode
+maxValue | number | 80 | Maximum selected value in multi-range mode
+iconStart | string | '' | Icon displayed at the start of the slider track
+iconEnd | string | '' | Icon displayed at the end of the slider track
+handleIcon | string | '' | Icon displayed on the slider handle
+handleIconStart | string | '' | Icon displayed on the start handle (multi-range)
+handleIconEnd | string | '' | Icon displayed on the end handle (multi-range)
+customStyles | Record<string, string> | {} | CSS custom properties override
+disabled | boolean | false | Disable the slider</pre>
+<pre><code>min</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>max</code></pre>
+<pre><code>number</code></pre>
+<pre><code>100</code></pre>
+<pre><code>value</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>step</code></pre>
+<pre><code>number</code></pre>
+<pre><code>1</code></pre>
+<pre><code>showTooltip</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'sm' | 'md'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>type</code></pre>
+<pre><code>'default' | 'input'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>multiRange</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>minValue</code></pre>
+<pre><code>number</code></pre>
+<pre><code>20</code></pre>
+<pre><code>maxValue</code></pre>
+<pre><code>number</code></pre>
+<pre><code>80</code></pre>
+<pre><code>iconStart</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconEnd</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>handleIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>handleIconStart</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>handleIconEnd</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+valueChange | EventEmitter<number> | Emitted when the main slider value changes
+minValueChange | EventEmitter<number> | Emitted when the minimum value changes
+maxValueChange | EventEmitter<number> | Emitted when the maximum value changes</pre>
+<pre><code>valueChange</code></pre>
+<pre><code>EventEmitter&lt;number></code></pre>
+<pre><code>minValueChange</code></pre>
+<pre><code>EventEmitter&lt;number></code></pre>
+<pre><code>maxValueChange</code></pre>
+<pre><code>EventEmitter&lt;number></code></pre>
+<h2>Methods​</h2>
+<p>The component implementsControlValueAccessorfor form integration:</p>
+<pre><code>ControlValueAccessor</code></pre>
+<pre>Method | Parameters | Description
+writeValue | value: number | Set value programmatically
+registerOnChange | fn: Function | Register change callback
+registerOnTouched | fn: Function | Register touched callback</pre>
+<pre><code>writeValue</code></pre>
+<pre><code>value: number</code></pre>
+<pre><code>registerOnChange</code></pre>
+<pre><code>fn: Function</code></pre>
+<pre><code>registerOnTouched</code></pre>
+<pre><code>fn: Function</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The slider supports a wide range of CSS custom properties for theming and customization:</p>
+<pre>Property | Description
+--slider-container-height | Height of the overall slider container
+--slider-container-gap | Spacing between slider elements
+--slider-input-gap | Gap between the slider track and input field
+--slider-size-sm-track-height | Track height for small slider size variant
+--slider-size-sm-thumb-size | Thumb size for small slider
+--slider-label-font-size-sm | Label font size for small slider
+--slider-label-weight-sm | Label font weight for small slider
+--slider-size-md-track-height | Track height for medium slider size variant
+--slider-size-md-thumb-size | Thumb size for medium slider
+--slider-label-font-size-md | Label font size for medium slider
+--slider-label-weight-md | Label font weight for medium slider
+--slider-track-height | Height of the slider track
+--slider-track-background | Background color of the slider track
+--slider-track-border-radius | Border radius of the track
+--slider-progress-background | Background color of the filled progress area
+--slider-progress-border-radius | Border radius of the progress area
+--slider-thumb-size | Size of the slider thumb
+--slider-thumb-border-radius | Border radius of the thumb
+--slider-thumb-inner-background | Background color inside the thumb
+--slider-thumb-shadow | Shadow of the thumb
+--slider-thumb-shadow-hover | Thumb shadow on hover
+--slider-focus-ring | Style of the focus ring
+--slider-focus-ring-offset | Offset distance of the focus ring
+--slider-cursor | Cursor style when hovering over slider
+--slider-tooltip-margin | Margin around the tooltip
+--slider-tooltip-padding | Padding inside the tooltip
+--slider-tooltip-border-radius | Border radius of the tooltip
+--slider-value-color | Text color of the tooltip value
+--slider-label-font-family | Font family used for labels
+--slider-label-line-height | Line height for labels
+--slider-mark-background | Background color of slider marks
+--slider-handle-icon-width | Width of the handle icon
+--slider-handle-icon-height | Height of the handle icon
+--slider-input-width | Width of the input field
+--slider-input-height | Height of the input field
+--slider-input-padding | Padding inside the input field
+--slider-input-border-radius | Border radius of the input field
+--slider-input-border | Border style of the input field
+--slider-input-background | Background color of the input field
+--slider-input-font-size | Font size of the input text
+--slider-input-font-weight | Font weight of the input text
+--slider-input-font-family | Font family of the input text
+--slider-input-color | Text color of the input
+--slider-input-transition | Transition style for input state changes
+--slider-input-focus-border-color | Border color of input when focused
+--slider-input-hover-border-color | Border color of input when hovered
+--slider-input-disabled-background | Background color of disabled input
+--slider-input-disabled-border-color | Border color of disabled input
+--slider-value-color-disabled | Text color for disabled value display
+--slider-disabled-color | Color used in disabled state
+--slider-disabled-rail-background | Background of the slider rail when disabled</pre>
+<pre><code>--slider-container-height</code></pre>
+<pre><code>--slider-container-gap</code></pre>
+<pre><code>--slider-input-gap</code></pre>
+<pre><code>--slider-size-sm-track-height</code></pre>
+<pre><code>--slider-size-sm-thumb-size</code></pre>
+<pre><code>--slider-label-font-size-sm</code></pre>
+<pre><code>--slider-label-weight-sm</code></pre>
+<pre><code>--slider-size-md-track-height</code></pre>
+<pre><code>--slider-size-md-thumb-size</code></pre>
+<pre><code>--slider-label-font-size-md</code></pre>
+<pre><code>--slider-label-weight-md</code></pre>
+<pre><code>--slider-track-height</code></pre>
+<pre><code>--slider-track-background</code></pre>
+<pre><code>--slider-track-border-radius</code></pre>
+<pre><code>--slider-progress-background</code></pre>
+<pre><code>--slider-progress-border-radius</code></pre>
+<pre><code>--slider-thumb-size</code></pre>
+<pre><code>--slider-thumb-border-radius</code></pre>
+<pre><code>--slider-thumb-inner-background</code></pre>
+<pre><code>--slider-thumb-shadow</code></pre>
+<pre><code>--slider-thumb-shadow-hover</code></pre>
+<pre><code>--slider-focus-ring</code></pre>
+<pre><code>--slider-focus-ring-offset</code></pre>
+<pre><code>--slider-cursor</code></pre>
+<pre><code>--slider-tooltip-margin</code></pre>
+<pre><code>--slider-tooltip-padding</code></pre>
+<pre><code>--slider-tooltip-border-radius</code></pre>
+<pre><code>--slider-value-color</code></pre>
+<pre><code>--slider-label-font-family</code></pre>
+<pre><code>--slider-label-line-height</code></pre>
+<pre><code>--slider-mark-background</code></pre>
+<pre><code>--slider-handle-icon-width</code></pre>
+<pre><code>--slider-handle-icon-height</code></pre>
+<pre><code>--slider-input-width</code></pre>
+<pre><code>--slider-input-height</code></pre>
+<pre><code>--slider-input-padding</code></pre>
+<pre><code>--slider-input-border-radius</code></pre>
+<pre><code>--slider-input-border</code></pre>
+<pre><code>--slider-input-background</code></pre>
+<pre><code>--slider-input-font-size</code></pre>
+<pre><code>--slider-input-font-weight</code></pre>
+<pre><code>--slider-input-font-family</code></pre>
+<pre><code>--slider-input-color</code></pre>
+<pre><code>--slider-input-transition</code></pre>
+<pre><code>--slider-input-focus-border-color</code></pre>
+<pre><code>--slider-input-hover-border-color</code></pre>
+<pre><code>--slider-input-disabled-background</code></pre>
+<pre><code>--slider-input-disabled-border-color</code></pre>
+<pre><code>--slider-value-color-disabled</code></pre>
+<pre><code>--slider-disabled-color</code></pre>
+<pre><code>--slider-disabled-rail-background</code></pre>
+<h2>Best Practices​</h2>
+<h2>Implementation Guidelines​</h2>
+<p>• Use appropriate step values for your use case (1 for integers, 0.1 for decimals)</p>
+<p>• Set meaningful min/max boundaries that make sense for your data</p>
+<p>• Consider hiding the tooltip for inline sliders in dense layouts</p>
+<p>• Always provide proper labels for accessibility</p>
+<p>• Choose appropriate size variants based on your layout density</p>
+<p>• Use input type for scenarios requiring precise numeric input</p>
+<h2>Size Selection Guidelines​</h2>
+<p>• Small: Use in compact layouts, mobile interfaces, or when space is limited</p>
+<p>• Medium: Default choice for most applications and standard layouts</p>
+<h2>Input Type Usage​</h2>
+<p>• Default Type: Best for visual-only interactions and quick value selection</p>
+<p>• Input Type: Ideal for applications requiring precise numeric input or accessibility compliance</p>
+<h2>Form Integration​</h2>
+<p>• Use reactive forms for complex validation scenarios</p>
+<p>• Implement proper error handling and validation messages</p>
+<p>• Consider debouncing frequent value changes for performance</p>
+<p>• Leverage input type for better form accessibility and user experience</p>
+</body></html>
