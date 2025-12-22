@@ -1,0 +1,306 @@
+<html><head><meta charset='utf-8'>
+<title>Toast</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Toast</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Overlay/Toast</small></p>
+<h2>Toast</h2>
+<p>The<ava-toast>system provides a comprehensive notification solution with multiple variants, flexible positioning, smooth animations, and action buttons. Built around a service-based architecture, it offers both simple and advanced toast configurations for various user feedback scenarios.</p>
+<pre><code>&lt;ava-toast></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaToastService } from "@aava/play-core";// Inject the serviceconstructor(private toastService: AavaToastService) {}// Show different types of toaststhis.toastService.success({ message: 'Operation completed!' });this.toastService.error({ message: 'Something went wrong!' });</code></pre>
+<pre><code>import { AavaToastService } from "@aava/play-core";// Inject the serviceconstructor(private toastService: AavaToastService) {}// Show different types of toaststhis.toastService.success({ message: 'Operation completed!' });this.toastService.error({ message: 'Something went wrong!' });</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple toast notifications with default configurations.</p>
+<pre><code>&lt;aava-button  label="Show Success Toast"  variant="success"  (userClick)="showSuccessToast()">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Show Success Toast"  variant="success"  (userClick)="showSuccessToast()">&lt;/aava-button></code></pre>
+<pre><code>// Inject the toast service in your componentconstructor(private toastService: ToastService) {}// Show different types of toasts showSuccessToast() {    this.toastService.success({      title: 'Successfully created!',      message: 'Your changes have been saved successfully',      duration: 2000,      customWidth: '400px',      design: 'modern',      size: 'large',    });  }</code></pre>
+<pre><code>// Inject the toast service in your componentconstructor(private toastService: ToastService) {}// Show different types of toasts showSuccessToast() {    this.toastService.success({      title: 'Successfully created!',      message: 'Your changes have been saved successfully',      duration: 2000,      customWidth: '400px',      design: 'modern',      size: 'large',    });  }</code></pre>
+<h2>Variants​</h2>
+<p>Six distinct toast variants for different notification types and user feedback scenarios.</p>
+<pre><code>&lt;aava-button  label="Show Success Toast"  variant="success"  (userClick)="showSuccessToast()">&lt;/aava-button>&lt;aava-button  label="Show Error Toast"  variant="danger"  (userClick)="showErrorToast()">&lt;/aava-button>&lt;aava-button  label="Show Warning Toast"  variant="warning"  (userClick)="showWarningToast()">&lt;/aava-button>&lt;aava-button  label="Show Info Toast"  variant="info"  (userClick)="showInfoToast()">&lt;/aava-button>&lt;aava-button  label="Show Default Toast"  variant="secondary"  (userClick)="showDefaultToast()">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Show Success Toast"  variant="success"  (userClick)="showSuccessToast()">&lt;/aava-button>&lt;aava-button  label="Show Error Toast"  variant="danger"  (userClick)="showErrorToast()">&lt;/aava-button>&lt;aava-button  label="Show Warning Toast"  variant="warning"  (userClick)="showWarningToast()">&lt;/aava-button>&lt;aava-button  label="Show Info Toast"  variant="info"  (userClick)="showInfoToast()">&lt;/aava-button>&lt;aava-button  label="Show Default Toast"  variant="secondary"  (userClick)="showDefaultToast()">&lt;/aava-button></code></pre>
+<pre><code>// Inject the toast service in your componentconstructor(private toastService: ToastService) {}// Show different toast variants showSuccessToast() {    this.toastService.success({      title: 'Successfully created!',      message: 'Your changes have been saved successfully',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showErrorToast() {    this.toastService.error({      title: 'Error Occurred',      message: 'Connection error. Unable to connect to the server at present',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showWarningToast() {    this.toastService.warning({      title: 'Warning Occurred',      message: 'Please review your input carefully before proceeding.',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showInfoToast() {    this.toastService.info({      title: 'Action Required',      message: 'Please review your input carefully before proceeding.',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showDefaultToast() {    this.toastService.default({      title: 'Default Toast Occurred',      message: 'This is a default toast with neutral styling.',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showCustomToast() {    this.toastService.custom({      title: 'Custom Toast',      message: 'This is a fully customizable toast with unique styling.',      customBackground: 'var(--color-primary)',      customTextColor: 'var(--color-text-primary)',      customWidth: '300px',      design: 'modern',      size: 'small',    });  }</code></pre>
+<pre><code>// Inject the toast service in your componentconstructor(private toastService: ToastService) {}// Show different toast variants showSuccessToast() {    this.toastService.success({      title: 'Successfully created!',      message: 'Your changes have been saved successfully',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showErrorToast() {    this.toastService.error({      title: 'Error Occurred',      message: 'Connection error. Unable to connect to the server at present',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showWarningToast() {    this.toastService.warning({      title: 'Warning Occurred',      message: 'Please review your input carefully before proceeding.',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showInfoToast() {    this.toastService.info({      title: 'Action Required',      message: 'Please review your input carefully before proceeding.',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showDefaultToast() {    this.toastService.default({      title: 'Default Toast Occurred',      message: 'This is a default toast with neutral styling.',      duration: 2000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showCustomToast() {    this.toastService.custom({      title: 'Custom Toast',      message: 'This is a fully customizable toast with unique styling.',      customBackground: 'var(--color-primary)',      customTextColor: 'var(--color-text-primary)',      customWidth: '300px',      design: 'modern',      size: 'small',    });  }</code></pre>
+<h2>Available Variants​</h2>
+<p>• Success- Green styling for successful operations and confirmations</p>
+<p>• Error- Red styling for errors and critical issues</p>
+<p>• Warning- Orange/yellow styling for warnings and cautions</p>
+<p>• Info- Blue styling for informational messages and tips</p>
+<p>• Default- Neutral styling for general notifications</p>
+<p>• Custom- Fully customizable styling and content</p>
+<h2>Sizes​</h2>
+<p>Three size variants to accommodate different content lengths and interface requirements.</p>
+<pre><code>&lt;aava-button  label="Show Small Success"  variant="success"  size="small"  (userClick)="showSmallSuccess()">&lt;/aava-button>&lt;aava-button  label="Show Medium Warning"  variant="warning"  size="small"  (userClick)="showMediumWarning()">&lt;/aava-button>&lt;aava-button  label="Show Large Success"  variant="danger"  size="small"  (userClick)="showLargeError()">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Show Small Success"  variant="success"  size="small"  (userClick)="showSmallSuccess()">&lt;/aava-button>&lt;aava-button  label="Show Medium Warning"  variant="warning"  size="small"  (userClick)="showMediumWarning()">&lt;/aava-button>&lt;aava-button  label="Show Large Success"  variant="danger"  size="small"  (userClick)="showLargeError()">&lt;/aava-button></code></pre>
+<pre><code>// Inject the toast service in your componentconstructor(private toastService: ToastService) {}// Show different toast sizes showSmallSuccess() {    this.toastService.success({      title: 'Successfully created!',      message: 'Your changes have been saved successfully',      duration: 1000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showMediumWarning() {    this.toastService.warning({      title: 'Action Required',      message: 'Incomplete fields.Please fill in all required information.',      duration: 1000,      customWidth: '350px',      design: 'modern',      size: 'medium',    });  }  showLargeError() {    this.toastService.error({      title: 'Error Occurred',      message: 'Connection error. Unable to connect to the server at present',      duration: 1000,      customWidth: '400px',      design: 'modern',      size: 'large',    });  }</code></pre>
+<pre><code>// Inject the toast service in your componentconstructor(private toastService: ToastService) {}// Show different toast sizes showSmallSuccess() {    this.toastService.success({      title: 'Successfully created!',      message: 'Your changes have been saved successfully',      duration: 1000,      customWidth: '300px',      design: 'modern',      size: 'small',    });  }  showMediumWarning() {    this.toastService.warning({      title: 'Action Required',      message: 'Incomplete fields.Please fill in all required information.',      duration: 1000,      customWidth: '350px',      design: 'modern',      size: 'medium',    });  }  showLargeError() {    this.toastService.error({      title: 'Error Occurred',      message: 'Connection error. Unable to connect to the server at present',      duration: 1000,      customWidth: '400px',      design: 'modern',      size: 'large',    });  }</code></pre>
+<h2>Available Sizes​</h2>
+<p>• Small- Compact size for minimal content and dense interfaces</p>
+<p>• Medium- Standard size for most notification scenarios (default)</p>
+<p>• Large- Prominent size for important messages and detailed content</p>
+<h2>Service Methods​</h2>
+<p>The ToastService provides convenient methods for different toast types:</p>
+<h2>Success Toast​</h2>
+<pre><code>this.toastService.success({  title: "Success!",  message: "Operation completed successfully.",  duration: 4000,  showCloseButton: true,});</code></pre>
+<pre><code>this.toastService.success({  title: "Success!",  message: "Operation completed successfully.",  duration: 4000,  showCloseButton: true,});</code></pre>
+<h2>Error Toast​</h2>
+<pre><code>this.toastService.error({  title: "Error!",  message: "Something went wrong. Please try again.",  showRetryButton: true,  retryButtonText: "Retry",});</code></pre>
+<pre><code>this.toastService.error({  title: "Error!",  message: "Something went wrong. Please try again.",  showRetryButton: true,  retryButtonText: "Retry",});</code></pre>
+<h2>Warning Toast​</h2>
+<pre><code>this.toastService.warning({  title: "Warning",  message: "Please review the information carefully.",  showActionButton: true,  actionButtonText: "Review",});</code></pre>
+<pre><code>this.toastService.warning({  title: "Warning",  message: "Please review the information carefully.",  showActionButton: true,  actionButtonText: "Review",});</code></pre>
+<h2>Info Toast​</h2>
+<pre><code>this.toastService.info({  title: "Information",  message: "Here is some important information.",  showLearnMoreButton: true,  learnMoreButtonText: "Learn More",});</code></pre>
+<pre><code>this.toastService.info({  title: "Information",  message: "Here is some important information.",  showLearnMoreButton: true,  learnMoreButtonText: "Learn More",});</code></pre>
+<h2>Custom Toast​</h2>
+<pre><code>this.toastService.custom({  title: "Custom Toast",  message: "This is a fully customizable toast.",  customWidth: "500px",  customBackground: "#6366f1",  customTextColor: "#ffffff",});</code></pre>
+<pre><code>this.toastService.custom({  title: "Custom Toast",  message: "This is a fully customizable toast.",  customWidth: "500px",  customBackground: "#6366f1",  customTextColor: "#ffffff",});</code></pre>
+<h2>API Reference​</h2>
+<h2>ToastService Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+success() | SuccessToastConfig? | Promise<ToastResult> | Show success toast with green styling
+error() | ErrorToastConfig? | Promise<ToastResult> | Show error toast with red styling
+warning() | WarningToastConfig? | Promise<ToastResult> | Show warning toast with orange styling
+info() | InfoToastConfig? | Promise<ToastResult> | Show info toast with blue styling
+default() | DefaultToastConfig? | Promise<ToastResult> | Show default toast with neutral styling
+custom() | CustomToastConfig? | Promise<ToastResult> | Show custom toast with full customization
+setPosition() | ToastPosition | void | Set global toast position
+dismissAll() | - | void | Dismiss all active toasts</pre>
+<pre><code>success()</code></pre>
+<pre><code>SuccessToastConfig?</code></pre>
+<pre><code>Promise&lt;ToastResult></code></pre>
+<pre><code>error()</code></pre>
+<pre><code>ErrorToastConfig?</code></pre>
+<pre><code>Promise&lt;ToastResult></code></pre>
+<pre><code>warning()</code></pre>
+<pre><code>WarningToastConfig?</code></pre>
+<pre><code>Promise&lt;ToastResult></code></pre>
+<pre><code>info()</code></pre>
+<pre><code>InfoToastConfig?</code></pre>
+<pre><code>Promise&lt;ToastResult></code></pre>
+<pre><code>default()</code></pre>
+<pre><code>DefaultToastConfig?</code></pre>
+<pre><code>Promise&lt;ToastResult></code></pre>
+<pre><code>custom()</code></pre>
+<pre><code>CustomToastConfig?</code></pre>
+<pre><code>Promise&lt;ToastResult></code></pre>
+<pre><code>setPosition()</code></pre>
+<pre><code>ToastPosition</code></pre>
+<pre><code>void</code></pre>
+<pre><code>dismissAll()</code></pre>
+<pre><code>void</code></pre>
+<h2>Toast Configuration Interfaces​</h2>
+<pre>Property | Type | Default | Description
+title | string? | '' | Toast header text
+message | string? | '' | Toast body text
+duration | number? | 4000 | Auto-dismiss duration in milliseconds
+position | ToastPosition? | 'top-right' | Toast position on screen
+showCloseButton | boolean? | true | Whether to show close button
+showProgress | boolean? | true | Whether to show progress bar
+icon | string? | '' | Custom icon name
+iconColor | string? | '' | Custom icon color
+customWidth | string? | '' | Custom toast width
+customHeight | string? | '' | Custom toast height
+design | 'classic' | 'modern' | 'classic' | Toast design variant
+size | 'large' | 'medium' | 'small' | 'large' | Toast size variant</pre>
+<pre><code>title</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>message</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>duration</code></pre>
+<pre><code>number?</code></pre>
+<pre><code>4000</code></pre>
+<pre><code>position</code></pre>
+<pre><code>ToastPosition?</code></pre>
+<pre><code>'top-right'</code></pre>
+<pre><code>showCloseButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showProgress</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>icon</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconColor</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>customWidth</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>customHeight</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>design</code></pre>
+<pre><code>'classic' | 'modern'</code></pre>
+<pre><code>'classic'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'large' | 'medium' | 'small'</code></pre>
+<pre><code>'large'</code></pre>
+<pre>Property | Type | Default | Description
+type | 'success' | 'success' | Toast type (always 'success')</pre>
+<pre><code>type</code></pre>
+<pre><code>'success'</code></pre>
+<pre><code>'success'</code></pre>
+<pre>Property | Type | Default | Description
+type | 'error' | 'error' | Toast type (always 'error')
+showRetryButton | boolean? | false | Whether to show retry button
+retryButtonText | string? | 'Retry' | Text for retry button</pre>
+<pre><code>type</code></pre>
+<pre><code>'error'</code></pre>
+<pre><code>'error'</code></pre>
+<pre><code>showRetryButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>retryButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Retry'</code></pre>
+<pre>Property | Type | Default | Description
+type | 'warning' | 'warning' | Toast type (always 'warning')
+showActionButton | boolean? | false | Whether to show action button
+actionButtonText | string? | 'Action' | Text for action button</pre>
+<pre><code>type</code></pre>
+<pre><code>'warning'</code></pre>
+<pre><code>'warning'</code></pre>
+<pre><code>showActionButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>actionButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Action'</code></pre>
+<pre>Property | Type | Default | Description
+type | 'info' | 'info' | Toast type (always 'info')
+showLearnMoreButton | boolean? | false | Whether to show learn more button
+learnMoreButtonText | string? | 'Learn More' | Text for learn more button</pre>
+<pre><code>type</code></pre>
+<pre><code>'info'</code></pre>
+<pre><code>'info'</code></pre>
+<pre><code>showLearnMoreButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>learnMoreButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Learn More'</code></pre>
+<pre>Property | Type | Default | Description
+type | 'custom' | 'custom' | Toast type (always 'custom')
+customContent | string? | '' | Custom HTML content
+customBackground | string? | '' | Custom background color
+customTextColor | string? | '' | Custom text color
+progressColor | string? | '' | Custom progress bar color
+showCustomActions | boolean? | false | Whether to show custom action buttons
+customActions | CustomAction[]? | '' | Array of custom action buttons</pre>
+<pre><code>type</code></pre>
+<pre><code>'custom'</code></pre>
+<pre><code>'custom'</code></pre>
+<pre><code>customContent</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>customBackground</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>customTextColor</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>progressColor</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>showCustomActions</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>customActions</code></pre>
+<pre><code>CustomAction[]?</code></pre>
+<pre><code>''</code></pre>
+<h2>Toast Position Options​</h2>
+<pre>Position | Description
+'top-left' | Top-left corner of the screen
+'top-center' | Top-center of the screen
+'top-right' | Top-right corner of the screen (default)
+bottom-left | Bottom-left corner of the screen
+bottom-center | Bottom-center of the screen
+bottom-right | Bottom-right corner of the screen</pre>
+<pre><code>'top-left'</code></pre>
+<pre><code>'top-center'</code></pre>
+<pre><code>'top-right'</code></pre>
+<pre><code>bottom-left</code></pre>
+<pre><code>bottom-center</code></pre>
+<pre><code>bottom-right</code></pre>
+<h2>Toast Result Interface​</h2>
+<pre>Property | Type | Description
+action | 'close' | 'retry' | 'action' | 'learn-more' | 'timeout' | string | Action that triggered toast dismissal
+data | any? | Additional data from custom actions</pre>
+<pre><code>action</code></pre>
+<pre><code>'close' | 'retry' | 'action' | 'learn-more' | 'timeout' | string</code></pre>
+<pre><code>data</code></pre>
+<pre><code>any?</code></pre>
+<h2>Custom Action Interface​</h2>
+<pre>Property | Type | Description
+action | string | Unique identifier for the action
+label | string | Display text for the action button
+data | any? | Additional data to pass with the action</pre>
+<pre><code>action</code></pre>
+<pre><code>string</code></pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>data</code></pre>
+<pre><code>any?</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Choose appropriate variants- Use semantic colors that match the message type</p>
+<p>• Keep messages concise- Toast notifications should be brief and actionable</p>
+<p>• Use consistent positioning- Stick to one position for your application</p>
+<p>• Consider duration carefully- Longer durations for important messages, shorter for confirmations</p>
+<p>• Limit concurrent toasts- Avoid overwhelming users with too many notifications</p>
+<h2>Accessibility​</h2>
+<p>• Provide meaningful titles- Use descriptive headers for screen readers</p>
+<p>• Include action alternatives- Ensure all toast actions are keyboard accessible</p>
+<p>• Test with screen readers- Verify proper announcement of toast content</p>
+<p>• Maintain focus management- Ensure focus returns to appropriate elements</p>
+<p>• Use sufficient contrast- Maintain readability in both light and dark themes</p>
+<h2>Performance​</h2>
+<p>• Limit toast instances- Avoid creating excessive toast components</p>
+<p>• Use appropriate timeouts- Set reasonable auto-dismiss durations</p>
+<p>• Clean up resources- Ensure proper cleanup of event listeners</p>
+<p>• Optimize animations- Use CSS transforms for smooth performance</p>
+<h2>User Experience​</h2>
+<p>• Position strategically- Choose positions that don't block important content</p>
+<p>• Provide clear actions- Make action buttons descriptive and intuitive</p>
+<p>• Handle errors gracefully- Use error toasts with retry options when appropriate</p>
+<p>• Consider mobile users- Ensure toasts are readable on small screens</p>
+<p>• Respect user preferences- Allow users to control toast behavior</p>
+<h2>Use Cases​</h2>
+<p>• Success Confirmations- Operation completion, form submissions</p>
+<p>• Error Notifications- Validation failures, API errors, network issues</p>
+<p>• Warning Messages- Important reminders, confirmation requirements</p>
+<p>• Information Updates- System status, feature announcements</p>
+<p>• Action Prompts- User decisions, next steps, navigation hints</p>
+<h2>Technical Notes​</h2>
+<h2>Service Architecture​</h2>
+<p>The toast system uses a service-based architecture where:</p>
+<p>• ToastServicemanages all toast operations and lifecycle</p>
+<p>• ToastContainerComponentprovides the positioning and container logic</p>
+<p>• Individual toast componentshandle specific styling and behavior</p>
+<p>• Dynamic component creationenables programmatic toast generation</p>
+<h2>Positioning System​</h2>
+<p>Toasts are positioned using CSS transforms and positioning:</p>
+<p>• Fixed positioningensures toasts appear above all content</p>
+<p>• Responsive behavioradapts to different screen sizes</p>
+<p>• Z-index managementmaintains proper layering</p>
+<p>• Mobile optimizationprovides full-width toasts on small screens</p>
+<h2>Animation System​</h2>
+<p>Toast animations include:</p>
+<p>• Entrance animations- Slide and fade in effects</p>
+<p>• Exit animations- Slide and fade out effects</p>
+<p>• Progress bars- Visual countdown for auto-dismiss</p>
+<p>• Hover interactions- Timer pause/resume functionality</p>
+<h2>Event Handling​</h2>
+<p>The system handles multiple event types:</p>
+<p>• Close events- User-initiated dismissal</p>
+<p>• Action events- Button clicks and custom actions</p>
+<p>• Timeout events- Auto-dismiss completion</p>
+<p>• Hover events- Timer pause/resume functionality</p>
+</body></html>
