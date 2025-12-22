@@ -1,0 +1,268 @@
+<html><head><meta charset='utf-8'>
+<title>Menu</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Menu</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Navigation/Menu</small></p>
+<h2>Menu</h2>
+<p>A flexible and feature-rich dropdown menu component for creating context menus, navigation dropdowns, and action menus. Supports icons, descriptions, multi-column layout, various positioning options, and full accessibility.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaMenuComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaMenuComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>The Menu component provides a dropdown interface that can be positioned relative to a trigger element. It supports various menu items with different states and configurations.</p>
+<p>• Default behavior:Bottom positioning, single column layout, with icons and titles.</p>
+<p>• Usage:Pass an array of menu items to theitemsinput and control visibility with thevisibleinput.</p>
+<pre><code>items</code></pre>
+<pre><code>visible</code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Open Menu&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Open Menu&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-basic",  standalone: true,  imports: [AavaMenuComponent],})export class MenuBasicComponent {  showMenu = false;  menuItems = [    { label: "Dashboard", route: "/dashboard" },    { label: "Profile", route: "/profile" },    { label: "Settings", route: "/settings" },    { label: "Help", route: "/help" },    { label: "Logout", route: "/logout" },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-basic",  standalone: true,  imports: [AavaMenuComponent],})export class MenuBasicComponent {  showMenu = false;  menuItems = [    { label: "Dashboard", route: "/dashboard" },    { label: "Profile", route: "/profile" },    { label: "Settings", route: "/settings" },    { label: "Help", route: "/help" },    { label: "Logout", route: "/logout" },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<h2>With Icons​</h2>
+<p>Menu items can display icons alongside their labels for better visual recognition and user experience.</p>
+<p>• How:Add aniconproperty to menu items with the icon name.</p>
+<p>• When to use:For quick recognition, consistent visual language, or when space allows.</p>
+<pre><code>icon</code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Menu with Icons&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    [displayOptions]="{ showIcon: true, showTitle: true }"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Menu with Icons&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    [displayOptions]="{ showIcon: true, showTitle: true }"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-with-icons",  standalone: true,  imports: [AavaMenuComponent],})export class MenuWithIconsComponent {  showMenu = false;  menuItems = [    { label: "Dashboard", icon: "home", route: "/dashboard" },    { label: "Profile", icon: "user", route: "/profile" },    { label: "Settings", icon: "settings", route: "/settings" },    { label: "Notifications", icon: "bell", route: "/notifications" },    { label: "Help", icon: "help-circle", route: "/help" },    { label: "Logout", icon: "log-out", route: "/logout" },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-with-icons",  standalone: true,  imports: [AavaMenuComponent],})export class MenuWithIconsComponent {  showMenu = false;  menuItems = [    { label: "Dashboard", icon: "home", route: "/dashboard" },    { label: "Profile", icon: "user", route: "/profile" },    { label: "Settings", icon: "settings", route: "/settings" },    { label: "Notifications", icon: "bell", route: "/notifications" },    { label: "Help", icon: "help-circle", route: "/help" },    { label: "Logout", icon: "log-out", route: "/logout" },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<h2>With Descriptions​</h2>
+<p>Menu items can include descriptions to provide additional context or information about each option.</p>
+<p>• How:Add adescriptionproperty to menu items.</p>
+<p>• When to use:For complex menus where items need additional explanation or context.</p>
+<pre><code>description</code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Menu with Descriptions&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    [displayOptions]="{ showIcon: true, showTitle: true, showDescription: true }"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Menu with Descriptions&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    [displayOptions]="{ showIcon: true, showTitle: true, showDescription: true }"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-with-descriptions",  standalone: true,  imports: [AavaMenuComponent],})export class MenuWithDescriptionsComponent {  showMenu = false;  menuItems = [    {      label: "Dashboard",      icon: "home",      description: "View your main dashboard and overview",      route: "/dashboard",    },    {      label: "Profile",      icon: "user",      description: "Manage your account settings and preferences",      route: "/profile",    },    {      label: "Settings",      icon: "settings",      description: "Configure application settings and options",      route: "/settings",    },    {      label: "Help",      icon: "help-circle",      description: "Get help and support documentation",      route: "/help",    },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-with-descriptions",  standalone: true,  imports: [AavaMenuComponent],})export class MenuWithDescriptionsComponent {  showMenu = false;  menuItems = [    {      label: "Dashboard",      icon: "home",      description: "View your main dashboard and overview",      route: "/dashboard",    },    {      label: "Profile",      icon: "user",      description: "Manage your account settings and preferences",      route: "/profile",    },    {      label: "Settings",      icon: "settings",      description: "Configure application settings and options",      route: "/settings",    },    {      label: "Help",      icon: "help-circle",      description: "Get help and support documentation",      route: "/help",    },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<h2>Disabled Items​</h2>
+<p>Menu items can be disabled to indicate unavailable options or actions that require certain conditions.</p>
+<p>• How:Setdisabled: trueon menu items.</p>
+<p>• When to use:For conditional actions, permission-based menus, or unavailable features.</p>
+<pre><code>disabled: true</code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Menu with Disabled Items&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    [displayOptions]="{ showIcon: true, showTitle: true, showDescription: true }"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>&lt;div class="menu-container">  &lt;button (click)="toggleMenu()">Menu with Disabled Items&lt;/button>  &lt;aava-menu    [items]="menuItems"    [visible]="showMenu"    [displayOptions]="{ showIcon: true, showTitle: true, showDescription: true }"    (itemSelected)="handleItemSelected($event)">  &lt;/aava-menu>&lt;/div></code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-disabled-items",  standalone: true,  imports: [AavaMenuComponent],})export class MenuDisabledItemsComponent {  showMenu = false;  menuItems = [    {      label: "Dashboard",      icon: "home",      description: "View your main dashboard",      route: "/dashboard",    },    {      label: "Profile",      icon: "user",      description: "Manage your account settings",      route: "/profile",    },    {      label: "Premium Features",      icon: "star",      description: "Upgrade to access premium features",      disabled: true,    },    {      label: "Advanced Analytics",      icon: "bar-chart",      description: "Advanced analytics (requires premium)",      disabled: true,    },    {      label: "Help",      icon: "help-circle",      description: "Get help and support",      route: "/help",    },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaMenuComponent } from "@aava/play-core";@Component({  selector: "app-menu-disabled-items",  standalone: true,  imports: [AavaMenuComponent],})export class MenuDisabledItemsComponent {  showMenu = false;  menuItems = [    {      label: "Dashboard",      icon: "home",      description: "View your main dashboard",      route: "/dashboard",    },    {      label: "Profile",      icon: "user",      description: "Manage your account settings",      route: "/profile",    },    {      label: "Premium Features",      icon: "star",      description: "Upgrade to access premium features",      disabled: true,    },    {      label: "Advanced Analytics",      icon: "bar-chart",      description: "Advanced analytics (requires premium)",      disabled: true,    },    {      label: "Help",      icon: "help-circle",      description: "Get help and support",      route: "/help",    },  ];  toggleMenu() {    this.showMenu = !this.showMenu;  }  handleItemSelected(event: any) {    console.log("Selected:", event.label);    this.showMenu = false;  }}</code></pre>
+<h2>Features​</h2>
+<h2>Flexible Positioning​</h2>
+<p>• 8 Position Options: top, bottom, left, right, and their start/end variants</p>
+<p>• Alignment Control: start, center, end alignment within positioned area</p>
+<p>• Offset Configuration: Customizable spacing from trigger element</p>
+<p>• Auto Flip: Automatic position adjustment when space is limited</p>
+<h2>Rich Content Support​</h2>
+<p>• Icons: Lucide icons with customizable size and colors</p>
+<p>• Descriptions: Additional text for context and explanation</p>
+<p>• Active States: Visual indication of currently active/selected items</p>
+<p>• Disabled States: Clear indication of unavailable options</p>
+<h2>Layout Options​</h2>
+<p>• Multi-Column: Configurable column layout for extensive menus</p>
+<p>• Responsive Design: Adapts to different screen sizes and orientations</p>
+<p>• Flexible Sizing: Automatic width adjustment based on content</p>
+<p>• Custom Styling: Extensive CSS custom properties for theming</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Full keyboard support with arrow keys</p>
+<p>• Screen Reader: Proper ARIA attributes and semantic structure</p>
+<p>• Focus Management: Clear focus indicators and logical tab order</p>
+<p>• High Contrast: Support for high contrast mode and color preferences</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+items | MenuItem[] | [] | Array of menu items to display
+visible | boolean | false | Controls menu visibility
+itemsPerColumn | number | 3 | Number of items per column in multi-column layout
+positionConfig | MenuPositionConfig | See default config below | Configuration for menu positioning
+displayOptions | MenuItemDisplayOptions | See default options below | Configuration for item display
+customStyles | Record<string, string> | {} | Custom CSS styles to apply to the menu</pre>
+<pre><code>items</code></pre>
+<pre><code>MenuItem[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>visible</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>itemsPerColumn</code></pre>
+<pre><code>number</code></pre>
+<pre><code>3</code></pre>
+<pre><code>positionConfig</code></pre>
+<pre><code>MenuPositionConfig</code></pre>
+<pre><code>displayOptions</code></pre>
+<pre><code>MenuItemDisplayOptions</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<h2>Outputs​</h2>
+<pre>Property | Type | Description
+itemSelected | EventEmitter<{route?: string; label: string; item: MenuItem}> | Emitted when a menu item is clicked</pre>
+<pre><code>itemSelected</code></pre>
+<pre><code>EventEmitter&lt;{route?: string; label: string; item: MenuItem}></code></pre>
+<h2>MenuItem Interface​</h2>
+<pre><code>interface MenuItem {  label: string; // Display text for the menu item  description?: string; // Optional description text  route?: string; // Optional route for navigation  icon?: string; // Optional icon name (Lucide)  disabled?: boolean; // Whether the item is disabled  divider?: boolean; // Whether to show a divider line  customData?: Record&lt;string, unknown>; // Custom data for the item}</code></pre>
+<pre><code>interface MenuItem {  label: string; // Display text for the menu item  description?: string; // Optional description text  route?: string; // Optional route for navigation  icon?: string; // Optional icon name (Lucide)  disabled?: boolean; // Whether the item is disabled  divider?: boolean; // Whether to show a divider line  customData?: Record&lt;string, unknown>; // Custom data for the item}</code></pre>
+<h2>MenuPositionConfig Interface​</h2>
+<pre><code>interface MenuPositionConfig {  position?: MenuPosition; // Position relative to trigger  alignment?: MenuAlignment; // Alignment within positioned area  offset?: number; // Distance from trigger element  autoFlip?: boolean; // Auto-adjust position if needed}type MenuPosition =  | "top"  | "bottom"  | "left"  | "right"  | "top-start"  | "top-end"  | "bottom-start"  | "bottom-end";type MenuAlignment = "start" | "center" | "end";</code></pre>
+<pre><code>interface MenuPositionConfig {  position?: MenuPosition; // Position relative to trigger  alignment?: MenuAlignment; // Alignment within positioned area  offset?: number; // Distance from trigger element  autoFlip?: boolean; // Auto-adjust position if needed}type MenuPosition =  | "top"  | "bottom"  | "left"  | "right"  | "top-start"  | "top-end"  | "bottom-start"  | "bottom-end";type MenuAlignment = "start" | "center" | "end";</code></pre>
+<h2>MenuItemDisplayOptions Interface​</h2>
+<pre><code>interface MenuItemDisplayOptions {  showIcon?: boolean; // Whether to show icons  showTitle?: boolean; // Whether to show item titles  showDescription?: boolean; // Whether to show descriptions  iconSize?: number; // Size of icons in pixels  titleWeight?: "normal" | "medium" | "semibold" | "bold"; // Font weight for titles  descriptionSize?: "xs" | "sm" | "md" | "lg"; // Font size for descriptions}</code></pre>
+<pre><code>interface MenuItemDisplayOptions {  showIcon?: boolean; // Whether to show icons  showTitle?: boolean; // Whether to show item titles  showDescription?: boolean; // Whether to show descriptions  iconSize?: number; // Size of icons in pixels  titleWeight?: "normal" | "medium" | "semibold" | "bold"; // Font weight for titles  descriptionSize?: "xs" | "sm" | "md" | "lg"; // Font size for descriptions}</code></pre>
+<h2>Default Configurations​</h2>
+<pre><code>// Default position config{  position: 'bottom',  alignment: 'start',  offset: 8,}// Default display options{  showIcon: true,  showTitle: true,  showDescription: true,  iconSize: 24,  titleWeight: 'medium',  descriptionSize: 'sm',}</code></pre>
+<pre><code>// Default position config{  position: 'bottom',  alignment: 'start',  offset: 8,}// Default display options{  showIcon: true,  showTitle: true,  showDescription: true,  iconSize: 24,  titleWeight: 'medium',  descriptionSize: 'sm',}</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The component uses CSS custom properties for theming:</p>
+<pre>Property | Description
+--menu-min-width | Minimum width of the menu
+--menu-background | Background color of the menu
+--menu-border-radius | Border radius of the menu
+--menu-shadow | Box shadow of the menu
+--menu-border | Border of the menu
+--menu-padding | Padding inside the menu
+--menu-margin-top | Top margin for positioning
+--menu-transform-y | Transform distance for animations
+--menu-transition | Transition timing for animations
+--menu-z-index | Z-index for layering
+--menu-columns-gap | Gap between columns
+--menu-column-min-width | Minimum width of each column
+--menu-item-gap | Gap between icon and content
+--menu-item-padding | Padding of menu items
+--menu-item-border-radius | Border radius of menu items
+--menu-item-background | Background of menu items
+--menu-item-color | Text color of menu items
+--menu-item-hover-background | Background on hover
+--menu-item-hover-color | Text color on hover
+--menu-item-active-background | Background when active
+--menu-item-active-color | Text color when active
+--menu-item-disabled-background | Background when disabled
+--menu-item-disabled-color | Text color when disabled
+--menu-item-margin | Margin of menu items
+--menu-item-first-margin-top | Top margin of first item
+--menu-item-last-margin-bottom | Bottom margin of last item
+--menu-item-transition | Transition timing for items
+--menu-item-icon-size | Size of item icons
+--menu-item-icon-color | Color of item icons
+--menu-item-icon-active-color | Color of active item icons
+--menu-item-icon-transition | Transition timing for icons
+--menu-item-hover-icon-filter | Icon filter on hover
+--menu-item-active-icon-filter | Icon filter when active
+--menu-item-content-gap | Gap between title and description
+--menu-item-title-font-weight | Font weight of titles
+--menu-item-title-font-size | Font size of titles
+--menu-item-title-color | Color of titles
+--menu-item-title-active-color | Color of active titles
+--menu-item-title-active-font-weight | Font weight of active titles
+--menu-item-title-line-height | Line height of titles
+--menu-item-title-transition | Transition timing for titles
+--menu-item-description-font-size | Font size of descriptions
+--menu-item-description-color | Color of descriptions
+--menu-item-description-active-color | Color of active descriptions
+--menu-item-description-line-height | Line height of descriptions
+--menu-item-description-transition | Transition timing for descriptions</pre>
+<pre><code>--menu-min-width</code></pre>
+<pre><code>--menu-background</code></pre>
+<pre><code>--menu-border-radius</code></pre>
+<pre><code>--menu-shadow</code></pre>
+<pre><code>--menu-border</code></pre>
+<pre><code>--menu-padding</code></pre>
+<pre><code>--menu-margin-top</code></pre>
+<pre><code>--menu-transform-y</code></pre>
+<pre><code>--menu-transition</code></pre>
+<pre><code>--menu-z-index</code></pre>
+<pre><code>--menu-columns-gap</code></pre>
+<pre><code>--menu-column-min-width</code></pre>
+<pre><code>--menu-item-gap</code></pre>
+<pre><code>--menu-item-padding</code></pre>
+<pre><code>--menu-item-border-radius</code></pre>
+<pre><code>--menu-item-background</code></pre>
+<pre><code>--menu-item-color</code></pre>
+<pre><code>--menu-item-hover-background</code></pre>
+<pre><code>--menu-item-hover-color</code></pre>
+<pre><code>--menu-item-active-background</code></pre>
+<pre><code>--menu-item-active-color</code></pre>
+<pre><code>--menu-item-disabled-background</code></pre>
+<pre><code>--menu-item-disabled-color</code></pre>
+<pre><code>--menu-item-margin</code></pre>
+<pre><code>--menu-item-first-margin-top</code></pre>
+<pre><code>--menu-item-last-margin-bottom</code></pre>
+<pre><code>--menu-item-transition</code></pre>
+<pre><code>--menu-item-icon-size</code></pre>
+<pre><code>--menu-item-icon-color</code></pre>
+<pre><code>--menu-item-icon-active-color</code></pre>
+<pre><code>--menu-item-icon-transition</code></pre>
+<pre><code>--menu-item-hover-icon-filter</code></pre>
+<pre><code>--menu-item-active-icon-filter</code></pre>
+<pre><code>--menu-item-content-gap</code></pre>
+<pre><code>--menu-item-title-font-weight</code></pre>
+<pre><code>--menu-item-title-font-size</code></pre>
+<pre><code>--menu-item-title-color</code></pre>
+<pre><code>--menu-item-title-active-color</code></pre>
+<pre><code>--menu-item-title-active-font-weight</code></pre>
+<pre><code>--menu-item-title-line-height</code></pre>
+<pre><code>--menu-item-title-transition</code></pre>
+<pre><code>--menu-item-description-font-size</code></pre>
+<pre><code>--menu-item-description-color</code></pre>
+<pre><code>--menu-item-description-active-color</code></pre>
+<pre><code>--menu-item-description-line-height</code></pre>
+<pre><code>--menu-item-description-transition</code></pre>
+<h2>Best Practices​</h2>
+<h2>Content Guidelines​</h2>
+<p>• Clear Labels: Use concise, descriptive labels for menu items</p>
+<p>• Consistent Icons: Use consistent iconography throughout the menu</p>
+<p>• Helpful Descriptions: Provide context when items need explanation</p>
+<p>• Logical Grouping: Group related items together in the menu</p>
+<h2>Interaction Design​</h2>
+<p>• Trigger Elements: Ensure trigger elements are clearly identifiable</p>
+<p>• Positioning: Choose positioning that doesn't obscure important content</p>
+<p>• Keyboard Support: Test keyboard navigation thoroughly</p>
+<p>• Touch Support: Consider touch interactions on mobile devices</p>
+<h2>Accessibility​</h2>
+<p>• ARIA Labels: Provide appropriate ARIA labels for screen readers</p>
+<p>• Focus Management: Ensure proper focus handling when menu opens/closes</p>
+<p>• Color Contrast: Maintain sufficient contrast for all text and icons</p>
+<p>• Motion Sensitivity: Respect user motion preferences</p>
+<h2>Performance​</h2>
+<p>• Efficient Rendering: Use OnPush change detection for better performance</p>
+<p>• Event Handling: Properly handle click events to prevent bubbling</p>
+<p>• Memory Management: Clean up event listeners and subscriptions</p>
+<p>• Lazy Loading: Consider lazy loading for large menus</p>
+<h2>Use Cases​</h2>
+<h2>Context Menus​</h2>
+<p>Right-click context menus for actions on selected items:</p>
+<pre><code>&lt;aava-menu  [items]="contextMenuItems"  [visible]="showContextMenu"  [positionConfig]="{ position: 'bottom-start' }"  (itemSelected)="handleContextMenuAction($event)">&lt;/aava-menu></code></pre>
+<pre><code>&lt;aava-menu  [items]="contextMenuItems"  [visible]="showContextMenu"  [positionConfig]="{ position: 'bottom-start' }"  (itemSelected)="handleContextMenuAction($event)">&lt;/aava-menu></code></pre>
+<h2>Navigation Dropdowns​</h2>
+<p>Dropdown navigation menus for main navigation:</p>
+<pre><code>&lt;aava-menu  [items]="navigationItems"  [visible]="showNavMenu"  [positionConfig]="{ position: 'bottom', alignment: 'center' }"  [displayOptions]="{ showIcon: true, showDescription: false }">&lt;/aava-menu></code></pre>
+<pre><code>&lt;aava-menu  [items]="navigationItems"  [visible]="showNavMenu"  [positionConfig]="{ position: 'bottom', alignment: 'center' }"  [displayOptions]="{ showIcon: true, showDescription: false }">&lt;/aava-menu></code></pre>
+<h2>Action Menus​</h2>
+<p>Action menus for buttons or toolbar items:</p>
+<pre><code>&lt;aava-menu  [items]="actionItems"  [visible]="showActionMenu"  [positionConfig]="{ position: 'bottom-end' }"  [itemsPerColumn]="1">&lt;/aava-menu></code></pre>
+<pre><code>&lt;aava-menu  [items]="actionItems"  [visible]="showActionMenu"  [positionConfig]="{ position: 'bottom-end' }"  [itemsPerColumn]="1">&lt;/aava-menu></code></pre>
+<h2>Application Launchers​</h2>
+<p>Multi-column menus for application or feature launchers:</p>
+<pre><code>&lt;aava-menu  [items]="appItems"  [visible]="showAppMenu"  [positionConfig]="{ position: 'bottom', alignment: 'center' }"  [itemsPerColumn]="4"  [displayOptions]="{ showIcon: true, showDescription: true }">&lt;/aava-menu></code></pre>
+<pre><code>&lt;aava-menu  [items]="appItems"  [visible]="showAppMenu"  [positionConfig]="{ position: 'bottom', alignment: 'center' }"  [itemsPerColumn]="4"  [displayOptions]="{ showIcon: true, showDescription: true }">&lt;/aava-menu></code></pre>
+<h2>Accessibility Guidelines​</h2>
+<h2>Keyboard Navigation​</h2>
+<p>The menu supports full keyboard navigation:</p>
+<p>• Enter/Space: Activate the currently focused menu item</p>
+<p>• Arrow Keys: Navigate between menu items</p>
+<p>• Escape: Close the menu</p>
+<p>• Tab: Move focus to next focusable element</p>
+<h2>Screen Reader Support​</h2>
+<p>The component provides comprehensive screen reader support:</p>
+<p>• ARIA Labels: Proper labeling for menu and menu items</p>
+<p>• Role Attributes: Correct ARIA roles for menu structure</p>
+<p>• State Announcements: Clear announcements of menu state changes</p>
+<p>• Focus Indicators: Visible focus indicators for keyboard users</p>
+<h2>Color and Contrast​</h2>
+<p>• WCAG Compliance: All text and icons meet WCAG AA contrast ratios</p>
+<p>• High Contrast Mode: Component works with system high contrast settings</p>
+<p>• Color Independence: Information is not conveyed by color alone</p>
+<h2>Motion and Animation​</h2>
+<p>• Respects Preferences: Animation respects user motion preferences</p>
+<p>• Reduced Motion: Provides alternative interaction for motion-sensitive users</p>
+<p>• Clear Feedback: Visual feedback is immediate and clear</p>
+</body></html>
