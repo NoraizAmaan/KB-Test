@@ -1,0 +1,428 @@
+<html><head><meta charset='utf-8'>
+<title>Textarea</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Textarea</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Textarea</small></p>
+<h2>Textarea</h2>
+<p>A powerful multi-line text input component designed for collecting longer text content with comprehensive form integration, validation support, and accessibility features. Supports Angular Forms (reactive and template-driven), custom styling, and advanced features like processing gradient borders.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaTextareaComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTextareaComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple textarea implementations with labels and basic functionality.</p>
+<pre><code>&lt;aava-textarea  placeholder="Enter your text here..."  [rows]="4"  (change)="onTextareaChange($event)"  [processing]="true"  variant="primary">&lt;/aava-textarea></code></pre>
+<pre><code>&lt;aava-textarea  placeholder="Enter your text here..."  [rows]="4"  (change)="onTextareaChange($event)"  [processing]="true"  variant="primary">&lt;/aava-textarea></code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<h2>Sizes​</h2>
+<p>Three size variants to accommodate different interface requirements and content needs.</p>
+<pre><code>&lt;aava-textarea  label="Extra Small"  placeholder="Extra small textarea..."  size="xs"  [rows]="2"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Small"  placeholder="Small textarea..."  size="sm"  [rows]="2"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Medium"  placeholder="Medium textarea..."  size="md"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Large"  placeholder="Large textarea..."  size="lg"  [rows]="4"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Extra Large"  placeholder="Extra large textarea..."  size="xl"  [rows]="4"  (change)="onTextareaChange($event)">&lt;/aava-textarea></code></pre>
+<pre><code>&lt;aava-textarea  label="Extra Small"  placeholder="Extra small textarea..."  size="xs"  [rows]="2"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Small"  placeholder="Small textarea..."  size="sm"  [rows]="2"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Medium"  placeholder="Medium textarea..."  size="md"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Large"  placeholder="Large textarea..."  size="lg"  [rows]="4"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  label="Extra Large"  placeholder="Extra large textarea..."  size="xl"  [rows]="4"  (change)="onTextareaChange($event)">&lt;/aava-textarea></code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small): Very compact, ideal for tight spaces or dense forms</p>
+<p>• sm (Small): Compact for space-constrained interfaces</p>
+<p>• md (Medium): Standard size for most use cases (default)</p>
+<p>• lg (Large): Prominent for primary content input areas</p>
+<p>• xl (Extra Large): Very prominent, used for standout or high-visibility inputs</p>
+<h2>Variants​</h2>
+<p>Color variants for different contexts, states, and semantic meanings.</p>
+<pre><code>&lt;aava-textarea  placeholder="Default variant..."  variant="default"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Primary variant..."  variant="primary"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Success variant..."  variant="success"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Error variant..."  variant="error"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Warning variant..."  variant="warning"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Info variant..."  variant="info"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea></code></pre>
+<pre><code>&lt;aava-textarea  placeholder="Default variant..."  variant="default"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Primary variant..."  variant="primary"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Success variant..."  variant="success"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Error variant..."  variant="error"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Warning variant..."  variant="warning"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;aava-textarea  placeholder="Info variant..."  variant="info"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea></code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<h2>Style Variants​</h2>
+<p>• default: Standard neutral appearance</p>
+<p>• primary: Brand color for important inputs</p>
+<p>• success: Green for positive confirmation states</p>
+<p>• error: Red for validation errors and critical states</p>
+<p>• warning: Orange for caution and attention states</p>
+<p>• info: Blue for informational content and tips</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring inclusive user experience.</p>
+<pre><code>&lt;!-- Labeled Textarea -->&lt;aava-textarea  label="Description"  placeholder="Enter your description..."  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Helper Text -->&lt;aava-textarea  label="Comments"  placeholder="Share your thoughts..."  helper="Please provide detailed feedback to help us improve our service."  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Error State -->&lt;aava-textarea  label="Email"  placeholder="Enter your email..."  error="Please enter a valid email address."  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Error State -->&lt;aava-textarea  label="Required Field"  placeholder="This field is required..."  [required]="true"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Character Limit -->&lt;aava-textarea  label="Bio"  placeholder="Tell us about yourself (max 200 characters)..."  [maxlength]="200"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea></code></pre>
+<pre><code>&lt;!-- Labeled Textarea -->&lt;aava-textarea  label="Description"  placeholder="Enter your description..."  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Helper Text -->&lt;aava-textarea  label="Comments"  placeholder="Share your thoughts..."  helper="Please provide detailed feedback to help us improve our service."  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Error State -->&lt;aava-textarea  label="Email"  placeholder="Enter your email..."  error="Please enter a valid email address."  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Error State -->&lt;aava-textarea  label="Required Field"  placeholder="This field is required..."  [required]="true"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea>&lt;!-- Textarea with Character Limit -->&lt;aava-textarea  label="Bio"  placeholder="Tell us about yourself (max 200 characters)..."  [maxlength]="200"  [rows]="3"  (change)="onTextareaChange($event)">&lt;/aava-textarea></code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<pre><code>  onTextareaChange(event: Event) {    const target = event.target as HTMLTextAreaElement;    console.log('Textarea value changed:', target.value);  }</code></pre>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Full keyboard support with proper focus management</p>
+<p>• Screen Reader Support: Semantic HTML and ARIA attributes</p>
+<p>• Error Announcements: Live regions for dynamic error messaging</p>
+<p>• Focus Indicators: Clear visual focus states for navigation</p>
+<p>• Label Association: Proper form control labeling and description</p>
+<p>• High Contrast: Support for high contrast accessibility modes</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+label | string | '' | Label text displayed above the textarea
+placeholder | string | '' | Placeholder text shown when textarea is empty
+variant | 'default' | 'primary' | 'success' | 'error' | 'warning' | 'info' | 'default' | Color variant for styling
+size | 'xs' | , | 'sm' | , | 'md' | , | 'lg' | , | 'xl' | 'md' | Size variant of the textarea
+disabled | boolean | false | Whether the textarea is disabled
+readonly | boolean | false | Whether the textarea is read-only
+error | string | '' | Error message to display
+helper | string | '' | Helper text to provide guidance
+rows | number | 3 | Number of visible text lines
+id | string | '' | HTML id attribute for the textarea
+name | string | '' | HTML name attribute for form submission
+maxlength | number | '' | Maximum number of characters allowed
+minlength | number | '' | Minimum number of characters required
+required | boolean | false | Whether the field is required
+fullWidth | boolean | false | Whether to take full width of container
+style | Record<string, string> | '' | Custom CSS styles object
+resizable | boolean | true | Whether the textarea can be resized vertically
+autoResize | boolean | false | Whether to automatically resize height to fit content
+processing | boolean | false | Whether to show processing state
+processingGradientBorder | boolean | false | Whether to show animated gradient border
+processingGradientColors | string[] | See below | Array of colors for gradient animation</pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>placeholder</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>'default' | 'primary' | 'success' | 'error' | 'warning' | 'info'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs'</code></pre>
+<pre><code>'sm'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>'lg'</code></pre>
+<pre><code>'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>readonly</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>error</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>helper</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>rows</code></pre>
+<pre><code>number</code></pre>
+<pre><code>3</code></pre>
+<pre><code>id</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>name</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>maxlength</code></pre>
+<pre><code>number</code></pre>
+<pre><code>''</code></pre>
+<pre><code>minlength</code></pre>
+<pre><code>number</code></pre>
+<pre><code>''</code></pre>
+<pre><code>required</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>fullWidth</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>style</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>''</code></pre>
+<pre><code>resizable</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>autoResize</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>processing</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>processingGradientBorder</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>processingGradientColors</code></pre>
+<pre><code>string[]</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+blur | EventEmitter<Event> | Emitted when the input loses focus
+focus | EventEmitter<Event> | Emitted when the input gains focus
+input | EventEmitter<Event> | Emitted on every input change
+change | EventEmitter<Event> | Emitted when the input value changes
+iconStartClick | EventEmitter<Event> | Emitted when the start icon is clicked
+iconEndClick | EventEmitter<Event> | Emitted when the end icon is clicked</pre>
+<pre><code>blur</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>focus</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>input</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>change</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>iconStartClick</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<pre><code>iconEndClick</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+value | string | Current textarea value
+isFocused | boolean | Whether textarea currently has focus
+hasError | boolean | Whether textarea has error state
+hasHelper | boolean | Whether textarea has helper text</pre>
+<pre><code>value</code></pre>
+<pre><code>string</code></pre>
+<pre><code>isFocused</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasError</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasHelper</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+writeValue() | value: string | void | Set textarea value (ControlValueAccessor)
+registerOnChange() | fn: (value: string) => void | void | Register change callback
+registerOnTouched() | fn: () => void | void | Register touched callback
+setDisabledState() | isDisabled: boolean | void | Set disabled state</pre>
+<pre><code>writeValue()</code></pre>
+<pre><code>value: string</code></pre>
+<pre><code>void</code></pre>
+<pre><code>registerOnChange()</code></pre>
+<pre><code>fn: (value: string) => void</code></pre>
+<pre><code>void</code></pre>
+<pre><code>registerOnTouched()</code></pre>
+<pre><code>fn: () => void</code></pre>
+<pre><code>void</code></pre>
+<pre><code>setDisabledState()</code></pre>
+<pre><code>isDisabled: boolean</code></pre>
+<pre><code>void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--textbox-gap | Base gap between textarea elements
+--textbox-gap-xs | Gap for extra small size variant
+--textbox-gap-sm | Gap for small size variant
+--textbox-gap-lg | Gap for large size variant
+--textbox-gap-xl | Gap for extra large size variant
+--textbox-label-font | Font family for labels
+--textbox-label-color | Color for label text
+--textbox-label-weight | Font weight for label text
+--textbox-xs-label-font-size | Label font size for extra small variant
+--textbox-xs-label-weight | Label font weight for extra small variant
+--textbox-xs-label-line-height | Line height for extra small label
+--textbox-xs-label-font-style | Font style for extra small label
+--textbox-sm-label-font-size | Label font size for small variant
+--textbox-sm-label-weight | Label font weight for small variant
+--textbox-sm-label-line-height | Line height for small label
+--textbox-sm-label-font-style | Font style for small label
+--textbox-md-label-font-size | Label font size for medium variant
+--textbox-md-label-weight | Label font weight for medium variant
+--textbox-md-label-line-height | Line height for medium label
+--textbox-md-label-font-style | Font style for medium label
+--textbox-lg-label-font-size | Label font size for large variant
+--textbox-lg-label-weight | Label font weight for large variant
+--textbox-lg-label-line-height | Line height for large label
+--textbox-lg-label-font-style | Font style for large label
+--textbox-xl-label-font-size | Label font size for extra large variant
+--textbox-xl-label-weight | Label font weight for extra large variant
+--textbox-xl-label-line-height | Line height for extra large label
+--textbox-xl-label-font-style | Font style for extra large label
+--textbox-required-color | Color for required field indicator
+--textbox-textarea-container-padding | Padding around textarea container
+--textbox-background | Background color of the textarea
+--glass-50-border | Glass border style for textarea
+--textbox-textarea-hover-primary | Primary hover color for textarea
+--textbox-textarea-hover-border-width | Border width on hover
+--textbox-textarea-focus-primary | Primary color for focus state
+--textbox-border-error-color | Border color when there is an error
+--textbox-background-disabled | Background for disabled state
+--textbox-border-disabled-color | Border color for disabled state
+--textbox-background-readonly | Background for readonly state
+--textbox-border-readonly-color | Border color for readonly state
+--textbox-xs-border-radius | Border radius for extra small variant
+--textbox-sm-border-radius | Border radius for small variant
+--textbox-md-border-radius | Border radius for medium variant
+--textbox-lg-border-radius | Border radius for large variant
+--textbox-xl-border-radius | Border radius for extra large variant
+--textbox-input-xs-padding | Padding inside extra small input
+--textbox-input-sm-padding | Padding inside small input
+--textbox-input-md-padding | Padding inside medium input
+--textbox-input-lg-padding | Padding inside large input
+--textbox-input-xl-padding | Padding inside extra large input
+--textbox-input-font | Font family for input text
+--textbox-input-color | Text color for input
+--textbox-input-padding | General input padding
+--textbox-textarea-min-height | Minimum height of textarea
+--textbox-textarea-min-height-xs | Minimum height for extra small variant
+--textbox-textarea-min-height-sm | Minimum height for small variant
+--textbox-textarea-min-height-md | Minimum height for medium variant
+--textbox-textarea-min-height-lg | Minimum height for large variant
+--textbox-textarea-min-height-xl | Minimum height for extra large variant
+--textbox-input-xs-font-size | Font size for extra small input
+--textbox-input-xs-font-weight | Font weight for extra small input
+--textbox-input-xs-font-style | Font style for extra small input
+--textbox-input-xs-line-height | Line height for extra small input
+--textbox-input-sm-font-size | Font size for small input
+--textbox-input-sm-font-weight | Font weight for small input
+--textbox-input-sm-font-style | Font style for small input
+--textbox-input-sm-line-height | Line height for small input
+--textbox-input-md-font-size | Font size for medium input
+--textbox-input-md-font-weight | Font weight for medium input
+--textbox-input-md-font-style | Font style for medium input
+--textbox-input-md-line-height | Line height for medium input
+--textbox-input-lg-font-size | Font size for large input
+--textbox-input-lg-font-weight | Font weight for large input
+--textbox-input-lg-font-style | Font style for large input
+--textbox-input-lg-line-height | Line height for large input
+--textbox-input-xl-font-size | Font size for extra large input
+--textbox-input-xl-font-weight | Font weight for extra large input
+--textbox-input-xl-font-style | Font style for extra large input
+--textbox-input-xl-line-height | Line height for extra large input
+--textbox-affix-padding | Padding for affix elements
+--textbox-affix-color | Color of affix elements
+--textbox-affix-font-size | Font size of affix elements
+--textbox-affix-background | Background of affix elements
+--textbox-affix-border-radius | Border radius of affix elements
+--textbox-affix-disabled-color | Disabled color for affix elements
+--textbox-affix-disabled-background | Disabled background for affix elements
+--textbox-error-gap | Gap between textarea and error text
+--textbox-error-color | Color for error messages
+--textbox-error-font-size | Font size for error messages
+--textbox-xs-error-font-size | Font size for error text in extra small variant
+--textbox-sm-error-font-size | Font size for error text in small variant
+--textbox-md-error-font-size | Font size for error text in medium variant
+--textbox-lg-error-font-size | Font size for error text in large variant
+--textbox-xl-error-font-size | Font size for error text in extra large variant
+--textbox-helper-gap | Gap between textarea and helper text
+--textbox-helper-color | Color for helper text
+--textbox-helper-font-size | Font size for helper text
+--textbox-xs-helper-font-size | Helper font size for extra small variant
+--textbox-sm-helper-font-size | Helper font size for small variant
+--textbox-md-helper-font-size | Helper font size for medium variant
+--textbox-lg-helper-font-size | Helper font size for large variant
+--textbox-xl-helper-font-size | Helper font size for extra large variant
+--textbox-border-primary-color | Primary border color
+--processing-gradient-colors | Colors for gradient animation</pre>
+<pre><code>--textbox-gap</code></pre>
+<pre><code>--textbox-gap-xs</code></pre>
+<pre><code>--textbox-gap-sm</code></pre>
+<pre><code>--textbox-gap-lg</code></pre>
+<pre><code>--textbox-gap-xl</code></pre>
+<pre><code>--textbox-label-font</code></pre>
+<pre><code>--textbox-label-color</code></pre>
+<pre><code>--textbox-label-weight</code></pre>
+<pre><code>--textbox-xs-label-font-size</code></pre>
+<pre><code>--textbox-xs-label-weight</code></pre>
+<pre><code>--textbox-xs-label-line-height</code></pre>
+<pre><code>--textbox-xs-label-font-style</code></pre>
+<pre><code>--textbox-sm-label-font-size</code></pre>
+<pre><code>--textbox-sm-label-weight</code></pre>
+<pre><code>--textbox-sm-label-line-height</code></pre>
+<pre><code>--textbox-sm-label-font-style</code></pre>
+<pre><code>--textbox-md-label-font-size</code></pre>
+<pre><code>--textbox-md-label-weight</code></pre>
+<pre><code>--textbox-md-label-line-height</code></pre>
+<pre><code>--textbox-md-label-font-style</code></pre>
+<pre><code>--textbox-lg-label-font-size</code></pre>
+<pre><code>--textbox-lg-label-weight</code></pre>
+<pre><code>--textbox-lg-label-line-height</code></pre>
+<pre><code>--textbox-lg-label-font-style</code></pre>
+<pre><code>--textbox-xl-label-font-size</code></pre>
+<pre><code>--textbox-xl-label-weight</code></pre>
+<pre><code>--textbox-xl-label-line-height</code></pre>
+<pre><code>--textbox-xl-label-font-style</code></pre>
+<pre><code>--textbox-required-color</code></pre>
+<pre><code>--textbox-textarea-container-padding</code></pre>
+<pre><code>--textbox-background</code></pre>
+<pre><code>--glass-50-border</code></pre>
+<pre><code>--textbox-textarea-hover-primary</code></pre>
+<pre><code>--textbox-textarea-hover-border-width</code></pre>
+<pre><code>--textbox-textarea-focus-primary</code></pre>
+<pre><code>--textbox-border-error-color</code></pre>
+<pre><code>--textbox-background-disabled</code></pre>
+<pre><code>--textbox-border-disabled-color</code></pre>
+<pre><code>--textbox-background-readonly</code></pre>
+<pre><code>--textbox-border-readonly-color</code></pre>
+<pre><code>--textbox-xs-border-radius</code></pre>
+<pre><code>--textbox-sm-border-radius</code></pre>
+<pre><code>--textbox-md-border-radius</code></pre>
+<pre><code>--textbox-lg-border-radius</code></pre>
+<pre><code>--textbox-xl-border-radius</code></pre>
+<pre><code>--textbox-input-xs-padding</code></pre>
+<pre><code>--textbox-input-sm-padding</code></pre>
+<pre><code>--textbox-input-md-padding</code></pre>
+<pre><code>--textbox-input-lg-padding</code></pre>
+<pre><code>--textbox-input-xl-padding</code></pre>
+<pre><code>--textbox-input-font</code></pre>
+<pre><code>--textbox-input-color</code></pre>
+<pre><code>--textbox-input-padding</code></pre>
+<pre><code>--textbox-textarea-min-height</code></pre>
+<pre><code>--textbox-textarea-min-height-xs</code></pre>
+<pre><code>--textbox-textarea-min-height-sm</code></pre>
+<pre><code>--textbox-textarea-min-height-md</code></pre>
+<pre><code>--textbox-textarea-min-height-lg</code></pre>
+<pre><code>--textbox-textarea-min-height-xl</code></pre>
+<pre><code>--textbox-input-xs-font-size</code></pre>
+<pre><code>--textbox-input-xs-font-weight</code></pre>
+<pre><code>--textbox-input-xs-font-style</code></pre>
+<pre><code>--textbox-input-xs-line-height</code></pre>
+<pre><code>--textbox-input-sm-font-size</code></pre>
+<pre><code>--textbox-input-sm-font-weight</code></pre>
+<pre><code>--textbox-input-sm-font-style</code></pre>
+<pre><code>--textbox-input-sm-line-height</code></pre>
+<pre><code>--textbox-input-md-font-size</code></pre>
+<pre><code>--textbox-input-md-font-weight</code></pre>
+<pre><code>--textbox-input-md-font-style</code></pre>
+<pre><code>--textbox-input-md-line-height</code></pre>
+<pre><code>--textbox-input-lg-font-size</code></pre>
+<pre><code>--textbox-input-lg-font-weight</code></pre>
+<pre><code>--textbox-input-lg-font-style</code></pre>
+<pre><code>--textbox-input-lg-line-height</code></pre>
+<pre><code>--textbox-input-xl-font-size</code></pre>
+<pre><code>--textbox-input-xl-font-weight</code></pre>
+<pre><code>--textbox-input-xl-font-style</code></pre>
+<pre><code>--textbox-input-xl-line-height</code></pre>
+<pre><code>--textbox-affix-padding</code></pre>
+<pre><code>--textbox-affix-color</code></pre>
+<pre><code>--textbox-affix-font-size</code></pre>
+<pre><code>--textbox-affix-background</code></pre>
+<pre><code>--textbox-affix-border-radius</code></pre>
+<pre><code>--textbox-affix-disabled-color</code></pre>
+<pre><code>--textbox-affix-disabled-background</code></pre>
+<pre><code>--textbox-error-gap</code></pre>
+<pre><code>--textbox-error-color</code></pre>
+<pre><code>--textbox-error-font-size</code></pre>
+<pre><code>--textbox-xs-error-font-size</code></pre>
+<pre><code>--textbox-sm-error-font-size</code></pre>
+<pre><code>--textbox-md-error-font-size</code></pre>
+<pre><code>--textbox-lg-error-font-size</code></pre>
+<pre><code>--textbox-xl-error-font-size</code></pre>
+<pre><code>--textbox-helper-gap</code></pre>
+<pre><code>--textbox-helper-color</code></pre>
+<pre><code>--textbox-helper-font-size</code></pre>
+<pre><code>--textbox-xs-helper-font-size</code></pre>
+<pre><code>--textbox-sm-helper-font-size</code></pre>
+<pre><code>--textbox-md-helper-font-size</code></pre>
+<pre><code>--textbox-lg-helper-font-size</code></pre>
+<pre><code>--textbox-xl-helper-font-size</code></pre>
+<pre><code>--textbox-border-primary-color</code></pre>
+<pre><code>--processing-gradient-colors</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use appropriate row heights for expected content length</p>
+<p>• Provide clear labels and helper text for guidance</p>
+<p>• Choose semantic variants that match content purpose</p>
+<p>• Enable resizing for longer content input areas</p>
+<p>• Consider processing states for form submissions</p>
+<h2>Accessibility​</h2>
+<p>• Always provide meaningful labels for screen readers</p>
+<p>• Use helper text to explain input requirements</p>
+<p>• Ensure error messages are descriptive and actionable</p>
+<p>• Maintain sufficient color contrast for all variants</p>
+<p>• Test keyboard navigation and screen reader compatibility</p>
+<h2>Performance​</h2>
+<p>• Use OnPush change detection strategy for better performance</p>
+<p>• Avoid frequent style changes that trigger repaints</p>
+<p>• Consider debouncing for real-time validation</p>
+<p>• Use trackBy functions for dynamic textarea lists</p>
+</body></html>
