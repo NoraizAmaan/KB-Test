@@ -1,0 +1,186 @@
+<html><head><meta charset='utf-8'>
+<title>Link</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Link</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Navigation/Link</small></p>
+<h2>Link</h2>
+<p>A simple and effective action link component for navigation and interactive actions. Features semantic color variants, multiple size options, optional underline styling, and support for custom hex colors with smooth hover transitions.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaLinkComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaLinkComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple link implementations with customizable labels, icons, and styling.</p>
+<pre><code>&lt;!-- Basic Usage -->&lt;aava-link label="Get Started" color="primary">&lt;/aava-link>&lt;!-- With Icon -->&lt;aava-link  label="Link with Icon"  [addIcon]="true"  arrowDirection="right"  color="primary">&lt;/aava-link>&lt;!-- Custom Styles -->&lt;aava-link  label="Custom Styled Link"  [customStyles]="{'font-weight': 'bold'}"  color="info">&lt;/aava-link></code></pre>
+<pre><code>&lt;!-- Basic Usage -->&lt;aava-link label="Get Started" color="primary">&lt;/aava-link>&lt;!-- With Icon -->&lt;aava-link  label="Link with Icon"  [addIcon]="true"  arrowDirection="right"  color="primary">&lt;/aava-link>&lt;!-- Custom Styles -->&lt;aava-link  label="Custom Styled Link"  [customStyles]="{'font-weight': 'bold'}"  color="info">&lt;/aava-link></code></pre>
+<h2>Colors​</h2>
+<p>Semantic color variants and custom hex color support for different contexts.</p>
+<pre><code>&lt;!-- Primary Color -->&lt;aava-link label="Primary Link" color="primary">&lt;/aava-link>&lt;!-- Success Color -->&lt;aava-link label="Success Link" color="success">&lt;/aava-link>&lt;!-- Warning Color -->&lt;aava-link label="Warning Link" color="warning">&lt;/aava-link>&lt;!-- Danger Color -->&lt;aava-link label="Danger Link" color="danger">&lt;/aava-link>&lt;!-- Info Color -->&lt;aava-link label="Info Link" color="info">&lt;/aava-link>&lt;!-- Custom Hex Color -->&lt;aava-link label="Custom Link" color="#7C3AED">&lt;/aava-link></code></pre>
+<pre><code>&lt;!-- Primary Color -->&lt;aava-link label="Primary Link" color="primary">&lt;/aava-link>&lt;!-- Success Color -->&lt;aava-link label="Success Link" color="success">&lt;/aava-link>&lt;!-- Warning Color -->&lt;aava-link label="Warning Link" color="warning">&lt;/aava-link>&lt;!-- Danger Color -->&lt;aava-link label="Danger Link" color="danger">&lt;/aava-link>&lt;!-- Info Color -->&lt;aava-link label="Info Link" color="info">&lt;/aava-link>&lt;!-- Custom Hex Color -->&lt;aava-link label="Custom Link" color="#7C3AED">&lt;/aava-link></code></pre>
+<h2>Available Color Variants​</h2>
+<p>• Default: Standard link color</p>
+<p>• Primary: Brand primary color</p>
+<p>• Success: Green for success actions</p>
+<p>• Warning: Orange for caution actions</p>
+<p>• Danger: Red for destructive actions</p>
+<p>• Info: Blue for informational links</p>
+<p>• Custom Hex: Any valid hex color value (e.g., #7C3AED, #14B8A6)</p>
+<h2>Sizes​</h2>
+<p>Multiple size options for different layout contexts and visual hierarchy.</p>
+<pre><code>&lt;!-- Small Size -->&lt;aava-link label="Small Link" size="sm" color="primary">&lt;/aava-link>&lt;!-- Medium Size (Default) -->&lt;aava-link label="Medium Link" size="md" color="primary">&lt;/aava-link>&lt;!-- Large Size -->&lt;aava-link label="Large Link" size="lg" color="primary">&lt;/aava-link></code></pre>
+<pre><code>&lt;!-- Small Size -->&lt;aava-link label="Small Link" size="sm" color="primary">&lt;/aava-link>&lt;!-- Medium Size (Default) -->&lt;aava-link label="Medium Link" size="md" color="primary">&lt;/aava-link>&lt;!-- Large Size -->&lt;aava-link label="Large Link" size="lg" color="primary">&lt;/aava-link></code></pre>
+<h2>Size Options​</h2>
+<p>• Small: Compact links for dense layouts</p>
+<p>• Medium: Standard size for most use cases (default)</p>
+<p>• Large: Prominent links for primary actions</p>
+<h2>Underline​</h2>
+<p>Optional underline styling for enhanced visual emphasis and accessibility.</p>
+<pre><code>&lt;!-- Without Underline (Default) -->&lt;aava-link label="No Underline" [underline]="false" color="primary">&lt;/aava-link>&lt;!-- With Underline -->&lt;aava-link label="With Underline" [underline]="true" color="primary">&lt;/aava-link></code></pre>
+<pre><code>&lt;!-- Without Underline (Default) -->&lt;aava-link label="No Underline" [underline]="false" color="primary">&lt;/aava-link>&lt;!-- With Underline -->&lt;aava-link label="With Underline" [underline]="true" color="primary">&lt;/aava-link></code></pre>
+<h2>Features​</h2>
+<h2>Color System​</h2>
+<p>• Semantic color variants (primary, success, warning, danger, info)</p>
+<p>• Custom hex color support with automatic validation</p>
+<p>• Consistent hover effects across all color variants</p>
+<h2>Icon Support​</h2>
+<p>• Optional chevron icons with directional control</p>
+<p>• Left or right arrow positioning</p>
+<p>• Size-responsive icon scaling</p>
+<h2>Customization​</h2>
+<p>• Custom CSS styles throughcustomStylesinput</p>
+<p>• Flexible sizing options (sm, md, lg)</p>
+<p>• Optional underline styling for accessibility</p>
+<pre><code>customStyles</code></pre>
+<h2>Accessibility​</h2>
+<p>• Proper ARIA attributes and role support</p>
+<p>• Keyboard navigation (Enter/Space key support)</p>
+<p>• Screen reader friendly labels</p>
+<p>• Sufficient color contrast for all variants</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+label | string | 'Action Link' | The text content of the link
+color | 'success' | 'warning' | 'danger' | 'info' | 'default' | 'primary' | string | 'default' | Color variant or custom hex color
+size | 'sm' | 'md' | 'lg' | 'md' | Size variant for the link
+underline | boolean | false | Whether to show underline styling
+href | string | '' | URL for navigation
+addIcon | boolean | false | Whether to show an icon with the link
+arrowDirection | 'right' | 'left' | 'left' | Direction of the arrow icon
+customStyles | Record<string, string> | {} | Custom CSS styles to apply</pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Action Link'</code></pre>
+<pre><code>color</code></pre>
+<pre><code>'success' | 'warning' | 'danger' | 'info' | 'default' | 'primary' | string</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'sm' | 'md' | 'lg'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>underline</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>href</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>addIcon</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>arrowDirection</code></pre>
+<pre><code>'right' | 'left'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+userClick | EventEmitter<Event> | Emitted when the link is clicked</pre>
+<pre><code>userClick</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+isHexColor() | color: string | boolean | Validates if a color string is a valid hex color
+getLinkStyles() | None | Record<string, string> | Returns computed styles including custom hex colors
+anchorClick() | event: Event | void | Handles click events and emits userClick event</pre>
+<pre><code>isHexColor()</code></pre>
+<pre><code>color: string</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>getLinkStyles()</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>anchorClick()</code></pre>
+<pre><code>event: Event</code></pre>
+<pre><code>void</code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+separatorIcon | string | Icon name for the arrow (default: 'chevron-right')
+separatorSize | number | Size of the arrow icon (responsive to link size)
+safeHref | SafeUrl | Sanitized URL for secure navigation</pre>
+<pre><code>separatorIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>separatorSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>safeHref</code></pre>
+<pre><code>SafeUrl</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Default | Description
+--link-size-sm-font | Theme-based | Font size for small links
+--link-size-md-font | Theme-based | Font size for medium links
+--link-size-lg-font | Theme-based | Font size for large links
+--link-primary-text | Theme-based | Primary color variant
+--link-danger-text | Theme-based | Danger color variant
+--link-success-text | Theme-based | Success color variant
+--link-warning-text | Theme-based | Warning color variant
+--link-info-text | Theme-based | Info color variant
+--link-active-text-decoration | Theme-based | Underline decoration style</pre>
+<pre><code>--link-size-sm-font</code></pre>
+<pre><code>--link-size-md-font</code></pre>
+<pre><code>--link-size-lg-font</code></pre>
+<pre><code>--link-primary-text</code></pre>
+<pre><code>--link-danger-text</code></pre>
+<pre><code>--link-success-text</code></pre>
+<pre><code>--link-warning-text</code></pre>
+<pre><code>--link-info-text</code></pre>
+<pre><code>--link-active-text-decoration</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use semantic colors to convey meaning and context</p>
+<p>• Reserve large size (lg) for primary actions and important navigation</p>
+<p>• Consider underline for accessibility and emphasis</p>
+<p>• Maintain consistent sizing within related link groups</p>
+<p>• Use custom hex colors sparingly to maintain design consistency</p>
+<p>• Use icons strategically to enhance navigation clarity</p>
+<p>• Choose appropriate arrow direction based on content flow</p>
+<h2>Accessibility​</h2>
+<p>• Ensure sufficient color contrast for all color variants</p>
+<p>• Use descriptive label text that clearly indicates the action or destination</p>
+<p>• Consider underline styling for better visual accessibility</p>
+<p>• Test with screen readers to ensure proper announcement</p>
+<p>• Provide adequate spacing between links for touch interactions</p>
+<h2>Technical Notes​</h2>
+<h2>Color System​</h2>
+<p>The component supports both predefined semantic colors and custom hex values:</p>
+<p>• Semantic colors use CSS custom properties for theme consistency</p>
+<p>• Custom hex colors are validated usingisHexColor()method</p>
+<p>• Custom colors are applied directly via inline styles</p>
+<p>• Hover effects maintain consistency across all color variants</p>
+<pre><code>isHexColor()</code></pre>
+<h2>Icon System​</h2>
+<p>• Icons are conditionally rendered based onaddIconproperty</p>
+<p>• Arrow direction is controlled byarrowDirectioninput</p>
+<p>• Icon sizes automatically scale with link size variants</p>
+<p>• Icons are excluded when underline styling is enabled</p>
+<pre><code>addIcon</code></pre>
+<pre><code>arrowDirection</code></pre>
+<h2>Styling Architecture​</h2>
+<p>• Uses CSS classes for size and variant styling</p>
+<p>• Combines semantic classes with conditional custom styles</p>
+<p>• Smooth transitions for interactive states</p>
+<p>• Maintains proper text decoration control</p>
+<h2>ViewEncapsulation​</h2>
+<p>The component usesViewEncapsulation.Noneto allow global styling:</p>
+<pre><code>ViewEncapsulation.None</code></pre>
+<p>• Enables theme-wide link styling consistency</p>
+<p>• Allows CSS custom property inheritance</p>
+<p>• Supports integration with design system tokens</p>
+</body></html>
