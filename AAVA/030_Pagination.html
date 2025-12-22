@@ -1,0 +1,240 @@
+<html><head><meta charset='utf-8'>
+<title>Pagination</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Pagination</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Navigation/Pagination</small></p>
+<h2>Pagination</h2>
+<p>A sophisticated and flexible pagination component designed to handle large datasets with intelligent page number display, multiple visual variants, and comprehensive accessibility features. Perfect for data tables, search results, content lists, and any interface requiring efficient navigation through paginated content. Uses theava-pagination-controlsselector for integration.</p>
+<pre><code>ava-pagination-controls</code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaPaginationControlsComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaPaginationControlsComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>The most basic implementation with default settings and intelligent page number display.</p>
+<pre><code>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="currentPage"  [totalPages]="totalPages"  [showNavigationButtons]="true"  (pageChange)="onPageChange($event)"  [rounded]="true">&lt;/aava-pagination-controls></code></pre>
+<pre><code>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="currentPage"  [totalPages]="totalPages"  [showNavigationButtons]="true"  (pageChange)="onPageChange($event)"  [rounded]="true">&lt;/aava-pagination-controls></code></pre>
+<pre><code>  currentPage = 1;  totalPages = 20;  onPageChange(page: number): void {    this.currentPage = page;  }</code></pre>
+<pre><code>  currentPage = 1;  totalPages = 20;  onPageChange(page: number): void {    this.currentPage = page;  }</code></pre>
+<h2>Basic Features​</h2>
+<p>• Smart Ellipsis: Automatically shows ellipsis for large page counts</p>
+<p>• Current Page Highlighting: Active page is visually distinguished</p>
+<p>• Navigation Buttons: Previous/Next buttons with proper disabled states</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<p>• Intelligent Truncation: Shows relevant pages around current selection</p>
+<h2>Size Variants​</h2>
+<p>Five size variants to accommodate different interface densities and visual hierarchy requirements.</p>
+<pre><code>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'xl'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'lg'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'md'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'sm'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'xs'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls></code></pre>
+<pre><code>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'xl'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'lg'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'md'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'sm'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="basicPage"  [totalPages]="10"  [size]="'xs'"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls></code></pre>
+<pre><code>basicPage = 1;onPageChange(page: number): void {  this.basicPage = page;}</code></pre>
+<pre><code>basicPage = 1;onPageChange(page: number): void {  this.basicPage = page;}</code></pre>
+<h2>Available Sizes​</h2>
+<p>• XSmall- Very compact size for minimal interfaces (12px font)</p>
+<p>• Small- Compact size for minimal content and dense interfaces (14px font)</p>
+<p>• Medium- Standard size for most pagination scenarios (16px font, default)</p>
+<p>• Large- Prominent size for important content (20px font)</p>
+<p>• XLarge- Very prominent size for high-visibility interfaces (24px font)</p>
+<h2>Size Features​</h2>
+<p>• Responsive Typography: Font sizes scale appropriately with size variants</p>
+<p>• Consistent Spacing: Button sizes and gaps scale proportionally</p>
+<p>• Touch Targets: All sizes maintain minimum 44px touch target requirements</p>
+<p>• Visual Hierarchy: Larger sizes provide better emphasis for important pagination</p>
+<h2>Advanced Features​</h2>
+<h2>Icon-Only Navigation​</h2>
+<p>TheiconOnlyproperty allows navigation buttons to display only icons without text labels, creating a cleaner, more compact design.</p>
+<pre><code>iconOnly</code></pre>
+<h2>Clear Styling​</h2>
+<p>Theclearproperty (used internally by unfilled variants) provides transparent button backgrounds for modern, minimalist designs.</p>
+<pre><code>clear</code></pre>
+<h2>Rounded Styling​</h2>
+<p>Theroundedproperty applies pill-shaped styling to page number buttons for a softer, more modern appearance.</p>
+<pre><code>rounded</code></pre>
+<h2>Page Info Variants​</h2>
+<p>Text-based pagination variants that display current page information instead of page numbers.</p>
+<pre><code>&lt;aava-pagination-controls  [type]="'pageinfo'"  [currentPage]="currentPage"  [totalPages]="totalPages"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'pageinfofilled'"  [currentPage]="pageInfoFilledPage"  [totalPages]="10"  (pageChange)="onPageInfoFilledChange($event)">&lt;/aava-pagination-controls></code></pre>
+<pre><code>&lt;aava-pagination-controls  [type]="'pageinfo'"  [currentPage]="currentPage"  [totalPages]="totalPages"  (pageChange)="onPageChange($event)">&lt;/aava-pagination-controls>&lt;aava-pagination-controls  [type]="'pageinfofilled'"  [currentPage]="pageInfoFilledPage"  [totalPages]="10"  (pageChange)="onPageInfoFilledChange($event)">&lt;/aava-pagination-controls></code></pre>
+<pre><code> currentPage = 1;  totalPages = 10;  pageInfoFilledPage = 1;  onPageChange(page: number): void {    this.currentPage = page;  }  onPageInfoFilledChange(page: number): void {    this.pageInfoFilledPage = page;  }</code></pre>
+<pre><code> currentPage = 1;  totalPages = 10;  pageInfoFilledPage = 1;  onPageChange(page: number): void {    this.currentPage = page;  }  onPageInfoFilledChange(page: number): void {    this.pageInfoFilledPage = page;  }</code></pre>
+<h2>Page Info Features​</h2>
+<p>• Text Display: Shows "Page X of Y" format</p>
+<p>• Compact Design: Minimal space requirements</p>
+<p>• Clear Navigation: Previous/Next buttons for sequential navigation</p>
+<p>• Accessibility: Screen reader friendly with descriptive text</p>
+<p>• Two Layouts: Full-width and centered variants available</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring WCAG compliance and inclusive user experience.</p>
+<pre><code>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="currentPage"  [totalPages]="totalPages"  [showNavigationButtons]="true"  (pageChange)="onPageChange($event)"  [rounded]="true">&lt;/aava-pagination-controls></code></pre>
+<pre><code>&lt;aava-pagination-controls  [type]="'basic'"  [currentPage]="currentPage"  [totalPages]="totalPages"  [showNavigationButtons]="true"  (pageChange)="onPageChange($event)"  [rounded]="true">&lt;/aava-pagination-controls></code></pre>
+<pre><code>  currentPage = 1;  totalPages = 20;  onPageChange(page: number): void {    this.currentPage = page;  }</code></pre>
+<pre><code>  currentPage = 1;  totalPages = 20;  onPageChange(page: number): void {    this.currentPage = page;  }</code></pre>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Full Tab, Arrow key, Enter, and Space support</p>
+<p>• ARIA Labels: Proper labels for navigation buttons and page numbers</p>
+<p>• Screen Reader Support: Descriptive announcements for page changes</p>
+<p>• Focus Management: Clear visual focus indicators</p>
+<p>• High Contrast: Enhanced visibility in high contrast mode</p>
+<p>• Reduced Motion: Respects user motion preferences</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+currentPage | number | 1 | Current active page number
+totalPages | number | 10 | Total number of pages available
+type | 'basic' | 'unfilled' | 'basicunfilled' | 'pageinfo' | 'pageinfofilled' | 'basic' | Visual variant of the pagination component
+showNavigationButtons | boolean | true | Whether to show Previous/Next navigation buttons
+rounded | boolean | false | Whether to apply rounded styling to page number buttons
+iconOnly | boolean | false | Whether to show only icons without text labels on navigation buttons
+size | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'md' | Size variant of the pagination component
+customStyles | Record<string, string> | {} | Custom CSS styles to apply to the pagination container</pre>
+<pre><code>currentPage</code></pre>
+<pre><code>number</code></pre>
+<pre><code>1</code></pre>
+<pre><code>totalPages</code></pre>
+<pre><code>number</code></pre>
+<pre><code>10</code></pre>
+<pre><code>type</code></pre>
+<pre><code>'basic' | 'unfilled' | 'basicunfilled' | 'pageinfo' | 'pageinfofilled'</code></pre>
+<pre><code>'basic'</code></pre>
+<pre><code>showNavigationButtons</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>rounded</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>iconOnly</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+pageChange | EventEmitter<number> | Emitted when user navigates to a different page</pre>
+<pre><code>pageChange</code></pre>
+<pre><code>EventEmitter&lt;number></code></pre>
+<h2>Methods​</h2>
+<p>| Method                     | Parameters                              | Return Type    | Description                              |
+| -------------------------- | --------------------------------------- | -------------- | ---------------------------------------- | -------------------------------------------- | --- |
+|  |
+|nextPage()| -                                       |void| Navigate to the next page                |
+|prevPage()| -                                       |void| Navigate to the previous page            |
+|getFontSize()| -                                       |string| Get font size based on current size prop |
+|trackByPage(index, page)|index: number, page: number \| string|string| TrackBy function for ngFor optimization  |</p>
+<pre><code>nextPage()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>prevPage()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>getFontSize()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>trackByPage(index, page)</code></pre>
+<pre><code>index: number, page: number \| string</code></pre>
+<pre><code>string</code></pre>
+<h2>Computed Properties​</h2>
+<pre>Property | Type | Description
+pages | (number | string)[] | Array of page numbers and ellipsis to display
+size | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | Current size variant of the component</pre>
+<pre><code>pages</code></pre>
+<pre><code>(number | string)[]</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>| Property                              | Default                     | Description                      |
+| ------------------------------------- | --------------------------- | -------------------------------- | ------------------------- | --- |
+|--pagination-item-text| Dynamic                     | Text color for page numbers      |
+|--pagination-item-disabled-text| Dynamic                     | Text color for disabled elements |
+|  |
+|--pagination-container-gap| Dynamic                     | Gap between pagination elements  |
+|--pagination-page-label-color| Dynamic                     | Color for page label text        |
+|--pagination-page-label-font-family| Dynamic                     | Font family for page labels      |
+|--pagination-page-label-font-weight| Dynamic                     | Font weight for page labels      |
+|--pagination-page-label-line-height| Dynamic                     | Line height for page labels      |
+|--pagination-page-label-gap| Dynamic                     | Gap between page label elements  |</p>
+<pre><code>--pagination-item-text</code></pre>
+<pre><code>--pagination-item-disabled-text</code></pre>
+<pre><code>--pagination-container-gap</code></pre>
+<pre><code>--pagination-page-label-color</code></pre>
+<pre><code>--pagination-page-label-font-family</code></pre>
+<pre><code>--pagination-page-label-font-weight</code></pre>
+<pre><code>--pagination-page-label-line-height</code></pre>
+<pre><code>--pagination-page-label-gap</code></pre>
+<h2>Accessibility Guidelines​</h2>
+<h2>Keyboard Navigation​</h2>
+<p>• Tab: Navigate to pagination and move between interactive elements</p>
+<p>• Arrow Left/Right: Navigate between page numbers (when focused)</p>
+<p>• Enter: Activate focused page number or navigation button</p>
+<p>• Space: Activate focused page number or navigation button</p>
+<p>• Home: Jump to first page (when supported)</p>
+<p>• End: Jump to last page (when supported)</p>
+<h2>Screen Reader Support​</h2>
+<p>• Use descriptive labels that clearly indicate pagination purpose</p>
+<p>• Provide context about total number of pages and current position</p>
+<p>• Announce page changes and navigation actions</p>
+<p>• Include current page information in accessible descriptions</p>
+<p>• Use appropriate heading levels for pagination sections</p>
+<h2>Visual Design​</h2>
+<p>• Maintain sufficient color contrast (4.5:1 minimum) for all states</p>
+<p>• Provide clear focus indicators on interactive elements</p>
+<p>• Ensure page number buttons meet minimum touch target size (44px)</p>
+<p>• Use consistent visual hierarchy across all variants</p>
+<p>• Support high contrast and reduced motion preferences</p>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Appropriate Variant Selection: Choose variants based on dataset size and user needs</p>
+<p>• Consistent Spacing: Maintain uniform spacing between pagination elements</p>
+<p>• Clear Visual Hierarchy: Use proper contrast and sizing for current page indication</p>
+<p>• Responsive Design: Ensure pagination works well on all screen sizes</p>
+<p>• Loading States: Consider loading indicators during page transitions</p>
+<h2>Performance​</h2>
+<p>• Efficient Rendering: Use OnPush change detection for optimal performance</p>
+<p>• Event Handling: Debounce rapid page changes if triggered programmatically</p>
+<p>• Memory Management: Clean up event listeners and subscriptions</p>
+<p>• Bundle Optimization: Import only needed variants to minimize bundle size</p>
+<p>• Virtual Scrolling: Consider virtual scrolling for very large datasets</p>
+<h2>User Experience​</h2>
+<p>• Intuitive Navigation: Make it easy to jump to first/last pages</p>
+<p>• Page Size Options: Consider adding page size selection for data tables</p>
+<p>• Breadcrumb Integration: Use pagination with breadcrumbs for complex navigation</p>
+<p>• Search Integration: Combine pagination with search functionality</p>
+<p>• URL State: Sync pagination state with URL parameters for bookmarking</p>
+<h2>Implementation Considerations​</h2>
+<p>• State Management: Properly manage pagination state in your application</p>
+<p>• Data Fetching: Implement efficient data loading for each page</p>
+<p>• Error Handling: Handle edge cases like invalid page numbers</p>
+<p>• Caching: Cache previously visited pages for better performance</p>
+<p>• Analytics: Track pagination usage for user behavior insights</p>
+<h2>Accessibility Implementation​</h2>
+<p>• Semantic HTML: Use proper HTML structure for pagination elements</p>
+<p>• ARIA Attributes: Implement appropriate ARIA labels and roles</p>
+<p>• Focus Management: Ensure logical tab order and focus indicators</p>
+<p>• Screen Reader Testing: Test with actual screen readers</p>
+<p>• Keyboard Testing: Verify complete keyboard navigation flow</p>
+<h2>Technical Notes​</h2>
+<h2>Component Architecture​</h2>
+<p>The pagination component uses a modern Angular architecture with:</p>
+<p>• PaginationControlsComponent- Main component with multiple variants</p>
+<p>• ButtonComponentintegration for consistent button styling</p>
+<p>• OnPush change detectionfor optimal performance</p>
+<p>• ViewEncapsulation.Nonefor global CSS variable access</p>
+<h2>MUI-Style Pagination Logic​</h2>
+<p>The component implements Material-UI style pagination with intelligent page number display:</p>
+<p>• Smart Ellipsis: Automatically shows ellipsis for large page counts</p>
+<p>• Context-Aware Display: Shows relevant pages around current selection</p>
+<p>• Optimal Truncation: Balances information density with usability</p>
+<p>• Responsive Behavior: Adapts to different total page counts</p>
+<h2>Size System​</h2>
+<p>The component provides a comprehensive size system:</p>
+<p>• Font Scaling: Each size maps to specific pixel values (12px to 24px)</p>
+<p>• Button Scaling: Button dimensions scale proportionally with font size</p>
+<p>• Touch Targets: All sizes maintain minimum 44px touch target requirements</p>
+<p>• CSS Variables: Uses semantic CSS variables for consistent theming</p>
+<h2>Variant System​</h2>
+<p>The component supports multiple visual variants:</p>
+<p>• Basic Variants: Traditional pagination with filled styling</p>
+<p>• Unfilled Variants: Modern design with transparent backgrounds</p>
+<p>• Page Info Variants: Text-based alternatives to page numbers</p>
+<p>• Icon-Only Options: Clean navigation without text labels</p>
+</body></html>
