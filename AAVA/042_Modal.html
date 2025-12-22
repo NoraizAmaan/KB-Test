@@ -1,0 +1,133 @@
+<html><head><meta charset='utf-8'>
+<title>Modal</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Modal</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Overlay/Modal</small></p>
+<h2>Modal</h2>
+<p>The Modal component is a powerful overlay system that extends the dialog service to provide custom modal dialogs with full content projection capabilities. It allows developers to create sophisticated modal interfaces with custom content, layouts, and interactions while maintaining consistent styling and behavior.</p>
+<p>The modal system is built on top of theAavaDialogServiceand provides a flexible foundation for creating various types of modal dialogs, from simple confirmations to complex forms and content displays.</p>
+<pre><code>AavaDialogService</code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaDialogService } from "@aava/play-core";// Inject the serviceconstructor(private dialogService: AavaDialogService) {}// Open a custom modalthis.dialogService.openModal(MyCustomModalComponent, {  width: '600px',  maxWidth: '90vw'});</code></pre>
+<pre><code>import { AavaDialogService } from "@aava/play-core";// Inject the serviceconstructor(private dialogService: AavaDialogService) {}// Open a custom modalthis.dialogService.openModal(MyCustomModalComponent, {  width: '600px',  maxWidth: '90vw'});</code></pre>
+<h2>Modal Variants​</h2>
+<pre><code>&lt;div class="con">  &lt;div class="col-12 col-sm-auto d-flex justify-content-center">    &lt;aava-button      label=" Simple Modal"      variant="secondary"      (userClick)="openProperSimpleModal()"    >&lt;/aava-button>    &lt;aava-button      label=" Feedback Modal"      variant="secondary"      (userClick)="openProperFeedbackModal()"    >&lt;/aava-button>    &lt;aava-button      label=" Scrollable Modal"      variant="secondary"      (userClick)="openProperScrollableModal()"    >&lt;/aava-button>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="con">  &lt;div class="col-12 col-sm-auto d-flex justify-content-center">    &lt;aava-button      label=" Simple Modal"      variant="secondary"      (userClick)="openProperSimpleModal()"    >&lt;/aava-button>    &lt;aava-button      label=" Feedback Modal"      variant="secondary"      (userClick)="openProperFeedbackModal()"    >&lt;/aava-button>    &lt;aava-button      label=" Scrollable Modal"      variant="secondary"      (userClick)="openProperScrollableModal()"    >&lt;/aava-button>  &lt;/div>&lt;/div></code></pre>
+<pre><code>  constructor(private dialogService: AavaDialogService) {} openProperSimpleModal() {    this.dialogService.openModal(ProperSimpleModalComponent, {      width: '400px',    });  }  openProperFeedbackModal() {    this.dialogService.openModal(ProperFeedbackModalComponent, {      width: '400px',    });  }  openProperScrollableModal() {    this.dialogService.openModal(ProperScrollableModalComponent, {      width: '484px',    });  }</code></pre>
+<pre><code>  constructor(private dialogService: AavaDialogService) {} openProperSimpleModal() {    this.dialogService.openModal(ProperSimpleModalComponent, {      width: '400px',    });  }  openProperFeedbackModal() {    this.dialogService.openModal(ProperFeedbackModalComponent, {      width: '400px',    });  }  openProperScrollableModal() {    this.dialogService.openModal(ProperScrollableModalComponent, {      width: '484px',    });  }</code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaButtonComponent, AavaDialogService } from "play-comp-library";@Component({  selector: "app-proper-simple-modal",  standalone: true,  imports: [AavaButtonComponent],  template: `    &lt;div style="padding:24px">      &lt;div class="ava-modal" style="border-radius:8px;">        &lt;div          dialog-header          style="display: flex;      align-items: center;      gap: 12px;      align-self: stretch;"        >          &lt;svg            xmlns="http://www.w3.org/2000/svg"            width="24"            height="24"            viewBox="0 0 24 24"            fill="none"          >            &lt;path              d="M22 12C22 17.5228 17.5228 22 12 22M22 12C22 6.47715 17.5228 2 12 2M22 12H2M12 22C6.47715 22 2 17.5228 2 12M12 22C9.43223 19.3038 8 15.7233 8 12C8 8.27674 9.43223 4.69615 12 2M12 22C14.5678 19.3038 16 15.7233 16 12C16 8.27674 14.5678 4.69615 12 2M2 12C2 6.47715 6.47715 2 12 2"              stroke="black"              stroke-width="1.5"              stroke-linecap="round"              stroke-linejoin="round"            />          &lt;/svg>          &lt;h4            style="margin-top:0;        margin-bottom:0;        line-height:0;        color:#3B3F46;        font-family: Mulish;        font-size:24px;        font-style: normal;        font-weight: 700;        line-height:28px;"          >            Heading          &lt;/h4>        &lt;/div>        &lt;div dialog-body>          &lt;p            style="align-self: stretch;      color: #6B7280;      font-family: Inter;      font-size:16px;      font-style: normal;      font-weight: 400;      line-height:20px;      margin:24px 0px;"          >            This agent will be sent back for corrections and modifications.            Kindly comment what needs to be done.          &lt;/p>        &lt;/div>        &lt;div dialog-footer style="display:flex; gap:12px">          &lt;aava-button            label="Label"            variant="secondary"            size="md"            (userClick)="onClose()"            height="52px"            width="165px"          >&lt;/aava-button>          &lt;aava-button            label="Label"            variant="primary"            size="md"            (userClick)="onClose()"            height="52px"            width="165px"          >&lt;/aava-button>        &lt;/div>      &lt;/div>    &lt;/div>  `,})export class ProperSimpleModalComponent {  constructor(private dialogService: AavaDialogService) {}  onClose() {    this.dialogService.close();  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import { AavaButtonComponent, AavaDialogService } from "play-comp-library";@Component({  selector: "app-proper-simple-modal",  standalone: true,  imports: [AavaButtonComponent],  template: `    &lt;div style="padding:24px">      &lt;div class="ava-modal" style="border-radius:8px;">        &lt;div          dialog-header          style="display: flex;      align-items: center;      gap: 12px;      align-self: stretch;"        >          &lt;svg            xmlns="http://www.w3.org/2000/svg"            width="24"            height="24"            viewBox="0 0 24 24"            fill="none"          >            &lt;path              d="M22 12C22 17.5228 17.5228 22 12 22M22 12C22 6.47715 17.5228 2 12 2M22 12H2M12 22C6.47715 22 2 17.5228 2 12M12 22C9.43223 19.3038 8 15.7233 8 12C8 8.27674 9.43223 4.69615 12 2M12 22C14.5678 19.3038 16 15.7233 16 12C16 8.27674 14.5678 4.69615 12 2M2 12C2 6.47715 6.47715 2 12 2"              stroke="black"              stroke-width="1.5"              stroke-linecap="round"              stroke-linejoin="round"            />          &lt;/svg>          &lt;h4            style="margin-top:0;        margin-bottom:0;        line-height:0;        color:#3B3F46;        font-family: Mulish;        font-size:24px;        font-style: normal;        font-weight: 700;        line-height:28px;"          >            Heading          &lt;/h4>        &lt;/div>        &lt;div dialog-body>          &lt;p            style="align-self: stretch;      color: #6B7280;      font-family: Inter;      font-size:16px;      font-style: normal;      font-weight: 400;      line-height:20px;      margin:24px 0px;"          >            This agent will be sent back for corrections and modifications.            Kindly comment what needs to be done.          &lt;/p>        &lt;/div>        &lt;div dialog-footer style="display:flex; gap:12px">          &lt;aava-button            label="Label"            variant="secondary"            size="md"            (userClick)="onClose()"            height="52px"            width="165px"          >&lt;/aava-button>          &lt;aava-button            label="Label"            variant="primary"            size="md"            (userClick)="onClose()"            height="52px"            width="165px"          >&lt;/aava-button>        &lt;/div>      &lt;/div>    &lt;/div>  `,})export class ProperSimpleModalComponent {  constructor(private dialogService: AavaDialogService) {}  onClose() {    this.dialogService.close();  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import {  AavaButtonComponent,  AavaDialogService,  AavaCheckboxComponent,} from "play-comp-library";@Component({  selector: "app-proper-scrollable-modal",  standalone: true,  imports: [AavaButtonComponent, AavaCheckboxComponent],  template: `    &lt;div style="padding:24px">      &lt;div        style="display:flex;    flex-direction: column;    gap:24px;"      >        &lt;div          dialog-header          style="    color: #3B3F46;    font-family: Mulish;    font-size: 24px;    font-style: normal;    font-weight: 700;    line-height: 28px;     justify-content:flex-start;    "        >          &lt;h3 style="margin-bottom:0px;">Heading&lt;/h3>        &lt;/div>        &lt;div dialog-body>          &lt;div>            &lt;h4>Heading small&lt;/h4>            &lt;p>              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;h4 style="margin: 0 0 8px 0; font-size: 14px;">Heading small&lt;/h4>            &lt;p style="margin: 0 0 16px 0; color: #666; font-size: 14px;">              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;h4>Heading small&lt;/h4>            &lt;p>              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;h4>Heading small&lt;/h4>            &lt;p>              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;div>              &lt;h4>Heading small&lt;/h4>              &lt;p>                This agent will be sent back for corrections and modifications.                Kindly comment what needs to be done.              &lt;/p>            &lt;/div>            &lt;div              style="      display: flex;      height: 24px;      padding: 0 0;      align-items: center;      gap: 8px;      align-self: stretch;"            >              &lt;aava-checkbox variant="default" size="sm">&lt;/aava-checkbox>              &lt;label> Accept Terms and Conditions&lt;/label>            &lt;/div>          &lt;/div>        &lt;/div>        &lt;div          dialog-footer          style="    display:flex;    justify-content: flex-end;    flex-direction: row;    gap: 10px;    align-items: flex-end;    align-self: stretch;"        >          &lt;aava-button            label="Label"            variant="secondary"            size="md"            (userClick)="onClose()"          >&lt;/aava-button>          &lt;aava-button            label="Label"            variant="primary"            size="md"            (userClick)="onClose()"          >&lt;/aava-button>        &lt;/div>      &lt;/div>    &lt;/div>  `,})export class ProperScrollableModalComponent {  constructor(private dialogService: AavaDialogService) {}  onClose() {    this.dialogService.close();  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import {  AavaButtonComponent,  AavaDialogService,  AavaCheckboxComponent,} from "play-comp-library";@Component({  selector: "app-proper-scrollable-modal",  standalone: true,  imports: [AavaButtonComponent, AavaCheckboxComponent],  template: `    &lt;div style="padding:24px">      &lt;div        style="display:flex;    flex-direction: column;    gap:24px;"      >        &lt;div          dialog-header          style="    color: #3B3F46;    font-family: Mulish;    font-size: 24px;    font-style: normal;    font-weight: 700;    line-height: 28px;     justify-content:flex-start;    "        >          &lt;h3 style="margin-bottom:0px;">Heading&lt;/h3>        &lt;/div>        &lt;div dialog-body>          &lt;div>            &lt;h4>Heading small&lt;/h4>            &lt;p>              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;h4 style="margin: 0 0 8px 0; font-size: 14px;">Heading small&lt;/h4>            &lt;p style="margin: 0 0 16px 0; color: #666; font-size: 14px;">              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;h4>Heading small&lt;/h4>            &lt;p>              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;h4>Heading small&lt;/h4>            &lt;p>              This agent will be sent back for corrections and modifications.              Kindly comment what needs to be done.            &lt;/p>            &lt;div>              &lt;h4>Heading small&lt;/h4>              &lt;p>                This agent will be sent back for corrections and modifications.                Kindly comment what needs to be done.              &lt;/p>            &lt;/div>            &lt;div              style="      display: flex;      height: 24px;      padding: 0 0;      align-items: center;      gap: 8px;      align-self: stretch;"            >              &lt;aava-checkbox variant="default" size="sm">&lt;/aava-checkbox>              &lt;label> Accept Terms and Conditions&lt;/label>            &lt;/div>          &lt;/div>        &lt;/div>        &lt;div          dialog-footer          style="    display:flex;    justify-content: flex-end;    flex-direction: row;    gap: 10px;    align-items: flex-end;    align-self: stretch;"        >          &lt;aava-button            label="Label"            variant="secondary"            size="md"            (userClick)="onClose()"          >&lt;/aava-button>          &lt;aava-button            label="Label"            variant="primary"            size="md"            (userClick)="onClose()"          >&lt;/aava-button>        &lt;/div>      &lt;/div>    &lt;/div>  `,})export class ProperScrollableModalComponent {  constructor(private dialogService: AavaDialogService) {}  onClose() {    this.dialogService.close();  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import {  AavaButtonComponent,  AavaDialogService,  AavaIconComponent,  AavaTextboxComponent,} from "play-comp-library";@Component({  selector: "app-proper-feedback-modal",  standalone: true,  imports: [AavaButtonComponent, AavaIconComponent, AavaTextboxComponent],  template: `    &lt;div style="padding:24px">      &lt;div dialog-header>        &lt;h3          style="color: #3B3F46;        font-family: Mulish;        font-size: 24px;        font-style: normal;        font-weight: 700;        line-height:28px;"        >          Heading        &lt;/h3>      &lt;/div>      &lt;div dialog-body>        &lt;div style="text-align: center; margin:24px 0px">          &lt;aava-icon            iconName="circle-check"            iconSize="70px"            iconColor="green"          >&lt;/aava-icon>        &lt;/div>        &lt;p          style="align-self: stretch;        color: #6B7280;        text-align: center;        font-family: Inter;        font-size: 16px;        font-style: normal;        font-weight: 400;        line-height: 20px;        margin-bottom:24px"        >          This agent will be sent back for corrections and modifications. Kindly          comment what needs to be done        &lt;/p>        &lt;div style="margin-bottom:24px">          &lt;aava-textbox            label="Feedback Input"            variant="default"            placeholder="Enter text here"            size="xl"          >&lt;/aava-textbox>        &lt;/div>      &lt;/div>      &lt;div dialog-footer style="display:flex; gap:12px">        &lt;aava-button          label="Label"          variant="secondary"          size="md"          (userClick)="onClose()"          height="52px"          width="165px"        >&lt;/aava-button>        &lt;aava-button          label="Label"          variant="primary"          size="md"          height="52px"          (userClick)="onClose()"          width="165px"        >&lt;/aava-button>      &lt;/div>    &lt;/div>  `,})export class ProperFeedbackModalComponent {  constructor(private dialogService: AavaDialogService) {}  onClose() {    this.dialogService.close();  }}</code></pre>
+<pre><code>import { Component } from "@angular/core";import {  AavaButtonComponent,  AavaDialogService,  AavaIconComponent,  AavaTextboxComponent,} from "play-comp-library";@Component({  selector: "app-proper-feedback-modal",  standalone: true,  imports: [AavaButtonComponent, AavaIconComponent, AavaTextboxComponent],  template: `    &lt;div style="padding:24px">      &lt;div dialog-header>        &lt;h3          style="color: #3B3F46;        font-family: Mulish;        font-size: 24px;        font-style: normal;        font-weight: 700;        line-height:28px;"        >          Heading        &lt;/h3>      &lt;/div>      &lt;div dialog-body>        &lt;div style="text-align: center; margin:24px 0px">          &lt;aava-icon            iconName="circle-check"            iconSize="70px"            iconColor="green"          >&lt;/aava-icon>        &lt;/div>        &lt;p          style="align-self: stretch;        color: #6B7280;        text-align: center;        font-family: Inter;        font-size: 16px;        font-style: normal;        font-weight: 400;        line-height: 20px;        margin-bottom:24px"        >          This agent will be sent back for corrections and modifications. Kindly          comment what needs to be done        &lt;/p>        &lt;div style="margin-bottom:24px">          &lt;aava-textbox            label="Feedback Input"            variant="default"            placeholder="Enter text here"            size="xl"          >&lt;/aava-textbox>        &lt;/div>      &lt;/div>      &lt;div dialog-footer style="display:flex; gap:12px">        &lt;aava-button          label="Label"          variant="secondary"          size="md"          (userClick)="onClose()"          height="52px"          width="165px"        >&lt;/aava-button>        &lt;aava-button          label="Label"          variant="primary"          size="md"          height="52px"          (userClick)="onClose()"          width="165px"        >&lt;/aava-button>      &lt;/div>    &lt;/div>  `,})export class ProperFeedbackModalComponent {  constructor(private dialogService: AavaDialogService) {}  onClose() {    this.dialogService.close();  }}</code></pre>
+<h2>Simple Modal Features​</h2>
+<p>• Header Section: Custom header with icon and title</p>
+<p>• Body Content: Descriptive text content</p>
+<p>• Footer Actions: Primary and secondary action buttons</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<p>• Accessibility: Proper ARIA attributes and keyboard navigation</p>
+<h2>Feedback Modal Features​</h2>
+<p>• Visual Feedback: Success icon with color-coded styling</p>
+<p>• Input Fields: Text input for user feedback</p>
+<p>• Centered Layout: Optimized for form interactions</p>
+<p>• Action Buttons: Clear primary and secondary actions</p>
+<p>• User Experience: Intuitive feedback collection flow</p>
+<h2>Scrollable Modal Features​</h2>
+<p>• Content Scrolling: Handles overflow content gracefully</p>
+<p>• Form Elements: Checkbox and form controls</p>
+<p>• Structured Content: Organized sections with headings</p>
+<p>• Flexible Height: Adapts to content length</p>
+<p>• Footer Positioning: Actions remain accessible during scroll</p>
+<h2>Features​</h2>
+<h2>Content Projection​</h2>
+<p>The modal system uses Angular's content projection to provide flexible content structure:</p>
+<p>• [dialog-header]: Header section for titles, icons, and navigation</p>
+<p>• [dialog-body]: Main content area for forms, text, or components</p>
+<p>• `[dialog-footer]: Footer section for action buttons and controls</p>
+<pre><code>[dialog-header]</code></pre>
+<pre><code>[dialog-body]</code></pre>
+<h2>Flexible Sizing​</h2>
+<p>• Width Control: Customizable width with responsive constraints</p>
+<p>• Height Management: Automatic height adjustment or fixed heights</p>
+<p>• Responsive Behavior: Adapts to different screen sizes</p>
+<p>• Max Dimensions: Configurable maximum width and height</p>
+<h2>Service Integration​</h2>
+<p>• DialogService: Centralized modal management</p>
+<p>• Component Injection: Dynamic component rendering</p>
+<p>• Configuration Options: Flexible modal configuration</p>
+<p>• Lifecycle Management: Proper cleanup and resource management</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Full keyboard support (Tab, Escape, Enter)</p>
+<p>• Screen Reader: Proper ARIA attributes and labels</p>
+<p>• Focus Management: Focus trapping and restoration</p>
+<p>• High Contrast: Maintains accessibility standards</p>
+<h2>API Reference​</h2>
+<h2>AavaDialogService.openModal()​</h2>
+<pre><code>openModal(  component: Type&lt;any>,  config?: ModalConfig,  data?: any): Promise&lt;any></code></pre>
+<pre><code>openModal(  component: Type&lt;any>,  config?: ModalConfig,  data?: any): Promise&lt;any></code></pre>
+<pre>Property | Type | Default | Description
+width | string | - | Modal width (e.g., '600px')
+maxWidth | string | - | Maximum width constraint
+height | string | - | Modal height
+maxHeight | string | - | Maximum height constraint
+showCloseButton | boolean | true | Show close button
+backdrop | boolean | true | Show backdrop overlay
+closeOnBackdrop | boolean | true | Close on backdrop click</pre>
+<pre><code>width</code></pre>
+<pre><code>string</code></pre>
+<pre><code>maxWidth</code></pre>
+<pre><code>string</code></pre>
+<pre><code>height</code></pre>
+<pre><code>string</code></pre>
+<pre><code>maxHeight</code></pre>
+<pre><code>string</code></pre>
+<pre><code>showCloseButton</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>backdrop</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>closeOnBackdrop</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<h2>Content Projection Attributes​</h2>
+<pre>Attribute | Description
+[dialog-header] | Header section for modal title and navigation
+[dialog-body] | Main content area for modal content
+`[dialog-footer] | Footer section for action buttons</pre>
+<pre><code>[dialog-header]</code></pre>
+<pre><code>[dialog-body]</code></pre>
+<h2>Best Practices​</h2>
+<h2>Modal Design​</h2>
+<p>• Clear Purpose: Make modal purpose obvious through title and content</p>
+<p>• Appropriate Sizing: Choose modal sizes that fit content without overwhelming</p>
+<p>• Consistent Layout: Use consistent header, body, and footer structure</p>
+<p>• Visual Hierarchy: Maintain clear visual hierarchy within the modal</p>
+<p>• Responsive Design: Ensure modals work well on all screen sizes</p>
+<h2>Content Organization​</h2>
+<p>• Header Content: Include clear titles and optional icons</p>
+<p>• Body Structure: Organize content logically with proper spacing</p>
+<p>• Footer Actions: Place primary actions on the right, secondary on the left</p>
+<p>• Content Length: Keep content concise or implement scrolling for long content</p>
+<p>• Form Elements: Use appropriate form controls and validation</p>
+<h2>User Experience​</h2>
+<p>• Clear Actions: Make button actions and consequences clear</p>
+<p>• Escape Options: Always provide a way to close the modal</p>
+<p>• Loading States: Show appropriate loading indicators for async operations</p>
+<p>• Error Handling: Provide clear error messages and recovery options</p>
+<p>• Accessibility: Ensure keyboard navigation and screen reader support</p>
+<h2>Performance​</h2>
+<p>• Lazy Loading: Load modal content only when needed</p>
+<p>• Component Reuse: Reuse modal components when possible</p>
+<p>• Memory Management: Properly clean up modal instances</p>
+<p>• Change Detection: Use OnPush strategy for optimal performance</p>
+<p>• Bundle Optimization: Import only needed modal components</p>
+<h2>Styling​</h2>
+<p>The modal component uses CSS custom properties for theming:</p>
+<pre><code>:root {  --modal-background: #ffffff;  --modal-border: #e2e8f0;  --modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);  --modal-radius: 8px;  --modal-padding: 24px;  --modal-header-color: #3b3f46;  --modal-body-color: #6b7280;  --modal-footer-border: #f1f5f9;}</code></pre>
+<pre><code>:root {  --modal-background: #ffffff;  --modal-border: #e2e8f0;  --modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);  --modal-radius: 8px;  --modal-padding: 24px;  --modal-header-color: #3b3f46;  --modal-body-color: #6b7280;  --modal-footer-border: #f1f5f9;}</code></pre>
+</body></html>
