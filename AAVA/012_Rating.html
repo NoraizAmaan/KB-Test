@@ -1,0 +1,201 @@
+<html><head><meta charset='utf-8'>
+<title>Rating</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Rating</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Rating</small></p>
+<h2>Rating</h2>
+<p>The<aava-rating>component provides an intuitive and accessible star rating interface with support for half-star ratings, multiple size variants, and comprehensive keyboard navigation. Perfect for user feedback, product reviews, and any scenario requiring rating input or display.</p>
+<pre><code>&lt;aava-rating></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaRatingComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaRatingComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple rating implementation with default 5-star scale and interactive functionality.</p>
+<pre><code>&lt;aava-rating [value]="ratingValue" (rated)="onRatingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code>&lt;aava-rating [value]="ratingValue" (rated)="onRatingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code> onRatingChange(value: number) {    console.log('Rating changed to:', value);  }</code></pre>
+<pre><code> onRatingChange(value: number) {    console.log('Rating changed to:', value);  }</code></pre>
+<h2>Sizes​</h2>
+<p>Four size variants to accommodate different interface densities and visual hierarchy requirements.</p>
+<pre><code>&lt;!-- Different size variants -->&lt;aava-rating [value]="ratingValue" size="xs" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" size="sm" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" size="md" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" size="lg" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" [size]="40" (rated)="onRatingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code>&lt;!-- Different size variants -->&lt;aava-rating [value]="ratingValue" size="xs" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" size="sm" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" size="md" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" size="lg" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="ratingValue" [size]="40" (rated)="onRatingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code>   ratingValue = 3.5;  ononRatingChange(value: number) {    this.ratingValue = value;    console.log('Rating changed to:', value);  }</code></pre>
+<pre><code>   ratingValue = 3.5;  ononRatingChange(value: number) {    this.ratingValue = value;    console.log('Rating changed to:', value);  }</code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- 16px stars for very compact interfaces</p>
+<p>• sm (Small)- 20px stars for dense interfaces</p>
+<p>• md (Medium)- 24px stars for standard layouts (default)</p>
+<p>• lg (Large)- 32px stars for prominent placements and better accessibility</p>
+<p>• Custom- Numeric values for precise sizing requirements</p>
+<h2>Half-Star Ratings​</h2>
+<p>Support for precise half-star ratings (e.g., 4.5 stars) with intuitive click positioning.</p>
+<pre><code>&lt;!-- Half-star ratings -->&lt;aava-rating [value]="3.5" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="4.5" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="2.5" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;!-- Interactive half-star selection -->&lt;aava-rating  [value]="currentRating"  (rated)="ratingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code>&lt;!-- Half-star ratings -->&lt;aava-rating [value]="3.5" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="4.5" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating [value]="2.5" (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;!-- Interactive half-star selection -->&lt;aava-rating  [value]="currentRating"  (rated)="ratingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code>currentRating = 0;onRatingChange(rating: number) {  this.currentRating = rating;  console.log('Rating changed to:', rating);}</code></pre>
+<pre><code>currentRating = 0;onRatingChange(rating: number) {  this.currentRating = rating;  console.log('Rating changed to:', rating);}</code></pre>
+<h2>Half-Star Features​</h2>
+<p>• Click Positioning- Left half of star = half rating, right half = full rating</p>
+<p>• Hover Preview- Visual feedback shows potential rating before clicking</p>
+<p>• Precise Control- Support for ratings like 3.5, 4.5, etc.</p>
+<p>• Intuitive UX- Natural interaction pattern users expect</p>
+<h2>Readonly Mode​</h2>
+<p>Display-only mode for showing existing ratings without user interaction.</p>
+<pre><code>&lt;aava-rating [value]="4.5" [readonly]="true">&lt;/aava-rating></code></pre>
+<pre><code>&lt;aava-rating [value]="4.5" [readonly]="true">&lt;/aava-rating></code></pre>
+<h2>Readonly Features​</h2>
+<p>• Non-interactive- No click or hover effects</p>
+<p>• Display Only- Perfect for showing existing ratings</p>
+<p>• Accessibility- Maintains proper ARIA attributes</p>
+<p>• Consistent Styling- Same visual appearance as interactive mode</p>
+<h2>Show Value​</h2>
+<p>Display the numeric rating value alongside the visual stars.</p>
+<pre><code>&lt;!-- Ratings with numeric values displayed -->&lt;aava-rating [value]="4.5" [showValue]="true">&lt;/aava-rating></code></pre>
+<pre><code>&lt;!-- Ratings with numeric values displayed -->&lt;aava-rating [value]="4.5" [showValue]="true">&lt;/aava-rating></code></pre>
+<h2>Value Display Features​</h2>
+<p>• Numeric Rating- Shows exact rating (e.g., "4.5")</p>
+<p>• Size Variants- Value text scales with star size</p>
+<p>• Positioning- Value appears to the right of stars</p>
+<p>• Formatting- Always shows one decimal place for precision</p>
+<h2>Custom Maximum​</h2>
+<p>Flexible rating scales beyond the default 5-star system.</p>
+<pre><code>&lt;!-- Different rating scales -->&lt;aava-rating  [value]="3"  [max]="3"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating  [value]="4"  [max]="4"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating  [value]="5"  [max]="5"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating  [value]="7"  [max]="10"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;!-- Custom scale with half-star -->&lt;aava-rating  [value]="8.5"  [max]="10"  (rated)="onRatingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code>&lt;!-- Different rating scales -->&lt;aava-rating  [value]="3"  [max]="3"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating  [value]="4"  [max]="4"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating  [value]="5"  [max]="5"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;aava-rating  [value]="7"  [max]="10"  (rated)="onRatingChange($event)">&lt;/aava-rating>&lt;!-- Custom scale with half-star -->&lt;aava-rating  [value]="8.5"  [max]="10"  (rated)="onRatingChange($event)">&lt;/aava-rating></code></pre>
+<pre><code>onRatingChange(rating: number) {  console.log('Rating changed to:', rating);}</code></pre>
+<pre><code>onRatingChange(rating: number) {  console.log('Rating changed to:', rating);}</code></pre>
+<h2>Custom Scale Features​</h2>
+<p>• Flexible Range- Support for 3, 4, 5, 10, or any number of stars</p>
+<p>• Consistent Behavior- Same interaction patterns regardless of scale</p>
+<p>• Half-Star Support- Works with any maximum value</p>
+<p>• Accessibility- Proper ARIA attributes for custom scales</p>
+<h2>Accessibility​</h2>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation- Full keyboard support with arrow keys</p>
+<p>• ARIA Compliance- Properrole="radiogroup"andaria-checkedattributes</p>
+<p>• Screen Reader Support- Clear announcements of current rating</p>
+<p>• Focus Management- Visible focus indicators for keyboard users</p>
+<p>• High Contrast- Enhanced visibility in high contrast modes</p>
+<p>• Motion Preferences- Respects user's reduced motion settings</p>
+<pre><code>role="radiogroup"</code></pre>
+<pre><code>aria-checked</code></pre>
+<h2>Keyboard Shortcuts​</h2>
+<p>• Arrow Right/Up- Increase rating by 1 star</p>
+<p>• Arrow Left/Down- Decrease rating by 1 star</p>
+<p>• Enter/Space- Select the currently focused star</p>
+<p>• Tab/Shift+Tab- Navigate between stars</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+value | number | 0 | Current rating value (supports halves like 4.5)
+max | number | 5 | Maximum number of stars in the rating scale
+readonly | boolean | false | Whether the rating is read-only (non-interactive)
+size | number | 'xs' | 'sm' | 'md' | 'lg' | 'md' | Size of the stars (predefined or custom pixel values)
+showValue | boolean | false | Whether to display the numeric rating value</pre>
+<pre><code>value</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>max</code></pre>
+<pre><code>number</code></pre>
+<pre><code>5</code></pre>
+<pre><code>readonly</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>size</code></pre>
+<pre><code>number | 'xs' | 'sm' | 'md' | 'lg'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>showValue</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+rated | EventEmitter<number> | Emitted when user changes the rating value</pre>
+<pre><code>rated</code></pre>
+<pre><code>EventEmitter&lt;number></code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--rating-label-font-family | Font family for rating label text
+--rating-label-font-weight | Font weight for rating label text
+--rating-label-font-size | Font size (used as line-height) for rating label text
+--rating-label-color | Text color for rating label
+--rating-label-letter-spacing-sm | Letter spacing for small label text
+--rating-label-letter-spacing-medium | Letter spacing for medium label text
+--rating-label-letter-spacing-lg | Letter spacing for large label text
+--rating-value-font-size-sm | Font size for small value variants ( | xs | & | sm | )
+--rating-value-font-size-md | Font size for medium value variant
+--rating-value-font-size-lg | Font size for large value variant</pre>
+<pre><code>--rating-label-font-family</code></pre>
+<pre><code>--rating-label-font-weight</code></pre>
+<pre><code>--rating-label-font-size</code></pre>
+<pre><code>--rating-label-color</code></pre>
+<pre><code>--rating-label-letter-spacing-sm</code></pre>
+<pre><code>--rating-label-letter-spacing-medium</code></pre>
+<pre><code>--rating-label-letter-spacing-lg</code></pre>
+<pre><code>--rating-value-font-size-sm</code></pre>
+<pre><code>xs</code></pre>
+<pre><code>sm</code></pre>
+<pre><code>--rating-value-font-size-md</code></pre>
+<pre><code>--rating-value-font-size-lg</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Choose appropriate sizes- Use larger sizes for primary rating displays, smaller for secondary</p>
+<p>• Consider half-star support- Enable for precise rating needs, disable for simpler interfaces</p>
+<p>• Show value when needed- Display numeric ratings for clarity in review systems</p>
+<p>• Use consistent scales- Stick to common scales (5-star, 10-star) for user familiarity</p>
+<p>• Position strategically- Place ratings near relevant content for context</p>
+<h2>Accessibility​</h2>
+<p>• Always provide labels- Use descriptive labels for screen reader context</p>
+<p>• Test keyboard navigation- Ensure full keyboard accessibility</p>
+<p>• Consider motion preferences- Respect user's reduced motion settings</p>
+<p>• Maintain contrast- Ensure sufficient contrast for all star states</p>
+<p>• Provide alternatives- Consider text-based rating alternatives for complex cases</p>
+<h2>Performance​</h2>
+<p>• Optimize re-renders- Use OnPush change detection strategy when possible</p>
+<p>• Efficient event handling- Optimize mouse and keyboard event handlers</p>
+<p>• Image optimization- Use optimized SVG assets for stars</p>
+<p>• Memory management- Clean up event listeners properly</p>
+<h2>Form Integration​</h2>
+<p>• Angular Forms- Integrate with reactive and template-driven forms</p>
+<p>• Validation- Implement appropriate validation for rating inputs</p>
+<p>• Default values- Provide sensible defaults for new ratings</p>
+<p>• Error handling- Handle edge cases and invalid inputs gracefully</p>
+<h2>Use Cases​</h2>
+<p>• Product Reviews- E-commerce product rating systems</p>
+<p>• Service Feedback- Customer satisfaction ratings</p>
+<p>• Content Rating- Movie, book, or content ratings</p>
+<p>• Skill Assessment- Employee or skill evaluation systems</p>
+<p>• Quality Metrics- Internal quality or performance ratings</p>
+<h2>Technical Notes​</h2>
+<h2>Star Asset Requirements​</h2>
+<p>The component expects three SVG assets:</p>
+<p>• star-filled.svg- For fully rated stars</p>
+<p>• star-half.svg- For half-rated stars</p>
+<p>• star-outline.svg- For empty stars</p>
+<pre><code>star-filled.svg</code></pre>
+<pre><code>star-half.svg</code></pre>
+<pre><code>star-outline.svg</code></pre>
+<h2>Half-Star Logic​</h2>
+<p>Half-star ratings are determined by click position:</p>
+<p>• Left half of star =index + 0.5</p>
+<p>• Right half of star =index + 1.0</p>
+<pre><code>index + 0.5</code></pre>
+<pre><code>index + 1.0</code></pre>
+<h2>Size Mapping​</h2>
+<p>Predefined sizes map to pixel values:</p>
+<p>• extra small: 16px</p>
+<p>• small: 20px</p>
+<p>• medium: 24px (default)</p>
+<p>• large: 32px</p>
+<pre><code>extra small</code></pre>
+<pre><code>small</code></pre>
+<pre><code>medium</code></pre>
+<pre><code>large</code></pre>
+<p>Custom numeric values are used directly for precise sizing requirements.</p>
+<h2>Event Handling​</h2>
+<p>The component handles multiple interaction types:</p>
+<p>• Mouse: Click for selection, hover for preview</p>
+<p>• Keyboard: Arrow navigation, Enter/Space for selection</p>
+<p>• Touch: Click events work on touch devices</p>
+<p>• Programmatic: Direct value changes via input binding</p>
+</body></html>
