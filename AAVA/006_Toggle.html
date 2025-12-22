@@ -1,0 +1,214 @@
+<html><head><meta charset='utf-8'>
+<title>Toggle</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Toggle</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Toggle</small></p>
+<h2>Toggle</h2>
+<p>A sleek and intuitive switch component for toggling between binary states (on/off, enabled/disabled). Features smooth animations, multiple sizes, flexible label positioning, and comprehensive accessibility support for enhanced user experience.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaToggleComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaToggleComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple toggle implementations with labels and basic functionality.</p>
+<pre><code>&lt;aava-toggle  size="md"  title="Enable Notifications"  position="left"  [checked]="notificationsEnabled"  (checkedChange)="onNotificationsChange($event)">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;aava-toggle  size="md"  title="Enable Notifications"  position="left"  [checked]="notificationsEnabled"  (checkedChange)="onNotificationsChange($event)">&lt;/aava-toggle></code></pre>
+<pre><code>  notificationsEnabled = false;  onNotificationsChange(checked: boolean) {    this.notificationsEnabled = checked;    console.log('Notifications:', checked ? 'enabled' : 'disabled');  }</code></pre>
+<pre><code>  notificationsEnabled = false;  onNotificationsChange(checked: boolean) {    this.notificationsEnabled = checked;    console.log('Notifications:', checked ? 'enabled' : 'disabled');  }</code></pre>
+<h2>Sizes​</h2>
+<p>Four size variants to accommodate different interface requirements and visual hierarchy.</p>
+<pre><code>&lt;aava-toggle size="xs" title="Extra Small">&lt;/aava-toggle>&lt;aava-toggle size="sm" title="Small">&lt;/aava-toggle>&lt;aava-toggle size="md" title="Medium">&lt;/aava-toggle>&lt;aava-toggle size="lg" title="Large">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;aava-toggle size="xs" title="Extra Small">&lt;/aava-toggle>&lt;aava-toggle size="sm" title="Small">&lt;/aava-toggle>&lt;aava-toggle size="md" title="Medium">&lt;/aava-toggle>&lt;aava-toggle size="lg" title="Large">&lt;/aava-toggle></code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- Extra compact size for very dense interfaces</p>
+<p>• sm (Small): Compact for dense interfaces and secondary controls</p>
+<p>• md (Medium): Standard size for most use cases (default)</p>
+<p>• lg (Large): Prominent for primary settings and better accessibility</p>
+<h2>Positions​</h2>
+<p>Flexible label positioning for optimal layout integration.</p>
+<pre><code>&lt;aava-toggle size="md" title="Left Position" position="left" [checked]="true">&lt;/aava-toggle>&lt;aava-toggle  size="md"  title="Right Position"  position="right"  [checked]="false">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;aava-toggle size="md" title="Left Position" position="left" [checked]="true">&lt;/aava-toggle>&lt;aava-toggle  size="md"  title="Right Position"  position="right"  [checked]="false">&lt;/aava-toggle></code></pre>
+<h2>Position Options​</h2>
+<p>• Left: Label appears to the left of the switch (default)</p>
+<p>• Right: Label appears to the right of the switch</p>
+<h2>States​</h2>
+<p>Different toggle states including checked, unchecked, and disabled variations.</p>
+<pre><code>&lt;aava-toggle size="md" title="Enabled Unchecked" [checked]="false">&lt;/aava-toggle>&lt;aava-toggle size="md" title="Enabled Checked" [checked]="true"> &lt;/aava-toggle>&lt;aava-toggle  size="md"  title="Disabled Unchecked"  [disabled]="true"  [checked]="false">&lt;/aava-toggle>&lt;aava-toggle  size="md"  title="Disabled Checked"  [disabled]="true"  [checked]="true">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;aava-toggle size="md" title="Enabled Unchecked" [checked]="false">&lt;/aava-toggle>&lt;aava-toggle size="md" title="Enabled Checked" [checked]="true"> &lt;/aava-toggle>&lt;aava-toggle  size="md"  title="Disabled Unchecked"  [disabled]="true"  [checked]="false">&lt;/aava-toggle>&lt;aava-toggle  size="md"  title="Disabled Checked"  [disabled]="true"  [checked]="true">&lt;/aava-toggle></code></pre>
+<h2>State Management​</h2>
+<p>• Checked: Active/enabled state with visual feedback</p>
+<p>• Unchecked: Inactive/disabled state</p>
+<p>• Disabled: Non-interactive state with reduced opacity</p>
+<p>• Focus: Keyboard navigation with clear focus indicators</p>
+<h2>Animation​</h2>
+<pre><code>&lt;!-- With Animation  -->&lt;aava-toggle size="md" title="Animated Toggle" [animation]="true">&lt;/aava-toggle>&lt;!-- Without Animation -->&lt;aava-toggle size="md" title="Non-Animated Toggle" [animation]="false">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;!-- With Animation  -->&lt;aava-toggle size="md" title="Animated Toggle" [animation]="true">&lt;/aava-toggle>&lt;!-- Without Animation -->&lt;aava-toggle size="md" title="Non-Animated Toggle" [animation]="false">&lt;/aava-toggle></code></pre>
+<h2>Events​</h2>
+<p>Event handling for user interactions and state changes.</p>
+<pre><code>&lt;aava-toggle  size="md"  title="Event Toggle"  position="left"  [checked]="eventToggleEnabled"  (checkedChange)="onEventToggleChange($event)">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;aava-toggle  size="md"  title="Event Toggle"  position="left"  [checked]="eventToggleEnabled"  (checkedChange)="onEventToggleChange($event)">&lt;/aava-toggle></code></pre>
+<pre><code>  eventToggleEnabled = false;  onEventToggleChange(checked: boolean) {    this.eventToggleEnabled = checked;    const timestamp = new Date().toLocaleTimeString();    this.eventLogs.unshift(      `[${timestamp}] Event toggle changed to: ${checked ? 'enabled' : 'disabled'      }`    );    // Keep only last 10 entries    if (this.eventLogs.length > 10) {      this.eventLogs = this.eventLogs.slice(0, 10);    }    console.log('Event toggle:', checked ? 'enabled' : 'disabled');  }</code></pre>
+<pre><code>  eventToggleEnabled = false;  onEventToggleChange(checked: boolean) {    this.eventToggleEnabled = checked;    const timestamp = new Date().toLocaleTimeString();    this.eventLogs.unshift(      `[${timestamp}] Event toggle changed to: ${checked ? 'enabled' : 'disabled'      }`    );    // Keep only last 10 entries    if (this.eventLogs.length > 10) {      this.eventLogs = this.eventLogs.slice(0, 10);    }    console.log('Event toggle:', checked ? 'enabled' : 'disabled');  }</code></pre>
+<h2>Event Features​</h2>
+<p>• State Change: Emits boolean value on toggle</p>
+<p>• Keyboard Support: Space and Enter key activation</p>
+<p>• Click Handling: Mouse and touch interaction support</p>
+<p>• Disabled Prevention: No events when disabled</p>
+<h2>Thumb Icon​</h2>
+<p>Add icons to the toggle thumb to visually indicate checked and unchecked states. This is useful for enhancing clarity, especially in settings or preference toggles.</p>
+<pre><code>&lt;aava-toggle  size="lg"  title="Power Toggle"  position="left"  [showIcons]="true"  uncheckedIcon="power"  checkedIcon="check"  [checked]="iconToggle2Enabled"  [animation]="true"  (checkedChange)="onIconToggle2($event)">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;aava-toggle  size="lg"  title="Power Toggle"  position="left"  [showIcons]="true"  uncheckedIcon="power"  checkedIcon="check"  [checked]="iconToggle2Enabled"  [animation]="true"  (checkedChange)="onIconToggle2($event)">&lt;/aava-toggle></code></pre>
+<pre><code>  iconToggle2Enabled = true;  onIconToggle2(checked: boolean) {    this.iconToggle2Enabled = checked;  }</code></pre>
+<pre><code>  iconToggle2Enabled = true;  onIconToggle2(checked: boolean) {    this.iconToggle2Enabled = checked;  }</code></pre>
+<h2>Features​</h2>
+<p>• Show different icons for checked and unchecked states</p>
+<p>• Fully customizable icon names (uses Lucide icon set)</p>
+<p>• Works with all sizes and positions</p>
+<p>• Accessible and keyboard-friendly</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring inclusive user experience.</p>
+<pre><code>&lt;aava-toggle  size="md"  title="Keyboard Accessible Toggle"  position="left"  [checked]="keyboardToggleEnabled"  (checkedChange)="onKeyboardToggleChange($event)">&lt;/aava-toggle></code></pre>
+<pre><code>&lt;aava-toggle  size="md"  title="Keyboard Accessible Toggle"  position="left"  [checked]="keyboardToggleEnabled"  (checkedChange)="onKeyboardToggleChange($event)">&lt;/aava-toggle></code></pre>
+<pre><code>  keyboardToggleEnabled = false;  onKeyboardToggleChange(checked: boolean) {    this.keyboardToggleEnabled = checked;    console.log('Keyboard toggle:', checked ? 'enabled' : 'disabled');  }</code></pre>
+<pre><code>  keyboardToggleEnabled = false;  onKeyboardToggleChange(checked: boolean) {    this.keyboardToggleEnabled = checked;    console.log('Keyboard toggle:', checked ? 'enabled' : 'disabled');  }</code></pre>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Tab navigation and Space/Enter activation</p>
+<p>• ARIA Support: Proper switch role and state announcements</p>
+<p>• Screen Reader: Descriptive labels and state information</p>
+<p>• Focus Management: Clear visual focus indicators</p>
+<p>• High Contrast: Enhanced borders and outlines for visibility</p>
+<p>• Motion Preferences: Respects reduced motion accessibility settings</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+size | 'xs' | 'sm' | 'md' | 'lg' | 'md' | Size variant of the toggle switch
+title | string | '' | Label text displayed next to the toggle
+position | 'left' | 'right' | 'left' | Position of the label relative to switch
+disabled | boolean | false | Whether the toggle is disabled
+checked | boolean | false | Current checked state of the toggle
+animation | boolean | true | Whether to enable smooth animations
+showIcons | boolean | false | Show icons in the thumb for checked/unchecked
+checkedIcon | string | 'check' | Icon name for the checked state (Lucide icon)
+uncheckedIcon | string | 'x' | Icon name for the unchecked state (Lucide icon)</pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>title</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>position</code></pre>
+<pre><code>'left' | 'right'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>checked</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>animation</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showIcons</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>checkedIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'check'</code></pre>
+<pre><code>uncheckedIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'x'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+checkedChange | EventEmitter<boolean> | Emitted when toggle state changes</pre>
+<pre><code>checkedChange</code></pre>
+<pre><code>EventEmitter&lt;boolean></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+onToggle() | - | void | Toggle the checked state (if not disabled)
+onKeyDown() | event: KeyboardEvent | void | Handle keyboard activation (Space/Enter)</pre>
+<pre><code>onToggle()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onKeyDown()</code></pre>
+<pre><code>event: KeyboardEvent</code></pre>
+<pre><code>void</code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+titleName | string | null | Generated ID for label association</pre>
+<pre><code>titleName</code></pre>
+<pre><code>string | null</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--toggle-icon-checked-color | Color of the icon when toggle is checked
+--toggle-icon-unchecked-color | Color of the icon when toggle is unchecked
+--text-color-secondary | Secondary text color used in toggle
+--toggle-gap | Gap between toggle and label
+--toggle-label-text | Color of the label text
+--toggle-font-size-xs | Font size for extra small label
+--toggle-font-size-sm | Font size for small label
+--toggle-font-size-md | Font size for medium label
+--toggle-font-size-lg | Font size for large label
+--toggle-label-disabled-text | Color of label text when toggle is disabled
+--toggle-border-radius | Border radius of toggle elements
+--toggle-track-background | Background color of the toggle track
+--toggle-track-checked-background-gradient | Background gradient for checked state
+--toggle-size-xs-width | Width of extra small toggle switch
+--toggle-size-xs-height | Height of extra small toggle switch
+--toggle-size-xs-thumb-size | Size of the thumb for extra small toggle
+--toggle-size-sm-width | Width of small toggle switch
+--toggle-size-sm-height | Height of small toggle switch
+--toggle-size-sm-thumb-size | Size of the thumb for small toggle
+--toggle-size-md-width | Width of medium toggle switch
+--toggle-size-md-height | Height of medium toggle switch
+--toggle-size-md-thumb-size | Size of the thumb for medium toggle
+--toggle-size-lg-width | Width of large toggle switch
+--toggle-size-lg-height | Height of large toggle switch
+--toggle-size-lg-thumb-size | Size of the thumb for large toggle
+--toggle-glass-shadow | Glass shadow effect for toggle
+--toggle-thumb-background | Background color of the toggle thumb</pre>
+<pre><code>--toggle-icon-checked-color</code></pre>
+<pre><code>--toggle-icon-unchecked-color</code></pre>
+<pre><code>--text-color-secondary</code></pre>
+<pre><code>--toggle-gap</code></pre>
+<pre><code>--toggle-label-text</code></pre>
+<pre><code>--toggle-font-size-xs</code></pre>
+<pre><code>--toggle-font-size-sm</code></pre>
+<pre><code>--toggle-font-size-md</code></pre>
+<pre><code>--toggle-font-size-lg</code></pre>
+<pre><code>--toggle-label-disabled-text</code></pre>
+<pre><code>--toggle-border-radius</code></pre>
+<pre><code>--toggle-track-background</code></pre>
+<pre><code>--toggle-track-checked-background-gradient</code></pre>
+<pre><code>--toggle-size-xs-width</code></pre>
+<pre><code>--toggle-size-xs-height</code></pre>
+<pre><code>--toggle-size-xs-thumb-size</code></pre>
+<pre><code>--toggle-size-sm-width</code></pre>
+<pre><code>--toggle-size-sm-height</code></pre>
+<pre><code>--toggle-size-sm-thumb-size</code></pre>
+<pre><code>--toggle-size-md-width</code></pre>
+<pre><code>--toggle-size-md-height</code></pre>
+<pre><code>--toggle-size-md-thumb-size</code></pre>
+<pre><code>--toggle-size-lg-width</code></pre>
+<pre><code>--toggle-size-lg-height</code></pre>
+<pre><code>--toggle-size-lg-thumb-size</code></pre>
+<pre><code>--toggle-glass-shadow</code></pre>
+<pre><code>--toggle-thumb-background</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use toggles for immediate binary actions that take effect instantly</p>
+<p>• Place labels on the left for left-to-right reading patterns</p>
+<p>• Choose appropriate sizes based on interface hierarchy</p>
+<p>• Use disabled state for features unavailable to current user</p>
+<p>• Consider animation preferences for better accessibility</p>
+<h2>Accessibility​</h2>
+<p>• Always provide meaningful titles that describe the toggle purpose</p>
+<p>• Use proper ARIA attributes for screen reader compatibility</p>
+<p>• Ensure sufficient color contrast for all states</p>
+<p>• Test keyboard navigation thoroughly</p>
+<p>• Consider reduced motion preferences</p>
+<h2>Performance​</h2>
+<p>• Avoid frequent programmatic state changes that trigger animations</p>
+<p>• Use OnPush change detection strategy for optimal performance</p>
+<p>• Consider disabling animations in performance-critical scenarios</p>
+</body></html>
