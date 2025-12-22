@@ -1,0 +1,211 @@
+<html><head><meta charset='utf-8'>
+<title>Radio-Button</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Radio-Button</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Radio-Button</small></p>
+<h2>Radio Button</h2>
+<p>The<aava-radio-button>component provides a radio button group for single-choice selections with multiple layout orientations, size options, custom color theming, and smooth interaction effects. It includes full Angular forms integration and accessibility compliance.</p>
+<pre><code>&lt;aava-radio-button></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaRadioButtonComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaRadioButtonComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple radio button group implementation with multiple options and two-way data binding.</p>
+<pre><code>&lt;aava-radio-button  [options]="[                    { label: 'Option 1', value: 'option1' },                    { label: 'Option 2', value: 'option2' },                    { label: 'Option 3', value: 'option3' },                  ]"  name="basic-radio"  selectedValue="option1"  (selectedValueChange)="onRadioChange($event)">&lt;/aava-radio-button></code></pre>
+<pre><code>&lt;aava-radio-button  [options]="[                    { label: 'Option 1', value: 'option1' },                    { label: 'Option 2', value: 'option2' },                    { label: 'Option 3', value: 'option3' },                  ]"  name="basic-radio"  selectedValue="option1"  (selectedValueChange)="onRadioChange($event)">&lt;/aava-radio-button></code></pre>
+<pre><code>  onRadioChange(value: string) {    console.log('Radio button selection changed:', value);  }</code></pre>
+<pre><code>  onRadioChange(value: string) {    console.log('Radio button selection changed:', value);  }</code></pre>
+<h2>Orientations​</h2>
+<p>The radio button component supports both horizontal and vertical layouts to accommodate different design requirements.</p>
+<pre><code>&lt;aava-radio-button  [options]="[                  { label: 'Option 1', value: 'option1' },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' },                ]"  name="vertical-radio"  orientation="vertical"  selectedValue="option2"  (selectedValueChange)="onRadioChange('vertical', $event)">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[                  { label: 'Option 1', value: 'option1' },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' },                ]"  name="horizontal-radio"  orientation="horizontal"  selectedValue="option3"  (selectedValueChange)="onRadioChange('horizontal', $event)">&lt;/aava-radio-button></code></pre>
+<pre><code>&lt;aava-radio-button  [options]="[                  { label: 'Option 1', value: 'option1' },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' },                ]"  name="vertical-radio"  orientation="vertical"  selectedValue="option2"  (selectedValueChange)="onRadioChange('vertical', $event)">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[                  { label: 'Option 1', value: 'option1' },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' },                ]"  name="horizontal-radio"  orientation="horizontal"  selectedValue="option3"  (selectedValueChange)="onRadioChange('horizontal', $event)">&lt;/aava-radio-button></code></pre>
+<pre><code>  onRadioChange(orientation: string, value: string) {    console.log(`${orientation} orientation selection changed:`, value);  }</code></pre>
+<pre><code>  onRadioChange(orientation: string, value: string) {    console.log(`${orientation} orientation selection changed:`, value);  }</code></pre>
+<h2>Available Orientations​</h2>
+<p>• vertical- Stacked layout with options arranged vertically (default)</p>
+<p>• horizontal- Inline layout with options arranged horizontally</p>
+<h2>Sizes​</h2>
+<p>Three size options to match different interface densities and visual hierarchies.</p>
+<pre><code>&lt;aava-radio-button  [options]="[          { label: 'Option 1', value: 'option1' },          { label: 'Option 2', value: 'option2' },          { label: 'Option 3', value: 'option3' }        ]"  name="small-radio"  size="sm"  selectedValue="option1">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[          { label: 'Option 1', value: 'option1' },          { label: 'Option 2', value: 'option2' },          { label: 'Option 3', value: 'option3' }        ]"  name="medium-radio"  size="md"  selectedValue="option2">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[          { label: 'Option 1', value: 'option1' },          { label: 'Option 2', value: 'option2' },          { label: 'Option 3', value: 'option3' }        ]"  name="large-radio"  size="lg"  selectedValue="option3">&lt;/aava-radio-button></code></pre>
+<pre><code>&lt;aava-radio-button  [options]="[          { label: 'Option 1', value: 'option1' },          { label: 'Option 2', value: 'option2' },          { label: 'Option 3', value: 'option3' }        ]"  name="small-radio"  size="sm"  selectedValue="option1">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[          { label: 'Option 1', value: 'option1' },          { label: 'Option 2', value: 'option2' },          { label: 'Option 3', value: 'option3' }        ]"  name="medium-radio"  size="md"  selectedValue="option2">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[          { label: 'Option 1', value: 'option1' },          { label: 'Option 2', value: 'option2' },          { label: 'Option 3', value: 'option3' }        ]"  name="large-radio"  size="lg"  selectedValue="option3">&lt;/aava-radio-button></code></pre>
+<h2>Available Sizes​</h2>
+<p>• sm (Small)- Compact size for dense interfaces</p>
+<p>• md (Medium)- Standard size for most use cases (default)</p>
+<p>• lg (Large)- Prominent size for important selections</p>
+<h2>States​</h2>
+<p>Various states for different user scenarios including selection, disabled, and interactive states.</p>
+<pre><code>&lt;aava-radio-button  [options]="[              { label: 'Option 1', value: 'option1' },              { label: 'Option 2', value: 'option2' },              { label: 'Option 3', value: 'option3' },            ]"  name="default-states"  selectedValue="">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[                  { label: 'Option 1 (Disabled)', value: 'option1', disabled: true },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' }              ]"  name="disabled-states"  selectedValue="option2">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[                  { label: 'Option 1 (Disabled)', value: 'option1', disabled: true },                  { label: 'Option 2 (Disabled)', value: 'option2', disabled: true },                  { label: 'Option 3 (Disabled)', value: 'option3', disabled: true },              ]"  name="all-disabled"  selectedValue="option3">&lt;/aava-radio-button></code></pre>
+<pre><code>&lt;aava-radio-button  [options]="[              { label: 'Option 1', value: 'option1' },              { label: 'Option 2', value: 'option2' },              { label: 'Option 3', value: 'option3' },            ]"  name="default-states"  selectedValue="">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[                  { label: 'Option 1 (Disabled)', value: 'option1', disabled: true },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' }              ]"  name="disabled-states"  selectedValue="option2">&lt;/aava-radio-button>&lt;aava-radio-button  [options]="[                  { label: 'Option 1 (Disabled)', value: 'option1', disabled: true },                  { label: 'Option 2 (Disabled)', value: 'option2', disabled: true },                  { label: 'Option 3 (Disabled)', value: 'option3', disabled: true },              ]"  name="all-disabled"  selectedValue="option3">&lt;/aava-radio-button></code></pre>
+<h2>Available States​</h2>
+<p>• Unselected- Default state for non-selected options</p>
+<p>• Selected- Active state showing the selected option</p>
+<p>• Disabled- Non-interactive state for unavailable options</p>
+<h2>Custom Colors​</h2>
+<p>Comprehensive color customization for radio buttons and labels to match design requirements.</p>
+<pre><code>&lt;aava-radio-button  [options]="[                  { label: 'Option 1', value: 'option1' },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' },                ]"  name="full-custom"  color="#8e44ad"  labelColor="#1996FC"  selectedValue="option2">&lt;/aava-radio-button></code></pre>
+<pre><code>&lt;aava-radio-button  [options]="[                  { label: 'Option 1', value: 'option1' },                  { label: 'Option 2', value: 'option2' },                  { label: 'Option 3', value: 'option3' },                ]"  name="full-custom"  color="#8e44ad"  labelColor="#1996FC"  selectedValue="option2">&lt;/aava-radio-button></code></pre>
+<h2>Color Customization Options​</h2>
+<p>• labelColor- Custom color for option labels</p>
+<p>• color- Cutom color for the dot</p>
+<h2>Form Integration​</h2>
+<p>Form integration with ControlValueAccessor implementation for reactive from</p>
+<pre><code>&lt;div class="demo-section center-demo">  &lt;div class="forms-grid">    &lt;h4>Reactive Form&lt;/h4>    &lt;form [formGroup]="reactiveForm" (ngSubmit)="onReactiveSubmit()">      &lt;div class="form-group">        &lt;div class="form-field">          &lt;label>Theme Selection:&lt;/label>          &lt;aava-radio-button            formControlName="theme"            [options]="themeOptions"            name="theme-selection"            (selectedValueChange)="onReactiveThemeChange($event)"          >&lt;/aava-radio-button>        &lt;/div>        &lt;div class="form-field">          &lt;label>Size Preference:&lt;/label>          &lt;aava-radio-button            formControlName="size"            [options]="sizeOptions"            name="size-selection"            (selectedValueChange)="onReactiveSizeChange($event)"          >&lt;/aava-radio-button>        &lt;/div>      &lt;/div>      &lt;aava-button        label="Submit Form"        variant="primary"        [disabled]="!reactiveForm.valid"      >      &lt;/aava-button>      &lt;div class="form-status">        &lt;p>&lt;strong>Form Status:&lt;/strong> {{ reactiveForm.status }}&lt;/p>      &lt;/div>      &lt;div *ngIf="showFormvalue">        &lt;span>Form Value&lt;/span>        &lt;pre>            {{ reactiveForm.value | json }}          &lt;/pre        >      &lt;/div>    &lt;/form>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="demo-section center-demo">  &lt;div class="forms-grid">    &lt;h4>Reactive Form&lt;/h4>    &lt;form [formGroup]="reactiveForm" (ngSubmit)="onReactiveSubmit()">      &lt;div class="form-group">        &lt;div class="form-field">          &lt;label>Theme Selection:&lt;/label>          &lt;aava-radio-button            formControlName="theme"            [options]="themeOptions"            name="theme-selection"            (selectedValueChange)="onReactiveThemeChange($event)"          >&lt;/aava-radio-button>        &lt;/div>        &lt;div class="form-field">          &lt;label>Size Preference:&lt;/label>          &lt;aava-radio-button            formControlName="size"            [options]="sizeOptions"            name="size-selection"            (selectedValueChange)="onReactiveSizeChange($event)"          >&lt;/aava-radio-button>        &lt;/div>      &lt;/div>      &lt;aava-button        label="Submit Form"        variant="primary"        [disabled]="!reactiveForm.valid"      >      &lt;/aava-button>      &lt;div class="form-status">        &lt;p>&lt;strong>Form Status:&lt;/strong> {{ reactiveForm.status }}&lt;/p>      &lt;/div>      &lt;div *ngIf="showFormvalue">        &lt;span>Form Value&lt;/span>        &lt;pre>            {{ reactiveForm.value | json }}          &lt;/pre        >      &lt;/div>    &lt;/form>  &lt;/div>&lt;/div></code></pre>
+<pre><code>  reactiveForm: FormGroup;  showFormvalue = false;  themeOptions: RadioOption[] = [    { label: 'Light Theme', value: 'light' },    { label: 'Dark Theme', value: 'dark' },    { label: 'Auto Theme', value: 'auto' },  ];  sizeOptions: RadioOption[] = [    { label: 'Small', value: 'small' },    { label: 'Medium', value: 'medium' },    { label: 'Large', value: 'large' },  ];  constructor(private fb: FormBuilder) {    this.reactiveForm = this.fb.group({      theme: ['', Validators.required],      size: ['medium', Validators.required],    });  }  onReactiveSubmit() {    if (this.reactiveForm.valid) {      this.showFormvalue = true;      console.log('Reactive form submitted:', this.reactiveForm.value);    }  }</code></pre>
+<pre><code>  reactiveForm: FormGroup;  showFormvalue = false;  themeOptions: RadioOption[] = [    { label: 'Light Theme', value: 'light' },    { label: 'Dark Theme', value: 'dark' },    { label: 'Auto Theme', value: 'auto' },  ];  sizeOptions: RadioOption[] = [    { label: 'Small', value: 'small' },    { label: 'Medium', value: 'medium' },    { label: 'Large', value: 'large' },  ];  constructor(private fb: FormBuilder) {    this.reactiveForm = this.fb.group({      theme: ['', Validators.required],      size: ['medium', Validators.required],    });  }  onReactiveSubmit() {    if (this.reactiveForm.valid) {      this.showFormvalue = true;      console.log('Reactive form submitted:', this.reactiveForm.value);    }  }</code></pre>
+<h2>Reactive Form Features​</h2>
+<p>• FormControl binding- Direct integration with Angular reactive forms</p>
+<p>• Value tracking- Proper change detection and emission</p>
+<p>• Disabled control- Programmatic enable/disable support</p>
+<h2>Accessibility Support​</h2>
+<p>The Radio Button component provides comprehensive accessibility features to ensure compatibility with screen readers, keyboard navigation, and mobile devices.</p>
+<h2>ARIA Support​</h2>
+<p>• role="radiogroup"- Container identifies as a radio button group</p>
+<p>• role="radio"- Each option is properly identified as a radio button</p>
+<p>• aria-checked- Indicates selection state (true/false)</p>
+<p>• aria-disabled- Identifies disabled options</p>
+<p>• aria-label- Describes the radio group ("Radio button group with X options")</p>
+<p>• aria-labelledby- Links radio buttons to their text labels</p>
+<p>• aria-describedby- Provides additional context for screen readers</p>
+<p>• aria-hidden="true"- Hides decorative elements from assistive technology</p>
+<pre><code>role="radiogroup"</code></pre>
+<pre><code>role="radio"</code></pre>
+<pre><code>aria-checked</code></pre>
+<pre><code>aria-disabled</code></pre>
+<pre><code>aria-label</code></pre>
+<pre><code>aria-labelledby</code></pre>
+<pre><code>aria-describedby</code></pre>
+<pre><code>aria-hidden="true"</code></pre>
+<h2>Keyboard Navigation​</h2>
+<p>• Arrow Keys (↑↓←→)- Navigate between radio options</p>
+<p>• Space/Enter- Select the currently focused option</p>
+<p>• Tab- Enter and exit the radio group</p>
+<p>• Circular Navigation- Arrow keys wrap around when reaching first/last option</p>
+<p>• Skip Disabled- Navigation automatically skips disabled options</p>
+<p>• Visual Focus- Clear focus indicators show current keyboard position</p>
+<h2>WCAG 2.1 Compliance​</h2>
+<p>• Level AAcompliant for color contrast</p>
+<p>• Keyboard Accessible- All functionality available via keyboard</p>
+<p>• Focus Management- Logical focus order and clear indicators</p>
+<p>• Semantic Structure- Proper HTML roles and relationships</p>
+<p>• Error Prevention- Clear state indication prevents user confusion</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+options | RadioOption[] | [] | Array of radio button options
+name | string | '' | HTML name attribute for the radio group
+selectedValue | string | '' | Currently selected option value
+size | 'sm' | 'md' | 'lg' | 'md' | Size of radio buttons
+orientation | 'horizontal' | 'vertical' | 'vertical' | Layout orientation
+color | string | '' | Custom color for radio button and glow
+labelColor | string | '' | Custom color for option labels
+radio | 'dot' | 'none' | 'dot' | Whether to show the inner dot
+animation | 'none' | 'shadow' | 'none' | Animation effect for selection</pre>
+<pre><code>options</code></pre>
+<pre><code>RadioOption[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>name</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>selectedValue</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'sm' | 'md' | 'lg'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>orientation</code></pre>
+<pre><code>'horizontal' | 'vertical'</code></pre>
+<pre><code>'vertical'</code></pre>
+<pre><code>color</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>labelColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>radio</code></pre>
+<pre><code>'dot' | 'none'</code></pre>
+<pre><code>'dot'</code></pre>
+<pre><code>animation</code></pre>
+<pre><code>'none' | 'shadow'</code></pre>
+<pre><code>'none'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+selectedValueChange | EventEmitter<string> | Emitted when selection changes</pre>
+<pre><code>selectedValueChange</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--radio-group-gap | Gap between radio button options
+--radio-checkmark-background | Background color of the radio button circle
+--radio-checkmark-border | Border color of the radio button
+--radio-checkmark-border-radius | Border radius for the radio button
+--radio-checkmark-background-disabled | Background when disabled
+--radio-checkmark-border-disabled | Border color when disabled
+--radio-dot-background | Background color of the inner dot
+--radio-dot-border-radius | Border radius of the inner dot
+--radio-dot-background-disabled | Dot background when disabled
+--radio-label-color | Text color for option labels
+--radio-label-font | Font properties for labels
+--radio-label-margin-left | Left margin for labels
+--radio-label-color-disabled | Label text color when disabled
+--radio-label-cursor-disabled | Cursor style when disabled
+--radio-cursor | Cursor style for interactive elements
+--radio-cursor-disabled | Cursor style when disabled
+--radio-custom-glow-color | Custom glow color for selected state
+--radio-size-sm | Size dimensions for small variant
+--radio-size-md | Size dimensions for medium variant
+--radio-size-lg | Size dimensions for large variant
+--radio-size-sm-dot | Dot size for small variant
+--radio-size-md-dot | Dot size for medium variant
+--radio-size-lg-dot | Dot size for large variant
+--radio-size-sm-label | Label font size for small variant
+--radio-size-md-label | Label font size for medium variant
+--radio-size-lg-label | Label font size for large variant</pre>
+<pre><code>--radio-group-gap</code></pre>
+<pre><code>--radio-checkmark-background</code></pre>
+<pre><code>--radio-checkmark-border</code></pre>
+<pre><code>--radio-checkmark-border-radius</code></pre>
+<pre><code>--radio-checkmark-background-disabled</code></pre>
+<pre><code>--radio-checkmark-border-disabled</code></pre>
+<pre><code>--radio-dot-background</code></pre>
+<pre><code>--radio-dot-border-radius</code></pre>
+<pre><code>--radio-dot-background-disabled</code></pre>
+<pre><code>--radio-label-color</code></pre>
+<pre><code>--radio-label-font</code></pre>
+<pre><code>--radio-label-margin-left</code></pre>
+<pre><code>--radio-label-color-disabled</code></pre>
+<pre><code>--radio-label-cursor-disabled</code></pre>
+<pre><code>--radio-cursor</code></pre>
+<pre><code>--radio-cursor-disabled</code></pre>
+<pre><code>--radio-custom-glow-color</code></pre>
+<pre><code>--radio-size-sm</code></pre>
+<pre><code>--radio-size-md</code></pre>
+<pre><code>--radio-size-lg</code></pre>
+<pre><code>--radio-size-sm-dot</code></pre>
+<pre><code>--radio-size-md-dot</code></pre>
+<pre><code>--radio-size-lg-dot</code></pre>
+<pre><code>--radio-size-sm-label</code></pre>
+<pre><code>--radio-size-md-label</code></pre>
+<pre><code>--radio-size-lg-label</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Provide clear options- Use descriptive labels that clearly distinguish choices</p>
+<p>• Limit option count- Keep radio groups to 7 or fewer options for usability</p>
+<p>• Choose appropriate orientation- Use vertical for longer lists, horizontal for 2-4 items</p>
+<p>• Include default selection- Pre-select the most common or safe option when appropriate</p>
+<p>• Group related options- Only use radio buttons for mutually exclusive choices</p>
+<p>• Consider disabled states- Disable options that aren't currently available</p>
+<h2>Performance​</h2>
+<p>• Optimize option rendering- Use trackBy functions for dynamic option lists</p>
+<p>• Debounce rapid changes- Consider debouncing for real-time validation</p>
+<p>• Minimize re-renders- Use OnPush change detection strategy</p>
+<p>• Efficient event handling- Use event delegation for large option lists</p>
+<h2>Form Integration​</h2>
+<p>• Test with forms- Ensure proper integration with your form validation</p>
+<p>• Handle validation- Provide clear feedback for required selections</p>
+<p>• Consider reset behavior- Define what happens when forms are reset</p>
+<p>• Support reactive forms- Use proper ControlValueAccessor implementation</p>
+</body></html>
