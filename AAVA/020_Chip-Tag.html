@@ -1,0 +1,407 @@
+<html><head><meta charset='utf-8'>
+<title>Chip-Tag</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Chip-Tag</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Display/Chip-Tag</small></p>
+<h2>Tag</h2>
+<p>A modern, accessible, and highly customizable tag/chip component for displaying labels, categories, status information, and actionable items. Features multiple color variants, sizes, icons, avatars, and interactive capabilities.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaTagComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTagComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple tag implementations with labels and basic styling options.</p>
+<pre><code>&lt;aava-tag type="tag" color="default" size="lg" label="Default Tag">&lt;/aava-tag>&lt;aava-tag  type="tag"  color="default"  size="lg"  label="Outlined Tag"  [variant]="outlined">&lt;/aava-tag>&lt;aava-tag  type="tag"  color="default"  size="lg"  label="Pill Tag"  [pill]="true">&lt;/aava-tag>&lt;aava-tag  type="tag"  color="default"  size="lg"  label="Outlined Pill Tag"  [variant]="outlined"  [pill]="true">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag type="tag" color="default" size="lg" label="Default Tag">&lt;/aava-tag>&lt;aava-tag  type="tag"  color="default"  size="lg"  label="Outlined Tag"  [variant]="outlined">&lt;/aava-tag>&lt;aava-tag  type="tag"  color="default"  size="lg"  label="Pill Tag"  [pill]="true">&lt;/aava-tag>&lt;aava-tag  type="tag"  color="default"  size="lg"  label="Outlined Pill Tag"  [variant]="outlined"  [pill]="true">&lt;/aava-tag></code></pre>
+<h2>Status Badge​</h2>
+<p>Semantic status badges for different contexts and meanings.</p>
+<pre><code>&lt;aava-tag type='badge' label="Success" color="success" [size]="'lg'">&lt;/aava-tag>&lt;aava-tag type='badge' label="Warning" color="warning" [size]="'lg'">&lt;/aava-tag>&lt;aava-tag type='badge' label="Error" color="error" [size]="'lg'">&lt;/aava-tag>&lt;aava-tag type='badge' label="Info" color="info" [size]="'lg'">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag type='badge' label="Success" color="success" [size]="'lg'">&lt;/aava-tag>&lt;aava-tag type='badge' label="Warning" color="warning" [size]="'lg'">&lt;/aava-tag>&lt;aava-tag type='badge' label="Error" color="error" [size]="'lg'">&lt;/aava-tag>&lt;aava-tag type='badge' label="Info" color="info" [size]="'lg'">&lt;/aava-tag></code></pre>
+<pre><code>  onTagClick(tagName: string): void {    console.log(`${tagName} tag clicked!`);  }</code></pre>
+<pre><code>  onTagClick(tagName: string): void {    console.log(`${tagName} tag clicked!`);  }</code></pre>
+<h2>Available Status Badge Colors​</h2>
+<p>• Success: Green for positive states and confirmations</p>
+<p>• Warning: Orange for caution and attention states</p>
+<p>• Error: Red for error states and critical information</p>
+<p>• Info: Blue for informational content</p>
+<p>• Custom: User-defined colors via CSS custom properties</p>
+<h2>Variants​</h2>
+<p>Filled and outlined style variants for different visual emphasis.</p>
+<pre><code>&lt;aava-tag label="Filled" size="lg" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag  label="Outlined"  size="lg"  color="default"  variant="outlined">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag label="Filled" size="lg" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag  label="Outlined"  size="lg"  color="default"  variant="outlined">&lt;/aava-tag></code></pre>
+<h2>Style Variants​</h2>
+<p>• Filled: Solid background with high contrast (default)</p>
+<p>• Outlined: Transparent background with colored border and text</p>
+<h2>Sizes​</h2>
+<p>Three size options to fit different interface requirements and hierarchy.</p>
+<pre><code>&lt;aava-tag  label="Extra Small"  size="xs"  color="default"  variant="filled">&lt;/aava-tag>&lt;aava-tag label="Small" size="sm" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag label="Medium" size="md" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag label="Large" size="lg" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag  label="Extra Large"  size="xl"  color="default"  variant="filled">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag  label="Extra Small"  size="xs"  color="default"  variant="filled">&lt;/aava-tag>&lt;aava-tag label="Small" size="sm" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag label="Medium" size="md" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag label="Large" size="lg" color="default" variant="filled">&lt;/aava-tag>&lt;aava-tag  label="Extra Large"  size="xl"  color="default"  variant="filled">&lt;/aava-tag></code></pre>
+<h2>Available Sizes​</h2>
+<p>• xs (Extra Small)- Extra compact size for very dense interfaces</p>
+<p>• sm (Small)- Compact size for dense interfaces</p>
+<p>• md (Medium)- Standard size for most use cases (default)</p>
+<p>• lg (Large)- Prominent size for primary actions</p>
+<p>• xl (Extra Large)- Extra large size for hero sections and CTAs</p>
+<h2>Icons​</h2>
+<p>Icon integration with positioning and customization options.</p>
+<pre><code>&lt;aava-tag  label="Star"  icon="star"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Check"  icon="check-circle"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Warning"  icon="alert-triangle"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Error"  icon="x-circle"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Info"  icon="info"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag  label="Star"  icon="star"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Check"  icon="check-circle"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Warning"  icon="alert-triangle"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Error"  icon="x-circle"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag>&lt;aava-tag  label="Info"  icon="info"  iconPosition="start"  [size]="'lg'">&lt;/aava-tag></code></pre>
+<h2>Icon Features​</h2>
+<p>• Positioning: Start (leading) or end (trailing) positions</p>
+<p>• Custom Colors: Override icon colors independently</p>
+<p>• Size Adaptation: Icons automatically scale with tag size</p>
+<p>• Icon Library: Integration with ava-icon component system</p>
+<h2>Avatars​</h2>
+<p>User avatar support for person tags and user identification.</p>
+<pre><code>&lt;aava-tag  label="John Smith"  [size]="'lg'"  [avatar]="https://randomuser.me/api/portraits/men/32.jpg">&lt;/aava-tag>&lt;aava-tag  label="Kane Smith"  [size]="'lg'"  [avatar]="https://randomuser.me/api/portraits/men/44.jpg">&lt;/aava-tag>&lt;aava-tag  label="Bob Wilson"  [size]="'lg'"  [avatar]="https://randomuser.me/api/portraits/men/67.jpg">&lt;/aava-tag>&lt;aava-tag label="Alice Brown" [size]="'lg'" [avatar]="AB">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag  label="John Smith"  [size]="'lg'"  [avatar]="https://randomuser.me/api/portraits/men/32.jpg">&lt;/aava-tag>&lt;aava-tag  label="Kane Smith"  [size]="'lg'"  [avatar]="https://randomuser.me/api/portraits/men/44.jpg">&lt;/aava-tag>&lt;aava-tag  label="Bob Wilson"  [size]="'lg'"  [avatar]="https://randomuser.me/api/portraits/men/67.jpg">&lt;/aava-tag>&lt;aava-tag label="Alice Brown" [size]="'lg'" [avatar]="AB">&lt;/aava-tag></code></pre>
+<h2>Avatar Types​</h2>
+<p>• Image Avatars: Profile pictures from URLs</p>
+<p>• Initial Avatars: Text-based avatars with user initials</p>
+<h2>Interactive Tags​</h2>
+<p>Clickable and removable tags with event handling and state management.</p>
+<pre><code>&lt;aava-tag  *ngFor="let tag of tags; trackBy: trackByTag"  [label]="tag.label"  [removable]="true"  (clicked)="onTagClick(tag.label)"  (removed)="onTagRemove(tag)"  [pill]="true"  [size]="'lg'"  [variant]="'outlined'">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag  *ngFor="let tag of tags; trackBy: trackByTag"  [label]="tag.label"  [removable]="true"  (clicked)="onTagClick(tag.label)"  (removed)="onTagRemove(tag)"  [pill]="true"  [size]="'lg'"  [variant]="'outlined'">&lt;/aava-tag></code></pre>
+<pre><code> tags: Tag[] = [    { id: 1, label: 'JavaScript' },    { id: 2, label: 'Angular' },    { id: 3, label: 'TypeScript' },    { id: 4, label: 'CSS' },    { id: 5, label: 'HTML' },  ];  onTagClick(tagName: string): void {    console.log(`${tagName} tag clicked!`);  }  onTagRemove(tagToRemove: Tag): void {    this.tags = this.tags.filter((tag) => tag.id !== tagToRemove.id);    console.log(`${tagToRemove.label} tag removed!`);  }  trackByTag(index: number, tag: Tag): number {    return tag.id;  }</code></pre>
+<pre><code> tags: Tag[] = [    { id: 1, label: 'JavaScript' },    { id: 2, label: 'Angular' },    { id: 3, label: 'TypeScript' },    { id: 4, label: 'CSS' },    { id: 5, label: 'HTML' },  ];  onTagClick(tagName: string): void {    console.log(`${tagName} tag clicked!`);  }  onTagRemove(tagToRemove: Tag): void {    this.tags = this.tags.filter((tag) => tag.id !== tagToRemove.id);    console.log(`${tagToRemove.label} tag removed!`);  }  trackByTag(index: number, tag: Tag): number {    return tag.id;  }</code></pre>
+<h2>Interactive Features​</h2>
+<p>• Clickable: Click handlers for tag selection and navigation</p>
+<p>• Removable: Close button with removal events</p>
+<p>• Hover Effects: Visual feedback for interactive states</p>
+<p>• Keyboard Support: Enter key activation for accessibility</p>
+<p>• Disabled State: Non-interactive disabled appearance</p>
+<h2>Custom Tags​</h2>
+<p>Custom color tags with user-defined styling using CSS custom properties.</p>
+<pre><code>&lt;aava-tag  *ngFor="let tag of customColorTags"  [label]="tag.label"  [color]="tag.color"  [size]="tag.size"  [customStyle]="tag.customStyle"  (clicked)="onTagClick(tag.label)">&lt;/aava-tag></code></pre>
+<pre><code>&lt;aava-tag  *ngFor="let tag of customColorTags"  [label]="tag.label"  [color]="tag.color"  [size]="tag.size"  [customStyle]="tag.customStyle"  (clicked)="onTagClick(tag.label)">&lt;/aava-tag></code></pre>
+<pre><code>export interface CustomColorTag {  label: string;  color: 'custom';  size: 'lg';  customStyle: Record&lt;string, string>;}export class TagsColorsComponent {  customColorTags: CustomColorTag[] = [    {      label: 'Purple',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#f3e8ff',        '--tag-custom-color': '#7c3aed',        '--tag-custom-border': '1px solid #7c3aed'      }    },    {      label: 'Pink',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#fdf2f8',        '--tag-custom-color': '#ec4899',        '--tag-custom-border': '1px solid #ec4899'      }    },    {      label: 'Teal',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#f0fdfa',        '--tag-custom-color': '#14b8a6',        '--tag-custom-border': '1px solid #14b8a6'      }    },    {      label: 'Orange',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#fff7ed',        '--tag-custom-color': '#ea580c',        '--tag-custom-border': '1px solid #ea580c'      }    },    {      label: 'Indigo',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#eef2ff',        '--tag-custom-color': '#6366f1',        '--tag-custom-border': '1px solid #6366f1'      }    }  ];  onTagClick(tagName: string): void {    console.log(`${tagName} tag clicked!`);  }}</code></pre>
+<pre><code>export interface CustomColorTag {  label: string;  color: 'custom';  size: 'lg';  customStyle: Record&lt;string, string>;}export class TagsColorsComponent {  customColorTags: CustomColorTag[] = [    {      label: 'Purple',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#f3e8ff',        '--tag-custom-color': '#7c3aed',        '--tag-custom-border': '1px solid #7c3aed'      }    },    {      label: 'Pink',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#fdf2f8',        '--tag-custom-color': '#ec4899',        '--tag-custom-border': '1px solid #ec4899'      }    },    {      label: 'Teal',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#f0fdfa',        '--tag-custom-color': '#14b8a6',        '--tag-custom-border': '1px solid #14b8a6'      }    },    {      label: 'Orange',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#fff7ed',        '--tag-custom-color': '#ea580c',        '--tag-custom-border': '1px solid #ea580c'      }    },    {      label: 'Indigo',      color: 'custom',      size: 'lg',      customStyle: {        '--tag-custom-bg': '#eef2ff',        '--tag-custom-color': '#6366f1',        '--tag-custom-border': '1px solid #6366f1'      }    }  ];  onTagClick(tagName: string): void {    console.log(`${tagName} tag clicked!`);  }}</code></pre>
+<h2>Custom Color Implementation​</h2>
+<p>Create custom colored tags by setting thecolorprop to"custom"and providing custom CSS properties through thecustomStyleinput:</p>
+<pre><code>color</code></pre>
+<pre><code>"custom"</code></pre>
+<pre><code>customStyle</code></pre>
+<p>• --tag-custom-bg: Background color for the tag</p>
+<p>• --tag-custom-color: Text color for the tag</p>
+<p>• --tag-custom-border: Border styling for the tag</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring inclusive user experience.</p>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Tab navigation and Enter activation</p>
+<p>• ARIA Support: Proper roles and attributes for screen readers</p>
+<p>• Focus Management: Clear visual focus indicators</p>
+<p>• Disabled States: Proper disabled state communication</p>
+<p>• Color Contrast: WCAG-compliant color combinations</p>
+<p>• Screen Reader: Descriptive labels and state announcements</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+label | string | '' | Text label for the tag
+color | 'default' | 'primary' | 'success' | 'warning' | 'error' | 'info' | 'custom' | 'default' | Color variant for the tag
+variant | 'filled' | 'outlined' | 'filled' | Visual style variant
+size | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'sm' | Size of the tag component
+pill | boolean | false | Whether to use pill-shaped (fully rounded) design
+removable | boolean | false | Whether to show remove button
+disabled | boolean | false | Whether the tag is disabled
+icon | string | undefined | Icon name for ava-icon component
+iconPosition | 'start' | 'end' | 'start' | Position of the icon relative to label
+avatar | string | undefined | Avatar image URL or initials text
+iconColor | string | undefined | Custom color for icons
+customStyle | Record<string, string> | undefined | Custom CSS custom properties
+customClass | string | undefined | Additional CSS class names
+type | 'badge' | 'tag' | 'tag' | Component type: tag or status badge</pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>color</code></pre>
+<pre><code>'default' | 'primary' | 'success' | 'warning' | 'error' | 'info' | 'custom'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>'filled' | 'outlined'</code></pre>
+<pre><code>'filled'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'sm'</code></pre>
+<pre><code>pill</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>removable</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>icon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>iconPosition</code></pre>
+<pre><code>'start' | 'end'</code></pre>
+<pre><code>'start'</code></pre>
+<pre><code>avatar</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>iconColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customStyle</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customClass</code></pre>
+<pre><code>string</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>type</code></pre>
+<pre><code>'badge' | 'tag'</code></pre>
+<pre><code>'tag'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+clicked | EventEmitter<void> | Emitted when tag is clicked (if clickable)
+removed | EventEmitter<void> | Emitted when remove button is clicked</pre>
+<pre><code>clicked</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>removed</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+clickable | boolean | Read-only property indicating if tag has click handlers</pre>
+<pre><code>clickable</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+onClick() | - | void | Handle tag click events
+onRemove(event: Event) | event: Event | void | Handle remove button clicks</pre>
+<pre><code>onClick()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onRemove(event: Event)</code></pre>
+<pre><code>event: Event</code></pre>
+<pre><code>void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--tags-filled-background | Background color for filled variant
+--tags-filled-text | Text color for filled variant
+--tags-filled-border | Border color for filled variant
+--tags-filled-primary-background | Background color for primary filled variant
+--tags-filled-primary-text | Text color for primary filled variant
+--tags-filled-primary-border | Border color for primary filled variant
+--tags-filled-success-background | Background color for success filled variant
+--tags-filled-success-text | Text color for success filled variant
+--tags-filled-success-border | Border color for success filled variant
+--tags-filled-warning-background | Background color for warning filled variant
+--tags-filled-warning-text | Text color for warning filled variant
+--tags-filled-warning-border | Border color for warning filled variant
+--tags-filled-error-background | Background color for error filled variant
+--tags-filled-error-text | Text color for error filled variant
+--tags-filled-error-border | Border color for error filled variant
+--tags-filled-info-background | Background color for info filled variant
+--tags-filled-info-text | Text color for info filled variant
+--tags-filled-info-border | Border color for info filled variant
+--tags-filled-custom-background | Background color for custom filled variant
+--tags-filled-custom-text | Text color for custom filled variant
+--tags-filled-custom-border | Border color for custom filled variant
+--tags-outlined-background | Background color for outlined variant
+--tags-outlined-text | Text color for outlined variant
+--tags-outlined-border | Border color for outlined variant
+--tags-outlined-primary-text | Text color for primary outlined variant
+--tags-outlined-primary-border | Border color for primary outlined variant
+--tags-outlined-success-text | Text color for success outlined variant
+--tags-outlined-success-border | Border color for success outlined variant
+--tags-outlined-warning-text | Text color for warning outlined variant
+--tags-outlined-warning-border | Border color for warning outlined variant
+--tags-outlined-error-text | Text color for error outlined variant
+--tags-outlined-error-border | Border color for error outlined variant
+--tags-outlined-info-text | Text color for info outlined variant
+--tags-outlined-info-border | Border color for info outlined variant
+--tags-outlined-custom-text | Text color for custom outlined variant
+--tags-outlined-custom-border | Border color for custom outlined variant
+--tags-focus-background | Background color for focus state
+--tags-focus-text | Text color for focus state
+--tags-focus-border | Border color for focus state
+--tags-focus-outline | Outline style for focus state
+--tags-disabled-background | Background color for disabled state
+--tags-disabled-text | Text color for disabled state
+--tags-disabled-border | Border color for disabled state
+--tags-disabled-cursor | Cursor style when tag is disabled
+--tags-pill-border-radius | Border radius for pill variant
+--tags-removable-button-background | Background color for remove button
+--tags-removable-button-text | Text color for remove button
+--tags-removable-button-size | Size of the remove button icon
+--tags-removable-button-border-radius | Border radius for remove button
+--tags-removable-button-padding | Padding for remove button
+--tags-removable-button-active-background | Background color for active remove button
+--tags-removable-button-active-text | Text color for active remove button
+--tags-avatar-bg | Background color for avatar
+--tags-avatar-initials-bg | Background color for avatar initials
+--tags-avatar-initials-color | Text color for avatar initials
+--tags-avatar-size | Size of avatar
+--tags-avatar-font-size | Font size for avatar initials
+--tags-avatar-margin | Margin around avatar
+--tag-custom-bg | Custom background color
+--tag-custom-color | Custom text color
+--tag-custom-border | Custom border color
+--tags-xs-font-family | Font family for xs size tags
+--tags-xs-font-size | Font size for xs size tags
+--tags-xs-font-weight | Font weight for xs size tags
+--tags-xs-line-height | Line height for xs size tags
+--tags-xs-padding | Padding for xs size tags
+--tags-xs-border-radius | Border radius for xs size tags
+--tags-sm-font-family | Font family for sm size tags
+--tags-sm-font-size | Font size for sm size tags
+--tags-sm-font-weight | Font weight for sm size tags
+--tags-sm-line-height | Line height for sm size tags
+--tags-sm-padding | Padding for sm size tags
+--tags-sm-border-radius | Border radius for sm size tags
+--tags-md-font-family | Font family for md size tags
+--tags-md-font-size | Font size for md size tags
+--tags-md-font-weight | Font weight for md size tags
+--tags-md-line-height | Line height for md size tags
+--tags-md-padding | Padding for md size tags
+--tags-md-border-radius | Border radius for md size tags
+--tags-lg-font-family | Font family for lg size tags
+--tags-lg-font-size | Font size for lg size tags
+--tags-lg-font-weight | Font weight for lg size tags
+--tags-lg-line-height | Line height for lg size tags
+--tags-lg-padding | Padding for lg size tags
+--tags-lg-border-radius | Border radius for lg size tags
+--tags-xl-font-family | Font family for xl size tags
+--tags-xl-font-size | Font size for xl size tags
+--tags-xl-font-weight | Font weight for xl size tags
+--tags-xl-line-height | Line height for xl size tags
+--tags-xl-padding | Padding for xl size tags
+--tags-xl-border-radius | Border radius for xl size tags
+--tags-icon-gap | Default gap between icon and text
+--tags-xl-right-icon-gap | Right icon gap for xl size tags
+--tags-lg-right-icon-gap | Right icon gap for lg size tags
+--tags-md-right-icon-gap | Right icon gap for md size tags
+--tags-sm-right-icon-gap | Right icon gap for sm size tags
+--tags-xs-right-icon-gap | Right icon gap for xs size tags
+--tags-xl-left-icon-gap | Left icon gap for xl size tags
+--tags-lg-left-icon-gap | Left icon gap for lg size tags
+--tags-md-left-icon-gap | Left icon gap for md size tags
+--tags-sm-left-icon-gap | Left icon gap for sm size tags
+--tags-xs-left-icon-gap | Left icon gap for xs size tags
+--tags-avatar-color | Text color for avatar
+--tags-remove-button-disabled-color | Color for disabled remove button</pre>
+<pre><code>--tags-filled-background</code></pre>
+<pre><code>--tags-filled-text</code></pre>
+<pre><code>--tags-filled-border</code></pre>
+<pre><code>--tags-filled-primary-background</code></pre>
+<pre><code>--tags-filled-primary-text</code></pre>
+<pre><code>--tags-filled-primary-border</code></pre>
+<pre><code>--tags-filled-success-background</code></pre>
+<pre><code>--tags-filled-success-text</code></pre>
+<pre><code>--tags-filled-success-border</code></pre>
+<pre><code>--tags-filled-warning-background</code></pre>
+<pre><code>--tags-filled-warning-text</code></pre>
+<pre><code>--tags-filled-warning-border</code></pre>
+<pre><code>--tags-filled-error-background</code></pre>
+<pre><code>--tags-filled-error-text</code></pre>
+<pre><code>--tags-filled-error-border</code></pre>
+<pre><code>--tags-filled-info-background</code></pre>
+<pre><code>--tags-filled-info-text</code></pre>
+<pre><code>--tags-filled-info-border</code></pre>
+<pre><code>--tags-filled-custom-background</code></pre>
+<pre><code>--tags-filled-custom-text</code></pre>
+<pre><code>--tags-filled-custom-border</code></pre>
+<pre><code>--tags-outlined-background</code></pre>
+<pre><code>--tags-outlined-text</code></pre>
+<pre><code>--tags-outlined-border</code></pre>
+<pre><code>--tags-outlined-primary-text</code></pre>
+<pre><code>--tags-outlined-primary-border</code></pre>
+<pre><code>--tags-outlined-success-text</code></pre>
+<pre><code>--tags-outlined-success-border</code></pre>
+<pre><code>--tags-outlined-warning-text</code></pre>
+<pre><code>--tags-outlined-warning-border</code></pre>
+<pre><code>--tags-outlined-error-text</code></pre>
+<pre><code>--tags-outlined-error-border</code></pre>
+<pre><code>--tags-outlined-info-text</code></pre>
+<pre><code>--tags-outlined-info-border</code></pre>
+<pre><code>--tags-outlined-custom-text</code></pre>
+<pre><code>--tags-outlined-custom-border</code></pre>
+<pre><code>--tags-focus-background</code></pre>
+<pre><code>--tags-focus-text</code></pre>
+<pre><code>--tags-focus-border</code></pre>
+<pre><code>--tags-focus-outline</code></pre>
+<pre><code>--tags-disabled-background</code></pre>
+<pre><code>--tags-disabled-text</code></pre>
+<pre><code>--tags-disabled-border</code></pre>
+<pre><code>--tags-disabled-cursor</code></pre>
+<pre><code>--tags-pill-border-radius</code></pre>
+<pre><code>--tags-removable-button-background</code></pre>
+<pre><code>--tags-removable-button-text</code></pre>
+<pre><code>--tags-removable-button-size</code></pre>
+<pre><code>--tags-removable-button-border-radius</code></pre>
+<pre><code>--tags-removable-button-padding</code></pre>
+<pre><code>--tags-removable-button-active-background</code></pre>
+<pre><code>--tags-removable-button-active-text</code></pre>
+<pre><code>--tags-avatar-bg</code></pre>
+<pre><code>--tags-avatar-initials-bg</code></pre>
+<pre><code>--tags-avatar-initials-color</code></pre>
+<pre><code>--tags-avatar-size</code></pre>
+<pre><code>--tags-avatar-font-size</code></pre>
+<pre><code>--tags-avatar-margin</code></pre>
+<pre><code>--tag-custom-bg</code></pre>
+<pre><code>--tag-custom-color</code></pre>
+<pre><code>--tag-custom-border</code></pre>
+<pre><code>--tags-xs-font-family</code></pre>
+<pre><code>--tags-xs-font-size</code></pre>
+<pre><code>--tags-xs-font-weight</code></pre>
+<pre><code>--tags-xs-line-height</code></pre>
+<pre><code>--tags-xs-padding</code></pre>
+<pre><code>--tags-xs-border-radius</code></pre>
+<pre><code>--tags-sm-font-family</code></pre>
+<pre><code>--tags-sm-font-size</code></pre>
+<pre><code>--tags-sm-font-weight</code></pre>
+<pre><code>--tags-sm-line-height</code></pre>
+<pre><code>--tags-sm-padding</code></pre>
+<pre><code>--tags-sm-border-radius</code></pre>
+<pre><code>--tags-md-font-family</code></pre>
+<pre><code>--tags-md-font-size</code></pre>
+<pre><code>--tags-md-font-weight</code></pre>
+<pre><code>--tags-md-line-height</code></pre>
+<pre><code>--tags-md-padding</code></pre>
+<pre><code>--tags-md-border-radius</code></pre>
+<pre><code>--tags-lg-font-family</code></pre>
+<pre><code>--tags-lg-font-size</code></pre>
+<pre><code>--tags-lg-font-weight</code></pre>
+<pre><code>--tags-lg-line-height</code></pre>
+<pre><code>--tags-lg-padding</code></pre>
+<pre><code>--tags-lg-border-radius</code></pre>
+<pre><code>--tags-xl-font-family</code></pre>
+<pre><code>--tags-xl-font-size</code></pre>
+<pre><code>--tags-xl-font-weight</code></pre>
+<pre><code>--tags-xl-line-height</code></pre>
+<pre><code>--tags-xl-padding</code></pre>
+<pre><code>--tags-xl-border-radius</code></pre>
+<pre><code>--tags-icon-gap</code></pre>
+<pre><code>--tags-xl-right-icon-gap</code></pre>
+<pre><code>--tags-lg-right-icon-gap</code></pre>
+<pre><code>--tags-md-right-icon-gap</code></pre>
+<pre><code>--tags-sm-right-icon-gap</code></pre>
+<pre><code>--tags-xs-right-icon-gap</code></pre>
+<pre><code>--tags-xl-left-icon-gap</code></pre>
+<pre><code>--tags-lg-left-icon-gap</code></pre>
+<pre><code>--tags-md-left-icon-gap</code></pre>
+<pre><code>--tags-sm-left-icon-gap</code></pre>
+<pre><code>--tags-xs-left-icon-gap</code></pre>
+<pre><code>--tags-avatar-color</code></pre>
+<pre><code>--tags-remove-button-disabled-color</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Use consistent colors for similar concepts across your application</p>
+<p>• Choose appropriate sizes based on interface hierarchy and density</p>
+<p>• Prefer outlined variants for secondary information</p>
+<p>• Use removable tags for user-manageable content</p>
+<p>• Consider pill shape for status indicators and badges</p>
+<h2>Accessibility​</h2>
+<p>• Always provide meaningful labels that describe the tag purpose</p>
+<p>• Use color variants semantically (success for positive states, etc.)</p>
+<p>• Ensure sufficient color contrast for all variants</p>
+<p>• Provide keyboard navigation for interactive tags</p>
+<p>• Use ARIA labels for complex tag interactions</p>
+<h2>Performance​</h2>
+<p>• Avoid frequent color or style changes that trigger repaints</p>
+<p>• Use CSS custom properties for dynamic theming</p>
+<p>• Consider virtualization for large tag lists</p>
+<p>• Batch tag operations for better performance</p>
+</body></html>
