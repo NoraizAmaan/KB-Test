@@ -1,0 +1,228 @@
+<html><head><meta charset='utf-8'>
+<title>TreeView</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>TreeView</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Data-Display/TreeView</small></p>
+<h2>Tree View</h2>
+<p>A hierarchical tree view component that provides an intuitive way to display and navigate nested data structures. Built with accessibility in mind, it supports expandable/collapsible nodes, customizable icons, multiple size variants, and comprehensive keyboard navigation for building file browsers, navigation menus, and organizational charts.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaTreeviewComponent, TreeNode } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTreeviewComponent, TreeNode } from "@aava/play-core";</code></pre>
+<p>Note: The TreeView component is standalone and includes all necessary dependencies for common modules and Lucide icons.</p>
+<h2>Basic Usage​</h2>
+<p>Simple tree view with expandable nodes and basic selection.</p>
+<pre><code>&lt;div *ngFor="let config of treeConfigs" class="tree-variant">  &lt;aava-treeview    [nodes]="config.nodes"    [size]="config.size"    [iconPosition]="config.iconPosition"    (nodeSelect)="onNodeSelect(config, $event)"  >  &lt;/aava-treeview>&lt;/div></code></pre>
+<pre><code>&lt;div *ngFor="let config of treeConfigs" class="tree-variant">  &lt;aava-treeview    [nodes]="config.nodes"    [size]="config.size"    [iconPosition]="config.iconPosition"    (nodeSelect)="onNodeSelect(config, $event)"  >  &lt;/aava-treeview>&lt;/div></code></pre>
+<pre><code>export interface TreeNode {  id?: string | number;  name: string;  icon?: string;  expanded?: boolean;  selected?: boolean;  level?: number;  children?: TreeNode[];}interface TreeviewConfig {  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';  iconPosition: 'left' | 'right';  nodes: TreeNode[];}treeConfigs: TreeviewConfig[] = [    {      size: 'md',      iconPosition: 'left',      nodes: this.makeSampleTree(),    },  ];  private makeSampleTree(): TreeNode[] {    return [      {        id: '1',        name: 'Engineering',        icon: 'folder',        expanded: false,        selected: false,        children: [          { id: '1.1', name: 'Frontend', icon: 'folder', selected: false },          { id: '1.2', name: 'Backend', icon: 'folder', selected: false },        ],      },      {        id: '2',        name: 'Mobile',        icon: 'folder',        expanded: false,        selected: false,        children: [          { id: '2.1', name: 'UI', icon: 'folder', selected: false },          { id: '2.2', name: 'Sap', icon: 'folder', selected: false },        ],      },      { id: '3', name: 'Marketing', icon: 'folder', selected: false },      { id: '4', name: 'Operations', icon: 'folder', selected: false },    ];  }  onNodeSelect(config: TreeviewConfig, node: TreeNode) {    console.log('Selected from', ':', node);    // update selection state    config.nodes = this.updateTreeSelection(config.nodes, node);  }  private updateTreeSelection(    nodes: TreeNode[],    targetNode: TreeNode  ): TreeNode[] {    if (!nodes) return [];    return nodes.map((n) => {      const newNode: TreeNode = { ...n };      if (newNode.children?.length) {        newNode.children = this.updateTreeSelection(          newNode.children,          targetNode        );      }      newNode.selected = newNode.id === targetNode.id;      return newNode;    });  }</code></pre>
+<pre><code>export interface TreeNode {  id?: string | number;  name: string;  icon?: string;  expanded?: boolean;  selected?: boolean;  level?: number;  children?: TreeNode[];}interface TreeviewConfig {  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';  iconPosition: 'left' | 'right';  nodes: TreeNode[];}treeConfigs: TreeviewConfig[] = [    {      size: 'md',      iconPosition: 'left',      nodes: this.makeSampleTree(),    },  ];  private makeSampleTree(): TreeNode[] {    return [      {        id: '1',        name: 'Engineering',        icon: 'folder',        expanded: false,        selected: false,        children: [          { id: '1.1', name: 'Frontend', icon: 'folder', selected: false },          { id: '1.2', name: 'Backend', icon: 'folder', selected: false },        ],      },      {        id: '2',        name: 'Mobile',        icon: 'folder',        expanded: false,        selected: false,        children: [          { id: '2.1', name: 'UI', icon: 'folder', selected: false },          { id: '2.2', name: 'Sap', icon: 'folder', selected: false },        ],      },      { id: '3', name: 'Marketing', icon: 'folder', selected: false },      { id: '4', name: 'Operations', icon: 'folder', selected: false },    ];  }  onNodeSelect(config: TreeviewConfig, node: TreeNode) {    console.log('Selected from', ':', node);    // update selection state    config.nodes = this.updateTreeSelection(config.nodes, node);  }  private updateTreeSelection(    nodes: TreeNode[],    targetNode: TreeNode  ): TreeNode[] {    if (!nodes) return [];    return nodes.map((n) => {      const newNode: TreeNode = { ...n };      if (newNode.children?.length) {        newNode.children = this.updateTreeSelection(          newNode.children,          targetNode        );      }      newNode.selected = newNode.id === targetNode.id;      return newNode;    });  }</code></pre>
+<h2>Features​</h2>
+<h2>Hierarchical Structure​</h2>
+<p>• Nested Nodes: Support for unlimited nesting levels</p>
+<p>• Expandable/Collapsible: Interactive nodes that can be expanded or collapsed</p>
+<p>• Dynamic Indentation: Automatic indentation based on node level</p>
+<p>• Recursive Rendering: Self-referential component for nested structures</p>
+<h2>Visual Customization​</h2>
+<p>• Multiple Sizes: Five size variants (xs, sm, md, lg, xl)</p>
+<p>• Icon Positioning: Left or right-aligned expand/collapse controls</p>
+<p>• Custom Icons: Support for Lucide icons and folder states</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<h2>User Interaction​</h2>
+<p>• Node Selection: Click to select individual nodes</p>
+<p>• Keyboard Navigation: Full keyboard support for accessibility</p>
+<p>• Expand/Collapse: Click toggle controls or use arrow keys</p>
+<p>• Hover States: Visual feedback for interactive elements</p>
+<h2>Accessibility​</h2>
+<p>• ARIA Support: Proper ARIA attributes for screen readers</p>
+<p>• Keyboard Navigation: Arrow keys, Enter, and Space for interaction</p>
+<p>• Focus Management: Clear focus indicators and logical tab order</p>
+<p>• Semantic Structure: Proper HTML semantics for tree navigation</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+nodes | TreeNode[] | [] | Array of tree nodes to display
+size | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'md' | Size variant for the tree nodes
+iconPosition | 'left' | 'right' | 'left' | Position of expand/collapse controls
+level | number | 0 | Current nesting level (used internally)</pre>
+<pre><code>nodes</code></pre>
+<pre><code>TreeNode[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>iconPosition</code></pre>
+<pre><code>'left' | 'right'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>level</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+nodeSelect | EventEmitter<TreeNode> | Emitted when a node is selected</pre>
+<pre><code>nodeSelect</code></pre>
+<pre><code>EventEmitter&lt;TreeNode></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return | Description
+toggleExpand() | node: TreeNode | void | Toggle the expanded state of a node
+selectNode() | node: TreeNode | void | Select a node and emit selection event
+calculateIndent() | level?: number | number | Calculate indentation for a given level
+handleKeyDown() | event: KeyboardEvent, node: TreeNode | void | Handle keyboard navigation events</pre>
+<pre><code>toggleExpand()</code></pre>
+<pre><code>node: TreeNode</code></pre>
+<pre><code>void</code></pre>
+<pre><code>selectNode()</code></pre>
+<pre><code>node: TreeNode</code></pre>
+<pre><code>void</code></pre>
+<pre><code>calculateIndent()</code></pre>
+<pre><code>level?: number</code></pre>
+<pre><code>number</code></pre>
+<pre><code>handleKeyDown()</code></pre>
+<pre><code>event: KeyboardEvent, node: TreeNode</code></pre>
+<pre><code>void</code></pre>
+<h2>Interfaces​</h2>
+<h2>TreeNode​</h2>
+<pre><code>interface TreeNode {  id?: string | number; // Unique identifier for the node  name: string; // Display name for the node  icon?: string; // Lucide icon name (optional)  expanded?: boolean; // Whether the node is expanded  selected?: boolean; // Whether the node is selected  level?: number; // Nesting level (auto-calculated)  children?: TreeNode[]; // Child nodes (optional)}</code></pre>
+<pre><code>interface TreeNode {  id?: string | number; // Unique identifier for the node  name: string; // Display name for the node  icon?: string; // Lucide icon name (optional)  expanded?: boolean; // Whether the node is expanded  selected?: boolean; // Whether the node is selected  level?: number; // Nesting level (auto-calculated)  children?: TreeNode[]; // Child nodes (optional)}</code></pre>
+<h2>Focus Management​</h2>
+<p>• Each tree node is focusable withtabindex="0"</p>
+<p>• Toggle controls havetabindex="-1"to prevent tab navigation</p>
+<p>• Focus indicators provide clear visual feedback</p>
+<p>• Logical tab order follows the tree structure</p>
+<pre><code>tabindex="0"</code></pre>
+<pre><code>tabindex="-1"</code></pre>
+<h2>Design Tokens & Theming​</h2>
+<p>AAVA Play TreeView uses semantic design tokens for all surfaces, spacing, and typography. The component exposes scoped override tokens for fine-tuning appearance while maintaining design system consistency.</p>
+<h2>Available Design Tokens for TreeView​</h2>
+<pre>Token | Purpose | Default Value
+--tree-node-gap | Gap between node elements | Theme-based
+--tree-node-height-xs | Extra small node height | Theme-based
+--tree-node-height-sm | Small node height | Theme-based
+--tree-node-height-md | Medium node height | Theme-based
+--tree-node-height-lg | Large node height | Theme-based
+--tree-node-height-xl | Extra large node height | Theme-based
+--tree-node-font-weight-xl | Font weight for extra large | Theme-based
+--tree-node-line-height-xs | Line height for extra small | Theme-based
+--tree-node-line-height-medium | Line height for medium | Theme-based
+--tree-node-line-height-lg | Line height for large | Theme-based
+--tree-node-line-height-xl | Line height for extra large | Theme-based</pre>
+<pre><code>--tree-node-gap</code></pre>
+<pre><code>--tree-node-height-xs</code></pre>
+<pre><code>--tree-node-height-sm</code></pre>
+<pre><code>--tree-node-height-md</code></pre>
+<pre><code>--tree-node-height-lg</code></pre>
+<pre><code>--tree-node-height-xl</code></pre>
+<pre><code>--tree-node-font-weight-xl</code></pre>
+<pre><code>--tree-node-line-height-xs</code></pre>
+<pre><code>--tree-node-line-height-medium</code></pre>
+<pre><code>--tree-node-line-height-lg</code></pre>
+<pre><code>--tree-node-line-height-xl</code></pre>
+<pre>Token | Purpose | Default Value
+--tree-toggle-size-xs | Extra small toggle width | Theme-based
+--tree-toggle-size-sm | Small toggle width | Theme-based
+--tree-toggle-size-md | Medium toggle width | Theme-based
+--tree-toggle-size-lg | Large toggle width | Theme-based
+--tree-toggle-size-xl | Extra large toggle width | Theme-based</pre>
+<pre><code>--tree-toggle-size-xs</code></pre>
+<pre><code>--tree-toggle-size-sm</code></pre>
+<pre><code>--tree-toggle-size-md</code></pre>
+<pre><code>--tree-toggle-size-lg</code></pre>
+<pre><code>--tree-toggle-size-xl</code></pre>
+<pre>Token | Purpose | Default Value
+--tree-icon-size-xs | Extra small icon size | Theme-based
+--tree-icon-size-sm | Small icon size | Theme-based
+--tree-icon-size-lg | Large icon size | Theme-based
+--tree-icon-size-xl | Extra large icon size | Theme-based</pre>
+<pre><code>--tree-icon-size-xs</code></pre>
+<pre><code>--tree-icon-size-sm</code></pre>
+<pre><code>--tree-icon-size-lg</code></pre>
+<pre><code>--tree-icon-size-xl</code></pre>
+<pre>Token | Purpose | Default Value
+--tree-label-font-family | Font family for labels | Theme-based
+--tree-label-font-size-xs | Extra small font size | Theme-based
+--tree-label-font-size-sm | Small font size | Theme-based
+--tree-label-font-size-medium | Medium font size | Theme-based
+--tree-label-font-size-lg | Large font size | Theme-based
+--tree-label-font-size-xl | Extra large font size | Theme-based</pre>
+<pre><code>--tree-label-font-family</code></pre>
+<pre><code>--tree-label-font-size-xs</code></pre>
+<pre><code>--tree-label-font-size-sm</code></pre>
+<pre><code>--tree-label-font-size-medium</code></pre>
+<pre><code>--tree-label-font-size-lg</code></pre>
+<pre><code>--tree-label-font-size-xl</code></pre>
+<pre>Token | Purpose | Default Value
+--color-text-primary | Primary text color | Theme-based
+--rgb-brand-disabled | Brand color for states | Theme-based</pre>
+<pre><code>--color-text-primary</code></pre>
+<pre><code>--rgb-brand-disabled</code></pre>
+<h2>Token Override Example​</h2>
+<pre><code>/* Custom tree view theming */.my-custom-tree {  --tree-node-gap: 12px;  --tree-node-height-md: 40px;  --tree-label-font-size-medium: 16px;  --tree-icon-size-lg: 20px;}.my-compact-tree {  --tree-node-height-md: 32px;  --tree-label-font-size-medium: 14px;  --tree-icon-size-lg: 16px;}.my-spacious-tree {  --tree-node-gap: 16px;  --tree-node-height-md: 48px;  --tree-label-font-size-medium: 18px;  --tree-icon-size-lg: 24px;}</code></pre>
+<pre><code>/* Custom tree view theming */.my-custom-tree {  --tree-node-gap: 12px;  --tree-node-height-md: 40px;  --tree-label-font-size-medium: 16px;  --tree-icon-size-lg: 20px;}.my-compact-tree {  --tree-node-height-md: 32px;  --tree-label-font-size-medium: 14px;  --tree-icon-size-lg: 16px;}.my-spacious-tree {  --tree-node-gap: 16px;  --tree-node-height-md: 48px;  --tree-label-font-size-medium: 18px;  --tree-icon-size-lg: 24px;}</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Consistent Hierarchy: Use consistent indentation and visual cues</p>
+<p>• Clear Labels: Ensure node names are descriptive and concise</p>
+<p>• Appropriate Icons: Use meaningful icons that represent node types</p>
+<p>• Size Selection: Choose size variants that match your content density</p>
+<p>• Icon Positioning: Consider user expectations for expand/collapse controls</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Ensure all interactions work with keyboard</p>
+<p>• Screen Reader Support: Provide clear labels and descriptions</p>
+<p>• Focus Indicators: Maintain visible focus states</p>
+<p>• ARIA Attributes: Use proper ARIA roles and properties</p>
+<p>• Color Contrast: Ensure sufficient contrast for text and icons</p>
+<h2>Performance​</h2>
+<p>• Lazy Loading: Consider lazy loading for large tree structures</p>
+<p>• Virtual Scrolling: Implement virtual scrolling for very large trees</p>
+<p>• Change Detection: Use OnPush strategy for better performance</p>
+<p>• Memory Management: Clean up event listeners and references</p>
+<h2>User Experience​</h2>
+<p>• Visual Feedback: Provide clear hover and selection states</p>
+<p>• Smooth Animations: Use transitions for expand/collapse actions</p>
+<p>• Consistent Behavior: Maintain predictable interaction patterns</p>
+<p>• Error Handling: Gracefully handle invalid data structures</p>
+<h2>Integration​</h2>
+<p>• Data Structure: Ensure your data follows the TreeNode interface</p>
+<p>• Event Handling: Implement proper selection and expansion logic</p>
+<p>• State Management: Coordinate tree state with your application</p>
+<p>• Styling: Use design tokens for consistent theming</p>
+<h2>Responsive Behavior​</h2>
+<h2>Mobile Adaptations​</h2>
+<p>The tree view component automatically adapts to mobile screens:</p>
+<p>• Touch Optimization: Appropriate touch targets for mobile interaction</p>
+<p>• Mobile Layout: Optimized spacing and sizing for small screens</p>
+<p>• Gesture Support: Touch-friendly expand/collapse interactions</p>
+<p>• Responsive Icons: Icon sizes that work well on mobile</p>
+<h2>Breakpoint Behavior​</h2>
+<p>• Desktop (>768px): Full tree interface with all features</p>
+<p>• Mobile (≤768px): Compact layout with optimized spacing</p>
+<p>• Node Display: Responsive node sizing and spacing</p>
+<p>• Icon Scaling: Appropriate icon sizes for different screens</p>
+<h2>Content Considerations​</h2>
+<p>• Node Names: Node labels adapt to different screen widths</p>
+<p>• Indentation: Appropriate indentation levels for mobile</p>
+<p>• Icon Visibility: Icons remain visible and accessible</p>
+<p>• Touch Targets: Adequate touch target sizes for mobile</p>
+<h2>Use Cases​</h2>
+<h2>File System Navigation​</h2>
+<p>• File Browsers: Navigate through directory structures</p>
+<p>• Document Management: Organize and browse documents</p>
+<p>• Media Libraries: Browse photo and video collections</p>
+<p>• Code Repositories: Navigate project file structures</p>
+<h2>Organizational Charts​</h2>
+<p>• Company Structure: Display organizational hierarchy</p>
+<p>• Team Management: Show team relationships and roles</p>
+<p>• Project Structure: Organize project components</p>
+<p>• Category Management: Display product or content categories</p>
+<h2>Navigation Systems​</h2>
+<p>• Website Navigation: Site structure and menu systems</p>
+<p>• Application Menus: App navigation and settings</p>
+<p>• Breadcrumb Navigation: Hierarchical navigation paths</p>
+<p>• Sitemap Display: Website structure visualization</p>
+<h2>Data Visualization​</h2>
+<p>• Hierarchical Data: Display nested data relationships</p>
+<p>• Taxonomy Systems: Show classification hierarchies</p>
+<p>• Decision Trees: Visualize decision-making processes</p>
+<p>• Workflow Diagrams: Display process flows and steps</p>
+</body></html>
