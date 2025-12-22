@@ -1,0 +1,395 @@
+<html><head><meta charset='utf-8'>
+<title>Drawer</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Drawer</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Overlay/Drawer</small></p>
+<h2>Drawer</h2>
+<p>The<ava-drawer>component is a powerful sliding panel that provides a flexible overlay interface for navigation, forms, content display, and interactive elements. It supports multiple positions, sizes, animations, and advanced features like resizing and persistence, making it ideal for creating modern, accessible user interfaces.</p>
+<pre><code>&lt;ava-drawer></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaDrawerComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaDrawerComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>A simple drawer with default right position and medium size.</p>
+<pre><code>&lt;aava-drawer  [isOpen]="isDrawerOpen"  title="Basic Drawer"  subtitle="This is a simple drawer example"  (opened)="onDrawerOpened()"  (closed)="onDrawerClosed()"  (closed)="closeDrawer()">  &lt;div class="drawer-content">    &lt;h4>Welcome to the Drawer!&lt;/h4>    &lt;p>This is a basic drawer component with default settings:&lt;/p>    &lt;ul>      &lt;li>Position: Right (default)&lt;/li>      &lt;li>Size: Medium (default)&lt;/li>      &lt;li>Overlay: Enabled&lt;/li>      &lt;li>Animations: Enabled&lt;/li>    &lt;/ul>    &lt;p>You can close this drawer by:&lt;/p>    &lt;ul>      &lt;li>Clicking the X button&lt;/li>      &lt;li>Clicking the overlay&lt;/li>      &lt;li>Pressing the Escape key&lt;/li>    &lt;/ul>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button label="Close" variant="secondary" (click)="closeDrawer()">    &lt;/aava-button>    &lt;aava-button label="Save" variant="primary" (click)="closeDrawer()">    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code>&lt;aava-drawer  [isOpen]="isDrawerOpen"  title="Basic Drawer"  subtitle="This is a simple drawer example"  (opened)="onDrawerOpened()"  (closed)="onDrawerClosed()"  (closed)="closeDrawer()">  &lt;div class="drawer-content">    &lt;h4>Welcome to the Drawer!&lt;/h4>    &lt;p>This is a basic drawer component with default settings:&lt;/p>    &lt;ul>      &lt;li>Position: Right (default)&lt;/li>      &lt;li>Size: Medium (default)&lt;/li>      &lt;li>Overlay: Enabled&lt;/li>      &lt;li>Animations: Enabled&lt;/li>    &lt;/ul>    &lt;p>You can close this drawer by:&lt;/p>    &lt;ul>      &lt;li>Clicking the X button&lt;/li>      &lt;li>Clicking the overlay&lt;/li>      &lt;li>Pressing the Escape key&lt;/li>    &lt;/ul>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button label="Close" variant="secondary" (click)="closeDrawer()">    &lt;/aava-button>    &lt;aava-button label="Save" variant="primary" (click)="closeDrawer()">    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code>  isDrawerOpen = false;  openDrawer(): void {    this.isDrawerOpen = true;  }  closeDrawer(): void {    this.isDrawerOpen = false;  }  onDrawerOpened(): void {    console.log('Drawer opened');  }  onDrawerClosed(): void {    console.log('Drawer closed');  }</code></pre>
+<pre><code>  isDrawerOpen = false;  openDrawer(): void {    this.isDrawerOpen = true;  }  closeDrawer(): void {    this.isDrawerOpen = false;  }  onDrawerOpened(): void {    console.log('Drawer opened');  }  onDrawerClosed(): void {    console.log('Drawer closed');  }</code></pre>
+<h2>Positions​</h2>
+<p>The drawer component supports four different positions for various use cases.</p>
+<pre><code>&lt;aava-drawer  [isOpen]="rightDrawerOpen"  position="right"  title="Right Drawer"  (closed)="closeDrawer('right')">  &lt;div class="drawer-content">    &lt;h4>Right Position&lt;/h4>    &lt;p>This drawer slides in from the right side.&lt;/p>    &lt;p>This is the default position for drawers.&lt;/p>    &lt;ul>      &lt;li>Perfect for forms and detail panels&lt;/li>      &lt;li>Common pattern for editing content&lt;/li>      &lt;li>Good for mobile-first designs&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Left Position -->&lt;aava-drawer  [isOpen]="leftDrawerOpen"  position="left"  title="Left Drawer"  (closed)="closeDrawer('left')">  &lt;div class="drawer-content">    &lt;h4>Left Position&lt;/h4>    &lt;p>This drawer slides in from the left side.&lt;/p>    &lt;p>Perfect for navigation menus and sidebars.&lt;/p>    &lt;ul>      &lt;li>Traditional navigation pattern&lt;/li>      &lt;li>Good for hierarchical menus&lt;/li>      &lt;li>Familiar to users&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Top Position -->&lt;aava-drawer  [isOpen]="topDrawerOpen"  position="top"  title="Top Drawer"  (closed)="closeDrawer('top')">  &lt;div class="drawer-content">    &lt;h4>Top Position&lt;/h4>    &lt;p>This drawer slides in from the top.&lt;/p>    &lt;p>Great for notifications or quick actions.&lt;/p>    &lt;ul>      &lt;li>Perfect for notifications&lt;/li>      &lt;li>Good for search interfaces&lt;/li>      &lt;li>Quick access to tools&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Bottom Position -->&lt;aava-drawer  [isOpen]="bottomDrawerOpen"  position="bottom"  title="Bottom Drawer"  (closed)="closeDrawer('bottom')">  &lt;div class="drawer-content">    &lt;h4>Bottom Position&lt;/h4>    &lt;p>This drawer slides in from the bottom.&lt;/p>    &lt;p>Ideal for mobile-first designs and action sheets.&lt;/p>    &lt;ul>      &lt;li>Mobile-friendly pattern&lt;/li>      &lt;li>Good for action sheets&lt;/li>      &lt;li>Thumb-friendly interaction&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code>&lt;aava-drawer  [isOpen]="rightDrawerOpen"  position="right"  title="Right Drawer"  (closed)="closeDrawer('right')">  &lt;div class="drawer-content">    &lt;h4>Right Position&lt;/h4>    &lt;p>This drawer slides in from the right side.&lt;/p>    &lt;p>This is the default position for drawers.&lt;/p>    &lt;ul>      &lt;li>Perfect for forms and detail panels&lt;/li>      &lt;li>Common pattern for editing content&lt;/li>      &lt;li>Good for mobile-first designs&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Left Position -->&lt;aava-drawer  [isOpen]="leftDrawerOpen"  position="left"  title="Left Drawer"  (closed)="closeDrawer('left')">  &lt;div class="drawer-content">    &lt;h4>Left Position&lt;/h4>    &lt;p>This drawer slides in from the left side.&lt;/p>    &lt;p>Perfect for navigation menus and sidebars.&lt;/p>    &lt;ul>      &lt;li>Traditional navigation pattern&lt;/li>      &lt;li>Good for hierarchical menus&lt;/li>      &lt;li>Familiar to users&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Top Position -->&lt;aava-drawer  [isOpen]="topDrawerOpen"  position="top"  title="Top Drawer"  (closed)="closeDrawer('top')">  &lt;div class="drawer-content">    &lt;h4>Top Position&lt;/h4>    &lt;p>This drawer slides in from the top.&lt;/p>    &lt;p>Great for notifications or quick actions.&lt;/p>    &lt;ul>      &lt;li>Perfect for notifications&lt;/li>      &lt;li>Good for search interfaces&lt;/li>      &lt;li>Quick access to tools&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Bottom Position -->&lt;aava-drawer  [isOpen]="bottomDrawerOpen"  position="bottom"  title="Bottom Drawer"  (closed)="closeDrawer('bottom')">  &lt;div class="drawer-content">    &lt;h4>Bottom Position&lt;/h4>    &lt;p>This drawer slides in from the bottom.&lt;/p>    &lt;p>Ideal for mobile-first designs and action sheets.&lt;/p>    &lt;ul>      &lt;li>Mobile-friendly pattern&lt;/li>      &lt;li>Good for action sheets&lt;/li>      &lt;li>Thumb-friendly interaction&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code> // Drawer states for different positions  rightDrawerOpen = false;  leftDrawerOpen = false;  topDrawerOpen = false;  bottomDrawerOpen = false;  openDrawer(position: string): void {    switch (position) {      case 'right':        this.rightDrawerOpen = true;        break;      case 'left':        this.leftDrawerOpen = true;        break;      case 'top':        this.topDrawerOpen = true;        break;      case 'bottom':        this.bottomDrawerOpen = true;        break;    }  }  closeDrawer(position: string): void {    switch (position) {      case 'right':        this.rightDrawerOpen = false;        break;      case 'left':        this.leftDrawerOpen = false;        break;      case 'top':        this.topDrawerOpen = false;        break;      case 'bottom':        this.bottomDrawerOpen = false;        break;    }  }</code></pre>
+<pre><code> // Drawer states for different positions  rightDrawerOpen = false;  leftDrawerOpen = false;  topDrawerOpen = false;  bottomDrawerOpen = false;  openDrawer(position: string): void {    switch (position) {      case 'right':        this.rightDrawerOpen = true;        break;      case 'left':        this.leftDrawerOpen = true;        break;      case 'top':        this.topDrawerOpen = true;        break;      case 'bottom':        this.bottomDrawerOpen = true;        break;    }  }  closeDrawer(position: string): void {    switch (position) {      case 'right':        this.rightDrawerOpen = false;        break;      case 'left':        this.leftDrawerOpen = false;        break;      case 'top':        this.topDrawerOpen = false;        break;      case 'bottom':        this.bottomDrawerOpen = false;        break;    }  }</code></pre>
+<h2>Sizes​</h2>
+<p>Choose from five predefined sizes or use custom dimensions.</p>
+<pre><code>&lt;aava-drawer  [isOpen]="smallDrawerOpen"  size="small"  title="Small Drawer"  (closed)="closeDrawer('small')">  &lt;div class="drawer-content">    &lt;h4>Small Size (320px)&lt;/h4>    &lt;p>This is a small drawer perfect for simple forms or quick actions.&lt;/p>    &lt;ul>      &lt;li>Width: 320px&lt;/li>      &lt;li>Height: 200px (for top/bottom)&lt;/li>      &lt;li>Perfect for simple forms&lt;/li>      &lt;li>Quick actions and notifications&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Medium Size (Default) -->&lt;aava-drawer  [isOpen]="mediumDrawerOpen"  size="medium"  title="Medium Drawer"  (closed)="closeDrawer('medium')">  &lt;div class="drawer-content">    &lt;h4>Medium Size (480px)&lt;/h4>    &lt;p>This is a medium drawer - the default size, good for most use cases.&lt;/p>    &lt;ul>      &lt;li>Width: 480px&lt;/li>      &lt;li>Height: 300px (for top/bottom)&lt;/li>      &lt;li>Default size&lt;/li>      &lt;li>Good for most use cases&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Large Size -->&lt;aava-drawer  [isOpen]="largeDrawerOpen"  size="large"  title="Large Drawer"  (closed)="closeDrawer('large')">  &lt;div class="drawer-content">    &lt;h4>Large Size (640px)&lt;/h4>    &lt;p>This is a large drawer great for detailed forms or content.&lt;/p>    &lt;ul>      &lt;li>Width: 640px&lt;/li>      &lt;li>Height: 400px (for top/bottom)&lt;/li>      &lt;li>Great for detailed forms&lt;/li>      &lt;li>Content-heavy interfaces&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Extra Large Size -->&lt;aava-drawer  [isOpen]="extraLargeDrawerOpen"  size="extra-large"  title="Extra Large Drawer"  (closed)="closeDrawer('extra-large')">  &lt;div class="drawer-content">    &lt;h4>Extra Large Size (800px)&lt;/h4>    &lt;p>      This is an extra large drawer for complex interfaces or detailed views.    &lt;/p>    &lt;ul>      &lt;li>Width: 800px&lt;/li>      &lt;li>Height: 500px (for top/bottom)&lt;/li>      &lt;li>Complex interfaces&lt;/li>      &lt;li>Detailed views and dashboards&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Full Size -->&lt;aava-drawer  [isOpen]="fullDrawerOpen"  size="full"  title="Full Size Drawer"  (closed)="closeDrawer('full')">  &lt;div class="drawer-content">    &lt;h4>Full Size (100% viewport)&lt;/h4>    &lt;p>      This drawer takes up the full viewport - essentially a full-screen modal      experience.    &lt;/p>    &lt;ul>      &lt;li>Width: 100% viewport&lt;/li>      &lt;li>Height: 100% viewport&lt;/li>      &lt;li>Full-screen modal experience&lt;/li>      &lt;li>Immersive content display&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code>&lt;aava-drawer  [isOpen]="smallDrawerOpen"  size="small"  title="Small Drawer"  (closed)="closeDrawer('small')">  &lt;div class="drawer-content">    &lt;h4>Small Size (320px)&lt;/h4>    &lt;p>This is a small drawer perfect for simple forms or quick actions.&lt;/p>    &lt;ul>      &lt;li>Width: 320px&lt;/li>      &lt;li>Height: 200px (for top/bottom)&lt;/li>      &lt;li>Perfect for simple forms&lt;/li>      &lt;li>Quick actions and notifications&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Medium Size (Default) -->&lt;aava-drawer  [isOpen]="mediumDrawerOpen"  size="medium"  title="Medium Drawer"  (closed)="closeDrawer('medium')">  &lt;div class="drawer-content">    &lt;h4>Medium Size (480px)&lt;/h4>    &lt;p>This is a medium drawer - the default size, good for most use cases.&lt;/p>    &lt;ul>      &lt;li>Width: 480px&lt;/li>      &lt;li>Height: 300px (for top/bottom)&lt;/li>      &lt;li>Default size&lt;/li>      &lt;li>Good for most use cases&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Large Size -->&lt;aava-drawer  [isOpen]="largeDrawerOpen"  size="large"  title="Large Drawer"  (closed)="closeDrawer('large')">  &lt;div class="drawer-content">    &lt;h4>Large Size (640px)&lt;/h4>    &lt;p>This is a large drawer great for detailed forms or content.&lt;/p>    &lt;ul>      &lt;li>Width: 640px&lt;/li>      &lt;li>Height: 400px (for top/bottom)&lt;/li>      &lt;li>Great for detailed forms&lt;/li>      &lt;li>Content-heavy interfaces&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Extra Large Size -->&lt;aava-drawer  [isOpen]="extraLargeDrawerOpen"  size="extra-large"  title="Extra Large Drawer"  (closed)="closeDrawer('extra-large')">  &lt;div class="drawer-content">    &lt;h4>Extra Large Size (800px)&lt;/h4>    &lt;p>      This is an extra large drawer for complex interfaces or detailed views.    &lt;/p>    &lt;ul>      &lt;li>Width: 800px&lt;/li>      &lt;li>Height: 500px (for top/bottom)&lt;/li>      &lt;li>Complex interfaces&lt;/li>      &lt;li>Detailed views and dashboards&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer>&lt;!-- Full Size -->&lt;aava-drawer  [isOpen]="fullDrawerOpen"  size="full"  title="Full Size Drawer"  (closed)="closeDrawer('full')">  &lt;div class="drawer-content">    &lt;h4>Full Size (100% viewport)&lt;/h4>    &lt;p>      This drawer takes up the full viewport - essentially a full-screen modal      experience.    &lt;/p>    &lt;ul>      &lt;li>Width: 100% viewport&lt;/li>      &lt;li>Height: 100% viewport&lt;/li>      &lt;li>Full-screen modal experience&lt;/li>      &lt;li>Immersive content display&lt;/li>    &lt;/ul>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code> // Drawer states for different sizes  smallDrawerOpen = false;  mediumDrawerOpen = false;  largeDrawerOpen = false;  extraLargeDrawerOpen = false;  fullDrawerOpen = false;  openDrawer(size: string): void {    switch (size) {      case 'small':        this.smallDrawerOpen = true;        break;      case 'medium':        this.mediumDrawerOpen = true;        break;      case 'large':        this.largeDrawerOpen = true;        break;      case 'extra-large':        this.extraLargeDrawerOpen = true;        break;      case 'full':        this.fullDrawerOpen = true;        break;    }  }  closeDrawer(size: string): void {    switch (size) {      case 'small':        this.smallDrawerOpen = false;        break;      case 'medium':        this.mediumDrawerOpen = false;        break;      case 'large':        this.largeDrawerOpen = false;        break;      case 'extra-large':        this.extraLargeDrawerOpen = false;        break;      case 'full':        this.fullDrawerOpen = false;        break;    }  }</code></pre>
+<pre><code> // Drawer states for different sizes  smallDrawerOpen = false;  mediumDrawerOpen = false;  largeDrawerOpen = false;  extraLargeDrawerOpen = false;  fullDrawerOpen = false;  openDrawer(size: string): void {    switch (size) {      case 'small':        this.smallDrawerOpen = true;        break;      case 'medium':        this.mediumDrawerOpen = true;        break;      case 'large':        this.largeDrawerOpen = true;        break;      case 'extra-large':        this.extraLargeDrawerOpen = true;        break;      case 'full':        this.fullDrawerOpen = true;        break;    }  }  closeDrawer(size: string): void {    switch (size) {      case 'small':        this.smallDrawerOpen = false;        break;      case 'medium':        this.mediumDrawerOpen = false;        break;      case 'large':        this.largeDrawerOpen = false;        break;      case 'extra-large':        this.extraLargeDrawerOpen = false;        break;      case 'full':        this.fullDrawerOpen = false;        break;    }  }</code></pre>
+<h2>Content Structure​</h2>
+<p>Organize drawer content with header, body, and footer sections.</p>
+<pre><code>&lt;aava-drawer  [isOpen]="basicContentDrawerOpen"  title="Basic Content"  subtitle="Simple content structure"  (closed)="closeDrawer('basic')">  &lt;div class="content-section">    &lt;h4>Simple Content&lt;/h4>    &lt;p>This is a basic drawer with simple content in the body section.&lt;/p>    &lt;p>The drawer automatically handles scrolling for long content.&lt;/p>    &lt;div class="lorem-content">      &lt;p>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod        tempor incididunt ut labore et dolore magna aliqua.      &lt;/p>      &lt;p>        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi        ut aliquip ex ea commodo consequat.      &lt;/p>      &lt;p>        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum        dolore eu fugiat nulla pariatur.      &lt;/p>    &lt;/div>  &lt;/div>&lt;/aava-drawer>&lt;!-- Header & Footer -->&lt;aava-drawer  [isOpen]="headerFooterDrawerOpen"  title="Header & Footer"  subtitle="Complete content structure"  [showFooter]="true"  (closed)="closeDrawer('header-footer')">  &lt;div class="content-section">    &lt;h4>Content with Header and Footer&lt;/h4>    &lt;p>      This drawer demonstrates the complete content structure with header, body,      and footer sections.    &lt;/p>    &lt;div class="content-block">      &lt;h5>Main Content Area&lt;/h5>      &lt;p>        The body section contains the main content and automatically scrolls        when needed.      &lt;/p>      &lt;p>You can include any HTML content here: forms, lists, images, etc.&lt;/p>    &lt;/div>    &lt;div class="content-block">      &lt;h5>Another Section&lt;/h5>      &lt;p>Multiple content blocks can be organized within the body section.&lt;/p>      &lt;ul>        &lt;li>Lists work well&lt;/li>        &lt;li>Tables are supported&lt;/li>        &lt;li>Forms integrate seamlessly&lt;/li>      &lt;/ul>    &lt;/div>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button      label="Cancel"      variant="secondary"      (click)="closeDrawer('header-footer')"    >    &lt;/aava-button>    &lt;aava-button      label="Save Changes"      variant="primary"      (click)="closeDrawer('header-footer')"    >    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer>&lt;!-- Custom Header -->&lt;aava-drawer  [isOpen]="customHeaderDrawerOpen"  [showCloseButton]="false"  (closed)="closeDrawer('custom-header')">  &lt;div slot="header">    &lt;div class="custom-header">      &lt;div class="header-left">        &lt;h3>Custom Header&lt;/h3>        &lt;p>Completely custom header content&lt;/p>      &lt;/div>      &lt;div class="header-right">        &lt;aava-button label="Action" variant="primary" size="sm"> &lt;/aava-button>      &lt;/div>    &lt;/div>  &lt;/div>  &lt;div class="content-section">    &lt;h4>Custom Header Example&lt;/h4>    &lt;p>      This drawer uses a custom header slot instead of the default      title/subtitle.    &lt;/p>    &lt;p>      You can include any content in the header: buttons, icons, custom layouts,      etc.    &lt;/p>    &lt;div class="custom-content">      &lt;div class="info-card">        &lt;h5>Custom Layout&lt;/h5>        &lt;p>          With custom headers, you have complete control over the header design          and functionality.        &lt;/p>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/aava-drawer>&lt;!-- Form Content -->&lt;aava-drawer  [isOpen]="formDrawerOpen"  title="Form Drawer"  subtitle="Data entry with validation"  [showFooter]="true"  (closed)="closeDrawer('form')">  &lt;div class="form-content">    &lt;h4>User Information Form&lt;/h4>    &lt;p>Complete the form below to update user information.&lt;/p>    &lt;div class="form-section">      &lt;aava-textbox        label="Full Name"        placeholder="Enter full name"        [required]="true"      >      &lt;/aava-textbox>      &lt;aava-textbox        label="Email"        type="email"        placeholder="user@example.com"        [required]="true"      >      &lt;/aava-textbox>      &lt;aava-textbox label="Phone" type="tel" placeholder="+1 (555) 123-4567">      &lt;/aava-textbox>    &lt;/div>    &lt;div class="form-section">      &lt;h5>Preferences&lt;/h5>      &lt;aava-checkbox label="Email notifications" [isChecked]="true">      &lt;/aava-checkbox>      &lt;aava-checkbox label="SMS notifications" [isChecked]="false">      &lt;/aava-checkbox>      &lt;aava-checkbox label="Marketing communications" [isChecked]="false">      &lt;/aava-checkbox>    &lt;/div>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button      label="Reset"      variant="secondary"      (click)="closeDrawer('form')"    >    &lt;/aava-button>    &lt;aava-button      label="Save User"      variant="primary"      (click)="closeDrawer('form')"    >    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer>&lt;!-- Complex Content -->&lt;aava-drawer  [isOpen]="complexContentDrawerOpen"  title="Complex Content"  subtitle="Advanced content organization"  size="large"  [showFooter]="true"  (closed)="closeDrawer('complex')">  &lt;div class="complex-content">    &lt;div class="content-tabs">      &lt;div class="tab-header">        &lt;button class="tab-button active">Overview&lt;/button>        &lt;button class="tab-button">Details&lt;/button>        &lt;button class="tab-button">Settings&lt;/button>      &lt;/div>      &lt;div class="tab-content">        &lt;div class="tab-panel active">          &lt;h4>Project Overview&lt;/h4>          &lt;div class="stats-grid">            &lt;div class="stat-item">              &lt;span class="stat-number">42&lt;/span>              &lt;span class="stat-label">Tasks&lt;/span>            &lt;/div>            &lt;div class="stat-item">              &lt;span class="stat-number">18&lt;/span>              &lt;span class="stat-label">Completed&lt;/span>            &lt;/div>            &lt;div class="stat-item">              &lt;span class="stat-number">75%&lt;/span>              &lt;span class="stat-label">Progress&lt;/span>            &lt;/div>          &lt;/div>          &lt;div class="progress-section">            &lt;h5>Project Progress&lt;/h5>            &lt;div class="progress-bar">              &lt;div class="progress-fill" style="width: 75%">&lt;/div>            &lt;/div>            &lt;p>3 weeks remaining until deadline&lt;/p>          &lt;/div>        &lt;/div>      &lt;/div>    &lt;/div>    &lt;div class="content-section">      &lt;h4>Recent Activity&lt;/h4>      &lt;div class="activity-list">        &lt;div class="activity-item">          &lt;div class="activity-icon">📝&lt;/div>          &lt;div class="activity-content">            &lt;h6>Task Updated&lt;/h6>            &lt;p>User authentication module completed&lt;/p>            &lt;span class="activity-time">2 hours ago&lt;/span>          &lt;/div>        &lt;/div>        &lt;div class="activity-item">          &lt;div class="activity-icon">✅&lt;/div>          &lt;div class="activity-content">            &lt;h6>Task Completed&lt;/h6>            &lt;p>Database schema design finalized&lt;/p>            &lt;span class="activity-time">1 day ago&lt;/span>          &lt;/div>        &lt;/div>        &lt;div class="activity-item">          &lt;div class="activity-icon">👥&lt;/div>          &lt;div class="activity-content">            &lt;h6>Team Member Added&lt;/h6>            &lt;p>Sarah Johnson joined the project&lt;/p>            &lt;span class="activity-time">3 days ago&lt;/span>          &lt;/div>        &lt;/div>      &lt;/div>    &lt;/div>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button      label="Export"      variant="secondary"      (click)="closeDrawer('complex')"    >    &lt;/aava-button>    &lt;aava-button      label="Share"      variant="secondary"      (click)="closeDrawer('complex')"    >    &lt;/aava-button>    &lt;aava-button      label="Close"      variant="primary"      (click)="closeDrawer('complex')"    >    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code>&lt;aava-drawer  [isOpen]="basicContentDrawerOpen"  title="Basic Content"  subtitle="Simple content structure"  (closed)="closeDrawer('basic')">  &lt;div class="content-section">    &lt;h4>Simple Content&lt;/h4>    &lt;p>This is a basic drawer with simple content in the body section.&lt;/p>    &lt;p>The drawer automatically handles scrolling for long content.&lt;/p>    &lt;div class="lorem-content">      &lt;p>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod        tempor incididunt ut labore et dolore magna aliqua.      &lt;/p>      &lt;p>        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi        ut aliquip ex ea commodo consequat.      &lt;/p>      &lt;p>        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum        dolore eu fugiat nulla pariatur.      &lt;/p>    &lt;/div>  &lt;/div>&lt;/aava-drawer>&lt;!-- Header & Footer -->&lt;aava-drawer  [isOpen]="headerFooterDrawerOpen"  title="Header & Footer"  subtitle="Complete content structure"  [showFooter]="true"  (closed)="closeDrawer('header-footer')">  &lt;div class="content-section">    &lt;h4>Content with Header and Footer&lt;/h4>    &lt;p>      This drawer demonstrates the complete content structure with header, body,      and footer sections.    &lt;/p>    &lt;div class="content-block">      &lt;h5>Main Content Area&lt;/h5>      &lt;p>        The body section contains the main content and automatically scrolls        when needed.      &lt;/p>      &lt;p>You can include any HTML content here: forms, lists, images, etc.&lt;/p>    &lt;/div>    &lt;div class="content-block">      &lt;h5>Another Section&lt;/h5>      &lt;p>Multiple content blocks can be organized within the body section.&lt;/p>      &lt;ul>        &lt;li>Lists work well&lt;/li>        &lt;li>Tables are supported&lt;/li>        &lt;li>Forms integrate seamlessly&lt;/li>      &lt;/ul>    &lt;/div>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button      label="Cancel"      variant="secondary"      (click)="closeDrawer('header-footer')"    >    &lt;/aava-button>    &lt;aava-button      label="Save Changes"      variant="primary"      (click)="closeDrawer('header-footer')"    >    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer>&lt;!-- Custom Header -->&lt;aava-drawer  [isOpen]="customHeaderDrawerOpen"  [showCloseButton]="false"  (closed)="closeDrawer('custom-header')">  &lt;div slot="header">    &lt;div class="custom-header">      &lt;div class="header-left">        &lt;h3>Custom Header&lt;/h3>        &lt;p>Completely custom header content&lt;/p>      &lt;/div>      &lt;div class="header-right">        &lt;aava-button label="Action" variant="primary" size="sm"> &lt;/aava-button>      &lt;/div>    &lt;/div>  &lt;/div>  &lt;div class="content-section">    &lt;h4>Custom Header Example&lt;/h4>    &lt;p>      This drawer uses a custom header slot instead of the default      title/subtitle.    &lt;/p>    &lt;p>      You can include any content in the header: buttons, icons, custom layouts,      etc.    &lt;/p>    &lt;div class="custom-content">      &lt;div class="info-card">        &lt;h5>Custom Layout&lt;/h5>        &lt;p>          With custom headers, you have complete control over the header design          and functionality.        &lt;/p>      &lt;/div>    &lt;/div>  &lt;/div>&lt;/aava-drawer>&lt;!-- Form Content -->&lt;aava-drawer  [isOpen]="formDrawerOpen"  title="Form Drawer"  subtitle="Data entry with validation"  [showFooter]="true"  (closed)="closeDrawer('form')">  &lt;div class="form-content">    &lt;h4>User Information Form&lt;/h4>    &lt;p>Complete the form below to update user information.&lt;/p>    &lt;div class="form-section">      &lt;aava-textbox        label="Full Name"        placeholder="Enter full name"        [required]="true"      >      &lt;/aava-textbox>      &lt;aava-textbox        label="Email"        type="email"        placeholder="user@example.com"        [required]="true"      >      &lt;/aava-textbox>      &lt;aava-textbox label="Phone" type="tel" placeholder="+1 (555) 123-4567">      &lt;/aava-textbox>    &lt;/div>    &lt;div class="form-section">      &lt;h5>Preferences&lt;/h5>      &lt;aava-checkbox label="Email notifications" [isChecked]="true">      &lt;/aava-checkbox>      &lt;aava-checkbox label="SMS notifications" [isChecked]="false">      &lt;/aava-checkbox>      &lt;aava-checkbox label="Marketing communications" [isChecked]="false">      &lt;/aava-checkbox>    &lt;/div>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button      label="Reset"      variant="secondary"      (click)="closeDrawer('form')"    >    &lt;/aava-button>    &lt;aava-button      label="Save User"      variant="primary"      (click)="closeDrawer('form')"    >    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer>&lt;!-- Complex Content -->&lt;aava-drawer  [isOpen]="complexContentDrawerOpen"  title="Complex Content"  subtitle="Advanced content organization"  size="large"  [showFooter]="true"  (closed)="closeDrawer('complex')">  &lt;div class="complex-content">    &lt;div class="content-tabs">      &lt;div class="tab-header">        &lt;button class="tab-button active">Overview&lt;/button>        &lt;button class="tab-button">Details&lt;/button>        &lt;button class="tab-button">Settings&lt;/button>      &lt;/div>      &lt;div class="tab-content">        &lt;div class="tab-panel active">          &lt;h4>Project Overview&lt;/h4>          &lt;div class="stats-grid">            &lt;div class="stat-item">              &lt;span class="stat-number">42&lt;/span>              &lt;span class="stat-label">Tasks&lt;/span>            &lt;/div>            &lt;div class="stat-item">              &lt;span class="stat-number">18&lt;/span>              &lt;span class="stat-label">Completed&lt;/span>            &lt;/div>            &lt;div class="stat-item">              &lt;span class="stat-number">75%&lt;/span>              &lt;span class="stat-label">Progress&lt;/span>            &lt;/div>          &lt;/div>          &lt;div class="progress-section">            &lt;h5>Project Progress&lt;/h5>            &lt;div class="progress-bar">              &lt;div class="progress-fill" style="width: 75%">&lt;/div>            &lt;/div>            &lt;p>3 weeks remaining until deadline&lt;/p>          &lt;/div>        &lt;/div>      &lt;/div>    &lt;/div>    &lt;div class="content-section">      &lt;h4>Recent Activity&lt;/h4>      &lt;div class="activity-list">        &lt;div class="activity-item">          &lt;div class="activity-icon">📝&lt;/div>          &lt;div class="activity-content">            &lt;h6>Task Updated&lt;/h6>            &lt;p>User authentication module completed&lt;/p>            &lt;span class="activity-time">2 hours ago&lt;/span>          &lt;/div>        &lt;/div>        &lt;div class="activity-item">          &lt;div class="activity-icon">✅&lt;/div>          &lt;div class="activity-content">            &lt;h6>Task Completed&lt;/h6>            &lt;p>Database schema design finalized&lt;/p>            &lt;span class="activity-time">1 day ago&lt;/span>          &lt;/div>        &lt;/div>        &lt;div class="activity-item">          &lt;div class="activity-icon">👥&lt;/div>          &lt;div class="activity-content">            &lt;h6>Team Member Added&lt;/h6>            &lt;p>Sarah Johnson joined the project&lt;/p>            &lt;span class="activity-time">3 days ago&lt;/span>          &lt;/div>        &lt;/div>      &lt;/div>    &lt;/div>  &lt;/div>  &lt;div slot="footer">    &lt;aava-button      label="Export"      variant="secondary"      (click)="closeDrawer('complex')"    >    &lt;/aava-button>    &lt;aava-button      label="Share"      variant="secondary"      (click)="closeDrawer('complex')"    >    &lt;/aava-button>    &lt;aava-button      label="Close"      variant="primary"      (click)="closeDrawer('complex')"    >    &lt;/aava-button>  &lt;/div>&lt;/aava-drawer></code></pre>
+<pre><code> basicContentDrawerOpen = false;  headerFooterDrawerOpen = false;  customHeaderDrawerOpen = false;  formDrawerOpen = false;  complexContentDrawerOpen = false;  openDrawer(type: string): void {    switch (type) {      case 'basic':        this.basicContentDrawerOpen = true;        break;      case 'header-footer':        this.headerFooterDrawerOpen = true;        break;      case 'custom-header':        this.customHeaderDrawerOpen = true;        break;      case 'form':        this.formDrawerOpen = true;        break;      case 'complex':        this.complexContentDrawerOpen = true;        break;    }  }  closeDrawer(type: string): void {    switch (type) {      case 'basic':        this.basicContentDrawerOpen = false;        break;      case 'header-footer':        this.headerFooterDrawerOpen = false;        break;      case 'custom-header':        this.customHeaderDrawerOpen = false;        break;      case 'form':        this.formDrawerOpen = false;        break;      case 'complex':        this.complexContentDrawerOpen = false;        break;    }  }</code></pre>
+<pre><code> basicContentDrawerOpen = false;  headerFooterDrawerOpen = false;  customHeaderDrawerOpen = false;  formDrawerOpen = false;  complexContentDrawerOpen = false;  openDrawer(type: string): void {    switch (type) {      case 'basic':        this.basicContentDrawerOpen = true;        break;      case 'header-footer':        this.headerFooterDrawerOpen = true;        break;      case 'custom-header':        this.customHeaderDrawerOpen = true;        break;      case 'form':        this.formDrawerOpen = true;        break;      case 'complex':        this.complexContentDrawerOpen = true;        break;    }  }  closeDrawer(type: string): void {    switch (type) {      case 'basic':        this.basicContentDrawerOpen = false;        break;      case 'header-footer':        this.headerFooterDrawerOpen = false;        break;      case 'custom-header':        this.customHeaderDrawerOpen = false;        break;      case 'form':        this.formDrawerOpen = false;        break;      case 'complex':        this.complexContentDrawerOpen = false;        break;    }  }</code></pre>
+<h2>Features​</h2>
+<h2>Multiple Positions​</h2>
+<p>• Right: Default position, slides in from the right edge</p>
+<p>• Left: Slides in from the left edge, perfect for navigation</p>
+<p>• Top: Slides down from the top, ideal for notifications</p>
+<p>• Bottom: Slides up from the bottom, great for forms</p>
+<h2>Size Variants​</h2>
+<p>• Small: 320px width (200px height for top/bottom)</p>
+<p>• Medium: 480px width (300px height for top/bottom) - Default</p>
+<p>• Large: 640px width (400px height for top/bottom)</p>
+<p>• Extra Large: 800px width (500px height for top/bottom)</p>
+<p>• Full: 100% viewport width/height</p>
+<p>• Custom: Specify exact dimensions with width/height properties</p>
+<h2>Advanced Features​</h2>
+<p>• Resizable: Enable drag-to-resize functionality</p>
+<p>• Persistent: Prevent accidental closing</p>
+<p>• Custom Animations: Spring-based animations with reduced motion support</p>
+<p>• Overlay Control: Configurable overlay behavior</p>
+<p>• Keyboard Navigation: Full keyboard accessibility</p>
+<p>• Focus Management: Proper focus trapping and restoration</p>
+<h2>Accessibility​</h2>
+<p>• ARIA Support: Complete ARIA attributes and roles</p>
+<p>• Screen Reader: Full screen reader compatibility</p>
+<p>• Keyboard Navigation: Escape key, tab trapping</p>
+<p>• Reduced Motion: Respects user motion preferences</p>
+<p>• High Contrast: High contrast mode support</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+isOpen | boolean | false | Controls the visibility of the drawer
+position | DrawerPosition | 'right' | Position of the drawer on screen
+size | DrawerSize | 'medium' | Predefined size of the drawer
+showOverlay | boolean | true | Whether to show the backdrop overlay
+closeOnOverlayClick | boolean | true | Close drawer when overlay is clicked
+closeOnEscape | boolean | true | Close drawer when Escape key is pressed
+showCloseButton | boolean | true | Show the close button in header
+persistent | boolean | false | Prevent drawer from being closed
+resizable | boolean | false | Enable resize functionality
+animate | boolean | true | Enable animations
+title | string | '' | Title displayed in the header
+subtitle | string | '' | Subtitle displayed in the header
+showHeader | boolean | true | Show the header section
+showFooter | boolean | false | Show the footer section
+width | string | '' | Custom width (overrides size)
+height | string | '' | Custom height (overrides size)
+maxWidth | string | '' | Maximum width constraint
+maxHeight | string | '' | Maximum height constraint
+zIndex | number | 1050 | Z-index for drawer positioning
+closeIcon | string | 'X' | Icon name for close button
+closeIconSize | number | 20 | Size of the close icon</pre>
+<pre><code>isOpen</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>position</code></pre>
+<pre><code>DrawerPosition</code></pre>
+<pre><code>'right'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>DrawerSize</code></pre>
+<pre><code>'medium'</code></pre>
+<pre><code>showOverlay</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>closeOnOverlayClick</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>closeOnEscape</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showCloseButton</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>persistent</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>resizable</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>animate</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>title</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>subtitle</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>showHeader</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showFooter</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>width</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>height</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>maxWidth</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>maxHeight</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>zIndex</code></pre>
+<pre><code>number</code></pre>
+<pre><code>1050</code></pre>
+<pre><code>closeIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'X'</code></pre>
+<pre><code>closeIconSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>20</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+opened | EventEmitter<void> | Emitted when drawer opens
+closed | EventEmitter<void> | Emitted when drawer closes
+overlayClick | EventEmitter<void> | Emitted when overlay is clicked
+escapePressed | EventEmitter<void> | Emitted when Escape key is pressed</pre>
+<pre><code>opened</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>closed</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>overlayClick</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<pre><code>escapePressed</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+open() | None | void | Opens the drawer
+close() | None | void | Closes the drawer
+toggle() | None | void | Toggles drawer open/closed state
+onOverlayClick() | None | void | Handles overlay click event
+onCloseClick() | None | void | Handles close button click
+onDrawerClick() | Event | void | Prevents event bubbling
+getDrawerClasses() | None | string | Returns CSS classes for drawer
+getOverlayClasses() | None | string | Returns CSS classes for overlay
+getDrawerStyles() | None | object | Returns inline styles for drawer</pre>
+<pre><code>open()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>close()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>toggle()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onOverlayClick()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onCloseClick()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onDrawerClick()</code></pre>
+<pre><code>Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>getDrawerClasses()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>getOverlayClasses()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>getDrawerStyles()</code></pre>
+<pre><code>object</code></pre>
+<h2>Types​</h2>
+<pre><code>type DrawerPosition = "left" | "right" | "top" | "bottom";</code></pre>
+<pre><code>type DrawerPosition = "left" | "right" | "top" | "bottom";</code></pre>
+<pre><code>type DrawerSize = "small" | "medium" | "large" | "extra-large" | "full";</code></pre>
+<pre><code>type DrawerSize = "small" | "medium" | "large" | "extra-large" | "full";</code></pre>
+<h2>Content Projection​</h2>
+<p>The drawer component supports content projection with specific slots:</p>
+<pre>Slot Name | Description
+[slot=header] | Custom content for the header section
+[slot=footer] | Custom content for the footer section
+Default | Main content displayed in the body section</pre>
+<pre><code>[slot=header]</code></pre>
+<pre><code>[slot=footer]</code></pre>
+<h2>CSS Classes​</h2>
+<p>The component provides several CSS classes for styling:</p>
+<pre>Class Name | Description
+.ava-drawer | Main drawer container
+.ava-drawer--open | Applied when drawer is open
+.ava-drawer--left | Left position styling
+.ava-drawer--right | Right position styling
+.ava-drawer--top | Top position styling
+.ava-drawer--bottom | Bottom position styling
+.ava-drawer--small | Small size styling
+.ava-drawer--medium | Medium size styling
+.ava-drawer--large | Large size styling
+.ava-drawer--extra-large | Extra large size styling
+.ava-drawer--full | Full size styling
+.ava-drawer--resizable | Resizable functionality styling
+.ava-drawer-overlay | Overlay container
+.ava-drawer-overlay--open | Applied when overlay is visible
+.ava-drawer__animation-wrapper | Animation wrapper
+.ava-drawer__content | Content container
+.ava-drawer__header | Header section
+.ava-drawer__header-content | Header content area
+.ava-drawer__title-section | Title and subtitle container
+.ava-drawer__title | Title element
+.ava-drawer__subtitle | Subtitle element
+.ava-drawer__header-slot | Header slot container
+.ava-drawer__close-section | Close button container
+.ava-drawer__body | Main content area
+.ava-drawer__footer | Footer section
+.ava-drawer__resize-handle | Resize handle</pre>
+<pre><code>.ava-drawer</code></pre>
+<pre><code>.ava-drawer--open</code></pre>
+<pre><code>.ava-drawer--left</code></pre>
+<pre><code>.ava-drawer--right</code></pre>
+<pre><code>.ava-drawer--top</code></pre>
+<pre><code>.ava-drawer--bottom</code></pre>
+<pre><code>.ava-drawer--small</code></pre>
+<pre><code>.ava-drawer--medium</code></pre>
+<pre><code>.ava-drawer--large</code></pre>
+<pre><code>.ava-drawer--extra-large</code></pre>
+<pre><code>.ava-drawer--full</code></pre>
+<pre><code>.ava-drawer--resizable</code></pre>
+<pre><code>.ava-drawer-overlay</code></pre>
+<pre><code>.ava-drawer-overlay--open</code></pre>
+<pre><code>.ava-drawer__animation-wrapper</code></pre>
+<pre><code>.ava-drawer__content</code></pre>
+<pre><code>.ava-drawer__header</code></pre>
+<pre><code>.ava-drawer__header-content</code></pre>
+<pre><code>.ava-drawer__title-section</code></pre>
+<pre><code>.ava-drawer__title</code></pre>
+<pre><code>.ava-drawer__subtitle</code></pre>
+<pre><code>.ava-drawer__header-slot</code></pre>
+<pre><code>.ava-drawer__close-section</code></pre>
+<pre><code>.ava-drawer__body</code></pre>
+<pre><code>.ava-drawer__footer</code></pre>
+<pre><code>.ava-drawer__resize-handle</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The component uses CSS custom properties for theming:</p>
+<pre>Property | Description
+--drawer-background | Background color of the drawer
+--drawer-border | Border styling for the drawer
+--drawer-shadow | Box shadow for the drawer
+--drawer-z-index | Z-index for drawer positioning
+--drawer-spring-duration | Animation duration (300ms)
+--drawer-spring-easing | Animation easing function
+--drawer-header-padding | Header padding
+--drawer-header-border | Header bottom border
+--drawer-header-background | Header background color
+--drawer-header-gap | Gap between header elements
+--drawer-title-font | Title font styling
+--drawer-title-color | Title text color
+--drawer-title-weight | Title font weight
+--drawer-title-line-height | Title line height
+--drawer-subtitle-font | Subtitle font styling
+--drawer-subtitle-color | Subtitle text color
+--drawer-subtitle-weight | Subtitle font weight
+--drawer-subtitle-line-height | Subtitle line height
+--drawer-subtitle-margin | Subtitle margin
+--drawer-body-padding | Body padding
+--drawer-body-background | Body background color
+--drawer-body-text-color | Body text color
+--drawer-footer-padding | Footer padding
+--drawer-footer-border | Footer top border
+--drawer-footer-background | Footer background color
+--popup-overlay-background | Overlay background color
+--global-motion-duration-standard | Standard motion duration
+--global-motion-easing-standard | Standard motion easing
+--global-spacing-2 | Small spacing token
+--global-spacing-3 | Medium spacing token</pre>
+<pre><code>--drawer-background</code></pre>
+<pre><code>--drawer-border</code></pre>
+<pre><code>--drawer-shadow</code></pre>
+<pre><code>--drawer-z-index</code></pre>
+<pre><code>--drawer-spring-duration</code></pre>
+<pre><code>--drawer-spring-easing</code></pre>
+<pre><code>--drawer-header-padding</code></pre>
+<pre><code>--drawer-header-border</code></pre>
+<pre><code>--drawer-header-background</code></pre>
+<pre><code>--drawer-header-gap</code></pre>
+<pre><code>--drawer-title-font</code></pre>
+<pre><code>--drawer-title-color</code></pre>
+<pre><code>--drawer-title-weight</code></pre>
+<pre><code>--drawer-title-line-height</code></pre>
+<pre><code>--drawer-subtitle-font</code></pre>
+<pre><code>--drawer-subtitle-color</code></pre>
+<pre><code>--drawer-subtitle-weight</code></pre>
+<pre><code>--drawer-subtitle-line-height</code></pre>
+<pre><code>--drawer-subtitle-margin</code></pre>
+<pre><code>--drawer-body-padding</code></pre>
+<pre><code>--drawer-body-background</code></pre>
+<pre><code>--drawer-body-text-color</code></pre>
+<pre><code>--drawer-footer-padding</code></pre>
+<pre><code>--drawer-footer-border</code></pre>
+<pre><code>--drawer-footer-background</code></pre>
+<pre><code>--popup-overlay-background</code></pre>
+<pre><code>--global-motion-duration-standard</code></pre>
+<pre><code>--global-motion-easing-standard</code></pre>
+<pre><code>--global-spacing-2</code></pre>
+<pre><code>--global-spacing-3</code></pre>
+<h2>Best Practices​</h2>
+<h2>User Experience​</h2>
+<p>• Appropriate Size: Choose drawer size based on content complexity</p>
+<p>• Clear Purpose: Use descriptive titles and content structure</p>
+<p>• Smooth Interactions: Enable animations for better UX</p>
+<p>• Consistent Behavior: Maintain consistent drawer patterns across the app</p>
+<p>• Responsive Design: Ensure drawers work well on all screen sizes</p>
+<h2>Performance​</h2>
+<p>• Conditional Rendering: Only render drawer content when needed</p>
+<p>• Animation Optimization: Use hardware-accelerated animations</p>
+<p>• Memory Management: Clean up event listeners and timeouts</p>
+<p>• Change Detection: Leverage OnPush strategy for better performance</p>
+<p>• Content Loading: Load heavy content after drawer opens</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Ensure all interactions work with keyboard</p>
+<p>• Screen Reader Support: Provide proper ARIA labels and descriptions</p>
+<p>• Focus Management: Trap focus within drawer when open</p>
+<p>• Motion Preferences: Respect user's reduced motion preferences</p>
+<p>• High Contrast: Ensure visibility in high contrast mode</p>
+<h2>Content Organization​</h2>
+<p>• Header Structure: Use clear titles and optional subtitles</p>
+<p>• Content Hierarchy: Organize content logically within body</p>
+<p>• Footer Actions: Place primary actions in footer when appropriate</p>
+<p>• Scrolling: Ensure long content scrolls properly within body</p>
+<p>• Responsive Content: Adapt content layout for different drawer sizes</p>
+<h2>Accessibility Guidelines​</h2>
+<h2>Screen Reader Support​</h2>
+<p>• ARIA Attributes: Properrole="dialog",aria-modal="true"</p>
+<p>• Labels:aria-labelledbyandaria-describedbyfor content identification</p>
+<p>• State Announcements: Clear announcements for drawer state changes</p>
+<p>• Content Structure: Semantic HTML structure for better navigation</p>
+<pre><code>role="dialog"</code></pre>
+<pre><code>aria-modal="true"</code></pre>
+<pre><code>aria-labelledby</code></pre>
+<pre><code>aria-describedby</code></pre>
+<h2>Keyboard Navigation​</h2>
+<p>• Tab Order: Logical tab order within the drawer</p>
+<p>• Escape Key: Close drawer with Escape key (configurable)</p>
+<p>• Focus Trapping: Focus remains within drawer when open</p>
+<p>• Focus Restoration: Return focus to trigger element when closed</p>
+<h2>Visual Design​</h2>
+<p>• High Contrast: Ensure sufficient contrast ratios</p>
+<p>• Focus Indicators: Clear focus indicators for all interactive elements</p>
+<p>• Color Independence: Don't rely solely on color for information</p>
+<p>• Text Scaling: Support for text scaling and zoom</p>
+<h2>Motion and Animation​</h2>
+<p>• Reduced Motion: Respectprefers-reduced-motionmedia query</p>
+<p>• Animation Duration: Keep animations smooth but not distracting</p>
+<p>• Motion Alternatives: Provide alternatives for users who can't see animations</p>
+<p>• Performance: Ensure animations don't cause performance issues</p>
+<pre><code>prefers-reduced-motion</code></pre>
+<h2>Responsive Behavior​</h2>
+<h2>Mobile Adaptations​</h2>
+<p>The drawer component automatically adapts to mobile screens:</p>
+<p>• Full Width/Height: Drawers become full viewport on mobile</p>
+<p>• Touch Optimization: Optimized for touch interactions</p>
+<p>• Viewport Adaptation: Adapts to different mobile viewport sizes</p>
+<p>• Performance: Optimized performance for mobile devices</p>
+<h2>Breakpoint Behavior​</h2>
+<p>• Desktop (>768px): Full drawer with all features</p>
+<p>• Mobile (≤768px): Optimized drawer for mobile screens</p>
+<p>• Content Scaling: Drawer content scales appropriately</p>
+<p>• Animation Performance: Optimized animations for different devices</p>
+<h2>Content Considerations​</h2>
+<p>• Flexible Sizing: Drawer adapts to different content sizes</p>
+<p>• Layout Preservation: Maintains layout consistency across devices</p>
+<p>• Loading States: Consistent loading experience across platforms</p>
+<p>• Performance: Efficient rendering on all device types</p>
+</body></html>
