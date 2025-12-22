@@ -1,0 +1,357 @@
+<html><head><meta charset='utf-8'>
+<title>List</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>List</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Data-Display/List</small></p>
+<h2>List</h2>
+<p>A versatile, feature-rich list component that supports single and multi-selection, integrates with Angular forms, and provides extensive customization options including avatars, icons, and action buttons. Built with accessibility in mind and designed for complex data display scenarios.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaListComponent, AavaListItemsComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaListComponent, AavaListItemsComponent } from "@aava/play-core";</code></pre>
+<p>Note: The List component is standalone and includes all necessary dependencies. TheAavaListItemsComponentis used for individual list items with content projection.</p>
+<pre><code>AavaListItemsComponent</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple list implementations with avatars, icons, and basic selection functionality.</p>
+<pre><code>&lt;aava-list>  &lt;aava-list-items *ngFor="let profile of userProfiles">    &lt;div left>      &lt;aava-avatars        size="large"        shape="pill"        [imageUrl]="sampleImageUrl"      >&lt;/aava-avatars>    &lt;/div>    &lt;div middle>      &lt;h4>{{ profile.heading }}&lt;/h4>      &lt;p>{{ profile.description }}&lt;/p>    &lt;/div>    &lt;div right>      &lt;aava-icon        [iconName]="'arrow-right'"        iconColor="#000000ff"        iconSize="24"      >&lt;/aava-icon>    &lt;/div>  &lt;/aava-list-items>&lt;/aava-list></code></pre>
+<pre><code>&lt;aava-list>  &lt;aava-list-items *ngFor="let profile of userProfiles">    &lt;div left>      &lt;aava-avatars        size="large"        shape="pill"        [imageUrl]="sampleImageUrl"      >&lt;/aava-avatars>    &lt;/div>    &lt;div middle>      &lt;h4>{{ profile.heading }}&lt;/h4>      &lt;p>{{ profile.description }}&lt;/p>    &lt;/div>    &lt;div right>      &lt;aava-icon        [iconName]="'arrow-right'"        iconColor="#000000ff"        iconSize="24"      >&lt;/aava-icon>    &lt;/div>  &lt;/aava-list-items>&lt;/aava-list></code></pre>
+<pre><code>sampleImageUrl = "assets/1.svg";userProfiles = [  {    id: 1,    heading: "Heading comes here",    description: "Description text goes here",    avatarUrl: "https://randomuser.me/api/portraits/men/1.jpg",    iconName: "chevron-right",    button: {      text: "label",      variant: "primary" as ButtonVariant,      color: "#1976d2",      action: "view_profile",    },  },  {    id: 2,    heading: "Heading comes here",    description: "Description text goes here",    avatarUrl: "https://randomuser.me/api/portraits/women/2.jpg",    iconName: "chevron-right",    button: {      text: "label",      variant: "secondary" as ButtonVariant,      color: "#388e3c",      action: "contact",    },  },  {    id: 3,    heading: "Heading comes here",    description: "Description text goes here",    avatarUrl: "https://randomuser.me/api/portraits/men/3.jpg",    iconName: "chevron-right",    button: {      text: "label",      variant: "primary" as ButtonVariant,      color: "#f57c00",      action: "view_portfolio",    },  },];</code></pre>
+<pre><code>sampleImageUrl = "assets/1.svg";userProfiles = [  {    id: 1,    heading: "Heading comes here",    description: "Description text goes here",    avatarUrl: "https://randomuser.me/api/portraits/men/1.jpg",    iconName: "chevron-right",    button: {      text: "label",      variant: "primary" as ButtonVariant,      color: "#1976d2",      action: "view_profile",    },  },  {    id: 2,    heading: "Heading comes here",    description: "Description text goes here",    avatarUrl: "https://randomuser.me/api/portraits/women/2.jpg",    iconName: "chevron-right",    button: {      text: "label",      variant: "secondary" as ButtonVariant,      color: "#388e3c",      action: "contact",    },  },  {    id: 3,    heading: "Heading comes here",    description: "Description text goes here",    avatarUrl: "https://randomuser.me/api/portraits/men/3.jpg",    iconName: "chevron-right",    button: {      text: "label",      variant: "primary" as ButtonVariant,      color: "#f57c00",      action: "view_portfolio",    },  },];</code></pre>
+<h2>Multi-Selection​</h2>
+<p>Advanced multi-selection capabilities with checkboxes, selection limits, and programmatic control.</p>
+<pre><code>import { Component } from '@angular/core';import { ListComponent } from '@aava/play-comp-library';@Component({  selector: 'app-list-multi-select',  standalone: true,  imports: [ListComponent],  template: `    &lt;div class="demo-container">      &lt;h3>Multi-Selection List&lt;/h3>      &lt;div class="multi-select-examples">        &lt;div class="example-section">          &lt;h4>Basic Multi-Select&lt;/h4>          &lt;aava-list            [items]="basicItems"            [title]="'Select Multiple Items'"            [multiSelect]="true"            (onSelectionChanged)="onSelectionChanged($event)"          >&lt;/aava-list>        &lt;/div>        &lt;div class="example-section">          &lt;h4>Multi-Select with Checkboxes&lt;/h4>          &lt;aava-list            [items]="checkboxItems"            [title]="'Select with Checkboxes'"            [multiSelect]="true"            [showCheckboxes]="true"            (onSelectionChanged)="onCheckboxSelectionChanged($event)"          >&lt;/aava-list>        &lt;/div>        &lt;div class="example-section">          &lt;h4>Limited Multi-Select (Max 3)&lt;/h4>          &lt;aava-list            [items]="limitedItems"            [title]="'Select Up to 3 Items'"            [multiSelect]="true"            [maxSelections]="3"            (onSelectionChanged)="onLimitedSelectionChanged($event)"          >&lt;/aava-list>        &lt;/div>      &lt;/div>      &lt;div class="control-buttons">        &lt;button (click)="selectAll()" class="btn btn-primary">Select All&lt;/button>        &lt;button (click)="clearSelection()" class="btn btn-secondary">Clear Selection&lt;/button>        &lt;button (click)="selectSpecific()" class="btn btn-success">Select Items 1, 3, 5&lt;/button>      &lt;/div>      &lt;div class="selection-outputs">        &lt;div class="output-section">          &lt;h4>Basic Multi-Select Output&lt;/h4>          &lt;div class="output-content">            &lt;p>&lt;strong>Selected Items:&lt;/strong> {{ basicSelection.selectedItems.map(item => item.title).join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Selected IDs:&lt;/strong> {{ basicSelection.selectedIds.join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Count:&lt;/strong> {{ basicSelection.selectedItems.length }}&lt;/p>          &lt;/div>        &lt;/div>        &lt;div class="output-section">          &lt;h4>Checkbox Selection Output&lt;/h4>          &lt;div class="output-content">            &lt;p>&lt;strong>Selected Items:&lt;/strong> {{ checkboxSelection.selectedItems.map(item => item.title).join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Selected IDs:&lt;/strong> {{ checkboxSelection.selectedIds.join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Count:&lt;/strong> {{ checkboxSelection.selectedItems.length }}&lt;/p>          &lt;/div>        &lt;/div>        &lt;div class="output-section">          &lt;h4>Limited Selection Output&lt;/h4>          &lt;div class="output-content">            &lt;p>&lt;strong>Selected Items:&lt;/strong> {{ limitedSelection.selectedItems.map(item => item.title).join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Selected IDs:&lt;/strong> {{ limitedSelection.selectedIds.join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Count:&lt;/strong> {{ limitedSelection.selectedItems.length }} / 3&lt;/p>            &lt;p>&lt;strong>Can Select More:&lt;/strong> {{ limitedSelection.selectedItems.length &lt; 3 ? 'Yes' : 'No' }}&lt;/p>          &lt;/div>        &lt;/div>      &lt;/div>      &lt;div class="usage-tips">        &lt;h4>Multi-Selection Tips:&lt;/h4>        &lt;ul>          &lt;li>&lt;strong>Multi-Select Mode:&lt;/strong> Set `multiSelect="true"` to enable multiple selections&lt;/li>          &lt;li>&lt;strong>Checkboxes:&lt;/strong> Use `showCheckboxes="true"` for visual checkbox indicators&lt;/li>          &lt;li>&lt;strong>Max Selections:&lt;/strong> Set `maxSelections` to limit the number of selectable items&lt;/li>          &lt;li>&lt;strong>Event Handling:&lt;/strong> Use `onSelectionChanged` for multi-select events&lt;/li>          &lt;li>&lt;strong>Programmatic Control:&lt;/strong> Use `selectAll()`, `clearSelection()`, and `selectItems()` methods&lt;/li>        &lt;/ul>      &lt;/div>    &lt;/div>  `,  styles: [`    .demo-container {      max-width: 1200px;      margin: 20px 0;    }    .multi-select-examples {      display: grid;      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));      gap: 32px;      margin: 20px 0;    }    .example-section {      padding: 20px;      border: 1px solid #e9ecef;      border-radius: 8px;      background: #f8f9fa;    }    .example-section h4 {      margin-top: 0;      margin-bottom: 16px;      color: #495057;      font-size: 16px;    }    .control-buttons {      display: flex;      gap: 12px;      margin: 24px 0;      flex-wrap: wrap;    }    .btn {      padding: 8px 16px;      border: none;      border-radius: 4px;      cursor: pointer;      font-size: 14px;      transition: background-color 0.2s;    }    .btn-primary {      background: #007bff;      color: white;    }    .btn-primary:hover {      background: #0056b3;    }    .btn-secondary {      background: #6c757d;      color: white;    }    .btn-secondary:hover {      background: #545b62;    }    .btn-success {      background: #28a745;      color: white;    }    .btn-success:hover {      background: #1e7e34;    }    .selection-outputs {      display: grid;      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));      gap: 20px;      margin: 24px 0;    }    .output-section {      padding: 16px;      border: 1px solid #e9ecef;      border-radius: 6px;      background: #f8f9fa;    }    .output-section h4 {      margin-top: 0;      margin-bottom: 12px;      color: #495057;      font-size: 14px;    }    .output-content p {      margin: 4px 0;      font-size: 13px;      color: #495057;    }    .usage-tips {      margin-top: 24px;      padding: 16px;      background: #d1f2eb;      border-radius: 6px;      border-left: 4px solid #20c997;    }    .usage-tips h4 {      margin-top: 0;      color: #0f5132;    }    .usage-tips ul {      margin: 8px 0;      padding-left: 20px;    }    .usage-tips li {      margin: 4px 0;      color: #0f5132;    }    .usage-tips strong {      color: #051b11;    }    @media (max-width: 768px) {      .multi-select-examples {        grid-template-columns: 1fr;        gap: 20px;      }      .selection-outputs {        grid-template-columns: 1fr;        gap: 16px;      }      .control-buttons {        flex-direction: column;      }    }  `]})export class ListMultiSelectDemo {  basicSelection = { selectedItems: [], selectedIds: [] };  checkboxSelection = { selectedItems: [], selectedIds: [] };  limitedSelection = { selectedItems: [], selectedIds: [] };  basicItems = [    { id: '1', title: 'Item 1', subtitle: 'First item' },    { id: '2', title: 'Item 2', subtitle: 'Second item' },    { id: '3', title: 'Item 3', subtitle: 'Third item' },    { id: '4', title: 'Item 4', subtitle: 'Fourth item' },    { id: '5', title: 'Item 5', subtitle: 'Fifth item' }  ];  checkboxItems = [    { id: '1', title: 'Task 1', subtitle: 'Complete documentation' },    { id: '2', title: 'Task 2', subtitle: 'Review code' },    { id: '3', title: 'Task 3', subtitle: 'Write tests' },    { id: '4', title: 'Task 4', subtitle: 'Deploy to staging' },    { id: '5', title: 'Task 5', subtitle: 'Update dependencies' }  ];  limitedItems = [    { id: '1', title: 'Option A', subtitle: 'First option' },    { id: '2', title: 'Option B', subtitle: 'Second option' },    { id: '3', title: 'Option C', subtitle: 'Third option' },    { id: '4', title: 'Option D', subtitle: 'Fourth option' },    { id: '5', title: 'Option E', subtitle: 'Fifth option' }  ];  onSelectionChanged(event: any) {    this.basicSelection = event;    console.log('Basic selection changed:', event);  }  onCheckboxSelectionChanged(event: any) {    this.checkboxSelection = event;    console.log('Checkbox selection changed:', event);  }  onLimitedSelectionChanged(event: any) {    this.limitedSelection = event;    console.log('Limited selection changed:', event);  }  selectAll() {    // This would be called on the list component reference    console.log('Select all clicked');  }  clearSelection() {    // This would be called on the list component reference    console.log('Clear selection clicked');  }  selectSpecific() {    // This would be called on the list component reference    console.log('Select specific items clicked');  }}</code></pre>
+<pre><code>import { Component } from '@angular/core';import { ListComponent } from '@aava/play-comp-library';@Component({  selector: 'app-list-multi-select',  standalone: true,  imports: [ListComponent],  template: `    &lt;div class="demo-container">      &lt;h3>Multi-Selection List&lt;/h3>      &lt;div class="multi-select-examples">        &lt;div class="example-section">          &lt;h4>Basic Multi-Select&lt;/h4>          &lt;aava-list            [items]="basicItems"            [title]="'Select Multiple Items'"            [multiSelect]="true"            (onSelectionChanged)="onSelectionChanged($event)"          >&lt;/aava-list>        &lt;/div>        &lt;div class="example-section">          &lt;h4>Multi-Select with Checkboxes&lt;/h4>          &lt;aava-list            [items]="checkboxItems"            [title]="'Select with Checkboxes'"            [multiSelect]="true"            [showCheckboxes]="true"            (onSelectionChanged)="onCheckboxSelectionChanged($event)"          >&lt;/aava-list>        &lt;/div>        &lt;div class="example-section">          &lt;h4>Limited Multi-Select (Max 3)&lt;/h4>          &lt;aava-list            [items]="limitedItems"            [title]="'Select Up to 3 Items'"            [multiSelect]="true"            [maxSelections]="3"            (onSelectionChanged)="onLimitedSelectionChanged($event)"          >&lt;/aava-list>        &lt;/div>      &lt;/div>      &lt;div class="control-buttons">        &lt;button (click)="selectAll()" class="btn btn-primary">Select All&lt;/button>        &lt;button (click)="clearSelection()" class="btn btn-secondary">Clear Selection&lt;/button>        &lt;button (click)="selectSpecific()" class="btn btn-success">Select Items 1, 3, 5&lt;/button>      &lt;/div>      &lt;div class="selection-outputs">        &lt;div class="output-section">          &lt;h4>Basic Multi-Select Output&lt;/h4>          &lt;div class="output-content">            &lt;p>&lt;strong>Selected Items:&lt;/strong> {{ basicSelection.selectedItems.map(item => item.title).join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Selected IDs:&lt;/strong> {{ basicSelection.selectedIds.join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Count:&lt;/strong> {{ basicSelection.selectedItems.length }}&lt;/p>          &lt;/div>        &lt;/div>        &lt;div class="output-section">          &lt;h4>Checkbox Selection Output&lt;/h4>          &lt;div class="output-content">            &lt;p>&lt;strong>Selected Items:&lt;/strong> {{ checkboxSelection.selectedItems.map(item => item.title).join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Selected IDs:&lt;/strong> {{ checkboxSelection.selectedIds.join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Count:&lt;/strong> {{ checkboxSelection.selectedItems.length }}&lt;/p>          &lt;/div>        &lt;/div>        &lt;div class="output-section">          &lt;h4>Limited Selection Output&lt;/h4>          &lt;div class="output-content">            &lt;p>&lt;strong>Selected Items:&lt;/strong> {{ limitedSelection.selectedItems.map(item => item.title).join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Selected IDs:&lt;/strong> {{ limitedSelection.selectedIds.join(', ') || 'None' }}&lt;/p>            &lt;p>&lt;strong>Count:&lt;/strong> {{ limitedSelection.selectedItems.length }} / 3&lt;/p>            &lt;p>&lt;strong>Can Select More:&lt;/strong> {{ limitedSelection.selectedItems.length &lt; 3 ? 'Yes' : 'No' }}&lt;/p>          &lt;/div>        &lt;/div>      &lt;/div>      &lt;div class="usage-tips">        &lt;h4>Multi-Selection Tips:&lt;/h4>        &lt;ul>          &lt;li>&lt;strong>Multi-Select Mode:&lt;/strong> Set `multiSelect="true"` to enable multiple selections&lt;/li>          &lt;li>&lt;strong>Checkboxes:&lt;/strong> Use `showCheckboxes="true"` for visual checkbox indicators&lt;/li>          &lt;li>&lt;strong>Max Selections:&lt;/strong> Set `maxSelections` to limit the number of selectable items&lt;/li>          &lt;li>&lt;strong>Event Handling:&lt;/strong> Use `onSelectionChanged` for multi-select events&lt;/li>          &lt;li>&lt;strong>Programmatic Control:&lt;/strong> Use `selectAll()`, `clearSelection()`, and `selectItems()` methods&lt;/li>        &lt;/ul>      &lt;/div>    &lt;/div>  `,  styles: [`    .demo-container {      max-width: 1200px;      margin: 20px 0;    }    .multi-select-examples {      display: grid;      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));      gap: 32px;      margin: 20px 0;    }    .example-section {      padding: 20px;      border: 1px solid #e9ecef;      border-radius: 8px;      background: #f8f9fa;    }    .example-section h4 {      margin-top: 0;      margin-bottom: 16px;      color: #495057;      font-size: 16px;    }    .control-buttons {      display: flex;      gap: 12px;      margin: 24px 0;      flex-wrap: wrap;    }    .btn {      padding: 8px 16px;      border: none;      border-radius: 4px;      cursor: pointer;      font-size: 14px;      transition: background-color 0.2s;    }    .btn-primary {      background: #007bff;      color: white;    }    .btn-primary:hover {      background: #0056b3;    }    .btn-secondary {      background: #6c757d;      color: white;    }    .btn-secondary:hover {      background: #545b62;    }    .btn-success {      background: #28a745;      color: white;    }    .btn-success:hover {      background: #1e7e34;    }    .selection-outputs {      display: grid;      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));      gap: 20px;      margin: 24px 0;    }    .output-section {      padding: 16px;      border: 1px solid #e9ecef;      border-radius: 6px;      background: #f8f9fa;    }    .output-section h4 {      margin-top: 0;      margin-bottom: 12px;      color: #495057;      font-size: 14px;    }    .output-content p {      margin: 4px 0;      font-size: 13px;      color: #495057;    }    .usage-tips {      margin-top: 24px;      padding: 16px;      background: #d1f2eb;      border-radius: 6px;      border-left: 4px solid #20c997;    }    .usage-tips h4 {      margin-top: 0;      color: #0f5132;    }    .usage-tips ul {      margin: 8px 0;      padding-left: 20px;    }    .usage-tips li {      margin: 4px 0;      color: #0f5132;    }    .usage-tips strong {      color: #051b11;    }    @media (max-width: 768px) {      .multi-select-examples {        grid-template-columns: 1fr;        gap: 20px;      }      .selection-outputs {        grid-template-columns: 1fr;        gap: 16px;      }      .control-buttons {        flex-direction: column;      }    }  `]})export class ListMultiSelectDemo {  basicSelection = { selectedItems: [], selectedIds: [] };  checkboxSelection = { selectedItems: [], selectedIds: [] };  limitedSelection = { selectedItems: [], selectedIds: [] };  basicItems = [    { id: '1', title: 'Item 1', subtitle: 'First item' },    { id: '2', title: 'Item 2', subtitle: 'Second item' },    { id: '3', title: 'Item 3', subtitle: 'Third item' },    { id: '4', title: 'Item 4', subtitle: 'Fourth item' },    { id: '5', title: 'Item 5', subtitle: 'Fifth item' }  ];  checkboxItems = [    { id: '1', title: 'Task 1', subtitle: 'Complete documentation' },    { id: '2', title: 'Task 2', subtitle: 'Review code' },    { id: '3', title: 'Task 3', subtitle: 'Write tests' },    { id: '4', title: 'Task 4', subtitle: 'Deploy to staging' },    { id: '5', title: 'Task 5', subtitle: 'Update dependencies' }  ];  limitedItems = [    { id: '1', title: 'Option A', subtitle: 'First option' },    { id: '2', title: 'Option B', subtitle: 'Second option' },    { id: '3', title: 'Option C', subtitle: 'Third option' },    { id: '4', title: 'Option D', subtitle: 'Fourth option' },    { id: '5', title: 'Option E', subtitle: 'Fifth option' }  ];  onSelectionChanged(event: any) {    this.basicSelection = event;    console.log('Basic selection changed:', event);  }  onCheckboxSelectionChanged(event: any) {    this.checkboxSelection = event;    console.log('Checkbox selection changed:', event);  }  onLimitedSelectionChanged(event: any) {    this.limitedSelection = event;    console.log('Limited selection changed:', event);  }  selectAll() {    // This would be called on the list component reference    console.log('Select all clicked');  }  clearSelection() {    // This would be called on the list component reference    console.log('Clear selection clicked');  }  selectSpecific() {    // This would be called on the list component reference    console.log('Select specific items clicked');  }}</code></pre>
+<h2>Multi-Selection Features​</h2>
+<p>• Checkbox Mode: Visual checkboxes for clear selection indication</p>
+<p>• Selection Limits: Set maximum number of selectable items</p>
+<p>• Programmatic Control:selectAll(),clearSelection(), andselectItems()methods</p>
+<p>• Event Handling: Comprehensive selection change events with detailed information</p>
+<pre><code>selectAll()</code></pre>
+<pre><code>clearSelection()</code></pre>
+<pre><code>selectItems()</code></pre>
+<h2>Accessibility​</h2>
+<p>WCAG 2.1 AA compliant with comprehensive keyboard navigation and screen reader support.</p>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Full keyboard support with arrow keys, tab, enter, and escape</p>
+<p>• ARIA Support: Comprehensive ARIA labels, roles, and state announcements</p>
+<p>• Screen Reader: Descriptive labels and status announcements</p>
+<p>• Focus Management: Clear visual focus indicators and logical tab order</p>
+<p>• High Contrast: Enhanced visibility in high contrast modes</p>
+<p>• Testing Checklist: Complete accessibility testing guidelines</p>
+<h2>Component Architecture​</h2>
+<p>The List component consists of two main parts:</p>
+<h2>AavaListComponent​</h2>
+<p>The main list container that handles selection, validation, and form integration.</p>
+<h2>AavaListItemsComponent​</h2>
+<p>Individual list item wrapper with content projection slots and styling.</p>
+<pre><code>import { AavaListItemsComponent } from "@aava/play-core";@Component({  selector: "app-list-example",  template: `    &lt;aava-list [items]="items" [multiSelect]="true">      &lt;aava-list-items        *ngFor="let item of items"        [selected]="isSelected(item)"        [disabled]="item.disabled"        [size]="'md'"        (itemClick)="onItemClick(item)"      >        &lt;!-- Left slot for avatar/icon -->        &lt;div left>          &lt;aava-avatars [imageUrl]="item.avatar?.imageUrl">&lt;/aava-avatars>        &lt;/div>        &lt;!-- Middle slot for content -->        &lt;div middle>          &lt;h3>{{ item.title }}&lt;/h3>          &lt;p>{{ item.subtitle }}&lt;/p>        &lt;/div>        &lt;!-- Right slot for actions -->        &lt;div right>          &lt;aava-button            [label]="'Edit'"            (userClick)="onEdit(item)"          >&lt;/aava-button>        &lt;/div>      &lt;/aava-list-items>    &lt;/aava-list>  `,})export class ListExampleComponent {  // Component implementation}</code></pre>
+<pre><code>import { AavaListItemsComponent } from "@aava/play-core";@Component({  selector: "app-list-example",  template: `    &lt;aava-list [items]="items" [multiSelect]="true">      &lt;aava-list-items        *ngFor="let item of items"        [selected]="isSelected(item)"        [disabled]="item.disabled"        [size]="'md'"        (itemClick)="onItemClick(item)"      >        &lt;!-- Left slot for avatar/icon -->        &lt;div left>          &lt;aava-avatars [imageUrl]="item.avatar?.imageUrl">&lt;/aava-avatars>        &lt;/div>        &lt;!-- Middle slot for content -->        &lt;div middle>          &lt;h3>{{ item.title }}&lt;/h3>          &lt;p>{{ item.subtitle }}&lt;/p>        &lt;/div>        &lt;!-- Right slot for actions -->        &lt;div right>          &lt;aava-button            [label]="'Edit'"            (userClick)="onEdit(item)"          >&lt;/aava-button>        &lt;/div>      &lt;/aava-list-items>    &lt;/aava-list>  `,})export class ListExampleComponent {  // Component implementation}</code></pre>
+<h2>Content Projection Slots​</h2>
+<p>• [left]: For avatars, icons, or left-aligned content</p>
+<p>• [middle]: For main content like titles and subtitles</p>
+<p>• [right]: For action buttons or right-aligned content</p>
+<p>• Default slot: For any additional content</p>
+<pre><code>[left]</code></pre>
+<pre><code>[middle]</code></pre>
+<pre><code>[right]</code></pre>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+title | string | '' | Title displayed above the list
+items | ListItem[] | [] | Array of list items to display
+height | string | '400px' | Height of the list container
+width | string | '100%' | Width of the list container
+emptyLabel | string | 'No items available' | Text displayed when list is empty
+multiSelect | boolean | false | Enable multi-selection mode
+maxSelections | number | undefined | Maximum number of items that can be selected
+selectedItemId | string | null | null | Currently selected item ID (single select)
+selectedItemIds | string[] | [] | Array of selected item IDs (multi-select)
+showCheckboxes | boolean | false | Show checkboxes for multi-selection
+selectionMode | 'click' | 'checkbox' | 'click' | Selection interaction mode
+required | boolean | false | Whether the list selection is required
+errorMessage | string | 'Please select at least one item' | Custom error message
+errorPosition | 'top' | 'bottom' | 'bottom' | Position of error message
+showErrorImmediately | boolean | true | Show error immediately or wait for touch</pre>
+<pre><code>title</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>items</code></pre>
+<pre><code>ListItem[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>height</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'400px'</code></pre>
+<pre><code>width</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'100%'</code></pre>
+<pre><code>emptyLabel</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'No items available'</code></pre>
+<pre><code>multiSelect</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>maxSelections</code></pre>
+<pre><code>number</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>selectedItemId</code></pre>
+<pre><code>string | null</code></pre>
+<pre><code>null</code></pre>
+<pre><code>selectedItemIds</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>showCheckboxes</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>selectionMode</code></pre>
+<pre><code>'click' | 'checkbox'</code></pre>
+<pre><code>'click'</code></pre>
+<pre><code>required</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>errorMessage</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Please select at least one item'</code></pre>
+<pre><code>errorPosition</code></pre>
+<pre><code>'top' | 'bottom'</code></pre>
+<pre><code>'bottom'</code></pre>
+<pre><code>showErrorImmediately</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<h2>ListItemsComponent Inputs​</h2>
+<pre>Property | Type | Default | Description
+selected | boolean | false | Whether the item is selected
+disabled | boolean | false | Whether the item is disabled
+outline | boolean | false | Whether to show outline styling
+size | ListItemSize | 'md' | Size variant (xs, sm, md, lg)</pre>
+<pre><code>selected</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>outline</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>size</code></pre>
+<pre><code>ListItemSize</code></pre>
+<pre><code>'md'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+onOptionSelected | EventEmitter<ListItem> | Emitted when an item is selected
+onSelectionChanged | EventEmitter<ListSelectionEvent> | Emitted when selection changes
+onButtonClick | EventEmitter<ListButtonClickEvent> | Emitted when an item button is clicked
+onIconClick | EventEmitter<{item: ListItem, event: Event}> | Emitted when an item icon is clicked</pre>
+<pre><code>onOptionSelected</code></pre>
+<pre><code>EventEmitter&lt;ListItem></code></pre>
+<pre><code>onSelectionChanged</code></pre>
+<pre><code>EventEmitter&lt;ListSelectionEvent></code></pre>
+<pre><code>onButtonClick</code></pre>
+<pre><code>EventEmitter&lt;ListButtonClickEvent></code></pre>
+<pre><code>onIconClick</code></pre>
+<pre><code>EventEmitter&lt;{item: ListItem, event: Event}></code></pre>
+<h2>ListItemsComponent Outputs​</h2>
+<pre>Event | Type | Description
+itemClick | EventEmitter<void> | Emitted when the item is clicked</pre>
+<pre><code>itemClick</code></pre>
+<pre><code>EventEmitter&lt;void></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+value | string | string[] | null | Current form value (getter/setter)
+disabled | boolean | Whether the component is disabled
+touched | boolean | Whether the component has been touched
+hasError | boolean | Whether the component has validation errors</pre>
+<pre><code>value</code></pre>
+<pre><code>string | string[] | null</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>touched</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasError</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return | Description
+selectAll() | None | void | Select all available items (multi-select only)
+clearSelection() | None | void | Clear all selections
+selectItems(itemIds: string[]) | itemIds: string[] | void | Select specific items by ID
+validate() | None | boolean | Manually trigger validation
+resetValidation() | None | void | Reset validation state
+hideErrorImmediately() | None | void | Hide error message immediately
+showErrorImmediatelyMethod() | None | void | Show error message immediately
+trackByFn(index: number, item: ListItem) | index: number, item: ListItem | string | Track function for efficient rendering
+trackByButtonFn(index: number, button: ListItemButton) | index: number, button: ListItemButton | string | Track function for button rendering
+onItemClick(item: ListItem, event?: Event) | item: ListItem, event?: Event | void | Handle item click events
+onCheckboxChange(item: ListItem, event: Event) | item: ListItem, event: Event | void | Handle checkbox change events
+onItemButtonClick(item: ListItem, button: ListItemButton, buttonIndex: number, event: Event) | item: ListItem, button: ListItemButton, buttonIndex: number, event: Event | void | Handle button click events
+onItemIconClick(item: ListItem, event: Event) | item: ListItem, event: Event | void | Handle icon click events
+hasAvatar(item: ListItem) | item: ListItem | boolean | Check if item has avatar
+hasIcon(item: ListItem) | item: ListItem | boolean | Check if item has icon
+hasButtons(item: ListItem) | item: ListItem | boolean | Check if item has buttons
+isIconClickable(item: ListItem) | item: ListItem | boolean | Check if icon is clickable
+canSelectMore() | None | boolean | Check if more items can be selected
+isEmpty() | None | boolean | Check if selection is empty
+isClickOnActionElement(event: Event) | event: Event | boolean | Check if click is on action element</pre>
+<pre><code>selectAll()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>clearSelection()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>selectItems(itemIds: string[])</code></pre>
+<pre><code>itemIds: string[]</code></pre>
+<pre><code>void</code></pre>
+<pre><code>validate()</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>resetValidation()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>hideErrorImmediately()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>showErrorImmediatelyMethod()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>trackByFn(index: number, item: ListItem)</code></pre>
+<pre><code>index: number, item: ListItem</code></pre>
+<pre><code>string</code></pre>
+<pre><code>trackByButtonFn(index: number, button: ListItemButton)</code></pre>
+<pre><code>index: number, button: ListItemButton</code></pre>
+<pre><code>string</code></pre>
+<pre><code>onItemClick(item: ListItem, event?: Event)</code></pre>
+<pre><code>item: ListItem, event?: Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onCheckboxChange(item: ListItem, event: Event)</code></pre>
+<pre><code>item: ListItem, event: Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onItemButtonClick(item: ListItem, button: ListItemButton, buttonIndex: number, event: Event)</code></pre>
+<pre><code>item: ListItem, button: ListItemButton, buttonIndex: number, event: Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onItemIconClick(item: ListItem, event: Event)</code></pre>
+<pre><code>item: ListItem, event: Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>hasAvatar(item: ListItem)</code></pre>
+<pre><code>item: ListItem</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasIcon(item: ListItem)</code></pre>
+<pre><code>item: ListItem</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>hasButtons(item: ListItem)</code></pre>
+<pre><code>item: ListItem</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>isIconClickable(item: ListItem)</code></pre>
+<pre><code>item: ListItem</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>canSelectMore()</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>isEmpty()</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>isClickOnActionElement(event: Event)</code></pre>
+<pre><code>event: Event</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Interfaces​</h2>
+<h2>ListItem​</h2>
+<pre><code>interface ListItem {  id: string;  title: string;  subtitle?: string;  avatar?: {    imageUrl?: string;    size?: AvatarSize;    shape?: AvatarShape;    statusText?: string;    profileText?: string;    badgeState?: BadgeState;    badgeSize?: BadgeSize;    badgeCount?: number;    active?: boolean;    processedanddone?: boolean;  };  icon?: {    iconName: string;    color?: string;    iconColor?: string;    iconSize?: number | string;    disabled?: boolean;    cursor?: boolean;  };  buttons?: ListItemButton[];  disabled?: boolean;  data?: any;}</code></pre>
+<pre><code>interface ListItem {  id: string;  title: string;  subtitle?: string;  avatar?: {    imageUrl?: string;    size?: AvatarSize;    shape?: AvatarShape;    statusText?: string;    profileText?: string;    badgeState?: BadgeState;    badgeSize?: BadgeSize;    badgeCount?: number;    active?: boolean;    processedanddone?: boolean;  };  icon?: {    iconName: string;    color?: string;    iconColor?: string;    iconSize?: number | string;    disabled?: boolean;    cursor?: boolean;  };  buttons?: ListItemButton[];  disabled?: boolean;  data?: any;}</code></pre>
+<h2>ListItemButton​</h2>
+<pre><code>interface ListItemButton {  label?: string;  variant?: ButtonVariant;  size?: ButtonSize;  iconName?: string;  iconColor?: string;  iconSize?: number;  iconPosition?: "left" | "right" | "only";  disabled?: boolean;  processing?: boolean;  pill?: boolean;  width?: string;  height?: string;  id?: string;  data?: any;}</code></pre>
+<pre><code>interface ListItemButton {  label?: string;  variant?: ButtonVariant;  size?: ButtonSize;  iconName?: string;  iconColor?: string;  iconSize?: number;  iconPosition?: "left" | "right" | "only";  disabled?: boolean;  processing?: boolean;  pill?: boolean;  width?: string;  height?: string;  id?: string;  data?: any;}</code></pre>
+<h2>ListSelectionEvent​</h2>
+<pre><code>interface ListSelectionEvent {  selectedItems: ListItem[];  selectedIds: string[];  lastSelectedItem: ListItem;}</code></pre>
+<pre><code>interface ListSelectionEvent {  selectedItems: ListItem[];  selectedIds: string[];  lastSelectedItem: ListItem;}</code></pre>
+<h2>ListButtonClickEvent​</h2>
+<pre><code>interface ListButtonClickEvent {  item: ListItem;  button: ListItemButton;  buttonIndex: number;  event: Event;}</code></pre>
+<pre><code>interface ListButtonClickEvent {  item: ListItem;  button: ListItemButton;  buttonIndex: number;  event: Event;}</code></pre>
+<h2>ListItemSize​</h2>
+<pre><code>type ListItemSize = "xs" | "sm" | "md" | "lg";</code></pre>
+<pre><code>type ListItemSize = "xs" | "sm" | "md" | "lg";</code></pre>
+<h2>Design Tokens & Theming​</h2>
+<p>AAVA Play List uses semantic design tokens for all surfaces, spacing, radius, and motion. The component exposes scoped override tokens for fine-tuning appearance while maintaining design system consistency.</p>
+<h2>Available Design Tokens for List​</h2>
+<pre>Token | Purpose | Default Value
+--list-container-border-radius | Border radius of list container | Theme-based
+--list-container-padding | Padding inside list container | Theme-based
+--list-container-gap | Gap between list elements | Theme-based
+--list-container-border | Border style for list container | Theme-based
+--list-background-color | Background color of list | Theme-based</pre>
+<pre><code>--list-container-border-radius</code></pre>
+<pre><code>--list-container-padding</code></pre>
+<pre><code>--list-container-gap</code></pre>
+<pre><code>--list-container-border</code></pre>
+<pre><code>--list-background-color</code></pre>
+<pre>Token | Purpose | Default Value
+--list-title-color | Color for list title | Theme-based
+--list-title-size | Font size for list title | Theme-based
+--list-title-weight | Font weight for list title | Theme-based
+--list-title-font-family | Font family for list title | Theme-based
+--list-item-color | Color for list item text | Theme-based
+--list-item-subtitle-color | Color for subtitle text | Theme-based</pre>
+<pre><code>--list-title-color</code></pre>
+<pre><code>--list-title-size</code></pre>
+<pre><code>--list-title-weight</code></pre>
+<pre><code>--list-title-font-family</code></pre>
+<pre><code>--list-item-color</code></pre>
+<pre><code>--list-item-subtitle-color</code></pre>
+<pre>Token | Purpose | Default Value
+--list-items-gap | Gap between list items | Theme-based
+--list-item-gap | Gap within list item elements | Theme-based
+--list-item-padding | Padding inside list items | Theme-based
+--list-item-border-radius | Border radius of list items | Theme-based
+--list-item-background | Background color of list items | Theme-based
+--list-item-border-color | Border color for list items | Theme-based</pre>
+<pre><code>--list-items-gap</code></pre>
+<pre><code>--list-item-gap</code></pre>
+<pre><code>--list-item-padding</code></pre>
+<pre><code>--list-item-border-radius</code></pre>
+<pre><code>--list-item-background</code></pre>
+<pre><code>--list-item-border-color</code></pre>
+<pre>Token | Purpose | Default Value
+--list-item-active-border | Border style for selected items | Theme-based
+--list-active-bg | Background color for selected items | Theme-based
+--list-buttons-gap | Gap between action buttons | Theme-based</pre>
+<pre><code>--list-item-active-border</code></pre>
+<pre><code>--list-active-bg</code></pre>
+<pre><code>--list-buttons-gap</code></pre>
+<pre>Token | Purpose | Default Value
+--list-error-text | Color for error messages | Theme-based
+--list-error-font-size | Font size for error text | Theme-based
+--list-disable-color | Color for disabled elements | Theme-based</pre>
+<pre><code>--list-error-text</code></pre>
+<pre><code>--list-error-font-size</code></pre>
+<pre><code>--list-disable-color</code></pre>
+<h2>Token Override Example​</h2>
+<pre><code>/* Custom list theming */.my-compact-list {  --list-item-padding: 8px 12px;  --list-items-gap: 4px;  --list-container-border-radius: 4px;}.my-dense-list {  --list-title-size: 14px;  --list-item-gap: 8px;  --list-buttons-gap: 4px;}</code></pre>
+<pre><code>/* Custom list theming */.my-compact-list {  --list-item-padding: 8px 12px;  --list-items-gap: 4px;  --list-container-border-radius: 4px;}.my-dense-list {  --list-title-size: 14px;  --list-item-gap: 8px;  --list-buttons-gap: 4px;}</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Content Structure: Use clear, descriptive titles and subtitles for better scanability</p>
+<p>• Avatar Usage: Provide meaningful avatar content (images or initials) for user identification</p>
+<p>• Icon Integration: Use appropriate icons that enhance understanding without cluttering</p>
+<p>• Action Buttons: Limit the number of action buttons per item to maintain clean interface</p>
+<p>• Selection Patterns: Choose single selection for mutually exclusive choices, multi-selection for independent choices</p>
+<h2>Component Architecture​</h2>
+<p>• Content Projection: Use theaava-list-itemscomponent for consistent item rendering</p>
+<p>• Slot System: Utilize left, middle, right, and default slots for flexible content layout</p>
+<p>• Event Handling: Properly handle click events to avoid conflicts between item selection and button actions</p>
+<p>• Performance: Use trackBy functions for efficient rendering of large lists</p>
+<p>• State Management: Leverage the built-in selection state management for consistent behavior</p>
+<pre><code>aava-list-items</code></pre>
+<h2>Accessibility​</h2>
+<p>• Clear Labeling: Ensure all interactive elements have descriptive, meaningful labels</p>
+<p>• Keyboard Navigation: Test complete keyboard navigation flow including arrow keys and activation</p>
+<p>• Screen Reader Support: Verify proper announcement of selection changes and item states</p>
+<p>• Color Contrast: Maintain sufficient contrast for all text and interactive elements</p>
+<p>• Focus Management: Provide clear visual focus indicators and logical tab order</p>
+<h2>Performance​</h2>
+<p>• OnPush Strategy: Component uses OnPush change detection for optimal performance</p>
+<p>• TrackBy Functions: Efficient rendering with custom trackBy functions for large lists</p>
+<p>• Lazy Loading: Consider lazy loading patterns for very large datasets</p>
+<p>• Virtual Scrolling: Implement virtual scrolling for lists with hundreds or thousands of items</p>
+<p>• Event Optimization: Debounce rapid selection changes and optimize event handlers</p>
+<p>• Memory Management: Automatic cleanup of event listeners and references</p>
+<p>• Rendering Optimization: Conditional rendering based on item properties and states</p>
+<h2>Form Integration​</h2>
+<p>• Validation Strategy: Always validate required selections with clear error messages</p>
+<p>• Form Patterns: Use reactive forms for complex validation scenarios</p>
+<p>• Default Values: Set appropriate default selections for better user experience</p>
+<p>• Reset Behavior: Define clear reset and initial state behavior for forms</p>
+<p>• Cross-Field Validation: Implement proper validation relationships between form fields</p>
+<p>• ControlValueAccessor: Full implementation for seamless form integration</p>
+<p>• Touch Management: Automatic touch state management for validation timing</p>
+<p>• Error Display Control: Programmatic control over error message visibility</p>
+</body></html>
