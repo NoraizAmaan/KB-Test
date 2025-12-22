@@ -1,0 +1,77 @@
+<html><head><meta charset='utf-8'>
+<title>Chat-Bubble</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Chat-Bubble</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Display/Chat-Bubble</small></p>
+<h2>Chat Bubble</h2>
+<p>aava-chat-bubblerenders conversational messages with support for user/AI alignment, avatars, timestamps, and optional action icons per message (copy, like/dislike, speak, reply).</p>
+<pre><code>aava-chat-bubble</code></pre>
+<pre><code>import { AavaChatBubbleComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaChatBubbleComponent } from "@aava/play-core";</code></pre>
+<h2>Usage​</h2>
+<pre><code>&lt;aava-chat-bubble [messages]="messages">&lt;/aava-chat-bubble></code></pre>
+<pre><code>&lt;aava-chat-bubble [messages]="messages">&lt;/aava-chat-bubble></code></pre>
+<pre><code> messages: Message[] = [    {      sender: 'user',      senderName: 'Matthew Anderson',      time: '05:00 pm',      text: "Hey there! I'm new here and I'm really interested in the concept of tokenized real estate. Can anyone explain how it works?",      avatar: 'assets/1.svg',      icons: [],    },    {      sender: 'ai',      senderName: 'Matthew Anderson',      time: '05:01 pm',      text: 'Hey Matthew, welcome! Tokenized real estate is a way to represent ownership in real estate properties using blockchain technology. Each property is divided into tokens, and each token represents a certain fraction of ownership in that property.',      avatar: 'assets/1.svg',      icons: [        { name: 'thumbs-up', label: 'Like' },        { name: 'thumbs-down', label: 'Dislike' },      ],    },  ];</code></pre>
+<pre><code> messages: Message[] = [    {      sender: 'user',      senderName: 'Matthew Anderson',      time: '05:00 pm',      text: "Hey there! I'm new here and I'm really interested in the concept of tokenized real estate. Can anyone explain how it works?",      avatar: 'assets/1.svg',      icons: [],    },    {      sender: 'ai',      senderName: 'Matthew Anderson',      time: '05:01 pm',      text: 'Hey Matthew, welcome! Tokenized real estate is a way to represent ownership in real estate properties using blockchain technology. Each property is divided into tokens, and each token represents a certain fraction of ownership in that property.',      avatar: 'assets/1.svg',      icons: [        { name: 'thumbs-up', label: 'Like' },        { name: 'thumbs-down', label: 'Dislike' },      ],    },  ];</code></pre>
+<h2>API​</h2>
+<h2>Inputs​</h2>
+<pre>Name | Type | Default | Description
+messages | Array<{ sender: 'user' | 'ai'; senderName: string; time: string; text: string; avatar: string; icons: { name: string; label: string }[]; }> | [] | Message array to render. Sender controls alignment and bubble styling.
+customStyles | Record<string, string> | {} | Optional custom styles to apply to the chat bubble component dynamically.</pre>
+<pre><code>messages</code></pre>
+<pre><code>Array&lt;{ sender: 'user' | 'ai'; senderName: string; time: string; text: string; avatar: string; icons: { name: string; label: string }[]; }></code></pre>
+<pre><code>[]</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<h2>Methods​</h2>
+<p>• copyMessage(text: string): Copies message text to clipboard.</p>
+<p>• reactToMessage(reaction: 'like' | 'dislike'): Hook to handle reactions.</p>
+<p>• replyToMessage(): Hook to trigger reply flow.</p>
+<p>• speakMessage(text: string): Uses Speech Synthesis to read message aloud.</p>
+<pre><code>copyMessage(text: string)</code></pre>
+<pre><code>reactToMessage(reaction: 'like' | 'dislike')</code></pre>
+<pre><code>replyToMessage()</code></pre>
+<pre><code>speakMessage(text: string)</code></pre>
+<h2>CSS Variables​</h2>
+<p>Chat Bubble uses CSS variables for theming:</p>
+<pre>Variable | Description
+--chat-bubble-user-background-color | Background color for user messages.
+--chat-bubble-user-text-color | Text color for user messages.
+--chat-bubble-ai-background-color | Background color for AI messages.
+--chat-bubble-ai-text-color | Text color for AI messages.
+--chat-bubble-font-family | Font family used in chat bubbles.
+--chat-bubble-text | Primary text color used in chat bubbles.
+--chat-bubble-line | Line color used for separators or borders.
+--chat-bubble-font-weight | Font weight used in chat bubbles.
+--chat-bubble-font-size-md | Medium font size used in chat bubbles.
+--chat-bubble-font-size-sm | Small font size used in chat bubbles.
+--chat-bubble-font-size-xs | Extra small font size used in chat bubbles.</pre>
+<pre><code>--chat-bubble-user-background-color</code></pre>
+<pre><code>--chat-bubble-user-text-color</code></pre>
+<pre><code>--chat-bubble-ai-background-color</code></pre>
+<pre><code>--chat-bubble-ai-text-color</code></pre>
+<pre><code>--chat-bubble-font-family</code></pre>
+<pre><code>--chat-bubble-text</code></pre>
+<pre><code>--chat-bubble-line</code></pre>
+<pre><code>--chat-bubble-font-weight</code></pre>
+<pre><code>--chat-bubble-font-size-md</code></pre>
+<pre><code>--chat-bubble-font-size-sm</code></pre>
+<pre><code>--chat-bubble-font-size-xs</code></pre>
+<h2>Accessibility​</h2>
+<p>• Keyboard focusable action icons.</p>
+<p>• Announce message content to assistive tech using readable DOM text.</p>
+<p>• Optional speech synthesis viaspeakMessage.</p>
+<pre><code>speakMessage</code></pre>
+<h2>Best Practices​</h2>
+<p>• Keep messages concise and scannable.</p>
+<p>• Include timestamps and sender names when useful.</p>
+<p>• Prefer semantic colors via tokens for light/dark themes.</p>
+<h2>Related​</h2>
+<p>• Avatar</p>
+<p>• Icon</p>
+<p>• Prompt Bar</p>
+</body></html>
