@@ -1,0 +1,226 @@
+<html><head><meta charset='utf-8'>
+<title>Progress-Bar</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Progress-Bar</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Feedback/Progress-Bar</small></p>
+<h2>Progress Bar</h2>
+<p>The<aava-progressbar>provides a comprehensive progress indicator solution with both circular and linear variants. It supports multiple modes including determinate, indeterminate, buffer, and query states, with smooth animations, customizable colors, and full accessibility support.</p>
+<pre><code>&lt;aava-progressbar></code></pre>
+<h2>How to use​</h2>
+<p>Import the component and configure it with your desired properties.</p>
+<pre><code>import { AavaProgressComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaProgressComponent } from "@aava/play-core";</code></pre>
+<h2>Circular Progress​</h2>
+<p>Circular progress indicator with customizable size, color, and animation.</p>
+<pre><code>&lt;aava-progressbar  [percentage]="25"  label="25% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar>&lt;aava-progressbar  [percentage]="50"  label="50% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar>&lt;aava-progressbar  [percentage]="75"  label="75% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar>&lt;aava-progressbar  [percentage]="100"  label="100% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar></code></pre>
+<pre><code>&lt;aava-progressbar  [percentage]="25"  label="25% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar>&lt;aava-progressbar  [percentage]="50"  label="50% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar>&lt;aava-progressbar  [percentage]="75"  label="75% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar>&lt;aava-progressbar  [percentage]="100"  label="100% Complete"  type="circular"  [svgSize]="100">&lt;/aava-progressbar></code></pre>
+<h2>Linear Progress​</h2>
+<p>Linear progress bar with support for determinate, indeterminate, and buffer modes.</p>
+<pre><code>&lt;aava-progressbar [percentage]="25" type="linear" mode="determinate">&lt;/aava-progressbar>&lt;aava-progressbar [percentage]="50" type="linear" mode="determinate">&lt;/aava-progressbar>&lt;aava-progressbar [percentage]="75" type="linear" mode="determinate">&lt;/aava-progressbar>&lt;aava-progressbar [percentage]="100" type="linear" mode="determinate">&lt;/aava-progressbar></code></pre>
+<pre><code>&lt;aava-progressbar [percentage]="25" type="linear" mode="determinate">&lt;/aava-progressbar>&lt;aava-progressbar [percentage]="50" type="linear" mode="determinate">&lt;/aava-progressbar>&lt;aava-progressbar [percentage]="75" type="linear" mode="determinate">&lt;/aava-progressbar>&lt;aava-progressbar [percentage]="100" type="linear" mode="determinate">&lt;/aava-progressbar></code></pre>
+<h2>Features​</h2>
+<h2>Multiple Progress Types​</h2>
+<p>• Circular Progress: SVG-based circular indicator with smooth animations</p>
+<p>• Linear Progress: Horizontal progress bar with customizable height and styling</p>
+<p>• Responsive Design: Automatically adjusts size based on screen dimensions</p>
+<h2>Progress Modes​</h2>
+<p>• Determinate: Shows exact progress percentage with smooth animations</p>
+<p>• Indeterminate: Animated loading indicator for unknown progress</p>
+<p>• Buffer: Shows both progress and buffer values (linear only)</p>
+<p>• Query: Animated indicator for querying operations</p>
+<h2>Customization Options​</h2>
+<p>• Custom colors and themes</p>
+<p>• Configurable sizes and positions</p>
+<p>• Smooth animations with easing</p>
+<p>• Accessibility features with ARIA support</p>
+<h2>Performance Optimized​</h2>
+<p>• OnPush change detection strategy</p>
+<p>• Efficient SVG animations</p>
+<p>• Optimized rendering and memory management</p>
+<p>• Responsive resize handling</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+percentage | number | 0 | Progress percentage (0-100)
+bufferValue | number | 0 | Buffer value for buffer mode (0-100)
+label | string | '' | Label text displayed with the progress bar
+type | 'circular' | 'linear' | 'circular' | Type of progress indicator
+color | string | '#2E308E' | Color of the progress indicator
+mode | 'determinate' | 'indeterminate' | 'buffer' | 'query' | 'determinate' | Progress mode
+svgSize | number | '' | Custom SVG size (overrides responsive sizing)
+position | '12' | '3' | '6' | '9' | number | '12' | Starting position for circular progress (clock positions)</pre>
+<pre><code>percentage</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>bufferValue</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>type</code></pre>
+<pre><code>'circular' | 'linear'</code></pre>
+<pre><code>'circular'</code></pre>
+<pre><code>color</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#2E308E'</code></pre>
+<pre><code>mode</code></pre>
+<pre><code>'determinate' | 'indeterminate' | 'buffer' | 'query'</code></pre>
+<pre><code>'determinate'</code></pre>
+<pre><code>svgSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>''</code></pre>
+<pre><code>position</code></pre>
+<pre><code>'12' | '3' | '6' | '9' | number</code></pre>
+<pre><code>'12'</code></pre>
+<h2>Outputs​</h2>
+<pre>Property | Type | Description
+None | - | This component doesn't emit events</pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+progressId | string | Unique identifier for the progress element
+circumference | number | Circumference of the circular progress (readonly)
+dashOffset | number | Current dash offset for circular progress
+errorMessage | string | Error message for invalid inputs
+displayPercentage | number | Animated display percentage for linear progress
+rotationAngle | number | Rotation angle for circular progress position</pre>
+<pre><code>progressId</code></pre>
+<pre><code>string</code></pre>
+<pre><code>circumference</code></pre>
+<pre><code>number</code></pre>
+<pre><code>dashOffset</code></pre>
+<pre><code>number</code></pre>
+<pre><code>errorMessage</code></pre>
+<pre><code>string</code></pre>
+<pre><code>displayPercentage</code></pre>
+<pre><code>number</code></pre>
+<pre><code>rotationAngle</code></pre>
+<pre><code>number</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Description
+updateProgress() | None | Updates the progress display and animations
+writeValue() | value: number | Sets the progress value (ControlValueAccessor)
+registerOnChange() | fn: (value: number) => void | Registers change callback (ControlValueAccessor)
+registerOnTouched() | fn: () => void | Registers touched callback (ControlValueAccessor)</pre>
+<pre><code>updateProgress()</code></pre>
+<pre><code>writeValue()</code></pre>
+<pre><code>value: number</code></pre>
+<pre><code>registerOnChange()</code></pre>
+<pre><code>fn: (value: number) => void</code></pre>
+<pre><code>registerOnTouched()</code></pre>
+<pre><code>fn: () => void</code></pre>
+<h2>CSS Custom Properties​</h2>
+<p>The component uses CSS custom properties for dynamic styling:</p>
+<h2>Circular Progress Properties​</h2>
+<pre>Property | Description
+--progress-text-weight | Font weight for progress text
+--progress-text-color | Text color for progress display
+--progress-text-font | Font size for progress text
+--progress-label-font | Font size for progress label
+--progress-label-color | Color for progress label
+--progress-label-line-height | Line height for progress label
+--progress-label-weight | Font weight for progress label
+--progress-transition | Transition timing for progress animations
+--progress-indeterminate-animation | Animation for indeterminate mode</pre>
+<pre><code>--progress-text-weight</code></pre>
+<pre><code>--progress-text-color</code></pre>
+<pre><code>--progress-text-font</code></pre>
+<pre><code>--progress-label-font</code></pre>
+<pre><code>--progress-label-color</code></pre>
+<pre><code>--progress-label-line-height</code></pre>
+<pre><code>--progress-label-weight</code></pre>
+<pre><code>--progress-transition</code></pre>
+<pre><code>--progress-indeterminate-animation</code></pre>
+<h2>Linear Progress Properties​</h2>
+<pre>Property | Description
+--progress-linear-height | Height of the linear progress bar
+--progress-linear-border-radius | Border radius for linear progress</pre>
+<pre><code>--progress-linear-height</code></pre>
+<pre><code>--progress-linear-border-radius</code></pre>
+<h2>CSS Classes​</h2>
+<p>The component uses CSS classes for styling and state management:</p>
+<h2>Container Classes​</h2>
+<pre>Class | Description
+.progress-container | Main container for circular progress
+.linear-progress-container | Main container for linear progress</pre>
+<pre><code>.progress-container</code></pre>
+<pre><code>.linear-progress-container</code></pre>
+<h2>Progress Classes​</h2>
+<pre>Class | Description
+.progress-background | Background circle for circular progress
+.progress-bar | Main progress circle/bar
+.progress-text | Text display inside circular progress
+.progress-label | Label text for progress
+.linear-bar | Container for linear progress bar
+.linear-progress | Main linear progress element
+.buffer-bar | Buffer progress element
+.indeterminate-bar | Indeterminate progress element
+.progress-percentage | Percentage display for linear progress</pre>
+<pre><code>.progress-background</code></pre>
+<pre><code>.progress-bar</code></pre>
+<pre><code>.progress-text</code></pre>
+<pre><code>.progress-label</code></pre>
+<pre><code>.linear-bar</code></pre>
+<pre><code>.linear-progress</code></pre>
+<pre><code>.buffer-bar</code></pre>
+<pre><code>.indeterminate-bar</code></pre>
+<pre><code>.progress-percentage</code></pre>
+<h2>State Classes​</h2>
+<pre>Class | Description
+.indeterminate | Indeterminate animation state
+.progress-error | Error message styling</pre>
+<pre><code>.indeterminate</code></pre>
+<pre><code>.progress-error</code></pre>
+<h2>Best Practices​</h2>
+<h2>Progress Mode Selection​</h2>
+<p>• Usedeterminatemode when you know the exact progress</p>
+<p>• Useindeterminatemode for unknown loading times</p>
+<p>• Usebuffermode for operations with both progress and buffer (e.g., video loading)</p>
+<p>• Usequerymode for search or query operations</p>
+<h2>Color and Styling​</h2>
+<p>• Choose colors that provide good contrast with the background</p>
+<p>• Use consistent colors across your application</p>
+<p>• Consider using semantic colors (success, warning, error) for different states</p>
+<p>• Ensure accessibility with proper color contrast ratios</p>
+<h2>Performance​</h2>
+<p>• Avoid frequent percentage updates for smooth animations</p>
+<p>• Use appropriate animation durations based on the operation</p>
+<p>• Consider using indeterminate mode for very short operations</p>
+<h2>Accessibility​</h2>
+<p>• Always provide meaningful labels</p>
+<p>• The component includes proper ARIA attributes</p>
+<p>• Ensure sufficient color contrast</p>
+<p>• Test with screen readers</p>
+<h2>Responsive Design​</h2>
+<p>• The component automatically adjusts size on different screens</p>
+<p>• Test on various device sizes</p>
+<p>• Consider custom sizing for specific use cases</p>
+<h2>Accessibility​</h2>
+<h2>ARIA Support​</h2>
+<p>• Properrole="progressbar"attribute</p>
+<p>• aria-valuenowfor current progress value</p>
+<p>• aria-valuemin="0"andaria-valuemax="100"for value range</p>
+<p>• Screen reader announcements for progress updates</p>
+<pre><code>role="progressbar"</code></pre>
+<pre><code>aria-valuenow</code></pre>
+<pre><code>aria-valuemin="0"</code></pre>
+<pre><code>aria-valuemax="100"</code></pre>
+<h2>Keyboard Navigation​</h2>
+<p>• Focus indicators for interactive elements</p>
+<p>• Proper tab order</p>
+<p>• Keyboard-accessible progress controls</p>
+<h2>Visual Accessibility​</h2>
+<p>• High contrast color options</p>
+<p>• Clear visual indicators</p>
+<p>• Scalable text and graphics</p>
+<p>• Support for reduced motion preferences</p>
+<h2>Browser Support​</h2>
+<p>• Modern Browsers: Full support for all features</p>
+<p>• SVG Support: Required for circular progress</p>
+<p>• CSS Animations: Required for smooth transitions</p>
+<p>• ES6+ Features: Required for component functionality</p>
+<p>• Change Detection: OnPush strategy support</p>
+</body></html>
