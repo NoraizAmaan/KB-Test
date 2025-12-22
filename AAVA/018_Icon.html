@@ -1,0 +1,156 @@
+<html><head><meta charset='utf-8'>
+<title>Icon</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Icon</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Display/Icon</small></p>
+<h2>Icon</h2>
+<p>The<aava-icon>component provides a comprehensive icon system built on top of Lucide icons, offering scalable vector graphics with extensive customization options, interaction support, and full accessibility compliance. It supports dynamic sizing, theming, interactive states, and seamless integration into any Angular application.</p>
+<pre><code>&lt;aava-icon></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaIconComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaIconComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple icon implementation using Lucide icon names with default styling.</p>
+<pre><code>&lt;!-- Basic Icon Usage - Angular Example -->&lt;aava-icon iconName="home">&lt;/aava-icon>&lt;aava-icon iconName="user">&lt;/aava-icon>&lt;aava-icon iconName="heart">&lt;/aava-icon>&lt;aava-icon iconName="star">&lt;/aava-icon>&lt;aava-icon iconName="settings">&lt;/aava-icon></code></pre>
+<pre><code>&lt;!-- Basic Icon Usage - Angular Example -->&lt;aava-icon iconName="home">&lt;/aava-icon>&lt;aava-icon iconName="user">&lt;/aava-icon>&lt;aava-icon iconName="heart">&lt;/aava-icon>&lt;aava-icon iconName="star">&lt;/aava-icon>&lt;aava-icon iconName="settings">&lt;/aava-icon></code></pre>
+<h2>Sizes​</h2>
+<p>Flexible sizing options supporting both numeric pixel values and string-based sizing for responsive design.</p>
+<pre><code>&lt;!-- Icon Sizes - Angular Example -->&lt;aava-icon iconName="star" iconSize="16">&lt;/aava-icon>&lt;aava-icon iconName="star" iconSize="24">&lt;/aava-icon>&lt;aava-icon iconName="star" iconSize="32">&lt;/aava-icon>&lt;aava-icon iconName="star" iconSize="48">&lt;/aava-icon>&lt;!-- String-based sizing -->&lt;aava-icon iconName="heart" iconSize="1rem">&lt;/aava-icon>&lt;aava-icon iconName="heart" iconSize="1.5rem">&lt;/aava-icon>&lt;aava-icon iconName="heart" iconSize="2rem">&lt;/aava-icon></code></pre>
+<pre><code>&lt;!-- Icon Sizes - Angular Example -->&lt;aava-icon iconName="star" iconSize="16">&lt;/aava-icon>&lt;aava-icon iconName="star" iconSize="24">&lt;/aava-icon>&lt;aava-icon iconName="star" iconSize="32">&lt;/aava-icon>&lt;aava-icon iconName="star" iconSize="48">&lt;/aava-icon>&lt;!-- String-based sizing -->&lt;aava-icon iconName="heart" iconSize="1rem">&lt;/aava-icon>&lt;aava-icon iconName="heart" iconSize="1.5rem">&lt;/aava-icon>&lt;aava-icon iconName="heart" iconSize="2rem">&lt;/aava-icon></code></pre>
+<h2>Size Options​</h2>
+<p>• Numeric values- Direct pixel sizing (e.g.,16,24,32)</p>
+<p>• String values- CSS-compatible units (e.g.,'1rem','2em','100%')</p>
+<p>• Responsive sizing- Use CSS custom properties for adaptive scaling</p>
+<pre><code>16</code></pre>
+<pre><code>24</code></pre>
+<pre><code>32</code></pre>
+<pre><code>'1rem'</code></pre>
+<pre><code>'2em'</code></pre>
+<pre><code>'100%'</code></pre>
+<h2>Colors​</h2>
+<p>Comprehensive color customization with theme integration and semantic color support.</p>
+<pre><code>&lt;!-- Icon Colors - Angular Example -->&lt;aava-icon iconName="palette" iconColor="#ff6b6b">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#4ecdc4">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#45b7d1">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#96ceb4">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#ffeaa7">&lt;/aava-icon></code></pre>
+<pre><code>&lt;!-- Icon Colors - Angular Example -->&lt;aava-icon iconName="palette" iconColor="#ff6b6b">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#4ecdc4">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#45b7d1">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#96ceb4">&lt;/aava-icon>&lt;aava-icon iconName="palette" iconColor="#ffeaa7">&lt;/aava-icon></code></pre>
+<h2>Color System​</h2>
+<p>• Custom colors- Direct hex, RGB, HSL, or named color values</p>
+<p>• CSS custom properties- Theme-aware color tokens</p>
+<p>• Semantic colors- Contextual colors based on component state</p>
+<p>• Disabled state- Automatic color adaptation for disabled icons</p>
+<h2>Accessibility​</h2>
+<p>Built-in accessibility features ensuring inclusive user experience and WCAG compliance.</p>
+<pre><code>&lt;!-- Accessibility Icons - Angular Example -->&lt;!-- Interactive icons with ARIA labels -->&lt;aava-icon  iconName="heart"  cursor="true"  iconColor="#ff6b6b"  aria-label="Like this post">&lt;/aava-icon>&lt;aava-icon  iconName="bookmark"  cursor="true"  iconColor="#45b7d1"  aria-label="Bookmark this article">&lt;/aava-icon>&lt;aava-icon  iconName="share-2"  cursor="true"  iconColor="#4ecdc4"  aria-label="Share this content">&lt;/aava-icon>&lt;!-- Decorative icons with aria-hidden -->&lt;aava-icon iconName="star" iconColor="#ffeaa7" aria-hidden="true"> &lt;/aava-icon>&lt;!-- Icons with semantic meaning -->&lt;aava-icon iconName="check-circle" iconColor="#4ecdc4" aria-label="Success">&lt;/aava-icon>&lt;aava-icon iconName="alert-triangle" iconColor="#ffa726" aria-label="Warning">&lt;/aava-icon>&lt;aava-icon iconName="x-circle" iconColor="#ff6b6b" aria-label="Error">&lt;/aava-icon></code></pre>
+<pre><code>&lt;!-- Accessibility Icons - Angular Example -->&lt;!-- Interactive icons with ARIA labels -->&lt;aava-icon  iconName="heart"  cursor="true"  iconColor="#ff6b6b"  aria-label="Like this post">&lt;/aava-icon>&lt;aava-icon  iconName="bookmark"  cursor="true"  iconColor="#45b7d1"  aria-label="Bookmark this article">&lt;/aava-icon>&lt;aava-icon  iconName="share-2"  cursor="true"  iconColor="#4ecdc4"  aria-label="Share this content">&lt;/aava-icon>&lt;!-- Decorative icons with aria-hidden -->&lt;aava-icon iconName="star" iconColor="#ffeaa7" aria-hidden="true"> &lt;/aava-icon>&lt;!-- Icons with semantic meaning -->&lt;aava-icon iconName="check-circle" iconColor="#4ecdc4" aria-label="Success">&lt;/aava-icon>&lt;aava-icon iconName="alert-triangle" iconColor="#ffa726" aria-label="Warning">&lt;/aava-icon>&lt;aava-icon iconName="x-circle" iconColor="#ff6b6b" aria-label="Error">&lt;/aava-icon></code></pre>
+<h2>Accessibility Features​</h2>
+<p>• Semantic HTML- Proper button element for interactive icons</p>
+<p>• ARIA compliance- Appropriate ARIA attributes and roles</p>
+<p>• Keyboard navigation- Full keyboard support for interactive icons</p>
+<p>• Screen reader support- Meaningful descriptions and labels</p>
+<p>• Focus management- Clear focus indicators and proper focus order</p>
+<p>• High contrast- Support for high contrast accessibility modes</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+iconName | string | '' | Lucide icon name to display
+color | string | '' | Custom color override (deprecated, use iconColor)
+disabled | boolean | false | Whether the icon is disabled
+iconColor | string | '#a1a1a1' | Icon color using hex, RGB, HSL, or CSS custom properties
+iconSize | number | string | 24 | Icon size in pixels (number) or CSS units (string)
+cursor | boolean | false | Whether to show pointer cursor and enable interactions
+hoverColor | string | 'none' | Color applied on hover</pre>
+<pre><code>iconName</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>color</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>iconColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#a1a1a1'</code></pre>
+<pre><code>iconSize</code></pre>
+<pre><code>number | string</code></pre>
+<pre><code>24</code></pre>
+<pre><code>cursor</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>hoverColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'none'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+userClick | EventEmitter<Event> | Emitted when interactive icon is clicked</pre>
+<pre><code>userClick</code></pre>
+<pre><code>EventEmitter&lt;Event></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+computedColor | string | Calculated color value based on state
+isInteractive | boolean | Whether icon accepts user interactions
+isDisabled | boolean | Current disabled state</pre>
+<pre><code>computedColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>isInteractive</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>isDisabled</code></pre>
+<pre><code>boolean</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Description
+handleClick() | event: Event | Process click events for interactive icons</pre>
+<pre><code>handleClick()</code></pre>
+<pre><code>event: Event</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--button-icon-color-disabled | Color used for disabled icon state
+--icon-transition | Transition animation for state changes
+--icon-hover-color | Color used on hover for interactive icons
+--icon-focus-outline | Focus outline styling for accessibility
+--icon-focus-outline-offset | Focus outline offset for clear visibility</pre>
+<pre><code>--button-icon-color-disabled</code></pre>
+<pre><code>--icon-transition</code></pre>
+<pre><code>--icon-hover-color</code></pre>
+<pre><code>--icon-focus-outline</code></pre>
+<pre><code>--icon-focus-outline-offset</code></pre>
+<h2>Host Styling​</h2>
+<p>The component applies the following host styles automatically:</p>
+<pre><code>display: inline-flex;align-items: center;justify-content: center;vertical-align: middle;height: [iconSize]px; /* Dynamic based on iconSize input */</code></pre>
+<pre><code>display: inline-flex;align-items: center;justify-content: center;vertical-align: middle;height: [iconSize]px; /* Dynamic based on iconSize input */</code></pre>
+<h2>Lucide Icon Integration​</h2>
+<p>The component leverages Lucide icons, providing access to over 1,000 high-quality SVG icons.</p>
+<h2>Icon Library​</h2>
+<p>• Comprehensive collection- 1,000+ carefully designed icons</p>
+<p>• Consistent design- Uniform stroke width and styling</p>
+<p>• Scalable vectors- Crisp appearance at any size</p>
+<p>• Regular updates- Actively maintained icon library</p>
+<p>• Tree-shakable- Only used icons are bundled</p>
+<h2>Icon Naming​</h2>
+<p>Icons use kebab-case naming convention from the Lucide library:</p>
+<pre><code>// Common icon examplesiconName = "home";iconName = "user-circle";iconName = "arrow-right";iconName = "check-circle";iconName = "alert-triangle";</code></pre>
+<pre><code>// Common icon examplesiconName = "home";iconName = "user-circle";iconName = "arrow-right";iconName = "check-circle";iconName = "alert-triangle";</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Choose appropriate sizes- Use consistent sizing across similar interface elements</p>
+<p>• Maintain visual hierarchy- Larger icons for primary actions, smaller for secondary</p>
+<p>• Use semantic colors- Colors should convey meaning and match design system</p>
+<p>• Consider context- Icon choice should clearly communicate its purpose</p>
+<p>• Consistent spacing- Maintain proper spacing around icons in layouts</p>
+<h2>Accessibility​</h2>
+<p>• Provide meaningful context- Use proper ARIA labels for screen readers</p>
+<p>• Interactive indication- Clearly distinguish interactive vs decorative icons</p>
+<p>• Keyboard navigation- Ensure all interactive icons are keyboard accessible</p>
+<p>• Focus indicators- Maintain clear focus states for navigation</p>
+<p>• Color contrast- Ensure sufficient contrast for all color combinations</p>
+<h2>Performance​</h2>
+<p>• Icon optimization- Lucide icons are automatically optimized SVGs</p>
+<p>• Bundle efficiency- Tree-shaking ensures only used icons are bundled</p>
+<p>• Avoid excessive sizing- Use reasonable icon sizes to maintain performance</p>
+<p>• Minimize color changes- Frequent color updates can impact performance</p>
+<h2>Integration​</h2>
+<p>• Theme consistency- Use CSS custom properties for consistent theming</p>
+<p>• Component composition- Icons work well within buttons, forms, and navigation</p>
+<p>• Event handling- Properly handle click events for interactive use cases</p>
+<p>• State management- Consider disabled states in your application logic</p>
+</body></html>
