@@ -1,0 +1,489 @@
+<html><head><meta charset='utf-8'>
+<title>Dialog</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Dialog</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Overlay/Dialog</small></p>
+<h2>Dialog</h2>
+<p>The<ava-dialog>system provides a comprehensive dialog solution with multiple variants, modal support, and flexible configuration options. Built around a service-based architecture, it offers both predefined dialog types and custom modal dialogs for various user interaction scenarios.</p>
+<pre><code>&lt;ava-dialog></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaDialogService } from "@aava/play-core";// Inject the serviceconstructor(private dialogService: AavaDialogService) {}// Show different types of dialogsthis.dialogService.success({ message: 'Operation completed!' });this.dialogService.confirmation({ message: 'Are you sure?' });</code></pre>
+<pre><code>import { AavaDialogService } from "@aava/play-core";// Inject the serviceconstructor(private dialogService: AavaDialogService) {}// Show different types of dialogsthis.dialogService.success({ message: 'Operation completed!' });this.dialogService.confirmation({ message: 'Are you sure?' });</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple dialog implementation with default settings and integrated functionality.</p>
+<pre><code>&lt;aava-button  label="Show Warning Dialog"  variant="warning"  (userClick)="showWarningDialog()">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Show Warning Dialog"  variant="warning"  (userClick)="showWarningDialog()">&lt;/aava-button></code></pre>
+<pre><code>constructor(private dialogService: DialogService) {}  showWarningDialog() {    this.dialogService      .warning({        title: 'Unsaved Changes',        message:          'You have unsaved changes that will be lost if you continue. Are you sure you want to proceed?',        showProceedButton: true,        proceedButtonText: 'Discard Changes',      })      .then((result) => {        console.log('Warning dialog closed:', result);        if (result.action === 'proceed') {          console.log('User chose to discard changes!');        }      });  }</code></pre>
+<pre><code>constructor(private dialogService: DialogService) {}  showWarningDialog() {    this.dialogService      .warning({        title: 'Unsaved Changes',        message:          'You have unsaved changes that will be lost if you continue. Are you sure you want to proceed?',        showProceedButton: true,        proceedButtonText: 'Discard Changes',      })      .then((result) => {        console.log('Warning dialog closed:', result);        if (result.action === 'proceed') {          console.log('User chose to discard changes!');        }      });  }</code></pre>
+<h2>Basic Features​</h2>
+<p>• Service-Based: Programmatic dialog creation via DialogService</p>
+<p>• Multiple Variants: Success, error, warning, info, confirmation, loading, and custom dialogs</p>
+<p>• Modal Support: Full modal dialog capabilities with content projection</p>
+<p>• Responsive Design: Adapts to different screen sizes and content</p>
+<p>• Accessibility: Built-in accessibility features and keyboard navigation</p>
+<h2>Dialog Variants​</h2>
+<p>Seven distinct dialog variants for different user interaction scenarios.</p>
+<pre><code>&lt;aava-button  label="Show Success Dialog"  variant="success"  (userClick)="showSuccessDialog()">&lt;/aava-button>&lt;aava-button  label="Show Error Dialog"  variant="danger"  (userClick)="showErrorDialog()">&lt;/aava-button>&lt;aava-button  label="Show Warning Dialog"  variant="warning"  (userClick)="showWarningDialog()">&lt;/aava-button>&lt;aava-button  label="Show Info Dialog"  variant="primary"  (userClick)="showInfoDialog()">&lt;/aava-button>&lt;aava-button  label="Show Confirmation Dialog"  variant="secondary"  (userClick)="showConfirmationDialog()">&lt;/aava-button>&lt;aava-button  label="Show Loading Dialog"  variant="secondary"  (userClick)="showLoadingDialog()">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Show Success Dialog"  variant="success"  (userClick)="showSuccessDialog()">&lt;/aava-button>&lt;aava-button  label="Show Error Dialog"  variant="danger"  (userClick)="showErrorDialog()">&lt;/aava-button>&lt;aava-button  label="Show Warning Dialog"  variant="warning"  (userClick)="showWarningDialog()">&lt;/aava-button>&lt;aava-button  label="Show Info Dialog"  variant="primary"  (userClick)="showInfoDialog()">&lt;/aava-button>&lt;aava-button  label="Show Confirmation Dialog"  variant="secondary"  (userClick)="showConfirmationDialog()">&lt;/aava-button>&lt;aava-button  label="Show Loading Dialog"  variant="secondary"  (userClick)="showLoadingDialog()">&lt;/aava-button></code></pre>
+<pre><code>constructor(private dialogService: DialogService) {}  showSuccessDialog() {    this.dialogService      .success({        title: 'Operation Successful!',        message: 'Your action has been completed successfully.',        size: 'lg',        bottomBorder: true,      })      .then((result: unknown) => {        console.log('Success dialog closed:', result);      });  }  showErrorDialog() {    this.dialogService      .error({        title: 'Operation Failed',        message: 'Something went wrong. Please try again.',        showRetryButton: true,        retryButtonText: 'Retry',        size: 'md',      })      .then((result: unknown) => {        console.log('Error dialog closed:', result);      });  }  showWarningDialog() {    this.dialogService      .warning({        title: 'Please Review',        message: 'Please review the information carefully before proceeding.',        showProceedButton: true,        proceedButtonText: 'Proceed',        showCancelButton: true,        cancelButtonText: 'Cancel',      })      .then((result: unknown) => {        console.log('Warning dialog closed:', result);      });  }  showInfoDialog() {    this.dialogService      .info({        title: 'Information',        message: 'This is an informational message with helpful details.',        showOkButton: true,        okButtonText: 'Got it',        showLearnMoreButton: true,        learnMoreButtonText: 'Learn More',      })      .then((result: unknown) => {        console.log('Info dialog closed:', result);      });  }  showConfirmationDialog() {    this.dialogService      .confirmation({        title: 'Confirm Action',        message: 'Are you sure you want to perform this action?',        confirmButtonText: 'Confirm',        cancelButtonText: 'Cancel',        confirmButtonVariant: 'primary',        cancelButtonVariant: 'secondary',      })      .then((result: unknown) => {        console.log('Confirmation dialog closed:', result);      });  }  showLoadingDialog() {    this.dialogService      .loading({        title: 'Processing',        message: 'Please wait while we process your request.',        showProgress: true,        progress: 0,        showCancelButton: true,        cancelButtonText: 'Cancel',      })      .then((result: unknown) => {        console.log('Loading dialog closed:', result);      });  }</code></pre>
+<pre><code>constructor(private dialogService: DialogService) {}  showSuccessDialog() {    this.dialogService      .success({        title: 'Operation Successful!',        message: 'Your action has been completed successfully.',        size: 'lg',        bottomBorder: true,      })      .then((result: unknown) => {        console.log('Success dialog closed:', result);      });  }  showErrorDialog() {    this.dialogService      .error({        title: 'Operation Failed',        message: 'Something went wrong. Please try again.',        showRetryButton: true,        retryButtonText: 'Retry',        size: 'md',      })      .then((result: unknown) => {        console.log('Error dialog closed:', result);      });  }  showWarningDialog() {    this.dialogService      .warning({        title: 'Please Review',        message: 'Please review the information carefully before proceeding.',        showProceedButton: true,        proceedButtonText: 'Proceed',        showCancelButton: true,        cancelButtonText: 'Cancel',      })      .then((result: unknown) => {        console.log('Warning dialog closed:', result);      });  }  showInfoDialog() {    this.dialogService      .info({        title: 'Information',        message: 'This is an informational message with helpful details.',        showOkButton: true,        okButtonText: 'Got it',        showLearnMoreButton: true,        learnMoreButtonText: 'Learn More',      })      .then((result: unknown) => {        console.log('Info dialog closed:', result);      });  }  showConfirmationDialog() {    this.dialogService      .confirmation({        title: 'Confirm Action',        message: 'Are you sure you want to perform this action?',        confirmButtonText: 'Confirm',        cancelButtonText: 'Cancel',        confirmButtonVariant: 'primary',        cancelButtonVariant: 'secondary',      })      .then((result: unknown) => {        console.log('Confirmation dialog closed:', result);      });  }  showLoadingDialog() {    this.dialogService      .loading({        title: 'Processing',        message: 'Please wait while we process your request.',        showProgress: true,        progress: 0,        showCancelButton: true,        cancelButtonText: 'Cancel',      })      .then((result: unknown) => {        console.log('Loading dialog closed:', result);      });  }</code></pre>
+<h2>Available Variants​</h2>
+<p>• Success- Green styling for successful operations and confirmations</p>
+<p>• Error- Red styling for errors and critical issues with retry options</p>
+<p>• Warning- Orange/yellow styling for warnings and cautions</p>
+<p>• Info- Blue styling for informational messages and tips</p>
+<p>• Confirmation- Neutral styling for user confirmations and decisions</p>
+<p>• Loading- Animated loading states with progress indicators</p>
+<p>• Custom- Fully customizable styling and content</p>
+<h2>Custom Dialogs​</h2>
+<p>Fully customizable dialogs with custom content and styling options.</p>
+<pre><code>&lt;aava-button  label="Show Info Custom Dialog"  variant="info"  (userClick)="showInfoCustomDialog()">&lt;/aava-button></code></pre>
+<pre><code>&lt;aava-button  label="Show Info Custom Dialog"  variant="info"  (userClick)="showInfoCustomDialog()">&lt;/aava-button></code></pre>
+<pre><code>showInfoCustomDialog() {    this.dialogService      .custom({        title: 'New Features Available',        message:          'We have added several new features to improve your experience:',        variant: 'info',        bottomBorder: true,        customContent: `        &lt;div style="text-align: left; margin: 1rem 0;">          &lt;div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">            &lt;div style="background: #dbeafe; padding: 1rem; border-radius: 4px;">              &lt;strong>📱 Mobile App&lt;/strong>&lt;br>              New mobile app with offline support            &lt;/div>            &lt;div style="background: #dbeafe; padding: 1rem; border-radius: 4px;">              &lt;strong>🔒 Enhanced Security&lt;/strong>&lt;br>              Two-factor authentication support            &lt;/div>          &lt;/div>        &lt;/div>      `,        buttons: [          { label: 'Learn More', variant: 'primary', action: 'learn' },          { label: 'Try Now', variant: 'primary', action: 'try' },          { label: 'Maybe Later', variant: 'secondary', action: 'later' },        ],      })      .then((result: unknown) => {        console.log('Info custom dialog closed:', result);        const dialogResult = result as { action?: string };        switch (dialogResult.action) {          case 'learn':            console.log('User chose to learn more');            break;          case 'try':            console.log('User chose to try now');            break;          case 'later':            console.log('User chose to try later');            break;        }      });  }</code></pre>
+<pre><code>showInfoCustomDialog() {    this.dialogService      .custom({        title: 'New Features Available',        message:          'We have added several new features to improve your experience:',        variant: 'info',        bottomBorder: true,        customContent: `        &lt;div style="text-align: left; margin: 1rem 0;">          &lt;div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">            &lt;div style="background: #dbeafe; padding: 1rem; border-radius: 4px;">              &lt;strong>📱 Mobile App&lt;/strong>&lt;br>              New mobile app with offline support            &lt;/div>            &lt;div style="background: #dbeafe; padding: 1rem; border-radius: 4px;">              &lt;strong>🔒 Enhanced Security&lt;/strong>&lt;br>              Two-factor authentication support            &lt;/div>          &lt;/div>        &lt;/div>      `,        buttons: [          { label: 'Learn More', variant: 'primary', action: 'learn' },          { label: 'Try Now', variant: 'primary', action: 'try' },          { label: 'Maybe Later', variant: 'secondary', action: 'later' },        ],      })      .then((result: unknown) => {        console.log('Info custom dialog closed:', result);        const dialogResult = result as { action?: string };        switch (dialogResult.action) {          case 'learn':            console.log('User chose to learn more');            break;          case 'try':            console.log('User chose to try now');            break;          case 'later':            console.log('User chose to try later');            break;        }      });  }</code></pre>
+<h2>Custom Features​</h2>
+<p>• Custom Content: HTML content or component rendering</p>
+<p>• Variant Styling: Multiple visual variants (default, success, error, warning, info)</p>
+<p>• Flexible Layouts: Custom button configurations and layouts</p>
+<p>• Icon Customization: Optional icons with custom colors and sizes</p>
+<p>• Bottom Borders: Optional decorative bottom borders</p>
+<h2>Service Methods​</h2>
+<p>The DialogService provides convenient methods for different dialog types:</p>
+<h2>Success Dialog​</h2>
+<pre><code>this.dialogService.success({  title: "Success!",  message: "Operation completed successfully.",  size: "lg",  showButtons: true,  buttons: [{ label: "Continue", variant: "primary", action: "continue" }],});</code></pre>
+<pre><code>this.dialogService.success({  title: "Success!",  message: "Operation completed successfully.",  size: "lg",  showButtons: true,  buttons: [{ label: "Continue", variant: "primary", action: "continue" }],});</code></pre>
+<h2>Error Dialog​</h2>
+<pre><code>this.dialogService.error({  title: "Error!",  message: "Something went wrong. Please try again.",  showRetryButton: true,  retryButtonText: "Retry",  size: "md",});</code></pre>
+<pre><code>this.dialogService.error({  title: "Error!",  message: "Something went wrong. Please try again.",  showRetryButton: true,  retryButtonText: "Retry",  size: "md",});</code></pre>
+<h2>Warning Dialog​</h2>
+<pre><code>this.dialogService.warning({  title: "Warning",  message: "Please review the information carefully.",  showProceedButton: true,  proceedButtonText: "Proceed",  showCancelButton: true,  cancelButtonText: "Cancel",});</code></pre>
+<pre><code>this.dialogService.warning({  title: "Warning",  message: "Please review the information carefully.",  showProceedButton: true,  proceedButtonText: "Proceed",  showCancelButton: true,  cancelButtonText: "Cancel",});</code></pre>
+<h2>Confirmation Dialog​</h2>
+<pre><code>this.dialogService.confirmation({  title: "Delete Item",  message: "Are you sure you want to delete this item?",  confirmButtonText: "Delete",  cancelButtonText: "Cancel",  confirmButtonVariant: "danger",  destructive: true,});</code></pre>
+<pre><code>this.dialogService.confirmation({  title: "Delete Item",  message: "Are you sure you want to delete this item?",  confirmButtonText: "Delete",  cancelButtonText: "Cancel",  confirmButtonVariant: "danger",  destructive: true,});</code></pre>
+<h2>Loading Dialog​</h2>
+<pre><code>this.dialogService.loading({  title: "Processing",  message: "Please wait while we process your request.",  showProgress: true,  progress: 0,  showCancelButton: true,  cancelButtonText: "Cancel",});</code></pre>
+<pre><code>this.dialogService.loading({  title: "Processing",  message: "Please wait while we process your request.",  showProgress: true,  progress: 0,  showCancelButton: true,  cancelButtonText: "Cancel",});</code></pre>
+<h2>Custom Dialog​</h2>
+<pre><code>this.dialogService.custom({  title: "Custom Dialog",  message: "This is a custom dialog with unique content.",  variant: "success",  customContent: "&lt;div>Custom HTML content here&lt;/div>",  buttons: [    { label: "OK", variant: "primary", action: "ok" },    { label: "Cancel", variant: "secondary", action: "cancel" },  ],});</code></pre>
+<pre><code>this.dialogService.custom({  title: "Custom Dialog",  message: "This is a custom dialog with unique content.",  variant: "success",  customContent: "&lt;div>Custom HTML content here&lt;/div>",  buttons: [    { label: "OK", variant: "primary", action: "ok" },    { label: "Cancel", variant: "secondary", action: "cancel" },  ],});</code></pre>
+<h2>Modal Dialog​</h2>
+<pre><code>this.dialogService.openModal(  MyCustomComponent,  {    width: "600px",    maxWidth: "90vw",    showCloseButton: true,  },  {    data: { id: 123, name: "Example" },  });</code></pre>
+<pre><code>this.dialogService.openModal(  MyCustomComponent,  {    width: "600px",    maxWidth: "90vw",    showCloseButton: true,  },  {    data: { id: 123, name: "Example" },  });</code></pre>
+<h2>API Reference​</h2>
+<h2>DialogService Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+success() | SuccessDialogConfig? | Promise<DialogResult> | Show success dialog with green styling
+error() | ErrorDialogConfig? | Promise<DialogResult> | Show error dialog with red styling
+warning() | WarningDialogConfig? | Promise<DialogResult> | Show warning dialog with orange styling
+info() | InfoDialogConfig? | Promise<DialogResult> | Show info dialog with blue styling
+confirmation() | ConfirmationDialogConfig? | Promise<DialogResult> | Show confirmation dialog for user decisions
+loading() | LoadingDialogConfig? | Promise<DialogResult> | Show loading dialog with progress indicators
+custom() | CustomDialogConfig? | Promise<DialogResult> | Show custom dialog with full customization
+feedback() | CustomDialogConfig? | Promise<DialogResult> | Show feedback dialog for user input
+open() | component, data? | Promise<any> | Open custom component in dialog container
+openModal() | component, config?, data? | Promise<any> | Open custom component in modal dialog
+close() | - | void | Close the currently open dialog</pre>
+<pre><code>success()</code></pre>
+<pre><code>SuccessDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>error()</code></pre>
+<pre><code>ErrorDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>warning()</code></pre>
+<pre><code>WarningDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>info()</code></pre>
+<pre><code>InfoDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>confirmation()</code></pre>
+<pre><code>ConfirmationDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>loading()</code></pre>
+<pre><code>LoadingDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>custom()</code></pre>
+<pre><code>CustomDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>feedback()</code></pre>
+<pre><code>CustomDialogConfig?</code></pre>
+<pre><code>Promise&lt;DialogResult></code></pre>
+<pre><code>open()</code></pre>
+<pre><code>component, data?</code></pre>
+<pre><code>Promise&lt;any></code></pre>
+<pre><code>openModal()</code></pre>
+<pre><code>component, config?, data?</code></pre>
+<pre><code>Promise&lt;any></code></pre>
+<pre><code>close()</code></pre>
+<pre><code>void</code></pre>
+<h2>Base Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+title | string? | '' | Dialog header text
+message | string? | '' | Dialog body text
+icon | string? | '' | Icon name for the dialog
+iconColor | string? | '' | Custom icon color
+iconSize | number? | '' | Custom icon size in pixels
+showCloseButton | boolean? | true | Whether to show close button
+backdrop | boolean? | true | Whether to show backdrop
+width | string? | '' | Custom dialog width
+height | string? | '' | Custom dialog height
+data | any? | '' | Additional data to pass to dialog</pre>
+<pre><code>title</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>message</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>icon</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconColor</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>iconSize</code></pre>
+<pre><code>number?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>showCloseButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>backdrop</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>width</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>height</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>data</code></pre>
+<pre><code>any?</code></pre>
+<pre><code>''</code></pre>
+<h2>Success Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+buttons | DialogButton[]? | [] | Array of custom buttons
+showButtons | boolean? | false | Whether to show custom buttons
+bottomBorder | boolean? | true | Whether to show decorative bottom border
+size | 'lg' | 'md' | 'sm' | 'lg' | Dialog size variant</pre>
+<pre><code>buttons</code></pre>
+<pre><code>DialogButton[]?</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>showButtons</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>bottomBorder</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'lg' | 'md' | 'sm'</code></pre>
+<pre><code>'lg'</code></pre>
+<h2>Error Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+showRetryButton | boolean? | false | Whether to show retry button
+retryButtonText | string? | 'Retry' | Text for retry button
+closeButtonText | string? | 'Close' | Text for close button
+bottomBorder | boolean? | true | Whether to show decorative bottom border
+buttons | ErrorButton[]? | [] | Array of custom error buttons
+showButtons | boolean? | false | Whether to show custom buttons
+size | 'lg' | 'md' | 'sm' | 'lg' | Dialog size variant</pre>
+<pre><code>showRetryButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>retryButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Retry'</code></pre>
+<pre><code>closeButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Close'</code></pre>
+<pre><code>bottomBorder</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>buttons</code></pre>
+<pre><code>ErrorButton[]?</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>showButtons</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'lg' | 'md' | 'sm'</code></pre>
+<pre><code>'lg'</code></pre>
+<h2>Warning Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+showProceedButton | boolean? | false | Whether to show proceed button
+proceedButtonText | string? | 'Proceed' | Text for proceed button
+showCancelButton | boolean? | true | Whether to show cancel button
+cancelButtonText | string? | 'Cancel' | Text for cancel button
+bottomBorder | boolean? | true | Whether to show decorative bottom border
+buttons | WarningButton[]? | [] | Array of custom warning buttons
+showButtons | boolean? | false | Whether to show custom buttons
+size | 'lg' | 'md' | 'sm' | 'lg' | Dialog size variant</pre>
+<pre><code>showProceedButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>proceedButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Proceed'</code></pre>
+<pre><code>showCancelButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>cancelButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Cancel'</code></pre>
+<pre><code>bottomBorder</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>buttons</code></pre>
+<pre><code>WarningButton[]?</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>showButtons</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'lg' | 'md' | 'sm'</code></pre>
+<pre><code>'lg'</code></pre>
+<h2>Info Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+showOkButton | boolean? | true | Whether to show OK button
+okButtonText | string? | 'OK' | Text for OK button
+showLearnMoreButton | boolean? | false | Whether to show learn more button
+learnMoreButtonText | string? | 'Learn More' | Text for learn more button
+bottomBorder | boolean? | true | Whether to show decorative bottom border
+buttons | InfoButton[]? | [] | Array of custom info buttons
+showButtons | boolean? | false | Whether to show custom buttons
+size | 'lg' | 'md' | 'sm' | 'lg' | Dialog size variant</pre>
+<pre><code>showOkButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>okButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'OK'</code></pre>
+<pre><code>showLearnMoreButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>learnMoreButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Learn More'</code></pre>
+<pre><code>bottomBorder</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>buttons</code></pre>
+<pre><code>InfoButton[]?</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>showButtons</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'lg' | 'md' | 'sm'</code></pre>
+<pre><code>'lg'</code></pre>
+<h2>Confirmation Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+confirmButtonText | string? | 'Confirm' | Text for confirm button
+cancelButtonText | string? | 'Cancel' | Text for cancel button
+confirmButtonVariant | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'primary' | Confirm button styling variant
+cancelButtonVariant | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'secondary' | Cancel button styling variant
+destructive | boolean? | false | Whether this is a destructive action
+bottomBorder | boolean? | false | Whether to show decorative bottom border</pre>
+<pre><code>confirmButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Confirm'</code></pre>
+<pre><code>cancelButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Cancel'</code></pre>
+<pre><code>confirmButtonVariant</code></pre>
+<pre><code>'primary' | 'secondary' | 'success' | 'warning' | 'danger'</code></pre>
+<pre><code>'primary'</code></pre>
+<pre><code>cancelButtonVariant</code></pre>
+<pre><code>'primary' | 'secondary' | 'success' | 'warning' | 'danger'</code></pre>
+<pre><code>'secondary'</code></pre>
+<pre><code>destructive</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>bottomBorder</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<h2>Loading Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+progress | number? | 0 | Progress value (0-100)
+showProgress | boolean? | false | Whether to show progress bar
+showCancelButton | boolean? | false | Whether to show cancel button
+cancelButtonText | string? | 'Cancel' | Text for cancel button
+spinnerColor | string? | '' | Custom spinner color
+indeterminate | boolean? | true | Whether progress is indeterminate
+bottomBorder | boolean? | false | Whether to show decorative bottom border</pre>
+<pre><code>progress</code></pre>
+<pre><code>number?</code></pre>
+<pre><code>0</code></pre>
+<pre><code>showProgress</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>showCancelButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>cancelButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>'Cancel'</code></pre>
+<pre><code>spinnerColor</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>indeterminate</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>bottomBorder</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<h2>Custom Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+buttons | DialogButton[]? | [] | Array of custom buttons
+variant | 'default' | 'success' | 'error' | 'warning' | 'info' | 'default' | Visual variant for styling
+customContent | string? | '' | Custom HTML content
+showIcon | boolean? | true | Whether to show icon
+showTitle | boolean? | true | Whether to show title
+showMessage | boolean? | true | Whether to show message
+bottomBorder | boolean? | false | Whether to show decorative bottom border
+label | string? | '' | Custom label text
+confirmButtonText | string? | '' | Text for confirm button
+cancelButtonText | string? | '' | Text for cancel button
+destructive | boolean? | false | Whether this is a destructive action</pre>
+<pre><code>buttons</code></pre>
+<pre><code>DialogButton[]?</code></pre>
+<pre><code>[]</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>'default' | 'success' | 'error' | 'warning' | 'info'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>customContent</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>showIcon</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showTitle</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showMessage</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<pre><code>bottomBorder</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<pre><code>label</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>confirmButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>cancelButtonText</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>destructive</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<h2>Modal Dialog Configuration​</h2>
+<pre>Property | Type | Default | Description
+maxWidth | string? | '' | Maximum width constraint
+maxHeight | string? | '' | Maximum height constraint
+showCloseButton | boolean? | true | Whether to show close button</pre>
+<pre><code>maxWidth</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>maxHeight</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>showCloseButton</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>true</code></pre>
+<h2>Dialog Button Interface​</h2>
+<pre>Property | Type | Default | Description
+label | string | - | Button display text
+variant | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'primary' | Button styling variant
+action | string? | '' | Action identifier for button click
+disabled | boolean? | false | Whether button is disabled</pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>variant</code></pre>
+<pre><code>'primary' | 'secondary' | 'success' | 'warning' | 'danger'</code></pre>
+<pre><code>'primary'</code></pre>
+<pre><code>action</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>''</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean?</code></pre>
+<pre><code>false</code></pre>
+<h2>Dialog Result Interface​</h2>
+<pre>Property | Type | Description
+action | string? | Action that triggered dialog closure
+data | any? | Additional data from dialog interaction
+confirmed | boolean? | Whether user confirmed the action</pre>
+<pre><code>action</code></pre>
+<pre><code>string?</code></pre>
+<pre><code>data</code></pre>
+<pre><code>any?</code></pre>
+<pre><code>confirmed</code></pre>
+<pre><code>boolean?</code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Clear Purpose: Make dialog purpose obvious through title and content</p>
+<p>• Consistent Styling: Use consistent visual hierarchy across dialog types</p>
+<p>• Appropriate Sizing: Choose dialog sizes that fit content without overwhelming</p>
+<p>• Button Placement: Follow standard button placement conventions</p>
+<p>• Visual Feedback: Provide clear visual feedback for user actions</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Ensure full keyboard accessibility (Tab, Escape, Enter)</p>
+<p>• Screen Reader Support: Provide descriptive titles and content</p>
+<p>• Focus Management: Trap focus within dialog and restore on close</p>
+<p>• ARIA Attributes: Use appropriate ARIA roles and labels</p>
+<p>• High Contrast: Maintain sufficient contrast for all text and elements</p>
+<h2>Performance​</h2>
+<p>• Lazy Loading: Load dialog content only when needed</p>
+<p>• Memory Management: Properly clean up dialog instances</p>
+<p>• Change Detection: Use OnPush strategy for optimal performance</p>
+<p>• Event Handling: Clean up event listeners and subscriptions</p>
+<p>• Bundle Optimization: Import only needed dialog types</p>
+<h2>User Experience​</h2>
+<p>• Clear Actions: Make button actions and consequences clear</p>
+<p>• Progressive Disclosure: Use dialogs for focused, single-purpose interactions</p>
+<p>• Error Handling: Provide clear error messages and recovery options</p>
+<p>• Loading States: Show appropriate loading indicators for long operations</p>
+<p>• Responsive Design: Ensure dialogs work well on all screen sizes</p>
+<h2>Implementation Considerations​</h2>
+<p>• Service Injection: Inject DialogService where dialogs are needed</p>
+<p>• Promise Handling: Use async/await or .then() for dialog results</p>
+<p>• Error Boundaries: Handle dialog errors gracefully</p>
+<p>• State Management: Integrate with application state management</p>
+<p>• Testing: Test dialog interactions and accessibility features</p>
+<h2>Technical Notes​</h2>
+<h2>Component Architecture​</h2>
+<p>The dialog system uses a service-based architecture:</p>
+<p>• DialogServicemanages all dialog operations and lifecycle</p>
+<p>• DialogContainerComponentprovides the base container and backdrop</p>
+<p>• Individual Dialog Componentshandle specific dialog types and styling</p>
+<p>• ModalComponentprovides advanced modal capabilities with content projection</p>
+<h2>Dialog Lifecycle​</h2>
+<p>The dialog system manages complete lifecycle:</p>
+<p>• Creation: Dynamic component creation via service methods</p>
+<p>• Rendering: Automatic DOM insertion and view attachment</p>
+<p>• Interaction: Event handling and user input processing</p>
+<p>• Cleanup: Proper cleanup of views, components, and event listeners</p>
+<h2>Content Projection​</h2>
+<p>Modal dialogs support advanced content projection:</p>
+<p>• Header Content: Use[dialog-header]attribute for header sections</p>
+<p>• Body Content: Use[dialog-body]attribute for main content</p>
+<p>• Footer Content: Use[dialog-footer]attribute for action areas</p>
+<p>• Dynamic Content: Any component can be rendered inside dialogs</p>
+<pre><code>[dialog-header]</code></pre>
+<pre><code>[dialog-body]</code></pre>
+<pre><code>[dialog-footer]</code></pre>
+<h2>Event Handling​</h2>
+<p>The system handles multiple event types:</p>
+<p>• Close Events: User-initiated closure via close button or backdrop</p>
+<p>• Button Events: Custom button click handling with action identification</p>
+<p>• Result Events: Promise resolution with user action results</p>
+<p>• Cleanup Events: Proper cleanup of resources and event listeners</p>
+<h2>CSS Integration​</h2>
+<p>The component integrates with the design system:</p>
+<p>• CSS Variables: Uses semantic CSS variables for theming</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<p>• State Management: Handles various dialog states</p>
+<p>• Accessibility: Maintains proper contrast and focus indicators</p>
+</body></html>
