@@ -1,0 +1,446 @@
+<html><head><meta charset='utf-8'>
+<title>FileUpload</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>FileUpload</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/FileUpload</small></p>
+<h2>File Upload</h2>
+<p>A comprehensive file upload component that provides multiple layout variants, drag-and-drop functionality, file validation, and preview capabilities. Built with accessibility in mind and designed for various file upload scenarios including single file uploads, multiple file selections, and enterprise file management interfaces.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaFileUploadComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaFileUploadComponent } from "@aava/play-core";</code></pre>
+<p>Note: The FileUpload component is standalone and includes all necessary dependencies for icon, button, tag, and common modules.</p>
+<h2>Basic Usage​</h2>
+<p>Simple file upload with default layout and basic functionality.</p>
+<pre><code>&lt;aava-file-upload  [allowedFormats]="['pdf', 'doc', 'docx', 'txt', 'jpg', 'png']"  (selectedList)="onFileChange($event)">&lt;/aava-file-upload></code></pre>
+<pre><code>&lt;aava-file-upload  [allowedFormats]="['pdf', 'doc', 'docx', 'txt', 'jpg', 'png']"  (selectedList)="onFileChange($event)">&lt;/aava-file-upload></code></pre>
+<pre><code>  selectedFiles: File[] = [];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }</code></pre>
+<pre><code>  selectedFiles: File[] = [];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }</code></pre>
+<h2>Layout Variants​</h2>
+<pre><code>&lt;div>  &lt;h1>Default Layout&lt;/h1>  &lt;aava-file-upload    layout="default"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png','txt']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>  &lt;p>Single file with left-side positioning&lt;/p>  &lt;aava-file-upload    singleFileSelectionPosition="left"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Icon Layout&lt;/h1>  &lt;aava-file-upload    layout="icon"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>List Layout&lt;/h1>  &lt;aava-file-upload    layout="list"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Tags Layout&lt;/h1>  &lt;aava-file-upload    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table Layout&lt;/h1>  &lt;aava-file-upload    (selectedList)="onFilesChanged($event, 'advanced')"    (deletedList)="onDeletedFiles($event)"    [allowedFormats]="allowedFormats"    layout="icon"    [maxFileSize]="maxFileSize"    uploaderId="advanced"    deleteIconPosition="right"    deleteIconName="trash"    deleteButtonSize="sm"    previewLayout="table"    [previewData]="previewData"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Default Layout&lt;/h1>  &lt;aava-file-upload    layout="default"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png','txt']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>  &lt;p>Single file with left-side positioning&lt;/p>  &lt;aava-file-upload    singleFileSelectionPosition="left"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Icon Layout&lt;/h1>  &lt;aava-file-upload    layout="icon"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>List Layout&lt;/h1>  &lt;aava-file-upload    layout="list"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Tags Layout&lt;/h1>  &lt;aava-file-upload    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table Layout&lt;/h1>  &lt;aava-file-upload    (selectedList)="onFilesChanged($event, 'advanced')"    (deletedList)="onDeletedFiles($event)"    [allowedFormats]="allowedFormats"    layout="icon"    [maxFileSize]="maxFileSize"    uploaderId="advanced"    deleteIconPosition="right"    deleteIconName="trash"    deleteButtonSize="sm"    previewLayout="table"    [previewData]="previewData"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>  previewData = [    {      fileName: '1.png',      fileSize: '5kb',      fileType: 'png',    },  ];    public maxFileSize = 3 * 1024 * 1024; //3MB    public allowedFormats: string[] = [    'jpeg',    'jpg',    'png',    'svg',    'doc',    'docx',    'xlsx',    'txt',    'pdf',    ];    onFileChange(files: File[]): void {      console.log('Files changed:', files);    }    uploadedFiles: Record&lt;string, File[]> = {};    upDisabled = false;    onFilesChanged(files: File[], uploaderId: string) {      this.uploadedFiles[uploaderId] = [...files];      this.upDisabled = true;      console.log(        `Files list changed for ${uploaderId}:`,        files.map((f) => f.name)      );    }    onDeletedFiles(files: UploadFile[]) {      console.log('Deleted files:', files);    }</code></pre>
+<pre><code>  previewData = [    {      fileName: '1.png',      fileSize: '5kb',      fileType: 'png',    },  ];    public maxFileSize = 3 * 1024 * 1024; //3MB    public allowedFormats: string[] = [    'jpeg',    'jpg',    'png',    'svg',    'doc',    'docx',    'xlsx',    'txt',    'pdf',    ];    onFileChange(files: File[]): void {      console.log('Files changed:', files);    }    uploadedFiles: Record&lt;string, File[]> = {};    upDisabled = false;    onFilesChanged(files: File[], uploaderId: string) {      this.uploadedFiles[uploaderId] = [...files];      this.upDisabled = true;      console.log(        `Files list changed for ${uploaderId}:`,        files.map((f) => f.name)      );    }    onDeletedFiles(files: UploadFile[]) {      console.log('Deleted files:', files);    }</code></pre>
+<p>The component supports multiple layout options to fit different UI contexts and use cases:
+default – Standard button and file display layout.</p>
+<p>• list – Displays files in a stacked list with remove options.</p>
+<p>• tags – Shows files as removable tags, suitable for compact interfaces.</p>
+<p>• icon – Drag-and-drop area with rich visual preview and side-by-side file listing.</p>
+<p>• Each layout offers unique ways to visualize uploaded files and actions.</p>
+<h2>Size Variants​</h2>
+<pre><code>&lt;div>  &lt;h1>Extra Small (xs)&lt;/h1>  &lt;aava-file-upload    componentTitle="XS Upload"    size="xs"    uploadButtonSize="xs"    deleteButtonSize="xs"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Small (sm)&lt;/h1>  &lt;aava-file-upload    componentTitle="Small Upload"    size="sm"    uploadButtonSize="sm"    deleteButtonSize="sm"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Medium (md)&lt;/h1>  &lt;aava-file-upload    componentTitle="Medium Upload"    size="md"    uploadButtonSize="md"    deleteButtonSize="md"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Large (lg)&lt;/h1>  &lt;aava-file-upload    componentTitle="Large Upload"    size="lg"    uploadButtonSize="lg"    deleteButtonSize="lg"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Extra Large (xl)&lt;/h1>  &lt;aava-file-upload    componentTitle="XL Upload"    size="xl"    uploadButtonSize="xl"    deleteButtonSize="xl"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Tags Layout with xs button size&lt;/h1>  &lt;aava-file-upload    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    uploadButtonSize="xs"    deleteButtonSize="xs"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Extra Small (xs)&lt;/h1>  &lt;aava-file-upload    componentTitle="XS Upload"    size="xs"    uploadButtonSize="xs"    deleteButtonSize="xs"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Small (sm)&lt;/h1>  &lt;aava-file-upload    componentTitle="Small Upload"    size="sm"    uploadButtonSize="sm"    deleteButtonSize="sm"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Medium (md)&lt;/h1>  &lt;aava-file-upload    componentTitle="Medium Upload"    size="md"    uploadButtonSize="md"    deleteButtonSize="md"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Large (lg)&lt;/h1>  &lt;aava-file-upload    componentTitle="Large Upload"    size="lg"    uploadButtonSize="lg"    deleteButtonSize="lg"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Extra Large (xl)&lt;/h1>  &lt;aava-file-upload    componentTitle="XL Upload"    size="xl"    uploadButtonSize="xl"    deleteButtonSize="xl"    [allowedFormats]="['pdf', 'doc', 'jpg']"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Tags Layout with xs button size&lt;/h1>  &lt;aava-file-upload    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    uploadButtonSize="xs"    deleteButtonSize="xs"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>  onFileChange(files: File[]): void {    console.log('Files changed:', files);  }</code></pre>
+<pre><code>  onFileChange(files: File[]): void {    console.log('Files changed:', files);  }</code></pre>
+<h2>Available Sizes​</h2>
+<p>File Upload buttons support multiple size options to align with your design scale:</p>
+<p>• xs (Extra Small)– For dense layouts.</p>
+<p>• sm (Small)– Compact option.</p>
+<p>• md (Medium)– Default size for general usage.</p>
+<p>• lg (Large)– For prominent actions or primary uploads.</p>
+<p>• xl (Extra Large)– When emphasizing upload as a major user task.</p>
+<h2>File Validation​</h2>
+<pre><code>&lt;div>  &lt;h1>Format Validation&lt;/h1>  &lt;p>Only PDF and DOC files allowed&lt;/p>  &lt;aava-file-upload    componentTitle="PDF/DOC Only"    [allowedFormats]="['pdf', 'doc']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Size Validation&lt;/h1>  &lt;p>Maximum 1MB per file&lt;/p>  &lt;aava-file-upload    componentTitle="Max 1MB Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFileSize]="1048576"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Max Files Validation&lt;/h1>  &lt;p>Maximum 2 files allowed&lt;/p>  &lt;aava-file-upload    componentTitle="Max 2 Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    layout="tags"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Duplicate Detection&lt;/h1>  &lt;p>Shows error for duplicate files&lt;/p>  &lt;aava-file-upload    componentTitle="No Duplicates"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [showDuplicateError]="true"    duplicateErrorText="This file already exists!"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Format Validation&lt;/h1>  &lt;p>Only PDF and DOC files allowed&lt;/p>  &lt;aava-file-upload    componentTitle="PDF/DOC Only"    [allowedFormats]="['pdf', 'doc']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Size Validation&lt;/h1>  &lt;p>Maximum 1MB per file&lt;/p>  &lt;aava-file-upload    componentTitle="Max 1MB Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFileSize]="1048576"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Max Files Validation&lt;/h1>  &lt;p>Maximum 2 files allowed&lt;/p>  &lt;aava-file-upload    componentTitle="Max 2 Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    layout="tags"    [maxFiles]="2"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Duplicate Detection&lt;/h1>  &lt;p>Shows error for duplicate files&lt;/p>  &lt;aava-file-upload    componentTitle="No Duplicates"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [showDuplicateError]="true"    duplicateErrorText="This file already exists!"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code> onFileChange(files: File[]): void {    console.log('Files changed:', files);  }</code></pre>
+<pre><code> onFileChange(files: File[]): void {    console.log('Files changed:', files);  }</code></pre>
+<p>Built-in validation ensures that uploaded files meet specific criteria:</p>
+<p>• Allowed Formats: Restrict file types with the allowedFormats input.</p>
+<p>• File Size Limit: Prevent large files using the maxFileSize property.</p>
+<p>• Duplicate Check: Detect and warn users about duplicate uploads.
+Validation feedback is displayed inline with error messages.</p>
+<h2>Single vs Multiple​</h2>
+<pre><code>&lt;div>  &lt;h1>Single File Mode&lt;/h1>  &lt;p>Only one file can be selected at a time&lt;/p>  &lt;aava-file-upload    componentTitle="Select One File"    [singleFileMode]="true"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    (selectedList)="onSingleFileChange($event)"  >  &lt;/aava-file-upload>  &lt;div class="result" *ngIf="singleFile.length > 0">    &lt;strong>Selected:&lt;/strong> {{singleFile[0].name}}  &lt;/div>&lt;/div>&lt;div>  &lt;h1>Multiple Files Mode&lt;/h1>  &lt;p>Multiple files can be selected (up to 5)&lt;/p>  &lt;aava-file-upload    componentTitle="Select Multiple Files"    [singleFileMode]="false"    layout="tags"    [maxFiles]="3"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    (selectedList)="onMultipleFileChange($event)"  >  &lt;/aava-file-upload>  &lt;div class="result" *ngIf="multipleFiles.length > 0">    &lt;strong>Selected Files:&lt;/strong> {{multipleFiles.length}}    &lt;ul>      &lt;li *ngFor="let file of multipleFiles">{{file.name}}&lt;/li>    &lt;/ul>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Single File Mode&lt;/h1>  &lt;p>Only one file can be selected at a time&lt;/p>  &lt;aava-file-upload    componentTitle="Select One File"    [singleFileMode]="true"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    (selectedList)="onSingleFileChange($event)"  >  &lt;/aava-file-upload>  &lt;div class="result" *ngIf="singleFile.length > 0">    &lt;strong>Selected:&lt;/strong> {{singleFile[0].name}}  &lt;/div>&lt;/div>&lt;div>  &lt;h1>Multiple Files Mode&lt;/h1>  &lt;p>Multiple files can be selected (up to 5)&lt;/p>  &lt;aava-file-upload    componentTitle="Select Multiple Files"    [singleFileMode]="false"    layout="tags"    [maxFiles]="3"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    (selectedList)="onMultipleFileChange($event)"  >  &lt;/aava-file-upload>  &lt;div class="result" *ngIf="multipleFiles.length > 0">    &lt;strong>Selected Files:&lt;/strong> {{multipleFiles.length}}    &lt;ul>      &lt;li *ngFor="let file of multipleFiles">{{file.name}}&lt;/li>    &lt;/ul>  &lt;/div>&lt;/div></code></pre>
+<pre><code>  singleFile: File[] = [];  multipleFiles: File[] = [];  onSingleFileChange(files: File[]): void {    console.log('Single file changed:', files);    this.singleFile = files;  }  onMultipleFileChange(files: File[]): void {    console.log('Multiple files changed:', files);    this.multipleFiles = files;  }</code></pre>
+<pre><code>  singleFile: File[] = [];  multipleFiles: File[] = [];  onSingleFileChange(files: File[]): void {    console.log('Single file changed:', files);    this.singleFile = files;  }  onMultipleFileChange(files: File[]): void {    console.log('Multiple files changed:', files);    this.multipleFiles = files;  }</code></pre>
+<p>Configure whether users can upload a single file or multiple files at once:</p>
+<p>• UsesingleFileMode = truefor a single-file input.</p>
+<p>• Keep itfalseto allow multi-selection.
+The component automatically manages file replacement and count validation.</p>
+<pre><code>singleFileMode = true</code></pre>
+<pre><code>false</code></pre>
+<h2>States & Customization​</h2>
+<pre><code>&lt;div>  &lt;h1>Normal State&lt;/h1>  &lt;aava-file-upload    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Disabled State&lt;/h1>  &lt;aava-file-upload    [disabled]="true"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Custom Styling&lt;/h1>  &lt;aava-file-upload    componentTitle="Custom Colors"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    layout="tags"    [maxFiles]="3"    borderColor="green"    dividerColor="green"    [customStyles]="{'--fileupload-upload-area-default-border': '2px dashed #007bff'}"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Custom Button Variants&lt;/h1>  &lt;aava-file-upload    componentTitle="Custom Buttons"    uploadButtonVariant="secondary"    deleteButtonVariant="danger"    layout="tags"    uploadButtonLabel="Choose Files"    deleteButtonLabel="Clear All"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"    (deletedList)="onFilesDeleted($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Animation Enabled&lt;/h1>  &lt;aava-file-upload    componentTitle="Animated Upload"    [enableAnimation]="true"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Custom Icons&lt;/h1>  &lt;aava-file-upload    componentTitle="Custom Icons"    uploadIconName="folder"    deleteIconName="trash-2"    tagIcon="x-circle"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div class="result" *ngIf="selectedFiles.length > 0">  &lt;strong>Files Selected:&lt;/strong> {{selectedFiles.length}}&lt;/div>&lt;div class="result" *ngIf="deletedFiles.length > 0">  &lt;strong>Files Deleted:&lt;/strong> {{deletedFiles.length}}&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Normal State&lt;/h1>  &lt;aava-file-upload    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Disabled State&lt;/h1>  &lt;aava-file-upload    [disabled]="true"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Custom Styling&lt;/h1>  &lt;aava-file-upload    componentTitle="Custom Colors"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    layout="tags"    [maxFiles]="3"    borderColor="green"    dividerColor="green"    [customStyles]="{'--fileupload-upload-area-default-border': '2px dashed #007bff'}"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Custom Button Variants&lt;/h1>  &lt;aava-file-upload    componentTitle="Custom Buttons"    uploadButtonVariant="secondary"    deleteButtonVariant="danger"    layout="tags"    uploadButtonLabel="Choose Files"    deleteButtonLabel="Clear All"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"    (deletedList)="onFilesDeleted($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Animation Enabled&lt;/h1>  &lt;aava-file-upload    componentTitle="Animated Upload"    [enableAnimation]="true"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Custom Icons&lt;/h1>  &lt;aava-file-upload    componentTitle="Custom Icons"    uploadIconName="folder"    deleteIconName="trash-2"    tagIcon="x-circle"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div class="result" *ngIf="selectedFiles.length > 0">  &lt;strong>Files Selected:&lt;/strong> {{selectedFiles.length}}&lt;/div>&lt;div class="result" *ngIf="deletedFiles.length > 0">  &lt;strong>Files Deleted:&lt;/strong> {{deletedFiles.length}}&lt;/div></code></pre>
+<pre><code>  selectedFiles: File[] = [];  deletedFiles: UploadFile[] = [];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }  onFilesDeleted(deletedFiles: UploadFile[]): void {    console.log('Files deleted:', deletedFiles);    this.deletedFiles = deletedFiles;  }</code></pre>
+<pre><code>  selectedFiles: File[] = [];  deletedFiles: UploadFile[] = [];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }  onFilesDeleted(deletedFiles: UploadFile[]): void {    console.log('Files deleted:', deletedFiles);    this.deletedFiles = deletedFiles;  }</code></pre>
+<p>Customize button variants, labels, colors, and disabled states for consistent UI theming.
+The component supports:</p>
+<p>• Custom border and divider colors</p>
+<p>• Dynamic styles via customStyles</p>
+<p>• Disabled state to prevent interactions</p>
+<p>• Configurable button variants for upload and delete actions</p>
+<h2>Preview Layouts​</h2>
+<pre><code>&lt;div>  &lt;h1>Default Preview Layout&lt;/h1>  &lt;aava-file-upload    componentTitle="Default Preview"    previewLayout="default"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table Preview Layout&lt;/h1>  &lt;aava-file-upload    componentTitle="Table Preview"    layout="icon"    previewLayout="table"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table with Custom Height (200px)&lt;/h1>  &lt;aava-file-upload    componentTitle="Scrollable Table"    previewLayout="table"    layout="icon"    [previewLayoutHeight]="200"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="10"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table with Custom Columns&lt;/h1>  &lt;aava-file-upload    previewLayout="table"    layout="icon"    [tableColumns]="customColumns"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Default Preview Layout&lt;/h1>  &lt;aava-file-upload    componentTitle="Default Preview"    previewLayout="default"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table Preview Layout&lt;/h1>  &lt;aava-file-upload    componentTitle="Table Preview"    layout="icon"    previewLayout="table"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table with Custom Height (200px)&lt;/h1>  &lt;aava-file-upload    componentTitle="Scrollable Table"    previewLayout="table"    layout="icon"    [previewLayoutHeight]="200"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="10"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Table with Custom Columns&lt;/h1>  &lt;aava-file-upload    previewLayout="table"    layout="icon"    [tableColumns]="customColumns"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>  selectedFiles: File[] = [];  customColumns = [    { key: 'fileName', label: 'File Name', visible: true },    { key: 'fileSize', label: 'Size', visible: true },    { key: 'fileType', label: 'Type', visible: false }, // Hidden column    { key: 'uploadDate', label: 'Date', visible: true },    { key: 'actions', label: 'Actions', visible: true },  ];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }</code></pre>
+<pre><code>  selectedFiles: File[] = [];  customColumns = [    { key: 'fileName', label: 'File Name', visible: true },    { key: 'fileSize', label: 'Size', visible: true },    { key: 'fileType', label: 'Type', visible: false }, // Hidden column    { key: 'uploadDate', label: 'Date', visible: true },    { key: 'actions', label: 'Actions', visible: true },  ];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }</code></pre>
+<p>Display uploaded files in different preview formats:</p>
+<p>• default– Shows file cards with color-coded type indicators.</p>
+<p>• table– Tabular view with configurable columns (fileName, fileSize, fileType, etc.)
+Each layout provides structured visibility of uploaded files and supports deletion.</p>
+<h2>Advanced Features​</h2>
+<pre><code></code></pre>
+<pre><code></code></pre>
+<pre><code></code></pre>
+<pre><code></code></pre>
+<p>Explore extended functionality for advanced scenarios:</p>
+<p>• Custom table columns for preview layouts.</p>
+<p>• Dynamic color mapping for file types.</p>
+<p>• Custom upload animations.</p>
+<p>• Event emitters (selectedList, deletedList) for parent integration.</p>
+<p>These options make the File Upload component flexible for enterprise-grade workflows.</p>
+<h2>Icon Customization​</h2>
+<pre><code>&lt;div>  &lt;h1>Upload Icon - Left Position&lt;/h1>  &lt;aava-file-upload    componentTitle="Icon Left"    uploadIconPosition="left"    uploadIconName="upload"    uploadButtonLabel="Upload Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Upload Icon - Right Position&lt;/h1>  &lt;aava-file-upload    componentTitle="Icon Right"    uploadIconPosition="right"    uploadIconName="Upload"    uploadButtonLabel="Choose Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Upload Icon - Only (No Text)&lt;/h1>  &lt;aava-file-upload    componentTitle="Icon Only"    uploadIconPosition="only"    uploadIconName="upload"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>All Custom Icons Combined&lt;/h1>  &lt;aava-file-upload    componentTitle="All Custom"    uploadIconPosition="right"    uploadIconName="cloud-upload"    uploadButtonLabel="Upload to Cloud"    deleteIconPosition="left"    deleteIconName="trash"    deleteButtonLabel="Delete All"    tagIcon="x"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Upload Icon - Left Position&lt;/h1>  &lt;aava-file-upload    componentTitle="Icon Left"    uploadIconPosition="left"    uploadIconName="upload"    uploadButtonLabel="Upload Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Upload Icon - Right Position&lt;/h1>  &lt;aava-file-upload    componentTitle="Icon Right"    uploadIconPosition="right"    uploadIconName="Upload"    uploadButtonLabel="Choose Files"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>Upload Icon - Only (No Text)&lt;/h1>  &lt;aava-file-upload    componentTitle="Icon Only"    uploadIconPosition="only"    uploadIconName="upload"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="3"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div>&lt;div>  &lt;h1>All Custom Icons Combined&lt;/h1>  &lt;aava-file-upload    componentTitle="All Custom"    uploadIconPosition="right"    uploadIconName="cloud-upload"    uploadButtonLabel="Upload to Cloud"    deleteIconPosition="left"    deleteIconName="trash"    deleteButtonLabel="Delete All"    tagIcon="x"    layout="tags"    [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"    [maxFiles]="5"    (selectedList)="onFileChange($event)"  >  &lt;/aava-file-upload>&lt;/div></code></pre>
+<pre><code>  selectedFiles: File[] = [];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }</code></pre>
+<pre><code>  selectedFiles: File[] = [];  onFileChange(files: File[]): void {    console.log('Files changed:', files);    this.selectedFiles = files;  }</code></pre>
+<p>Adjust icon styles and placement for both upload and delete actions using these inputs:</p>
+<p>• uploadIconName / deleteIconName– Change icon symbols.</p>
+<p>• uploadIconPosition / deleteIconPosition– Controlleft, right, or icon-onlylayouts.</p>
+<p>• tagIcon– Set custom tag icons for tag-based uploads.</p>
+<pre><code>left, right, or icon-only</code></pre>
+<p>This allows seamless integration with your application’s visual language.</p>
+<h2>Features​</h2>
+<h2>Upload Methods​</h2>
+<p>• Click to Upload: Traditional file selection via file picker</p>
+<p>• Drag and Drop: Intuitive drag-and-drop file upload</p>
+<p>• Multiple File Support: Upload single or multiple files</p>
+<p>• File Replacement: Replace existing files in single file mode</p>
+<h2>File Validation​</h2>
+<p>• Format Validation: Restrict file types based on extensions</p>
+<p>• Size Validation: Enforce maximum file size limits</p>
+<p>• Duplicate Prevention: Prevent duplicate file uploads</p>
+<p>• Error Handling: Clear error messages for validation failures</p>
+<h2>Layout Options​</h2>
+<p>• Inline: Compact form integration</p>
+<p>• List: Simple list-based display</p>
+<p>• Medium Variant: Enhanced with file tags</p>
+<p>• Large Variant: Full-featured with preview</p>
+<p>• Customizable: Flexible sizing and theming</p>
+<h2>User Experience​</h2>
+<p>• Visual Feedback: Clear upload states and progress indicators</p>
+<p>• File Preview: Preview uploaded files with metadata</p>
+<p>• Responsive Design: Adapts to different screen sizes</p>
+<p>• Accessibility: Full keyboard navigation and screen reader support</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+theme | 'light' | 'dark' | 'light' | Theme variant for the component
+uploaderId | string | '' | Unique identifier for the uploader
+enableAnimation | boolean | false | Enable animation effects
+allowedFormats | string[] | ['jpeg', 'jpg', 'png', 'svg', 'doc', 'docx', 'xlsx', 'txt', 'pdf'] | Allowed file extensions
+singleFileMode | boolean | false | Restrict to single file upload
+maxFiles | number | null | null | Maximum number of files allowed
+componentTitle | string | 'Upload File Here' | Title displayed in the upload area
+supportedFormatLabel | string | 'Supported file formats' | Label for supported formats section
+maxFileSize | number | 3145728 | (3MB) | Maximum file size in bytes
+showDialogCloseIcon | boolean | true | Show close icon in dialog mode
+showUploadButton | boolean | true | Show upload button
+layout | 'default' | 'inline' | 'list' | 'md-variant' | 'lg-variant' | 'default' | Layout variant for the component
+previewLayout | 'default' | 'table' | 'default' | Preview layout type
+previewLayoutHeight | number | 0 | Custom height for preview layout
+singleFileSelectionPosition | 'right' | 'left' | 'right' | Position of single file selection button
+uploadButtonSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'md' | Upload button size
+uploadButtonLabel | string | 'Upload' | Upload button label text
+uploadButtonVariant | ButtonVariant | 'primary' | Upload button style variant
+uploadIconPosition | 'left' | 'right' | 'only' | 'left' | Upload button icon position
+uploadIconName | string | 'upload' | Upload button icon name
+deleteButtonSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'md' | Delete button size
+deleteButtonLabel | string | 'Remove All' | Delete button label text
+deleteButtonVariant | ButtonVariant | 'secondary' | Delete button style variant
+deleteIconPosition | 'left' | 'right' | 'only' | 'left' | Delete button icon position
+deleteIconName | string | 'circle-x' | Delete button icon name
+disabled | boolean | false | Disable the file uploader component
+previewData | any | undefined | External preview data
+customStyles | Record<string, string> | {} | CSS custom properties override
+borderColor | string | '#9ca1aa' | Border color for upload area
+ellipses | 'start' | 'end' | 'middle' | 'end' | Ellipses style for long file names
+dividerColor | string | '#9ca1aa' | Divider line color
+tagIcon | string | 'x' | Icon for removable tags
+tableColumns | customColumns[] | Predefined column config | Configurable columns for table layout
+fileTypeColors | { [key: string]: string } | undefined | Dynamic colors for file types
+border | string | 'var(--fileupload-upload-area-default-border)' | Border style for upload area</pre>
+<pre><code>theme</code></pre>
+<pre><code>'light' | 'dark'</code></pre>
+<pre><code>'light'</code></pre>
+<pre><code>uploaderId</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>enableAnimation</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>allowedFormats</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>['jpeg', 'jpg', 'png', 'svg', 'doc', 'docx', 'xlsx', 'txt', 'pdf']</code></pre>
+<pre><code>singleFileMode</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>maxFiles</code></pre>
+<pre><code>number | null</code></pre>
+<pre><code>null</code></pre>
+<pre><code>componentTitle</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Upload File Here'</code></pre>
+<pre><code>supportedFormatLabel</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Supported file formats'</code></pre>
+<pre><code>maxFileSize</code></pre>
+<pre><code>number</code></pre>
+<pre><code>3145728</code></pre>
+<pre><code>showDialogCloseIcon</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>showUploadButton</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>true</code></pre>
+<pre><code>layout</code></pre>
+<pre><code>'default' | 'inline' | 'list' | 'md-variant' | 'lg-variant'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>previewLayout</code></pre>
+<pre><code>'default' | 'table'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>previewLayoutHeight</code></pre>
+<pre><code>number</code></pre>
+<pre><code>0</code></pre>
+<pre><code>singleFileSelectionPosition</code></pre>
+<pre><code>'right' | 'left'</code></pre>
+<pre><code>'right'</code></pre>
+<pre><code>uploadButtonSize</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>uploadButtonLabel</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Upload'</code></pre>
+<pre><code>uploadButtonVariant</code></pre>
+<pre><code>ButtonVariant</code></pre>
+<pre><code>'primary'</code></pre>
+<pre><code>uploadIconPosition</code></pre>
+<pre><code>'left' | 'right' | 'only'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>uploadIconName</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'upload'</code></pre>
+<pre><code>deleteButtonSize</code></pre>
+<pre><code>'xs' | 'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>deleteButtonLabel</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'Remove All'</code></pre>
+<pre><code>deleteButtonVariant</code></pre>
+<pre><code>ButtonVariant</code></pre>
+<pre><code>'secondary'</code></pre>
+<pre><code>deleteIconPosition</code></pre>
+<pre><code>'left' | 'right' | 'only'</code></pre>
+<pre><code>'left'</code></pre>
+<pre><code>deleteIconName</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'circle-x'</code></pre>
+<pre><code>disabled</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>previewData</code></pre>
+<pre><code>any</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>borderColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#9ca1aa'</code></pre>
+<pre><code>ellipses</code></pre>
+<pre><code>'start' | 'end' | 'middle'</code></pre>
+<pre><code>'end'</code></pre>
+<pre><code>dividerColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'#9ca1aa'</code></pre>
+<pre><code>tagIcon</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'x'</code></pre>
+<pre><code>tableColumns</code></pre>
+<pre><code>customColumns[]</code></pre>
+<pre><code>fileTypeColors</code></pre>
+<pre><code>{ [key: string]: string }</code></pre>
+<pre><code>undefined</code></pre>
+<pre><code>border</code></pre>
+<pre><code>string</code></pre>
+<pre><code>'var(--fileupload-upload-area-default-border)'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+selectedList | EventEmitter<File[]> | Emitted when a list of files is selected
+deletedList | EventEmitter<UploadFile[]> | Emitted when a list of files is deleted</pre>
+<pre><code>selectedList</code></pre>
+<pre><code>EventEmitter&lt;File[]></code></pre>
+<pre><code>deletedList</code></pre>
+<pre><code>EventEmitter&lt;UploadFile[]></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+uploadedFiles | File[] | Array of currently uploaded files
+fileUploadedSuccess | boolean | Whether file upload was successful
+fileFormatError | boolean | Whether there's a file format error
+fileSizeError | boolean | Whether there's a file size error
+maxFilesError | boolean | Whether maximum files limit is exceeded
+isUploadActive | boolean | Whether upload is currently active
+viewAll | boolean | Whether to show all files or truncated list
+uniqueId | string | Unique identifier for the uploader</pre>
+<pre><code>uploadedFiles</code></pre>
+<pre><code>File[]</code></pre>
+<pre><code>fileUploadedSuccess</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>fileFormatError</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>fileSizeError</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>maxFilesError</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>isUploadActive</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>viewAll</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>uniqueId</code></pre>
+<pre><code>string</code></pre>
+<h2>Methods​</h2>
+<pre>Method | Parameters | Return | Description
+openFileSelector() | None | void | Open file selection dialog
+resetUpload() | None | void | Reset upload state and clear files
+closeUpload() | None | void | Close upload and reset state
+removeNewFile() | file: File | void | Remove specific file from list
+getFileExtension() | filename: string | string | Get file extension from filename
+toggleViewAll() | None | void | Toggle between truncated and full file list
+allowAccepted() | None | string | Get accepted file types string for input</pre>
+<pre><code>openFileSelector()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>resetUpload()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>closeUpload()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>removeNewFile()</code></pre>
+<pre><code>file: File</code></pre>
+<pre><code>void</code></pre>
+<pre><code>getFileExtension()</code></pre>
+<pre><code>filename: string</code></pre>
+<pre><code>string</code></pre>
+<pre><code>toggleViewAll()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>allowAccepted()</code></pre>
+<pre><code>string</code></pre>
+<h2>Computed Properties​</h2>
+<pre>Property | Type | Description
+allowedFormatsList | string[] | List of allowed file formats</pre>
+<pre><code>allowedFormatsList</code></pre>
+<pre><code>string[]</code></pre>
+<h2>Layout Variants​</h2>
+<h2>Default Layout​</h2>
+<p>The standard file upload interface with drag-and-drop support and file list display.</p>
+<h2>Inline Layout​</h2>
+<p>Compact uploader designed for form integration with minimal space requirements.</p>
+<p>Features:</p>
+<p>• Single file display</p>
+<p>• Upload button with icon</p>
+<p>• File name with remove option</p>
+<p>• Minimal footprint</p>
+<h2>List Layout​</h2>
+<p>Simple list-based file display with upload button and file management.</p>
+<p>Features:</p>
+<p>• List of uploaded files</p>
+<p>• File icons and names</p>
+<p>• Individual file removal</p>
+<p>• Multiple file support</p>
+<h2>Medium Variant​</h2>
+<p>Enhanced uploader with file tags and grid layout for better file organization.</p>
+<p>Features:</p>
+<p>• File count header</p>
+<p>• Grid-based file display</p>
+<p>• File tags with remove functionality</p>
+<p>• Bulk remove all option</p>
+<p>• Empty state with format information</p>
+<h2>Large Variant​</h2>
+<p>Full-featured uploader with comprehensive file management and preview capabilities.</p>
+<p>Features:</p>
+<p>• Drag-and-drop interface</p>
+<p>• File preview panel</p>
+<p>• Detailed file information</p>
+<p>• File type icons</p>
+<p>• Comprehensive error handling</p>
+<p>• Bulk file management</p>
+<h2>File Validation​</h2>
+<h2>Format Validation​</h2>
+<p>The component validates file types based on theallowedFormatsinput:</p>
+<pre><code>allowedFormats</code></pre>
+<pre><code>// Default allowed formatsallowedFormats = [  "jpeg",  "jpg",  "png",  "svg",  "doc",  "docx",  "xlsx",  "txt",  "pdf",];// Custom format restrictionallowedFormats = ["pdf", "doc", "docx"]; // Only document files</code></pre>
+<pre><code>// Default allowed formatsallowedFormats = [  "jpeg",  "jpg",  "png",  "svg",  "doc",  "docx",  "xlsx",  "txt",  "pdf",];// Custom format restrictionallowedFormats = ["pdf", "doc", "docx"]; // Only document files</code></pre>
+<h2>Size Validation​</h2>
+<p>File size validation is controlled by themaxFileSizeinput:</p>
+<pre><code>maxFileSize</code></pre>
+<pre><code>// 3MB defaultmaxFileSize = 3 * 1024 * 1024;// 10MB limitmaxFileSize = 10 * 1024 * 1024;// 1MB limitmaxFileSize = 1024 * 1024;</code></pre>
+<pre><code>// 3MB defaultmaxFileSize = 3 * 1024 * 1024;// 10MB limitmaxFileSize = 10 * 1024 * 1024;// 1MB limitmaxFileSize = 1024 * 1024;</code></pre>
+<h2>Duplicate Prevention​</h2>
+<p>The component automatically prevents duplicate file uploads by checking:</p>
+<p>• File name</p>
+<p>• File size</p>
+<p>• File content (basic comparison)</p>
+<h2>Error Handling​</h2>
+<h2>File Format Error​</h2>
+<p>Displayed when an unsupported file type is selected:</p>
+<pre><code>&lt;div class="error-message" role="alert">  Invalid file type. Allowed formats: JPEG, JPG, PNG, SVG, DOC, DOCX, XLSX, TXT,  PDF.&lt;/div></code></pre>
+<pre><code>&lt;div class="error-message" role="alert">  Invalid file type. Allowed formats: JPEG, JPG, PNG, SVG, DOC, DOCX, XLSX, TXT,  PDF.&lt;/div></code></pre>
+<h2>File Size Error​</h2>
+<p>Displayed when a file exceeds the maximum size limit:</p>
+<pre><code>&lt;div class="error-message" role="alert">  File is too large. Maximum size allowed is 3 MB&lt;/div></code></pre>
+<pre><code>&lt;div class="error-message" role="alert">  File is too large. Maximum size allowed is 3 MB&lt;/div></code></pre>
+<h2>Maximum Files Error​</h2>
+<p>Displayed when the maximum file limit is exceeded:</p>
+<pre><code>&lt;div class="error-message" role="alert">Maximum of 5 files allowed&lt;/div></code></pre>
+<pre><code>&lt;div class="error-message" role="alert">Maximum of 5 files allowed&lt;/div></code></pre>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Layout Selection: Choose appropriate layout variant for your use case</p>
+<p>• File Limits: Set reasonable file size and count limits</p>
+<p>• Format Restrictions: Clearly communicate supported file types</p>
+<p>• Visual Feedback: Provide clear upload states and progress indicators</p>
+<p>• Error Handling: Display user-friendly error messages</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Ensure full keyboard support for all interactions</p>
+<p>• Screen Reader Support: Provide clear labels and state announcements</p>
+<p>• Drag and Drop: Support both mouse and keyboard file selection</p>
+<p>• Error Announcements: Properly announce validation errors</p>
+<p>• Focus Management: Clear focus indicators and logical tab order</p>
+<h2>Performance​</h2>
+<p>• File Validation: Validate files on selection for immediate feedback</p>
+<p>• Memory Management: Handle large files appropriately</p>
+<p>• Batch Processing: Consider batch uploads for multiple files</p>
+<p>• Progress Indicators: Show upload progress for better UX</p>
+<p>• Error Recovery: Allow users to retry failed uploads</p>
+<h2>User Experience​</h2>
+<p>• Clear Instructions: Provide clear upload instructions and format requirements</p>
+<p>• Visual Feedback: Show upload states and file information</p>
+<p>• File Preview: Allow users to review files before upload</p>
+<p>• Bulk Operations: Support bulk file removal and management</p>
+<p>• Responsive Design: Ensure uploader works on all device sizes</p>
+<h2>Integration​</h2>
+<p>• Form Integration: Properly integrate with Angular forms</p>
+<p>• Event Handling: Use the comprehensive event system for upload management</p>
+<p>• State Management: Coordinate upload state with your application</p>
+<p>• File Processing: Handle file processing and storage appropriately</p>
+<p>• Error Handling: Implement proper error handling and user feedback</p>
+<h2>Responsive Behavior​</h2>
+<h2>Mobile Adaptations​</h2>
+<p>The file upload component automatically adapts to mobile screens:</p>
+<p>• Touch Optimization: Optimized touch targets for mobile interaction</p>
+<p>• Mobile Layout: Appropriate layout adjustments for small screens</p>
+<p>• File Selection: Mobile-friendly file selection methods</p>
+<p>• Error Display: Mobile-optimized error message display</p>
+<h2>Breakpoint Behavior​</h2>
+<p>• Desktop (>768px): Full upload interface with all features</p>
+<p>• Mobile (≤768px): Compact layout with optimized spacing</p>
+<p>• File Display: Responsive file list and preview</p>
+<p>• Button Sizing: Appropriate button sizes for different screens</p>
+<h2>Content Considerations​</h2>
+<p>• File Names: File names adapt to different screen widths</p>
+<p>• Error Messages: Error messages maintain readability on small screens</p>
+<p>• Upload Area: Upload area adapts to available space</p>
+<p>• File List: File list maintains usability across screen sizes</p>
+</body></html>
