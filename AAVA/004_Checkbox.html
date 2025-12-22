@@ -1,0 +1,262 @@
+<html><head><meta charset='utf-8'>
+<title>Checkbox</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Checkbox</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Checkbox</small></p>
+<h2>Checkbox</h2>
+<p>The<aava-checkbox>component provides a highly interactive checkbox element with sophisticated animations, multiple visual variants, and comprehensive state management. It supports standard checked/unchecked states, indeterminate state for partial selections, and full accessibility compliance.</p>
+<pre><code>&lt;aava-checkbox></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaCheckboxComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaCheckboxComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>Simple checkbox implementation with default settings and label.</p>
+<pre><code>&lt;aava-checkbox  label="Accept terms and conditions"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Subscribe to newsletter"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Enable notifications"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox></code></pre>
+<pre><code>&lt;aava-checkbox  label="Accept terms and conditions"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Subscribe to newsletter"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Enable notifications"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox></code></pre>
+<pre><code>  onCheckboxChange(checked: boolean) {    console.log('Checkbox changed:', checked);  }</code></pre>
+<pre><code>  onCheckboxChange(checked: boolean) {    console.log('Checkbox changed:', checked);  }</code></pre>
+<h2>Variants​</h2>
+<p>The checkbox component supports 3 distinct animation variants, each with unique visual feedback and timing.</p>
+<pre><code>&lt;aava-checkbox  label="Default Checked"  variant="default"  [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="With-bg Checked"  variant="with-bg"  [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Animated Checked"  variant="animated"  [isChecked]="true">&lt;/aava-checkbox></code></pre>
+<pre><code>&lt;aava-checkbox  label="Default Checked"  variant="default"  [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="With-bg Checked"  variant="with-bg"  [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Animated Checked"  variant="animated"  [isChecked]="true">&lt;/aava-checkbox></code></pre>
+<h2>Available Variants​</h2>
+<p>• default- Clean checkbox with smooth draw/erase animations (250ms draw, 300ms erase)</p>
+<p>• with-bg- Background fill effect with fast transitions (150ms animations)</p>
+<p>• animated- Complex scaling background animation with staggered timing (300ms background + 300ms delay + checkmark)</p>
+<h2>Orientations​</h2>
+<p>Flexible layout options for different design requirements and form arrangements.</p>
+<pre><code>&lt;div>  &lt;h1>Vertical Layout (Default)&lt;/h1>  &lt;div>    &lt;aava-checkbox      alignment="vertical"      label="Development Tools"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="vertical"      label="Design Software"      [isChecked]="true"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="vertical"      label="Project Management"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="vertical"      label="Communication Apps"      [isChecked]="true"    >&lt;/aava-checkbox>  &lt;/div>  &lt;h1>Horizontal Layout&lt;/h1>  &lt;div>    &lt;aava-checkbox      alignment="horizontal"      label="React"      [isChecked]="true"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Angular"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Vue.js"      [isChecked]="true"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Svelte"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Next.js"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Nuxt.js"      [isChecked]="false"    >&lt;/aava-checkbox>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div>  &lt;h1>Vertical Layout (Default)&lt;/h1>  &lt;div>    &lt;aava-checkbox      alignment="vertical"      label="Development Tools"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="vertical"      label="Design Software"      [isChecked]="true"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="vertical"      label="Project Management"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="vertical"      label="Communication Apps"      [isChecked]="true"    >&lt;/aava-checkbox>  &lt;/div>  &lt;h1>Horizontal Layout&lt;/h1>  &lt;div>    &lt;aava-checkbox      alignment="horizontal"      label="React"      [isChecked]="true"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Angular"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Vue.js"      [isChecked]="true"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Svelte"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Next.js"      [isChecked]="false"    >&lt;/aava-checkbox>    &lt;aava-checkbox      alignment="horizontal"      label="Nuxt.js"      [isChecked]="false"    >&lt;/aava-checkbox>  &lt;/div>&lt;/div></code></pre>
+<h2>Available Orientations​</h2>
+<p>• vertical- Default stacked layout with checkboxes arranged vertically</p>
+<p>• horizontal- Inline layout with checkboxes arranged horizontally side by side</p>
+<h2>Sizes​</h2>
+<p>Three size options to accommodate different interface densities and visual hierarchies.</p>
+<pre><code>&lt;aava-checkbox label="Small" size="sm" variant="default" [isChecked]="false">&lt;/aava-checkbox>&lt;aava-checkbox label="Medium" size="md" variant="default" [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox label="Large" size="lg" variant="default" [isChecked]="false">&lt;/aava-checkbox></code></pre>
+<pre><code>&lt;aava-checkbox label="Small" size="sm" variant="default" [isChecked]="false">&lt;/aava-checkbox>&lt;aava-checkbox label="Medium" size="md" variant="default" [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox label="Large" size="lg" variant="default" [isChecked]="false">&lt;/aava-checkbox></code></pre>
+<h2>Available Sizes​</h2>
+<p>• sm (Small)- 16x16px checkbox for compact interfaces</p>
+<p>• md (Medium)- 20x20px checkbox for standard layouts (default)</p>
+<p>• lg (Large)- 24x24px checkbox for prominent placements</p>
+<h2>States​</h2>
+<p>Comprehensive state management including checked, unchecked, disabled, and indeterminate states.</p>
+<pre><code>&lt;aava-checkbox label="Unchecked" [isChecked]="false"> &lt;/aava-checkbox>&lt;aava-checkbox label="Checked" [isChecked]="true"> &lt;/aava-checkbox>&lt;aava-checkbox label="Disabled Unchecked" [disable]="true" [isChecked]="false">&lt;/aava-checkbox>&lt;aava-checkbox label="Disabled Checked" [disable]="true" [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Disabled Indeterminate"  [disable]="true"  [indeterminate]="true">&lt;/aava-checkbox>&lt;aava-checkbox label="Indeterminate" [indeterminate]="true"> &lt;/aava-checkbox>&lt;aava-checkbox  label="Indeterminate (With-bg)"  variant="with-bg"  [indeterminate]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Indeterminate (Animated)"  variant="animated"  [indeterminate]="true">&lt;/aava-checkbox></code></pre>
+<pre><code>&lt;aava-checkbox label="Unchecked" [isChecked]="false"> &lt;/aava-checkbox>&lt;aava-checkbox label="Checked" [isChecked]="true"> &lt;/aava-checkbox>&lt;aava-checkbox label="Disabled Unchecked" [disable]="true" [isChecked]="false">&lt;/aava-checkbox>&lt;aava-checkbox label="Disabled Checked" [disable]="true" [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Disabled Indeterminate"  [disable]="true"  [indeterminate]="true">&lt;/aava-checkbox>&lt;aava-checkbox label="Indeterminate" [indeterminate]="true"> &lt;/aava-checkbox>&lt;aava-checkbox  label="Indeterminate (With-bg)"  variant="with-bg"  [indeterminate]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Indeterminate (Animated)"  variant="animated"  [indeterminate]="true">&lt;/aava-checkbox></code></pre>
+<h2>Available States​</h2>
+<p>• unchecked- Default empty state</p>
+<p>• checked- Selected state with checkmark animation</p>
+<p>• disabled- Non-interactive state (can be checked or unchecked)</p>
+<p>• indeterminate- Partial selection state with horizontal line indicator</p>
+<h2>State Behavior​</h2>
+<p>Checked State:</p>
+<p>• Displays animated checkmark</p>
+<p>• Emitstruevalue on change</p>
+<p>• Visual feedback varies by variant</p>
+<pre><code>true</code></pre>
+<p>Disabled State:</p>
+<p>• Non-interactive (no click/keyboard events)</p>
+<p>• Dimmed appearance with disabled styling</p>
+<p>• Maintains current checked/unchecked state</p>
+<p>• Custom disabled colors via CSS tokens</p>
+<p>Indeterminate State:</p>
+<p>• Shows horizontal line instead of checkmark</p>
+<p>• Used for "select all" scenarios in groups</p>
+<p>• Clicking transitions to fully checked state</p>
+<p>• Emitstruewhen transitioning from indeterminate</p>
+<pre><code>true</code></pre>
+<h2>Indeterminate State​</h2>
+<p>Special state for representing partial selections in checkbox groups or tree structures.</p>
+<pre><code>&lt;div class="checkbox-hierarchy">  &lt;aava-checkbox    label="Select All Tasks"    [isChecked]="parentChecked"    [indeterminate]="indeterminate"    (isCheckedChange)="onParentChanged($event)"  >  &lt;/aava-checkbox>  &lt;div class="child-checkboxes">    &lt;aava-checkbox      *ngFor="let child of children; let i = index"      [label]="child.label"      [isChecked]="child.checked"      (isCheckedChange)="onChildChanged(i, $event)"    >    &lt;/aava-checkbox>  &lt;/div>&lt;/div></code></pre>
+<pre><code>&lt;div class="checkbox-hierarchy">  &lt;aava-checkbox    label="Select All Tasks"    [isChecked]="parentChecked"    [indeterminate]="indeterminate"    (isCheckedChange)="onParentChanged($event)"  >  &lt;/aava-checkbox>  &lt;div class="child-checkboxes">    &lt;aava-checkbox      *ngFor="let child of children; let i = index"      [label]="child.label"      [isChecked]="child.checked"      (isCheckedChange)="onChildChanged(i, $event)"    >    &lt;/aava-checkbox>  &lt;/div>&lt;/div></code></pre>
+<pre><code>  parentChecked = false;  indeterminate = false  children = [    { label: 'Child task 1', checked: false },    { label: 'Child task 2', checked: false },    { label: 'Child task 3', checked: false },  ];  onParentChanged(checked: boolean): void {    this.parentChecked = checked;    this.indeterminate = false;    this.children = this.children.map((child) => ({ ...child, checked }));  }  onChildChanged(index: number, checked: boolean): void {    this.children[index].checked = checked;    this.updateParentState();  }  updateParentState(): void {    const total = this.children.length;    const checkedCount = this.children.filter((c) => c.checked).length;    if (checkedCount === total) {      this.parentChecked = true;      this.indeterminate = false;    } else if (checkedCount === 0) {      this.parentChecked = false;      this.indeterminate = false;    } else {      this.parentChecked = false;      this.indeterminate = true;    }  }  updateParentStates(items: any[]): void {    items.forEach((item) => {      if (item.children) {        this.updateParentStates(item.children);        const total = item.children.length;        const checkedCount = item.children.filter(          (c: any) => c.checked || c.indeterminate        ).length;        const fullyCheckedCount = item.children.filter(          (c: any) => c.checked && !c.indeterminate        ).length;        if (fullyCheckedCount === total) {          item.checked = true;          item.indeterminate = false;        } else if (checkedCount === 0) {          item.checked = false;          item.indeterminate = false;        } else {          item.checked = false;          item.indeterminate = true;        }      }    });  }</code></pre>
+<pre><code>  parentChecked = false;  indeterminate = false  children = [    { label: 'Child task 1', checked: false },    { label: 'Child task 2', checked: false },    { label: 'Child task 3', checked: false },  ];  onParentChanged(checked: boolean): void {    this.parentChecked = checked;    this.indeterminate = false;    this.children = this.children.map((child) => ({ ...child, checked }));  }  onChildChanged(index: number, checked: boolean): void {    this.children[index].checked = checked;    this.updateParentState();  }  updateParentState(): void {    const total = this.children.length;    const checkedCount = this.children.filter((c) => c.checked).length;    if (checkedCount === total) {      this.parentChecked = true;      this.indeterminate = false;    } else if (checkedCount === 0) {      this.parentChecked = false;      this.indeterminate = false;    } else {      this.parentChecked = false;      this.indeterminate = true;    }  }  updateParentStates(items: any[]): void {    items.forEach((item) => {      if (item.children) {        this.updateParentStates(item.children);        const total = item.children.length;        const checkedCount = item.children.filter(          (c: any) => c.checked || c.indeterminate        ).length;        const fullyCheckedCount = item.children.filter(          (c: any) => c.checked && !c.indeterminate        ).length;        if (fullyCheckedCount === total) {          item.checked = true;          item.indeterminate = false;        } else if (checkedCount === 0) {          item.checked = false;          item.indeterminate = false;        } else {          item.checked = false;          item.indeterminate = true;        }      }    });  }</code></pre>
+<h2>Indeterminate Usage​</h2>
+<p>The indeterminate state is particularly useful for:</p>
+<p>• Select All checkboxes- When some but not all items are selected</p>
+<p>• Tree structures- Parent nodes with partially selected children</p>
+<p>• Group controls- Representing mixed states in checkbox groups</p>
+<p>• Bulk actions- Indicating partial selection in data tables</p>
+<h2>Indeterminate Behavior​</h2>
+<p>• Displays horizontal line indicator instead of checkmark</p>
+<p>• Clicking indeterminate checkbox transitions to fully checked</p>
+<p>• Cannot be set via user interaction (must be programmatically controlled)</p>
+<p>• Supports all variants and sizes</p>
+<p>• Maintains proper ARIA attributes (aria-checked="mixed")</p>
+<pre><code>aria-checked="mixed"</code></pre>
+<h2>Labels & Accessibility​</h2>
+<p>Comprehensive accessibility features including keyboard navigation, ARIA attributes, and label support.</p>
+<pre><code>&lt;aava-checkbox  label="First checkbox (Tab to focus)"  [(isChecked)]="keyboardStates.first"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Second checkbox (Space/Enter to toggle)"  [(isChecked)]="keyboardStates.second"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Third checkbox (Try keyboard navigation)"  [(isChecked)]="keyboardStates.third"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Standard checkbox with ARIA"  [(isChecked)]="ariaStates.standard"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Indeterminate checkbox (aria-checked='mixed')"  [indeterminate]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Disabled checkbox (aria-disabled='true')"  [disable]="true"  [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Checkbox with visible label"  [(isChecked)]="labelStates.visible"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Clickable label (clicking label toggles checkbox)"  [(isChecked)]="labelStates.clickable"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox></code></pre>
+<pre><code>&lt;aava-checkbox  label="First checkbox (Tab to focus)"  [(isChecked)]="keyboardStates.first"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Second checkbox (Space/Enter to toggle)"  [(isChecked)]="keyboardStates.second"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Third checkbox (Try keyboard navigation)"  [(isChecked)]="keyboardStates.third"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Standard checkbox with ARIA"  [(isChecked)]="ariaStates.standard"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Indeterminate checkbox (aria-checked='mixed')"  [indeterminate]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Disabled checkbox (aria-disabled='true')"  [disable]="true"  [isChecked]="true">&lt;/aava-checkbox>&lt;aava-checkbox  label="Checkbox with visible label"  [(isChecked)]="labelStates.visible"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Clickable label (clicking label toggles checkbox)"  [(isChecked)]="labelStates.clickable"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox></code></pre>
+<pre><code>  keyboardStates = {    first: false,    second: true,    third: false,  };  ariaStates = {    standard: false,  };  labelStates = {    visible: true,    noVisible: false,    clickable: false,  };  onCheckboxChange(checked: boolean) {    console.log('Checkbox changed:', checked);  }</code></pre>
+<pre><code>  keyboardStates = {    first: false,    second: true,    third: false,  };  ariaStates = {    standard: false,  };  labelStates = {    visible: true,    noVisible: false,    clickable: false,  };  onCheckboxChange(checked: boolean) {    console.log('Checkbox changed:', checked);  }</code></pre>
+<h2>Accessibility Features​</h2>
+<p>Keyboard Navigation:</p>
+<p>• Space- Toggle checkbox state</p>
+<p>• Enter- Toggle checkbox state</p>
+<p>• Tab/Shift+Tab- Navigate to/from checkbox</p>
+<p>ARIA Compliance:</p>
+<p>• role="checkbox"- Semantic role identification</p>
+<p>• aria-checked="true|false|mixed"- Current state indication</p>
+<p>• aria-disabled="true|false"- Disabled state indication</p>
+<p>• aria-label- Accessibility label (falls back to visible label)</p>
+<pre><code>role="checkbox"</code></pre>
+<pre><code>aria-checked="true|false|mixed"</code></pre>
+<pre><code>aria-disabled="true|false"</code></pre>
+<pre><code>aria-label</code></pre>
+<p>Visual Accessibility:</p>
+<p>• High contrast focus indicators</p>
+<p>• Proper color contrast ratios via CSS tokens</p>
+<p>• Scalable vector icons (no pixelation)</p>
+<p>• Motion respects user preferences</p>
+<h2>Label Behavior​</h2>
+<p>• Optional labels- Checkbox works with or without visible labels</p>
+<p>• Clickable labels- Clicking label text toggles checkbox</p>
+<p>• Accessible labels- Always provide meaningful labels for screen readers</p>
+<p>• Flexible positioning- Label appears to the right of checkbox</p>
+<h2>Events​</h2>
+<p>Event handling for checkbox state changes and user interactions.</p>
+<pre><code>&lt;aava-checkbox  label="Event Demo Checkbox"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Another Event Checkbox"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox></code></pre>
+<pre><code>&lt;aava-checkbox  label="Event Demo Checkbox"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox>&lt;aava-checkbox  label="Another Event Checkbox"  [isChecked]="false"  (isCheckedChange)="onCheckboxChange($event)">&lt;/aava-checkbox></code></pre>
+<pre><code>  onCheckboxChange(checked: boolean) {    console.log('Checkbox changed:', checked);  }</code></pre>
+<pre><code>  onCheckboxChange(checked: boolean) {    console.log('Checkbox changed:', checked);  }</code></pre>
+<h2>Available Events​</h2>
+<p>• isCheckedChange- Emitted when checkbox state changes (boolean value)</p>
+<h2>Event Details​</h2>
+<p>isCheckedChange Event:</p>
+<p>• Type:EventEmitter<boolean></p>
+<p>• Emitted when:User clicks checkbox or uses keyboard to toggle</p>
+<p>• Value:truewhen checked,falsewhen unchecked</p>
+<p>• Timing:Emitted after animation completes (timing varies by variant)</p>
+<p>• Indeterminate:Emitstruewhen transitioning from indeterminate to checked</p>
+<pre><code>EventEmitter&lt;boolean></code></pre>
+<pre><code>true</code></pre>
+<pre><code>false</code></pre>
+<pre><code>true</code></pre>
+<h2>Event Timing by Variant​</h2>
+<p>• Default:Immediate for checking, 300ms delay for unchecking</p>
+<p>• With-bg:150ms delay for both checking and unchecking</p>
+<p>• Animated:600ms delay for checking, 300ms delay for unchecking</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Default | Description
+variant | 'default' | 'with-bg' | 'animated' | 'default' | Animation style variant
+size | 'sm' | 'md' | 'lg' | 'md' | Checkbox size
+alignment | 'vertical' | 'horizontal' | 'vertical' | Layout orientation for checkbox groups
+label | string | '' | Visible label text
+isChecked | boolean | false | Whether checkbox is checked
+indeterminate | boolean | false | Whether checkbox is in indeterminate state
+disable | boolean | false | Whether checkbox is disabled
+customStyles | Record<string, string> | {} | CSS custom properties override
+error | string | '' | Error message text
+id | string | '' | Unique checkbox identifier</pre>
+<pre><code>variant</code></pre>
+<pre><code>'default' | 'with-bg' | 'animated'</code></pre>
+<pre><code>'default'</code></pre>
+<pre><code>size</code></pre>
+<pre><code>'sm' | 'md' | 'lg'</code></pre>
+<pre><code>'md'</code></pre>
+<pre><code>alignment</code></pre>
+<pre><code>'vertical' | 'horizontal'</code></pre>
+<pre><code>'vertical'</code></pre>
+<pre><code>label</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>isChecked</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>indeterminate</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>disable</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<pre><code>{}</code></pre>
+<pre><code>error</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>id</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+isCheckedChange | EventEmitter<boolean> | Emitted when checkbox state changes</pre>
+<pre><code>isCheckedChange</code></pre>
+<pre><code>EventEmitter&lt;boolean></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Description
+showIcon | boolean | Whether to show the icon (checkmark or indeterminate)
+showCheckmark | boolean | Whether to show checkmark specifically</pre>
+<pre><code>showIcon</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>showCheckmark</code></pre>
+<pre><code>boolean</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--checkbox-box-background | Background color of the checkbox box
+--checkbox-box-checked-border | Border color when checked
+--checkbox-box-checked-background | Background color when checked
+--checkbox-box-border-disabled | Border color when disabled
+--checkbox-box-background-disabled | Background color when disabled
+--checkbox-icon-color-disabled | Icon color when disabled
+--checkbox-box-checked-color | Checkmark color when checked
+--checkbox-label-color | Text color for the label
+--checkbox-label-color-disabled | Label text color when disabled
+--checkbox-label-cursor | Cursor style for clickable label
+--checkbox-label-cursor-disabled | Cursor style when disabled
+--checkbox-cursor-disabled | Cursor style for disabled checkbox
+--checkbox-size-small | Size dimensions for small variant
+--checkbox-size-medium | Size dimensions for medium variant
+--checkbox-size-large | Size dimensions for large variant</pre>
+<pre><code>--checkbox-box-background</code></pre>
+<pre><code>--checkbox-box-checked-border</code></pre>
+<pre><code>--checkbox-box-checked-background</code></pre>
+<pre><code>--checkbox-box-border-disabled</code></pre>
+<pre><code>--checkbox-box-background-disabled</code></pre>
+<pre><code>--checkbox-icon-color-disabled</code></pre>
+<pre><code>--checkbox-box-checked-color</code></pre>
+<pre><code>--checkbox-label-color</code></pre>
+<pre><code>--checkbox-label-color-disabled</code></pre>
+<pre><code>--checkbox-label-cursor</code></pre>
+<pre><code>--checkbox-label-cursor-disabled</code></pre>
+<pre><code>--checkbox-cursor-disabled</code></pre>
+<pre><code>--checkbox-size-small</code></pre>
+<pre><code>--checkbox-size-medium</code></pre>
+<pre><code>--checkbox-size-large</code></pre>
+<h2>Animation Timing​</h2>
+<p>Each variant has carefully tuned animation timing for optimal user experience:</p>
+<h2>Default Variant​</h2>
+<p>• Check:250ms cubic-bezier(0.25, 0.46, 0.45, 0.94)</p>
+<p>• Uncheck:300ms cubic-bezier(0.55, 0.06, 0.68, 0.19)</p>
+<h2>With-bg Variant​</h2>
+<p>• Check:150ms cubic-bezier(0.25, 0.46, 0.45, 0.94)</p>
+<p>• Uncheck:150ms cubic-bezier(0.55, 0.06, 0.68, 0.19)</p>
+<h2>Animated Variant​</h2>
+<p>• Background:300ms ease-out</p>
+<p>• Checkmark:300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) with 300ms delay</p>
+<p>• Uncheck:300ms background + 150ms checkmark (simultaneous)</p>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Choose appropriate variants- Usedefaultfor most cases,with-bgfor high contrast needs,animatedfor engaging interactions</p>
+<p>• Size consistently- Match checkbox size to surrounding form elements and text size</p>
+<p>• Group related checkboxes- Use proper form structure and fieldsets for related options</p>
+<p>• Handle indeterminate properly- Use for partial selections in groups, not individual checkboxes</p>
+<pre><code>default</code></pre>
+<pre><code>with-bg</code></pre>
+<pre><code>animated</code></pre>
+<h2>Accessibility​</h2>
+<p>• Label everything- Always provide meaningful labels for accessibility</p>
+<p>• Keyboard navigation- Ensure full keyboard support with proper focus management</p>
+<p>• ARIA compliance- Use proper ARIA attributes for screen readers</p>
+<p>• Visual accessibility- Maintain high contrast and clear focus indicators</p>
+<p>• Motion preferences- Consider users who prefer reduced motion</p>
+<h2>Performance​</h2>
+<p>• Respect motion preferences- Consider users who prefer reduced motion</p>
+<p>• Optimize animations- Use CSS transforms and opacity for smooth performance</p>
+<p>• Batch state changes- Avoid rapid successive state changes</p>
+<p>• Use appropriate variants- Choose variants based on performance requirements</p>
+</body></html>
