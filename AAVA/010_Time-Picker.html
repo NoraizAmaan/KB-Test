@@ -1,0 +1,474 @@
+<html><head><meta charset='utf-8'>
+<title>Time-Picker</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Time-Picker</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Inputs/Time-Picker</small></p>
+<h2>Time Picker</h2>
+<p>The<aava-time-picker>component is an advanced time selection interface that combines a clean display mode with an interactive scroll-based picker. It features smooth scrolling animations, inline editing capabilities, keyboard navigation, and comprehensive validation for precise time input in 12-hour format.</p>
+<pre><code>&lt;aava-time-picker></code></pre>
+<h2>How to use​</h2>
+<pre><code>import { AavaTimePickerComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaTimePickerComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>A simple time picker with default behavior and display mode.</p>
+<pre><code>&lt;aava-time-picker  [size]="'lg'"  (timeSelected)="onTimeSelected($event)">&lt;/aava-time-picker></code></pre>
+<pre><code>&lt;aava-time-picker  [size]="'lg'"  (timeSelected)="onTimeSelected($event)">&lt;/aava-time-picker></code></pre>
+<pre><code>  selectedTime = '';  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }</code></pre>
+<pre><code>  selectedTime = '';  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }</code></pre>
+<h2>Sizes​</h2>
+<p>Four size options to fit different layout requirements and visual hierarchies.</p>
+<pre><code>&lt;aava-time-picker size="sm">&lt;/aava-time-picker>&lt;aava-time-picker size="md">&lt;/aava-time-picker>&lt;aava-time-picker size="lg">&lt;/aava-time-picker>&lt;aava-time-picker size="xl">&lt;/aava-time-picker></code></pre>
+<pre><code>&lt;aava-time-picker size="sm">&lt;/aava-time-picker>&lt;aava-time-picker size="md">&lt;/aava-time-picker>&lt;aava-time-picker size="lg">&lt;/aava-time-picker>&lt;aava-time-picker size="xl">&lt;/aava-time-picker></code></pre>
+<h2>Available Sizes​</h2>
+<p>• sm (Small)- Compact size for dense interfaces</p>
+<p>• md (Medium)- Standard size for most use cases (default)</p>
+<p>• lg (Large)- Prominent size for primary actions</p>
+<p>• xl (Extra Large)- Extra large size for hero sections and CTAs</p>
+<h2>Scroll Mode Interface​</h2>
+<p>Interactive scroll-based time selection with smooth animations and visual feedback.</p>
+<pre><code>&lt;aava-time-picker>&lt;/aava-time-picker></code></pre>
+<pre><code>&lt;aava-time-picker>&lt;/aava-time-picker></code></pre>
+<pre><code>  selectedTime = '';  scrollEvents: string[] = [];  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }  onScrollEvent(event: any) {    this.scrollEvents.unshift(      `Scroll event: ${new Date().toLocaleTimeString()}`    );    if (this.scrollEvents.length > 5) {      this.scrollEvents.pop();    }  }</code></pre>
+<pre><code>  selectedTime = '';  scrollEvents: string[] = [];  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }  onScrollEvent(event: any) {    this.scrollEvents.unshift(      `Scroll event: ${new Date().toLocaleTimeString()}`    );    if (this.scrollEvents.length > 5) {      this.scrollEvents.pop();    }  }</code></pre>
+<h2>Keyboard Navigation​</h2>
+<p>Full keyboard accessibility with arrow keys, number input, and focus management.</p>
+<pre><code>&lt;aava-time-picker>&lt;/aava-time-picker></code></pre>
+<pre><code>&lt;aava-time-picker>&lt;/aava-time-picker></code></pre>
+<pre><code>  selectedTime = '';  keyboardEvents: string[] = [];  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }  onKeyboardEvent(event: string) {    this.keyboardEvents.unshift(      `Keyboard: ${event} - ${new Date().toLocaleTimeString()}`    );    if (this.keyboardEvents.length > 5) {      this.keyboardEvents.pop();    }  }</code></pre>
+<pre><code>  selectedTime = '';  keyboardEvents: string[] = [];  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }  onKeyboardEvent(event: string) {    this.keyboardEvents.unshift(      `Keyboard: ${event} - ${new Date().toLocaleTimeString()}`    );    if (this.keyboardEvents.length > 5) {      this.keyboardEvents.pop();    }  }</code></pre>
+<h2>Validation and Constraints​</h2>
+<p>Comprehensive validation with proper error handling and boundary enforcement.</p>
+<pre><code>&lt;aava-time-picker (timeSelected)="onTimeSelected($event)">&lt;/aava-time-picker>&lt;aava-time-picker  [customStyles]="errorStyles"  (timeSelected)="onTimeSelected($event)">&lt;/aava-time-picker></code></pre>
+<pre><code>&lt;aava-time-picker (timeSelected)="onTimeSelected($event)">&lt;/aava-time-picker>&lt;aava-time-picker  [customStyles]="errorStyles"  (timeSelected)="onTimeSelected($event)">&lt;/aava-time-picker></code></pre>
+<pre><code>  selectedTime = '';  errorStyles = {    '--timepicker-background': '#fef2f2',    '--timepicker-border': '2px solid #ef4444',    '--timepicker-display-text': '#dc2626',    '--timepicker-icon-color': '#ef4444',  };  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }</code></pre>
+<pre><code>  selectedTime = '';  errorStyles = {    '--timepicker-background': '#fef2f2',    '--timepicker-border': '2px solid #ef4444',    '--timepicker-display-text': '#dc2626',    '--timepicker-icon-color': '#ef4444',  };  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }</code></pre>
+<h2>Custom Styling​</h2>
+<p>Customizable appearance with CSS custom properties and theme integration.</p>
+<pre><code>&lt;aava-time-picker [customStyles]="darkStyles"> &lt;/aava-time-picker>&lt;aava-time-picker [customStyles]="blueStyles"> &lt;/aava-time-picker>&lt;aava-time-picker [customStyles]="greenStyles"> &lt;/aava-time-picker></code></pre>
+<pre><code>&lt;aava-time-picker [customStyles]="darkStyles"> &lt;/aava-time-picker>&lt;aava-time-picker [customStyles]="blueStyles"> &lt;/aava-time-picker>&lt;aava-time-picker [customStyles]="greenStyles"> &lt;/aava-time-picker></code></pre>
+<pre><code>  selectedTime = '';  darkStyles = {    '--timepicker-background': '#374151',    '--timepicker-border': '1px solid #4b5563',    '--timepicker-display-text': '#f9fafb',    '--timepicker-icon-color': '#f9fafb',    '--timepicker-scroll-background': '#1f2937',    '--timepicker-time-item-text': '#d1d5db',    '--timepicker-time-item-selected-text': '#60a5fa',  };  blueStyles = {    '--timepicker-background': '#dbeafe',    '--timepicker-border': '1px solid #3b82f6',    '--timepicker-display-text': '#1e40af',    '--timepicker-icon-color': '#3b82f6',    '--timepicker-scroll-background': '#bfdbfe',    '--timepicker-time-item-text': '#1e3a8a',    '--timepicker-time-item-selected-text': '#1d4ed8',  };  greenStyles = {    '--timepicker-background': '#dcfce7',    '--timepicker-border': '1px solid #22c55e',    '--timepicker-display-text': '#15803d',    '--timepicker-icon-color': '#22c55e',    '--timepicker-scroll-background': '#bbf7d0',    '--timepicker-time-item-text': '#166534',    '--timepicker-time-item-selected-text': '#16a34a',  };  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }</code></pre>
+<pre><code>  selectedTime = '';  darkStyles = {    '--timepicker-background': '#374151',    '--timepicker-border': '1px solid #4b5563',    '--timepicker-display-text': '#f9fafb',    '--timepicker-icon-color': '#f9fafb',    '--timepicker-scroll-background': '#1f2937',    '--timepicker-time-item-text': '#d1d5db',    '--timepicker-time-item-selected-text': '#60a5fa',  };  blueStyles = {    '--timepicker-background': '#dbeafe',    '--timepicker-border': '1px solid #3b82f6',    '--timepicker-display-text': '#1e40af',    '--timepicker-icon-color': '#3b82f6',    '--timepicker-scroll-background': '#bfdbfe',    '--timepicker-time-item-text': '#1e3a8a',    '--timepicker-time-item-selected-text': '#1d4ed8',  };  greenStyles = {    '--timepicker-background': '#dcfce7',    '--timepicker-border': '1px solid #22c55e',    '--timepicker-display-text': '#15803d',    '--timepicker-icon-color': '#22c55e',    '--timepicker-scroll-background': '#bbf7d0',    '--timepicker-time-item-text': '#166534',    '--timepicker-time-item-selected-text': '#16a34a',  };  onTimeSelected(time: string) {    this.selectedTime = time;    console.log('Selected time:', time);  }</code></pre>
+<h2>Features​</h2>
+<h2>Dual Interface Modes​</h2>
+<p>• Display Mode: Clean, compact time display with click-to-edit functionality</p>
+<p>• Scroll Mode: Interactive scroll-based selection with smooth animations</p>
+<p>• Seamless Transition: Automatic switching between modes based on user interaction</p>
+<h2>Scroll-Based Selection​</h2>
+<p>• Smooth Scrolling: Hardware-accelerated scroll animations with momentum</p>
+<p>• Visual Feedback: Clear selection indicators and hover states</p>
+<p>• Boundary Enforcement: Prevents scrolling beyond valid time ranges</p>
+<p>• Padding System: Intelligent padding for optimal centering and selection</p>
+<h2>Inline Editing​</h2>
+<p>• Direct Input: Click any time item to edit directly in place</p>
+<p>• Real-time Validation: Immediate validation and formatting</p>
+<p>• Keyboard Support: Full keyboard navigation within inline inputs</p>
+<p>• Auto-formatting: Automatic formatting and validation on blur</p>
+<h2>Advanced Interactions​</h2>
+<p>• Mouse Wheel Support: Scroll through time values with mouse wheel</p>
+<p>• Touch Support: Optimized for touch devices and mobile interaction</p>
+<p>• Focus Management: Proper focus trapping and restoration</p>
+<p>• Event Handling: Comprehensive event management and propagation control</p>
+<h2>Accessibility Features​</h2>
+<p>• Keyboard Navigation: Full keyboard accessibility with arrow keys</p>
+<p>• Screen Reader Support: Proper ARIA attributes and semantic structure</p>
+<p>• Focus Indicators: Clear visual focus indicators</p>
+<p>• Reduced Motion: Respects user motion preferences</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Description
+size | TimePickerSize | Size variant | 'sm' | 'md' | 'lg' | 'xl' | for the time picker (default: | 'md' | )</pre>
+<pre><code>size</code></pre>
+<pre><code>TimePickerSize</code></pre>
+<pre><code>'sm' | 'md' | 'lg' | 'xl'</code></pre>
+<pre><code>'md'</code></pre>
+<h2>Outputs​</h2>
+<pre>Event | Type | Description
+timeSelected | EventEmitter<string> | Emitted when a time value is selected or changed</pre>
+<pre><code>timeSelected</code></pre>
+<pre><code>EventEmitter&lt;string></code></pre>
+<h2>Properties​</h2>
+<pre>Property | Type | Default | Description
+hours | string | '' | Current hours value (01-12)
+minutes | string | '' | Current minutes value (00-59)
+period | string | '' | Current period value (AM/PM)
+displayTime | string | '' | Formatted display time string
+isFocused | boolean | false | Whether the time picker is in focused state</pre>
+<pre><code>hours</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>minutes</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>period</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>displayTime</code></pre>
+<pre><code>string</code></pre>
+<pre><code>''</code></pre>
+<pre><code>isFocused</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>false</code></pre>
+<h2>ViewChild References​</h2>
+<pre>Reference | Type | Description
+hoursScroll | ElementRef | Reference to hours scroll container
+minutesScroll | ElementRef | Reference to minutes scroll container
+periodScroll | ElementRef | Reference to period scroll container</pre>
+<pre><code>hoursScroll</code></pre>
+<pre><code>ElementRef</code></pre>
+<pre><code>minutesScroll</code></pre>
+<pre><code>ElementRef</code></pre>
+<pre><code>periodScroll</code></pre>
+<pre><code>ElementRef</code></pre>
+<h2>Internal Properties​</h2>
+<pre>Property | Type | Description
+showInlineInput | boolean | Whether inline input is currently visible
+inlineInputType | 'hours' | 'minutes' | 'period' | null | Type of current inline input
+inlineInputValue | string | Current value of inline input
+inlineInputPosition | object | Position and dimensions of inline input
+clickedItemValue | string | Value of clicked item for inline editing
+centeredHour | string | Currently centered hour in scroll view
+centeredMinute | string | Currently centered minute in scroll view
+centeredPeriod | string | Currently centered period in scroll view</pre>
+<pre><code>showInlineInput</code></pre>
+<pre><code>boolean</code></pre>
+<pre><code>inlineInputType</code></pre>
+<pre><code>'hours' | 'minutes' | 'period' | null</code></pre>
+<pre><code>inlineInputValue</code></pre>
+<pre><code>string</code></pre>
+<pre><code>inlineInputPosition</code></pre>
+<pre><code>object</code></pre>
+<pre><code>clickedItemValue</code></pre>
+<pre><code>string</code></pre>
+<pre><code>centeredHour</code></pre>
+<pre><code>string</code></pre>
+<pre><code>centeredMinute</code></pre>
+<pre><code>string</code></pre>
+<pre><code>centeredPeriod</code></pre>
+<pre><code>string</code></pre>
+<h2>Readonly Arrays​</h2>
+<pre>Property | Type | Description
+hoursList | string[] | Array of hours (01-12) with padding
+minutesList | string[] | Array of minutes (00-59) with padding
+periodList | string[] | Array of periods (AM, PM) with padding</pre>
+<pre><code>hoursList</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>minutesList</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>periodList</code></pre>
+<pre><code>string[]</code></pre>
+<h2>Methods​</h2>
+<h2>Public Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+onDisplayClick() | Event | void | Handles display area click to enter scroll mode
+onIconClick() | Event | void | Handles clock icon click to enter scroll mode
+onTimeItemClick() | Event, type, value | void | Handles time item click for selection/editing
+onScrollEvent() | Event, type | void | Handles scroll events for time selection
+centerScrollToValue() | type, value | void | Centers scroll to specific time value
+updateDisplayTime() | None | void | Updates the formatted display time
+emitTimeSelected() | None | void | Emits the timeSelected event
+autoSelectCurrentScrollValues() | None | void | Forces selection of currently visible values</pre>
+<pre><code>onDisplayClick()</code></pre>
+<pre><code>Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onIconClick()</code></pre>
+<pre><code>Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onTimeItemClick()</code></pre>
+<pre><code>Event, type, value</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onScrollEvent()</code></pre>
+<pre><code>Event, type</code></pre>
+<pre><code>void</code></pre>
+<pre><code>centerScrollToValue()</code></pre>
+<pre><code>type, value</code></pre>
+<pre><code>void</code></pre>
+<pre><code>updateDisplayTime()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>emitTimeSelected()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>autoSelectCurrentScrollValues()</code></pre>
+<pre><code>void</code></pre>
+<h2>Private Methods​</h2>
+<pre>Method | Parameters | Return Type | Description
+generatePaddedList() | string[] | string[] | Generates padded list for smooth scrolling
+enforceScrollBoundaries() | type | void | Enforces scroll boundaries for each column
+handleWheelEvent() | WheelEvent, type | void | Handles mouse wheel events
+updateSelectionForColumn() | type | void | Updates selection for specific column
+getFormattedTime() | None | string | Returns formatted time string
+onDocumentClick() | MouseEvent | void | Handles document clicks for focus management
+onInlineInputChange() | Event | void | Handles inline input value changes
+onInlineInputKeyPress() | KeyboardEvent | void | Handles inline input keyboard events
+onInlineInputBlur() | None | void | Handles inline input blur events
+applyInlineInput() | None | void | Applies inline input value with validation
+validateInlineHours() | string | string | Validates and formats hours input
+validateInlineMinutes() | string | string | Validates and formats minutes input
+validateInlinePeriod() | string | string | Validates and formats period input
+closeInlineInput() | None | void | Closes inline input and restores normal view</pre>
+<pre><code>generatePaddedList()</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>string[]</code></pre>
+<pre><code>enforceScrollBoundaries()</code></pre>
+<pre><code>type</code></pre>
+<pre><code>void</code></pre>
+<pre><code>handleWheelEvent()</code></pre>
+<pre><code>WheelEvent, type</code></pre>
+<pre><code>void</code></pre>
+<pre><code>updateSelectionForColumn()</code></pre>
+<pre><code>type</code></pre>
+<pre><code>void</code></pre>
+<pre><code>getFormattedTime()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>onDocumentClick()</code></pre>
+<pre><code>MouseEvent</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onInlineInputChange()</code></pre>
+<pre><code>Event</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onInlineInputKeyPress()</code></pre>
+<pre><code>KeyboardEvent</code></pre>
+<pre><code>void</code></pre>
+<pre><code>onInlineInputBlur()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>applyInlineInput()</code></pre>
+<pre><code>void</code></pre>
+<pre><code>validateInlineHours()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>string</code></pre>
+<pre><code>validateInlineMinutes()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>string</code></pre>
+<pre><code>validateInlinePeriod()</code></pre>
+<pre><code>string</code></pre>
+<pre><code>string</code></pre>
+<pre><code>closeInlineInput()</code></pre>
+<pre><code>void</code></pre>
+<h2>CSS Classes​</h2>
+<p>The component provides several CSS classes for styling:</p>
+<pre>Class Name | Description
+.time-picker-container | Main container wrapper
+.time-picker-input | Input container with border and styling
+.time-display | Display mode time text
+.time-scroll-container | Scroll mode container
+.inline-input-overlay | Inline input overlay container
+.inline-scroll-input | Inline input field
+.separator | Time separator (:)
+.time-scroll-column | Individual scroll column container
+.period-column | Period column with smaller width
+.scroll-area | Scrollable area container
+.time-item | Individual time item
+.selected | Selected time item styling
+.padding-item | Padding item (invisible)
+.hidden-item | Hidden item during inline editing
+.icon-wrapper | Clock icon container</pre>
+<pre><code>.time-picker-container</code></pre>
+<pre><code>.time-picker-input</code></pre>
+<pre><code>.time-display</code></pre>
+<pre><code>.time-scroll-container</code></pre>
+<pre><code>.inline-input-overlay</code></pre>
+<pre><code>.inline-scroll-input</code></pre>
+<pre><code>.separator</code></pre>
+<pre><code>.time-scroll-column</code></pre>
+<pre><code>.period-column</code></pre>
+<pre><code>.scroll-area</code></pre>
+<pre><code>.time-item</code></pre>
+<pre><code>.selected</code></pre>
+<pre><code>.padding-item</code></pre>
+<pre><code>.hidden-item</code></pre>
+<pre><code>.icon-wrapper</code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Description
+--timepicker-background | Background color of the time picker
+--timepicker-border | Border of the time picker
+--timepicker-border-radius | Border radius of the time picker
+--timepicker-shadow | Shadow for the time picker container
+--timepicker-input-height | Height of the input field
+--timepicker-input-min-width | Minimum width of the input field
+--timepicker-input-padding-horizontal | Horizontal padding inside input
+--timepicker-input-background | Background color for the input
+--timepicker-input-border-width | Border width of the input
+--timepicker-input-border-color | Border color of the input
+--timepicker-input-border-radius-small | Border radius for small input variant
+--timepicker-input-padding-small | Padding for small input variant
+--timepicker-input-shadow-overlay | Overlay shadow for input field
+--timepicker-input-text | Text color for input
+--timepicker-display-font-family | Font family for display text
+--timepicker-display-text | Text color for display mode
+--timepicker-text-to-icon-gap | Gap between display text and icon
+--timepicker-scroll-background | Background color for scroll container
+--timepicker-scroll-gap-hours-minutes | Gap between hours and minutes in scroll
+--timepicker-time-item-height | Height of individual time items
+--timepicker-time-item-background | Background color for time items
+--timepicker-time-item-padding | Padding for time items
+--timepicker-time-item-border-radius | Border radius for time items
+--timepicker-time-item-transition | Transition timing for time items
+--timepicker-time-item-text | Text color for time items
+--timepicker-time-item-hover-background | Background on hover for time items
+--timepicker-time-item-hover-text | Text color on hover for time items
+--timepicker-time-item-selected-text | Text color for selected time item
+--timepicker-time-item-selected-font-weight | Font weight for selected time item
+--timepicker-icon-size | Size of the time picker icon
+--timepicker-icon-border-radius | Border radius for the icon
+--timepicker-icon-padding | Padding inside the icon
+--timepicker-icon-color | Icon color
+--color-text-primary | Text color used in the separator
+--timepicker-size-xsm-height | Height for extra small size variant
+--timepicker-size-xsm-min-width | Minimum width for extra small size
+--timepicker-size-xsm-padding-horizontal | Horizontal padding for extra small size
+--timepicker-border-radius-xs | Border radius for extra small variant
+--timepicker-size-xsm-font | Font for extra small size
+--timepicker-size-xsm-item-height | Item height for extra small variant
+--timepicker-size-xsm-icon-size | Icon size for extra small variant
+--timepicker-size-sm-height | Height for small size variant
+--timepicker-size-sm-min-width | Minimum width for small size
+--timepicker-size-sm-padding-horizontal | Horizontal padding for small size
+--timepicker-border-radius-sm | Border radius for small variant
+--timepicker-size-sm-font | Font for small size
+--timepicker-size-sm-item-height | Item height for small variant
+--timepicker-size-sm-icon-size | Icon size for small variant
+--timepicker-size-md-height | Height for medium size variant
+--timepicker-size-md-min-width | Minimum width for medium size
+--timepicker-size-md-padding-horizontal | Horizontal padding for medium size
+--timepicker-border-radius-md | Border radius for medium variant
+--timepicker-size-md-font | Font for medium size
+--timepicker-size-md-item-height | Item height for medium variant
+--timepicker-size-md-icon-size | Icon size for medium variant
+--timepicker-size-lg-height | Height for large size variant
+--timepicker-size-lg-min-width | Minimum width for large size
+--timepicker-size-lg-padding-horizontal | Horizontal padding for large size
+--timepicker-border-radius-lg | Border radius for large variant
+--timepicker-size-lg-font | Font for large size
+--timepicker-size-lg-item-height | Item height for large variant
+--timepicker-size-lg-icon-size | Icon size for large variant
+--timepicker-size-xlg-height | Height for extra large size variant
+--timepicker-size-xlg-min-width | Minimum width for extra large size
+--timepicker-size-xlg-padding-horizontal | Horizontal padding for extra large size
+--timepicker-border-radius-xl | Border radius for extra large variant
+--timepicker-size-xlg-font | Font for extra large size
+--timepicker-size-xlg-item-height | Item height for extra large variant
+--timepicker-size-xlg-icon-size | Icon size for extra large variant</pre>
+<pre><code>--timepicker-background</code></pre>
+<pre><code>--timepicker-border</code></pre>
+<pre><code>--timepicker-border-radius</code></pre>
+<pre><code>--timepicker-shadow</code></pre>
+<pre><code>--timepicker-input-height</code></pre>
+<pre><code>--timepicker-input-min-width</code></pre>
+<pre><code>--timepicker-input-padding-horizontal</code></pre>
+<pre><code>--timepicker-input-background</code></pre>
+<pre><code>--timepicker-input-border-width</code></pre>
+<pre><code>--timepicker-input-border-color</code></pre>
+<pre><code>--timepicker-input-border-radius-small</code></pre>
+<pre><code>--timepicker-input-padding-small</code></pre>
+<pre><code>--timepicker-input-shadow-overlay</code></pre>
+<pre><code>--timepicker-input-text</code></pre>
+<pre><code>--timepicker-display-font-family</code></pre>
+<pre><code>--timepicker-display-text</code></pre>
+<pre><code>--timepicker-text-to-icon-gap</code></pre>
+<pre><code>--timepicker-scroll-background</code></pre>
+<pre><code>--timepicker-scroll-gap-hours-minutes</code></pre>
+<pre><code>--timepicker-time-item-height</code></pre>
+<pre><code>--timepicker-time-item-background</code></pre>
+<pre><code>--timepicker-time-item-padding</code></pre>
+<pre><code>--timepicker-time-item-border-radius</code></pre>
+<pre><code>--timepicker-time-item-transition</code></pre>
+<pre><code>--timepicker-time-item-text</code></pre>
+<pre><code>--timepicker-time-item-hover-background</code></pre>
+<pre><code>--timepicker-time-item-hover-text</code></pre>
+<pre><code>--timepicker-time-item-selected-text</code></pre>
+<pre><code>--timepicker-time-item-selected-font-weight</code></pre>
+<pre><code>--timepicker-icon-size</code></pre>
+<pre><code>--timepicker-icon-border-radius</code></pre>
+<pre><code>--timepicker-icon-padding</code></pre>
+<pre><code>--timepicker-icon-color</code></pre>
+<pre><code>--color-text-primary</code></pre>
+<pre><code>--timepicker-size-xsm-height</code></pre>
+<pre><code>--timepicker-size-xsm-min-width</code></pre>
+<pre><code>--timepicker-size-xsm-padding-horizontal</code></pre>
+<pre><code>--timepicker-border-radius-xs</code></pre>
+<pre><code>--timepicker-size-xsm-font</code></pre>
+<pre><code>--timepicker-size-xsm-item-height</code></pre>
+<pre><code>--timepicker-size-xsm-icon-size</code></pre>
+<pre><code>--timepicker-size-sm-height</code></pre>
+<pre><code>--timepicker-size-sm-min-width</code></pre>
+<pre><code>--timepicker-size-sm-padding-horizontal</code></pre>
+<pre><code>--timepicker-border-radius-sm</code></pre>
+<pre><code>--timepicker-size-sm-font</code></pre>
+<pre><code>--timepicker-size-sm-item-height</code></pre>
+<pre><code>--timepicker-size-sm-icon-size</code></pre>
+<pre><code>--timepicker-size-md-height</code></pre>
+<pre><code>--timepicker-size-md-min-width</code></pre>
+<pre><code>--timepicker-size-md-padding-horizontal</code></pre>
+<pre><code>--timepicker-border-radius-md</code></pre>
+<pre><code>--timepicker-size-md-font</code></pre>
+<pre><code>--timepicker-size-md-item-height</code></pre>
+<pre><code>--timepicker-size-md-icon-size</code></pre>
+<pre><code>--timepicker-size-lg-height</code></pre>
+<pre><code>--timepicker-size-lg-min-width</code></pre>
+<pre><code>--timepicker-size-lg-padding-horizontal</code></pre>
+<pre><code>--timepicker-border-radius-lg</code></pre>
+<pre><code>--timepicker-size-lg-font</code></pre>
+<pre><code>--timepicker-size-lg-item-height</code></pre>
+<pre><code>--timepicker-size-lg-icon-size</code></pre>
+<pre><code>--timepicker-size-xlg-height</code></pre>
+<pre><code>--timepicker-size-xlg-min-width</code></pre>
+<pre><code>--timepicker-size-xlg-padding-horizontal</code></pre>
+<pre><code>--timepicker-border-radius-xl</code></pre>
+<pre><code>--timepicker-size-xlg-font</code></pre>
+<pre><code>--timepicker-size-xlg-item-height</code></pre>
+<pre><code>--timepicker-size-xlg-icon-size</code></pre>
+<h2>Best Practices​</h2>
+<h2>User Experience​</h2>
+<p>• Default Values: Set sensible defaults (e.g., current time) for better UX</p>
+<p>• Visual Feedback: Ensure clear selection indicators and hover states</p>
+<p>• Smooth Transitions: Maintain smooth animations between modes</p>
+<p>• Responsive Design: Ensure the component works well on all screen sizes</p>
+<p>• Loading States: Handle loading states gracefully</p>
+<h2>Performance​</h2>
+<p>• Scroll Optimization: Use hardware acceleration for smooth scrolling</p>
+<p>• Event Debouncing: Debounce scroll events to prevent performance issues</p>
+<p>• Memory Management: Clean up event listeners and timeouts properly</p>
+<p>• Change Detection: Use OnPush strategy for better performance</p>
+<p>• Lazy Loading: Load time lists only when needed</p>
+<h2>Accessibility​</h2>
+<p>• Keyboard Navigation: Ensure all interactions work with keyboard</p>
+<p>• Screen Reader Support: Provide proper ARIA labels and descriptions</p>
+<p>• Focus Management: Maintain logical focus order and trapping</p>
+<p>• Motion Preferences: Respect user's reduced motion preferences</p>
+<p>• High Contrast: Ensure visibility in high contrast mode</p>
+<h2>Validation​</h2>
+<p>• Input Validation: Validate all user inputs thoroughly</p>
+<p>• Boundary Enforcement: Prevent invalid time selections</p>
+<p>• Error Handling: Provide clear error messages and recovery options</p>
+<p>• Format Consistency: Maintain consistent time formatting</p>
+<p>• Edge Cases: Handle edge cases like leap seconds, DST changes</p>
+<h2>Content Organization​</h2>
+<p>• Clear Labels: Use descriptive labels and placeholders</p>
+<p>• Logical Grouping: Group related time components logically</p>
+<p>• Visual Hierarchy: Use typography and spacing for clear hierarchy</p>
+<p>• Consistent Spacing: Maintain consistent spacing throughout</p>
+<p>• Responsive Layout: Adapt layout for different screen sizes</p>
+<h2>Accessibility Guidelines​</h2>
+<h2>Screen Reader Support​</h2>
+<p>• ARIA Labels: Provide descriptive labels for all interactive elements</p>
+<p>• Live Regions: Use live regions for dynamic content updates</p>
+<p>• State Announcements: Announce selection changes and mode switches</p>
+<p>• Content Structure: Use semantic HTML structure for better navigation</p>
+<h2>Keyboard Navigation​</h2>
+<p>• Tab Order: Ensure logical tab order through all interactive elements</p>
+<p>• Arrow Keys: Support arrow key navigation within scroll areas</p>
+<p>• Enter/Space: Support selection with Enter and Space keys</p>
+<p>• Escape: Allow closing or canceling with Escape key</p>
+<p>• Focus Indicators: Provide clear visual focus indicators</p>
+<h2>Visual Design​</h2>
+<p>• High Contrast: Ensure sufficient contrast ratios for all text</p>
+<p>• Color Independence: Don't rely solely on color for information</p>
+<p>• Text Scaling: Support for text scaling and zoom</p>
+<p>• Motion Sensitivity: Provide alternatives for users sensitive to motion</p>
+<h2>Input Validation​</h2>
+<p>• Clear Messages: Provide clear, actionable error messages</p>
+<p>• Real-time Feedback: Give immediate feedback for invalid inputs</p>
+<p>• Recovery Options: Provide clear ways to correct errors</p>
+<p>• Format Guidance: Show expected input format clearly</p>
+</body></html>
