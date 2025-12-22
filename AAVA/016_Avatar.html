@@ -1,0 +1,196 @@
+<html><head><meta charset='utf-8'>
+<title>Avatar</title>
+<style>
+body{font-family:Arial;margin:40px}
+pre{background:#f4f6fa;padding:12px;white-space:pre-wrap}
+</style></head><body>
+<h1>Avatar</h1>
+<p><small>https://playdocs1.orangeriver-ad055946.westus2.azurecontainerapps.io/play-docs/docs/ui-components/Display/Avatar</small></p>
+<h2>Avatar</h2>
+<p>A sophisticated and flexible avatar component designed to display user profiles, status indicators, and visual representations with support for images, text labels, badges, and animated gradient borders. Perfect for user interfaces, chat applications, social platforms, and any system requiring user identification and status display.</p>
+<h2>How to use​</h2>
+<pre><code>import { AavaAvatarsComponent } from "@aava/play-core";</code></pre>
+<pre><code>import { AavaAvatarsComponent } from "@aava/play-core";</code></pre>
+<h2>Basic Usage​</h2>
+<p>The most basic implementation with default settings and image support.</p>
+<pre><code>&lt;aava-avatars  size="lg"  shape="pill"  imageUrl="assets/1.svg"  altText="User avatar">&lt;/aava-avatars></code></pre>
+<pre><code>&lt;aava-avatars  size="lg"  shape="pill"  imageUrl="assets/1.svg"  altText="User avatar">&lt;/aava-avatars></code></pre>
+<h2>Avatar Sizes​</h2>
+<p>Seven distinct sizes to suit different design requirements and use cases.</p>
+<pre><code>&lt;aava-avatars  size="xxs"  shape="pill" imageUrl="assets/1.svg"  altText="Ultra Small avatar">&lt;/aava-avatars>&lt;aava-avatars  size="sm"  shape="pill" imageUrl="assets/1.svg"  altText="Small avatar">&lt;/aava-avatars>&lt;aava-avatars  size="md"  shape="pill" imageUrl="assets/1.svg"  altText="Medium avatar">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  altText="Large avatar">&lt;/aava-avatars>&lt;aava-avatars  size="xl"  shape="pill" imageUrl="assets/1.svg"  altText="Extra Large avatar">&lt;/aava-avatars>&lt;aava-avatars  size="xxl"  shape="pill" imageUrl="assets/1.svg"  altText="Ultra Large avatar">&lt;/aava-avatars></code></pre>
+<pre><code>&lt;aava-avatars  size="xxs"  shape="pill" imageUrl="assets/1.svg"  altText="Ultra Small avatar">&lt;/aava-avatars>&lt;aava-avatars  size="sm"  shape="pill" imageUrl="assets/1.svg"  altText="Small avatar">&lt;/aava-avatars>&lt;aava-avatars  size="md"  shape="pill" imageUrl="assets/1.svg"  altText="Medium avatar">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  altText="Large avatar">&lt;/aava-avatars>&lt;aava-avatars  size="xl"  shape="pill" imageUrl="assets/1.svg"  altText="Extra Large avatar">&lt;/aava-avatars>&lt;aava-avatars  size="xxl"  shape="pill" imageUrl="assets/1.svg"  altText="Ultra Large avatar">&lt;/aava-avatars></code></pre>
+<h2>Available Sizes​</h2>
+<p>• xxs (Ultra Small): Very compact size for extremely dense layouts</p>
+<p>• xs (Extra Small): Compact size for dense layouts and lists</p>
+<p>• sm (Small): Small size for compact interfaces</p>
+<p>• md (Medium): Standard size for most use cases</p>
+<p>• lg (Large): Large size for prominent content (default)</p>
+<p>• xl (Extra Large): Extra large size for emphasis and accessibility</p>
+<p>• xxl (Ultra Large): Maximum size for hero sections and special emphasis</p>
+<h2>Avatar Shapes​</h2>
+<p>Two shape variants to match different design systems and preferences.</p>
+<pre><code>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  altText="Pill shape avatar">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="square" imageUrl="assets/1.svg"  altText="Square shape avatar">&lt;/aava-avatars></code></pre>
+<pre><code>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  altText="Pill shape avatar">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="square" imageUrl="assets/1.svg"  altText="Square shape avatar">&lt;/aava-avatars></code></pre>
+<h2>Shape Features​</h2>
+<p>• Pill: Circular shape with smooth rounded corners</p>
+<p>• Square: Modern square shape with subtle border radius</p>
+<p>• Responsive: Border radius adapts to size for optimal appearance</p>
+<h2>Badge Integration​</h2>
+<p>Seamless integration with badge components for notifications and status indicators.</p>
+<pre><code>&lt;aava-avatars  size="lg"  shape="pill" imageUrl="assets/1.svg"  badgeState="high-priority"  badgeSize="small"  [badgeCount]="1"  altText="Avatar with status badge">&lt;/aava-avatars>&lt;aava-avatars  size="lg"  shape="pill" imageUrl="assets/1.svg"  badgeState="information"  badgeSize="small"  [badgeCount]="5"  altText="Avatar with count badge">&lt;/aava-avatars>&lt;aava-avatars  size="lg"  shape="square" imageUrl="assets/1.svg"  badgeState="medium-priority"  badgeSize="small"  [badgeCount]="12"  altText="Avatar with notification badge">&lt;/aava-avatars></code></pre>
+<pre><code>&lt;aava-avatars  size="lg"  shape="pill" imageUrl="assets/1.svg"  badgeState="high-priority"  badgeSize="small"  [badgeCount]="1"  altText="Avatar with status badge">&lt;/aava-avatars>&lt;aava-avatars  size="lg"  shape="pill" imageUrl="assets/1.svg"  badgeState="information"  badgeSize="small"  [badgeCount]="5"  altText="Avatar with count badge">&lt;/aava-avatars>&lt;aava-avatars  size="lg"  shape="square" imageUrl="assets/1.svg"  badgeState="medium-priority"  badgeSize="small"  [badgeCount]="12"  altText="Avatar with notification badge">&lt;/aava-avatars></code></pre>
+<h2>Badge Features​</h2>
+<p>• Status Badges: Visual indicators for online/offline status</p>
+<p>• Count Badges: Numeric indicators for notifications</p>
+<p>• Custom States: Support for various badge states and colors</p>
+<p>• Positioning: Automatic positioning at top-right corner</p>
+<p>• Responsive: Badge size adapts to avatar size</p>
+<h2>Text Labels​</h2>
+<p>Support for both status and profile text labels with flexible positioning.</p>
+<pre><code>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  statusText="Online"  altText="Avatar with status text">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  profileText="Marie Jane"  altText="Avatar with profile text">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  statusText="Online"  profileText="Marie Jane"  altText="Avatar with both status and profile text">&lt;/aava-avatars></code></pre>
+<pre><code>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  statusText="Online"  altText="Avatar with status text">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  profileText="Marie Jane"  altText="Avatar with profile text">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  statusText="Online"  profileText="Marie Jane"  altText="Avatar with both status and profile text">&lt;/aava-avatars></code></pre>
+<h2>Text Label Features​</h2>
+<p>• Status Text: Small text for status indicators</p>
+<p>• Profile Text: Larger text for user names or titles</p>
+<p>• Dual Support: Can display both status and profile text simultaneously</p>
+<p>• Typography: Different font sizes for hierarchy</p>
+<p>• Alignment: Proper alignment with avatar element</p>
+<h2>Avatar Initials​</h2>
+<p>Avatar can also support text-based initials</p>
+<pre><code>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  altText="Default avatar state">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  [active]="true"  altText="Active avatar state">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  [processedanddone]="true"  altText="Processed avatar state">&lt;/aava-avatars></code></pre>
+<pre><code>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  altText="Default avatar state">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  [active]="true"  altText="Active avatar state">&lt;/aava-avatars>&lt;aava-avatars size="lg"  shape="pill" imageUrl="assets/1.svg"  [processedanddone]="true"  altText="Processed avatar state">&lt;/aava-avatars></code></pre>
+<h2>Initials Features​</h2>
+<p>• Custom Initials: Allow developers to provide initials directly</p>
+<p>• Background Colors: Configurable solid backgrounds</p>
+<p>• Text Styling: Adjustable font size, weight, and color for initials visibility.</p>
+<p>• Size Variants: Support for sm, md, lg (and more) to fit different UI contexts.</p>
+<h2>Accessibility Features​</h2>
+<p>• Screen Reader Support: Proper ARIA labels and descriptions</p>
+<p>• Focus Indicators: Clear visual focus indicators</p>
+<p>• High Contrast: Enhanced visibility in high contrast mode</p>
+<p>• Reduced Motion: Respects user motion preferences</p>
+<p>• Alt Text: Support for image alternative text</p>
+<h2>API Reference​</h2>
+<h2>Inputs​</h2>
+<pre>Property | Type | Description
+size | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | Size of the avatar component
+shape | 'pill' | 'square' | Shape variant of the avatar
+imageUrl | string | URL of the avatar image
+statusText | string | Small text for status indicators
+profileText | string | Larger text for user names or titles
+badgeState | BadgeState | State of the badge component
+badgeSize | BadgeSize | Size of the badge component
+badgeCount | number | Numeric value for count badges
+additionalText | string | Additional text label for extra information
+initials | string | Initials shown in avatar
+initialsBackground | string | Background color for initials
+initialsColor | string | Text color for initials
+customStyles | Record<string, string> | CSS custom properties override</pre>
+<pre><code>size</code></pre>
+<pre><code>'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'</code></pre>
+<pre><code>shape</code></pre>
+<pre><code>'pill' | 'square'</code></pre>
+<pre><code>imageUrl</code></pre>
+<pre><code>string</code></pre>
+<pre><code>statusText</code></pre>
+<pre><code>string</code></pre>
+<pre><code>profileText</code></pre>
+<pre><code>string</code></pre>
+<pre><code>badgeState</code></pre>
+<pre><code>BadgeState</code></pre>
+<pre><code>badgeSize</code></pre>
+<pre><code>BadgeSize</code></pre>
+<pre><code>badgeCount</code></pre>
+<pre><code>number</code></pre>
+<pre><code>additionalText</code></pre>
+<pre><code>string</code></pre>
+<pre><code>initials</code></pre>
+<pre><code>string</code></pre>
+<pre><code>initialsBackground</code></pre>
+<pre><code>string</code></pre>
+<pre><code>initialsColor</code></pre>
+<pre><code>string</code></pre>
+<pre><code>customStyles</code></pre>
+<pre><code>Record&lt;string, string></code></pre>
+<h2>CSS Custom Properties​</h2>
+<pre>Property | Default | Description
+--avatar-size-us | Dynamic | Ultra small avatar size
+--avatar-size-xs | Dynamic | Extra small avatar size
+--avatar-size-sm | Dynamic | Small avatar size
+--avatar-size-md | Dynamic | Medium avatar size
+--avatar-size-lg | Dynamic | Large avatar size
+--avatar-size-xl | Dynamic | Extra large avatar size
+--avatar-size-ul | Dynamic | Ultra large avatar size
+--avatar-border-radius | Dynamic | Border radius for avatar shapes
+--avatar-border-radius-us | Dynamic | Border radius for ultra small size
+--avatar-border-radius-xs | Dynamic | Border radius for extra small size
+--avatar-border-radius-sm | Dynamic | Border radius for small size
+--avatar-border-radius-md | Dynamic | Border radius for medium size
+--avatar-border-radius-lg | Dynamic | Border radius for large size
+--avatar-border-radius-xl | Dynamic | Border radius for extra large size
+--avatar-border-radius-ul | Dynamic | Border radius for ultra large size</pre>
+<pre><code>--avatar-size-us</code></pre>
+<pre><code>--avatar-size-xs</code></pre>
+<pre><code>--avatar-size-sm</code></pre>
+<pre><code>--avatar-size-md</code></pre>
+<pre><code>--avatar-size-lg</code></pre>
+<pre><code>--avatar-size-xl</code></pre>
+<pre><code>--avatar-size-ul</code></pre>
+<pre><code>--avatar-border-radius</code></pre>
+<pre><code>--avatar-border-radius-us</code></pre>
+<pre><code>--avatar-border-radius-xs</code></pre>
+<pre><code>--avatar-border-radius-sm</code></pre>
+<pre><code>--avatar-border-radius-md</code></pre>
+<pre><code>--avatar-border-radius-lg</code></pre>
+<pre><code>--avatar-border-radius-xl</code></pre>
+<pre><code>--avatar-border-radius-ul</code></pre>
+<h2>Accessibility Guidelines​</h2>
+<h2>Screen Reader Support​</h2>
+<p>• Provide meaningful alt text for avatar images</p>
+<p>• Use descriptive labels for avatar purposes</p>
+<p>• Include context about user status and information</p>
+<h2>Visual Design​</h2>
+<p>• Ensure avatar images meet minimum size requirements</p>
+<p>• Provide clear visual distinction between different states</p>
+<p>• Support high contrast and reduced motion preferences</p>
+<p>• Use consistent sizing and spacing across the interface</p>
+<h2>Best Practices​</h2>
+<h2>Design Guidelines​</h2>
+<p>• Appropriate Sizing: Choose sizes based on context and importanceUltra Small/Extra Small: Use for extremely dense layouts, data tables, and compact interfacesSmall/Medium: Use for standard layouts, navigation, and user listsLarge: Use for featured content, profile headers, and important user informationExtra Large/Ultra Large: Use for hero sections, prominent displays, and accessibility emphasis</p>
+<p>• Ultra Small/Extra Small: Use for extremely dense layouts, data tables, and compact interfaces</p>
+<p>• Small/Medium: Use for standard layouts, navigation, and user lists</p>
+<p>• Large: Use for featured content, profile headers, and important user information</p>
+<p>• Extra Large/Ultra Large: Use for hero sections, prominent displays, and accessibility emphasis</p>
+<p>• Consistent Shapes: Use consistent shapes within the same interface</p>
+<p>• Clear Hierarchy: Use size and styling to indicate importance</p>
+<p>• Status Clarity: Make status indicators clear and unambiguous</p>
+<p>• Image Quality: Use high-quality, properly sized images</p>
+<p>• Ultra Small/Extra Small: Use for extremely dense layouts, data tables, and compact interfaces</p>
+<p>• Small/Medium: Use for standard layouts, navigation, and user lists</p>
+<p>• Large: Use for featured content, profile headers, and important user information</p>
+<p>• Extra Large/Ultra Large: Use for hero sections, prominent displays, and accessibility emphasis</p>
+<h2>Performance​</h2>
+<p>• Image Optimization: Optimize avatar images for web delivery</p>
+<p>• Lazy Loading: Implement lazy loading for avatar images</p>
+<p>• Caching: Cache frequently used avatar images</p>
+<p>• Animation Performance: Use hardware-accelerated animations</p>
+<p>• Bundle Optimization: Import only needed avatar features</p>
+<h2>User Experience​</h2>
+<p>• Loading States: Provide loading indicators for remote images</p>
+<p>• Fallback Handling: Implement graceful fallbacks for missing images</p>
+<p>• Consistent Behavior: Maintain consistent behavior across avatar types</p>
+<p>• Responsive Design: Ensure avatars work well on all screen sizes</p>
+<p>• Touch Targets: Ensure adequate touch target sizes for mobile</p>
+<h2>Implementation Considerations​</h2>
+<p>• Image Management: Implement proper image loading and error handling</p>
+<p>• State Management: Properly manage avatar states in your application</p>
+<p>• Accessibility: Ensure all avatar features are accessible</p>
+<p>• Theming: Use CSS custom properties for consistent theming</p>
+<p>• Testing: Test avatars across different devices and browsers</p>
+<h2>Accessibility Implementation​</h2>
+<p>• Semantic HTML: Use proper HTML structure for avatar elements</p>
+<p>• ARIA Attributes: Implement appropriate ARIA labels and roles</p>
+<p>• Focus Management: Ensure logical focus order and indicators</p>
+<p>• Screen Reader Testing: Test with actual screen readers</p>
+<p>• Keyboard Testing: Verify complete keyboard navigation flow</p>
+</body></html>
